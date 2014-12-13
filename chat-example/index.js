@@ -16,12 +16,12 @@ app.get('/', function(req, res){
 
 //handler for incoming socket connections
 io.on('connection', function(socket){
-//      console.log('a user connected');
+      console.log('a user connected');
       
       //specify the socket disconnect event handler to print out a message when the user disconnects
-//      socket.on('disconnect', function(){
-//                console.log('user disconnected');
-//                });
+      socket.on('disconnect', function(){
+                console.log('user disconnected');
+                });
       
       //specify 'chat message' event handler, when emit(ted) by the user connection
       socket.on('chat message', function(msg){
