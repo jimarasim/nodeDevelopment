@@ -26,6 +26,9 @@ io.on('connection', function(socket){
       //specify 'chat message' event handler, when emit(ted) by the user connection
       socket.on('chat message', function(msg){
                 console.log('message: ' + msg);
+                
+                //broadcast chat message (client page needs to have  a socket.on handler for this)
+                io.emit('chat message',msg);
                 });
 });
 
