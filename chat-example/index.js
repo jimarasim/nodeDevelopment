@@ -1,15 +1,21 @@
 //http://socket.io/get-started/chat/
 //setup an express application and bind it to an http server
 var app = require('express')();
+
+//require express for serving other, static files, like .css from the root dir
+var express=require('express');
+
+//require http
 var http = require('http').Server(app);
+
 //attach a socket to the listening http
 var io = require('socket.io')(http);
 
+//include static files like .css
+app.use(express.static(__dirname));
+
 //handler for incoming get requests
 app.get('/', function(req, res){
-        //send just a string response to a get request
-        //res.send('<h1>Hello world</h1>');
-        
         //send a file back as the response
         res.sendFile(__dirname + '/index.html');
 });
