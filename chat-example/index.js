@@ -20,6 +20,12 @@ app.get('/', function(req, res){
         res.sendFile(__dirname + '/index.html');
 });
 
+//handler for incoming get requests
+app.get('/canvas', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/canvas.html');
+        });
+
 //handler for incoming socket connections
 io.on('connection', function(socket){
       console.log('a user connected');
@@ -41,3 +47,4 @@ io.on('connection', function(socket){
 http.listen(3000, function(){
             console.log('listening on *:3000');
 });
+
