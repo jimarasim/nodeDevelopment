@@ -14,6 +14,7 @@ var io = require('socket.io')(http);
 //include static files like .css
 app.use(express.static(__dirname));
 
+////////////////////////////////////////////////////GET REQUEST HANDLERS
 //handler for incoming get requests
 app.get('/', function(req, res){
         //send a file back as the response
@@ -26,6 +27,14 @@ app.get('/canvas', function(req, res){
         res.sendFile(__dirname + '/canvas.html');
         });
 
+//handler for incoming get requests
+app.get('/svg', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/svg.html');
+        });
+////////////////////////////////////////////////////GET REQUEST HANDLERS
+
+////////////////////////////////////////////////////SOCKET HANDLERS
 //handler for incoming socket connections
 io.on('connection', function(socket){
       console.log('a user connected');
@@ -43,6 +52,7 @@ io.on('connection', function(socket){
                 io.emit('chat message',msg);
                 });
 });
+////////////////////////////////////////////////////SOCKET HANDLERS
 
 http.listen(3000, function(){
             console.log('listening on *:3000');
