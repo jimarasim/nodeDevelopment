@@ -51,6 +51,14 @@ io.on('connection', function(socket){
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
                 io.emit('chat message',msg);
                 });
+      
+      //specify 'tapmessage' event handler, when emit(ted) by the user connection
+      socket.on('tapmessage', function(msg){
+                console.log('message: ' + msg);
+                
+                //broadcast chat message (client page needs to have  a socket.on handler for this)
+                io.emit('tapmessage',msg);
+                });
 });
 ////////////////////////////////////////////////////SOCKET HANDLERS
 
