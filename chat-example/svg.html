@@ -7,7 +7,33 @@
         <script type="text/javascript" src="codebase.js"></script>
     </head>
     <body>
+        <div id="svgdiv1" class="svgdiv">
+            <svg id="svgtag1">
+                <rect id="svgrect1" x="10" y="10" width="10" height="10" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
+            </svg>
+        </div>
         
+        <span id="span1">console output</span>
+        <br />
+        <span id="span2">console output</span>
+        
+        <div id="svgdiv2" class="svgdiv">
+            <svg id="svgtag2">
+                <rect id="svgrect2" width="10" height="10" style="stroke-width:2;stroke:rgb(0,0,0)" />
+            </svg>
+        </div>
+        
+        <div id="svgdiv3" class="svgdiv">
+            <svg id="svgtag3">
+                <circle id="svgcircle1" cx="5" cy="5" r="5" stroke="green" stroke-width="1" fill="yellow" />
+            </svg>
+        </div>
+        
+        <div id="svgdiv4" class="svgdiv">
+            <svg id="svgtag4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <image id="svgimage1" x="0" y="0" width="100" height="100" xlink:href="present.JPG"/>
+            </svg>
+        </div>
         
         <div id="dragdiv1" class="dragdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
             <img id="image1" src="present.JPG" draggable="true"
@@ -15,30 +41,6 @@
         </div>
         
         <div id="dragdiv2" class="dragdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
-        </div>
-        
-        
-        <div id="svgdiv1" class="svgdiv">
-            <svg id="svgtag1">
-                <rect id="svgrect1" x="10" y="10" width="10" height="10" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
-            </svg>
-        </div>
-        <div id="svgdiv2" class="svgdiv">
-            <svg id="svgtag2">
-                <rect id="svgrect2" width="10" height="10" style="stroke-width:2;stroke:rgb(0,0,0)" />
-            </svg>
-        </div>
-        <div id="svgdiv3" class="svgdiv">
-            <svg id="svgtag3">
-                <circle id="svgcircle1" cx="5" cy="5" r="5" stroke="green" stroke-width="1" fill="yellow" />
-            </svg>
-                <br />
-        <div id="svgdiv4" class="svgdiv">
-            <svg id="svgtag4" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    >
-                    <image id="svgimage1" x="0" y="0" width="100" height="100" xlink:href="present.JPG" />
-            </svg>
         </div>
     </body>
 </html>

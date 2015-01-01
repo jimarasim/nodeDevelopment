@@ -9,12 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
 //DEFINE EVENTS TO RESPOND TO
 function SetupEvents()
 {
-//    $("#svgtag4").click(function(){ImageSvgClicked();});
+    $("#svgtag1").mousemove(function(event){Svg1MouseMove(event);});
+    $("#svgtag4").click(function(){Svg4Clicked();});
     
 }
 
-//WHEN THE IMAGE IS CLICKED
-function ImageSvgClicked(){
+//WHEN THE FIRST SVG (WITH THE BLUE SQUARE) IS CLICKED
+function Svg1MouseMove(event){
+    var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+    var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+    $( "#span1" ).text( "( event.pageX, event.pageY ) : " + pageCoords );
+    $( "#span2" ).text( "( event.clientX, event.clientY ) : " + clientCoords );
+}
+
+//WHEN THE SVG WITH AN IMAGE IS CLICKED
+function Svg4Clicked(){
     if($("#svgimage1").attr("x")==0){
         $("#svgimage1").attr("x",10);
     }
