@@ -1,10 +1,3 @@
-//SOCKET HANDLING
-var socket = io();
-
-//handler for server socket io.emit, when someone taps
-socket.on('tapmessage', function(msg){
-          $( "#span1" ).text(  msg );
-          });
 
 //WHEN THE PAGE IS DONE LOADING
 document.addEventListener('DOMContentLoaded', function () {
