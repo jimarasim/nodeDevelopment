@@ -6,12 +6,21 @@ document.addEventListener('DOMContentLoaded', function () {
                           });
 
 
-//DEFINE EVENTS TO RESPOND TO
+//DEFINE EVENTS TO RESPOND TO 71ck3t#Fly
 function SetupEvents()
 {
     $("#svgtag1").mousemove(function(event){Svg1MouseMove(event);});
+    $("#svgtag1").tap(function(event){Svg1Tap(event);});
     $("#svgtag4").click(function(){Svg4Clicked();});
     
+}
+
+//WHEN THE FIRST SVG IS TAPPED
+function Svg1Tap(event){
+    var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+    var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+    $( "#span1" ).text( "( event.pageX, event.pageY ) : " + pageCoords );
+    $( "#span2" ).text( "( event.clientX, event.clientY ) : " + clientCoords );
 }
 
 //WHEN THE FIRST SVG (WITH THE BLUE SQUARE) IS CLICKED
