@@ -1,3 +1,4 @@
+/*canvas.html*/
 #messagesdiv
 {
     overflow-x: scroll;
@@ -15,6 +16,7 @@
     top:50px;
 }
 
+/*canvas.html*/
 #canvasdiv
 {
     width: 50%;
@@ -30,16 +32,19 @@
     text-align: center;
 }
 
+/*svg.html*/
 #dragdiv2
 {
     background-color:orange;
 }
+
+/*svg.html*/
 #dragdiv1
 {
     background-color:purple;
 }
 
-
+/*svg.html*/
 .dragdiv
 {
     height:500px;
@@ -53,7 +58,9 @@
     float:left;
 }
 
-.svgdiv
+/*svg.html*/
+/*note: same width and height as svg*/
+.divsvg
 {
     height:100px;
     width:100px;
@@ -62,15 +69,19 @@
     padding: 0%;
     border: 2px solid;
     border-radius: 1%;
-    background-color: rgb(0, 230, 250);
+    background-color: red;
     text-align: center;
 }
 
-#svgtag1
+/*svg.html*/
+/*note: same width and height as .divsvg*/
+svg
 {
-    
+    height:100px;
+    width:100px;
 }
 
+/*svg.html*/
 #svgrect2
 {
     fill:#f0f0f0;

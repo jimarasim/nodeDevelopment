@@ -1,3 +1,11 @@
+//SOCKET HANDLING
+var socket = io();
+
+//handler for server socket io.emit, when someone taps
+socket.on('tapmessage', function(msg){
+          $( "#span1" ).text(  msg );
+          });
+
 //WHEN THE PAGE IS DONE LOADING
 document.addEventListener('DOMContentLoaded', function () {
                           
@@ -17,10 +25,11 @@ function SetupEvents()
 
 //WHEN THE FIRST SVG IS TAPPED
 function Svg1Tap(event){
-    var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+    var pageCoords = "( event.pageX, event.pageY ) : " + "( " + event.pageX + ", " + event.pageY + " )";
     var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
-    $( "#span1" ).text( "( event.pageX, event.pageY ) : " + pageCoords );
-    $( "#span2" ).text( "( event.clientX, event.clientY ) : " + clientCoords );
+    $( "#span1" ).text(  pageCoords );
+    
+    socket.emit('tapmessage',"REMOTE:"+pageCoords);
 }
 
 //WHEN THE FIRST SVG (WITH THE BLUE SQUARE) IS CLICKED
