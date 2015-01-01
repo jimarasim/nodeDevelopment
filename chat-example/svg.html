@@ -7,17 +7,6 @@
         <script type="text/javascript" src="codebase.js"></script>
     </head>
     <body>
-        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-        <script>
-            //SOCKET HANDLING
-            var socket = io();
-        
-            //handler for server socket io.emit, when someone taps
-            socket.on('tapmessage', function(msg){
-                    $( "#span1" ).text(  msg );
-                  });
-        </script>
         
         <!--SVG RECT WITH MOUSE AND TOUCH EVENTS EXAMPLE-->
         <div id="svgdiv1" class="divsvg">
@@ -56,6 +45,29 @@
         
         <div id="dragdiv2" class="dragdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
         </div>
+        
+        
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+            //SOCKET HANDLING
+            var socket = io();
+            
+            
+            $('#svgtag1').tap(function(event){
+                              var pageCoords = "( event.pageX, event.pageY ) : " + "( " + event.pageX + ", " + event.pageY + " )";
+                              var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+                              $( "#span1" ).text(  pageCoords );
+                              
+                              socket.emit('tapmessage',"REMOTE:"+pageCoords);
+                              });
+            
+            //handler for server socket io.emit, when someone taps
+            socket.on('tapmessage', function(msg){
+                      $( "#span1" ).text(  msg );
+                      });
+                      
+        </script>
         
     </body>
 </html>

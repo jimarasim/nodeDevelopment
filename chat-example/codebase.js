@@ -11,19 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
 function SetupEvents()
 {
     $("#svgtag1").mousemove(function(event){Svg1MouseMove(event);});
-    $("#svgtag1").tap(function(event){Svg1Tap(event);});
     $("#svgtag4").click(function(){Svg4Clicked();});
     
 }
 
-//WHEN THE FIRST SVG IS TAPPED
-function Svg1Tap(event){
-    var pageCoords = "( event.pageX, event.pageY ) : " + "( " + event.pageX + ", " + event.pageY + " )";
-    var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
-    $( "#span1" ).text(  pageCoords );
-    
-    socket.emit('tapmessage',"REMOTE:"+pageCoords);
-}
 
 //WHEN THE FIRST SVG (WITH THE BLUE SQUARE) IS CLICKED
 function Svg1MouseMove(event){
