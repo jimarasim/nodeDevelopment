@@ -8,36 +8,6 @@
     </head>
     <body>
         
-        
-        <!--SOCKET TO INDEX.JS / NODEJS CONTROLLER-->
-        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-        <script>
-            
-            //CREATE A SOCKET OBJECT
-            var socket = io();
-            
-            //WHEN THE DIV CONTAINING SVG IS CLICKED
-            $('#svgdiv1').click(function(event){
-                                var pageCoords = "( event.pageX, event.pageY ) : " + "( " + event.pageX + ", " + event.pageY + " )";
-                                var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
-                                
-                                $( "#span1" ).text(  pageCoords );
-                                
-                                //SEND MESSAGE TO INDEX.JS TO BROADCAST
-                                socket.emit('tap msg',"REMOTE:"+pageCoords);
-                                
-                                });
-                                
-//handler for server socket io.emit, when someone taps
-            socket.on('tap msg', function(msg){
-                                          $( "#span1" ).text(  msg );
-                                          });
-                                
-                                
-                                
-            </script>
-        
         <!--SVG RECT WITH MOUSE AND TOUCH EVENTS EXAMPLE-->
         <div id="svgdiv1" class="divsvg">
             <svg id="svgtag1">
@@ -75,6 +45,28 @@
         
         <div id="dragdiv2" class="dragdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
         </div>
+        
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+            //SOCKET HANDLING
+            var socket = io();
+            
+            $('#svgdiv1').click(function(event){
+                                var pageCoords = "( event.pageX, event.pageY ) : " + "( " + event.pageX + ", " + event.pageY + " )";
+                                var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+                                
+                                $( "#span1" ).text(  pageCoords );
+                                
+                                socket.emit('tap msg',"REMOTE:"+pageCoords);
+                                });
+                                
+                                //handler for server socket io.emit, when someone taps
+                                socket.on('tap msg', function(msg){
+                                          $( "#span1" ).text(  msg );
+                                          });
+                                          
+            </script>
         
     </body>
 </html>
