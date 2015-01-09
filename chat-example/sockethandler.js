@@ -25,9 +25,8 @@ socket.on('tap msg', function(msg){
           
                     //move the rectangle to where the click was made
                     $("#svgrect1").attr("x",setPointX);
-                    $("#svgrect1").attr("y",setPointY-250); //NOTE: TOP OF .divsvg IS 300
+                    $("#svgrect1").attr("y",setPointY-250); //NOTE: TOP OF .divsvg IS 250
           
-                    $( "#span1" ).text( "BROADCASTED:"+ msg + "X:"+msgObject.x+" Y:"+msgObject.y);
                     });
 
 //SOCKET HANDLING FOR MESSAGE BOX
