@@ -1,11 +1,9 @@
-<!doctype html>
 <html>
     <head>
         <title>jaemz canvas</title>
         <link rel="Stylesheet" href="stylebase.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-<!--        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>-->
         <script type="text/javascript" src="codebase.js"></script>
     </head>
     <body>
@@ -18,28 +16,28 @@
         </div>
         <span id="span1">console output</span>
         
-        <!--SVG RECT EXAMPLE-->
+<!--
         <div id="svgdiv2" class="divsvg">
             <svg id="svgtag2">
                 <rect id="svgrect2" width="10" height="10" style="stroke-width:2;stroke:rgb(0,0,0)" />
             </svg>
         </div>
         
-        <!--SVG CIRCLE EXAMPLE-->
+
         <div id="svgdiv3" class="divsvg">
             <svg id="svgtag3">
                 <circle id="svgcircle1" cx="5" cy="5" r="5" stroke="green" stroke-width="1" fill="yellow" />
             </svg>
         </div>
         
-        <!--SVG IMAGE EXAMPLE-->
+
         <div id="svgdiv4" class="divsvg">
             <svg id="svgtag4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <image id="svgimage1" x="0" y="0" width="100" height="100" xlink:href="present.JPG"/>
             </svg>
         </div>
         
-        <!--DRAG AND DROP DIV EXAMPLE-->
+
         <div id="dragdiv1" class="dragdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
             <img id="image1" src="present.JPG" draggable="true"
             ondragstart="drag(event)" />
@@ -47,30 +45,9 @@
         
         <div id="dragdiv2" class="dragdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
         </div>
+ -->
         
         <script type="text/javascript" src="sockethandler.js"></script>
-<!--        -->
-<!--        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>-->
-<!--        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>-->
-<!--        <script>-->
-<!--            //SOCKET HANDLING-->
-<!--            var socket = io();-->
-<!--            -->
-<!--            $('#svgdiv1').click(function(event){-->
-<!--                                var pageCoords = "( event.pageX, event.pageY ) : " + "( " + event.pageX + ", " + event.pageY + " )";-->
-<!--                                var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";-->
-<!--                                -->
-<!--                                $( "#span1" ).text(  pageCoords );-->
-<!--                                -->
-<!--                                socket.emit('tap msg',"REMOTE:"+pageCoords);-->
-<!--                                });-->
-<!--                                -->
-<!--                                //handler for server socket io.emit, when someone taps-->
-<!--                                socket.on('tap msg', function(msg){-->
-<!--                                          $( "#span1" ).text(  msg );-->
-<!--                                          });-->
-<!--                                          -->
-<!--            </script>-->
-<!--        -->
+
     </body>
 </html>

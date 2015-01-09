@@ -62,8 +62,8 @@
 /*note: same width and height as svg*/
 .divsvg
 {
-    height:100px;
-    width:100px;
+    height:300px;
+    width:300px;
     margin: 0%;
     border: 0%;
     padding: 0%;
@@ -77,8 +77,8 @@
 /*note: same width and height as .divsvg*/
 svg
 {
-    height:100px;
-    width:100px;
+    height:300px;
+    width:300px;
 }
 
 /*svg.html*/
