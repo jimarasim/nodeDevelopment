@@ -1,10 +1,10 @@
-/*canvas.html*/
+
 #messagesdiv
 {
     overflow-x: scroll;
     overflow-y: scroll;
-    width: 90%;
-    height: 20%;
+    width: 500px;
+    height: 200px;
     margin: 0%;
     border: 0%;
     padding: 0%;
@@ -13,10 +13,35 @@
     background-color: rgb(130, 224, 255);
     text-align: left;
     position:absolute;
-    top:50px;
 }
 
-/*canvas.html*/
+#messages
+{
+    list-style-type: none;
+}
+
+/*note: same width and height as svg*/
+.divsvg
+{
+    top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITION OF RECT*/
+    height:300px;
+    width:300px;
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+    border: 2px solid;
+    border-radius: 1%;
+    background-color: orange;
+    text-align: center;
+    position:absolute;
+}
+
+svg
+{
+    height:300px;
+    width:300px;
+}
+
 #canvasdiv
 {
     width: 50%;
@@ -32,19 +57,16 @@
     text-align: center;
 }
 
-/*svg.html*/
 #dragdiv2
 {
     background-color:orange;
 }
 
-/*svg.html*/
 #dragdiv1
 {
     background-color:purple;
 }
 
-/*svg.html*/
 .dragdiv
 {
     height:500px;
@@ -58,30 +80,7 @@
     float:left;
 }
 
-/*svg.html*/
-/*note: same width and height as svg*/
-.divsvg
-{
-    height:300px;
-    width:300px;
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    border: 2px solid;
-    border-radius: 1%;
-    background-color: red;
-    text-align: center;
-}
 
-/*svg.html*/
-/*note: same width and height as .divsvg*/
-svg
-{
-    height:300px;
-    width:300px;
-}
-
-/*svg.html*/
 #svgrect2
 {
     fill:#f0f0f0;

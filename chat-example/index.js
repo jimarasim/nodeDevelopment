@@ -48,8 +48,11 @@ io.on('connection', function(socket){
       socket.on('chat message', function(msg){
                 console.log('message: ' + msg);
                 
+                //get the address
+                var address = socket.handshake.address;
+                
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('chat message',msg);
+                io.emit('chat message',address + ": " + msg);
                 });
       
       //specify 'tapmessage' event handler, when emit(ted) by the user connection

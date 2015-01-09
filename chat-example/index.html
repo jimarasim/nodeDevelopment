@@ -3,6 +3,9 @@
     <head>
         <title>jaemz chat</title>
         <link rel="Stylesheet" href="stylebase.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script type="text/javascript" src="codebase.js"></script>
     </head>
     <body>
         <form action="">
@@ -11,22 +14,16 @@
         <div id="messagesdiv">
             <ul id="messages"></ul>
         </div>
-        
 
-        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-        <script>
-            var socket = io();
-            $('form').submit(function(){
-                             socket.emit('chat message', $('#m').val()); //server needs to have a socket.on handler for this
-                             $('#m').val('');
-                             return false;
-                             });
-                             
-            //handler for server socket io.emit
-            socket.on('chat message', function(msg){
-                      $('#messages').prepend($('<li>').text(msg));
-                      });
-            </script>
-    </body>
+        
+        <!--SVG RECT WITH MOUSE AND TOUCH EVENTS EXAMPLE-->
+        <div id="svgdiv1" class="divsvg">
+            <svg id="svgtag1">
+                <rect id="svgrect1" x="10" y="10" width="10" height="10" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
+            </svg>
+        </div>
+        <span id="span1">console output</span>
+
+
+        <script type="text/javascript" src="sockethandler.js"></script>    </body>
 </html>
