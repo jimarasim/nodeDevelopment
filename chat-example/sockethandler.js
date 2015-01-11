@@ -13,15 +13,21 @@ $('#svgdiv1').click(function(event){
 
                     });
 
-//handler for server socket io.emit, when someone taps
+//handler for server socket io.emit, when someone taps the rectangle
 socket.on('tap msg', function(msg){
           
                     //convert json string to an object
                     var msgObject = jQuery.parseJSON(msg);
           
-                    //get the coordinates reported
+                    //get the coordinates emitted
                     var setPointX = msgObject.x;
                     var setPointY = msgObject.y;
+          
+          
+                    //save off current coordinates (for drawing a line)
+                    var oldPointX =$("#svgrect1").attr("x");
+                    var oldPointY =$("#svgrect1").attr("y");
+          
           
                     //move the rectangle to where the click was made
                     $("#svgrect1").attr("x",setPointX);
