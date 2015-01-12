@@ -1,6 +1,8 @@
 
 //SOCKET HANDLING FOR RECTANGLE
 var socket = io();
+var lastX = 0;
+var lastY = 0;
 
 $('#svgdiv1').click(function(event){
                     
@@ -20,18 +22,28 @@ socket.on('tap msg', function(msg){
                     var msgObject = jQuery.parseJSON(msg);
           
                     //get the coordinates emitted
-                    var setPointX = msgObject.x;
-                    var setPointY = msgObject.y;
+                    var newPointX = msgObject.x;
+                    var newPointY = msgObject.y;
           
           
-                    //save off current coordinates (for drawing a line)
+                    //save off these coordinates (for drawing a line)
                     var oldPointX =$("#svgrect1").attr("x");
                     var oldPointY =$("#svgrect1").attr("y");
           
           
                     //move the rectangle to where the click was made
-                    $("#svgrect1").attr("x",setPointX);
-                    $("#svgrect1").attr("y",setPointY-250); //NOTE: TOP OF .divsvg IS 250
+                    $("#svgrect1").attr("x",newPointX);
+                    $("#svgrect1").attr("y",newPointY-250); //NOTE: TOP OF .divsvg IS 250
+          
+                    //draw a line from the new to the old location
+                    var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
+                    newLine.setAttribute('id','line'+$.now());
+                    newLine.setAttribute('x1',newPointX);
+                    newLine.setAttribute('y1',newPointY);
+                    newLine.setAttribute('x2',oldPointX);
+                    newLine.setAttribute('y2',oldPointY);
+                    newLine.setAttribute('style','stroke:rgb(255,0,0);stroke-width:2');
+                    $("#svgtag1").append(newLine);
           
                     });
 
