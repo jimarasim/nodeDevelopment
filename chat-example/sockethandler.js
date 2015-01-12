@@ -5,7 +5,10 @@ var divSvgTop = 250; //NOTE: TOP OF .divsvg in  IS 250
 
 //MESSAGE BOX
 $('form').submit(function(){
-    socket.emit('chat message', $.now()+": "+$('#m').val()); //server needs to have a socket.on handler for this
+    //send the message
+    socket.emit('chat message', $('#m').val()); //server needs to have a socket.on handler for this
+  
+    //clear the message box
     $('#m').val('');
     return false;
 });
@@ -19,11 +22,6 @@ socket.on('chat message', function(msg){
 //STUFFED ANIMAL WAR
 //tell server about new coordinates when clicked
 $('#svgdiv1').click(function(event){
-                    
-    //get coordinates of the point clicked
-    var clickPointX = event.pageX;
-    var clickPointY = event.pageY;
-
     //report coordinates to the server
     socket.emit('tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 

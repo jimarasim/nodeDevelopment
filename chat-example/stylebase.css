@@ -3,8 +3,8 @@
 .divsvg
 {
     top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
-    height:500px; /*THIS NEEDS TO BE THE SAME AS SVG*/
-    width:500px; /*THIS NEEDS TO BE THE SAME AS SVG*/
+    height:700px; /*THIS NEEDS TO BE THE SAME AS SVG*/
+    width:700px; /*THIS NEEDS TO BE THE SAME AS SVG*/
     margin: 0%;
     border: 0%;
     padding: 0%;
@@ -17,15 +17,15 @@
 
 svg
 {
-    height:500px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
-    width:500px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
+    height:700px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
+    width:700px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
 }
 
 #messagesdiv
 {
     overflow-x: scroll;
     overflow-y: scroll;
-    width: 500px;
+    width: 700px;
     height: 200px;
     margin: 0%;
     border: 0%;
@@ -41,7 +41,6 @@ svg
 {
     list-style-type: none;
 }
-
 
 
 #canvasdiv
