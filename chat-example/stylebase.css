@@ -1,4 +1,26 @@
 
+/*note: same width and height as svg*/
+.divsvg
+{
+    top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
+    height:300px;
+    width:300px;
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+    border: 2px solid;
+    border-radius: 1%;
+    background-color: orange;
+    text-align: center;
+    position:absolute;
+}
+
+svg
+{
+    height:300px;
+    width:300px;
+}
+
 #messagesdiv
 {
     overflow-x: scroll;
@@ -20,27 +42,7 @@
     list-style-type: none;
 }
 
-/*note: same width and height as svg*/
-.divsvg
-{
-    top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITION OF RECT*/
-    height:300px;
-    width:300px;
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    border: 2px solid;
-    border-radius: 1%;
-    background-color: orange;
-    text-align: center;
-    position:absolute;
-}
 
-svg
-{
-    height:300px;
-    width:300px;
-}
 
 #canvasdiv
 {

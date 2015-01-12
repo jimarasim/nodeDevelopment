@@ -1,4 +1,5 @@
 var socket = io();
+var divSvgTop = 250; //NOTE: TOP OF .divsvg in  IS 250
 
 
 
@@ -45,7 +46,7 @@ socket.on('tap msg', function(msg){
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
     newLine.setAttribute('id','line'+$.now());
     newLine.setAttribute('x1',newPointX);
-    newLine.setAttribute('y1',newPointY);
+    newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb(255,0,0);stroke-width:2');
@@ -53,7 +54,7 @@ socket.on('tap msg', function(msg){
 
     //move the rectangle to where the click was made
     $("#svgrect1").attr("x",newPointX);
-    $("#svgrect1").attr("y",newPointY-250); //NOTE: TOP OF .divsvg IS 250
+    $("#svgrect1").attr("y",newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
           
 });
 
