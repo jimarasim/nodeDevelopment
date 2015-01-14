@@ -47,7 +47,7 @@ socket.on('tap msg', function(msg){
     newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-    newLine.setAttribute('style','stroke:rgb(255,0,0);stroke-width:2');
+    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:2');
     $("#svgtag1").append(newLine);
 
     //move the rectangle to where the click was made
@@ -56,4 +56,9 @@ socket.on('tap msg', function(msg){
           
 });
 
-
+/*
+ * this function returns a random color value, used by drawing new things
+ */
+function getRandomColorValue(){
+    return Math.floor((Math.random() * 255) + 1);
+}
