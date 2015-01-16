@@ -44,18 +44,22 @@ io.on('connection', function(socket){
                 console.log('user disconnected');
                 });
       
-      //specify 'chat message' event handler, when emit(ted) by the user connection
-      socket.on('chat message', function(msg){
+      //specify 'chat message' event handler. happens when emit(ted) by the client
+      socket.on('chat message', function(chatClientMessage){
           
-                var dateTimeNow = new Date();
-          
-                console.log('message: ' + msg);
+                //get the address of the message emitter
+                var chatClientAddress = socket.handshake.address;
+                var chatClientDate = new Date();
                 
-                //get the address
-                var address = socket.handshake.address;
+          
+                console.log('chatClientMessage: ' + chatClientMessage);
+                
+                
                 
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('chat message',msg+'['+address+' '+dateTimeNow.toUTCString()+']');
+                io.emit('chat message','{"chatClientMessage":"'+chatClientMessage+'","chatClientAddress":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
+
+                   
                 });
       
       //specify 'tapmessage' event handler, when emit(ted) by the user connection

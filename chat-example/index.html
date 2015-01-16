@@ -5,15 +5,16 @@
         <link rel="Stylesheet" href="stylebase.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-        <script type="text/javascript" src="codebase.js"></script>
     </head>
     <body>
         <!--CHAT WINDOW-->
         <form action="">
-            <input id="m" autocomplete="off" /><button>Send</button>
+            Alias:<input id="chatClientUser" autocomplete="off" /><br />
+            Message:<input id="chatClientMessage" autocomplete="off" />
+            
+            <button>Send</button>
         </form>
         <div id="messagesdiv">
-            <ul id="messages"></ul>
         </div>
 
         

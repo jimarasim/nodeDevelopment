@@ -5,16 +5,32 @@ var divSvgTop = 250; //NOTE: TOP OF .divsvg in  IS 250
 
 //MESSAGE BOX
 $('form').submit(function(){
+    
+    messageToEmit = '+'+$('#chatClientUser').val()+':'+$('#chatClientMessage').val();
+    
+    console.log(messageToEmit);
+    
     //send the message
-    socket.emit('chat message', $('#m').val()); //server needs to have a socket.on handler for this
+    socket.emit('chat message',messageToEmit); 
   
     //clear the message box
-    $('#m').val('');
+    $('#chatClientMessage').val('');
     return false;
 });
+
 //handler for server socket io.emit
 socket.on('chat message', function(msg){
-    $('#messages').prepend($('<li>').text(msg));
+    //convert json string to an object
+    var msgObject = jQuery.parseJSON(msg);
+    var chatClientMessage = msgObject.chatClientMessage;
+    var chatClientAddress = msgObject.chatClientAddress;
+    var chatClientDate = msgObject.chatClientDate;
+    
+    $('#messagesdiv').prepend($('<br />'));
+    $('#messagesdiv').prepend($('<span>').text(chatClientAddress));
+    $('#messagesdiv').prepend($('<span>').text(chatClientDate));
+    $('#messagesdiv').prepend($('<br />'));
+    $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
 });
 
 
@@ -26,7 +42,7 @@ $('#svgdiv1').click(function(event){
     socket.emit('tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 
 });
-//when server sends coordinates for someone clicking
+//when server sends coordinates for someone clicking or tapping
 socket.on('tap msg', function(msg){
           
     //convert json string to an object
@@ -47,7 +63,7 @@ socket.on('tap msg', function(msg){
     newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:2');
+    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
     $("#svgtag1").append(newLine);
 
     //move the rectangle to where the click was made
