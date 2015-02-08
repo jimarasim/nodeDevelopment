@@ -1,9 +1,10 @@
+//sockethandler.js - client side javascript for page hosting a chat and stuffed animal war
+
 var socket = io();
 var divSvgTop = 250; //NOTE: TOP OF .divsvg in  IS 250
 
-
-
-//MESSAGE BOX
+//CHAT
+//send chat message to server
 $('form').submit(function(){
     
     messageToEmit = '+'+$('#chatClientUser').val()+':'+$('#chatClientMessage').val();
@@ -18,7 +19,7 @@ $('form').submit(function(){
     return false;
 });
 
-//handler for server socket io.emit
+//receive chat message from server
 socket.on('chat message', function(msg){
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
@@ -36,13 +37,14 @@ socket.on('chat message', function(msg){
 
 
 //STUFFED ANIMAL WAR
-//tell server about new coordinates when clicked
+//send click coordinates to server
 $('#svgdiv1').click(function(event){
     //report coordinates to the server
     socket.emit('tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 
 });
-//when server sends coordinates for someone clicking or tapping
+
+//receive coordinates from server
 socket.on('tap msg', function(msg){
           
     //convert json string to an object
@@ -72,6 +74,7 @@ socket.on('tap msg', function(msg){
           
 });
 
+//COMMON
 /*
  * this function returns a random color value, used by drawing new things
  */
