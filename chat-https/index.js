@@ -1,15 +1,20 @@
-//http://socket.io/get-started/chat/
-//setup an express application and bind it to an http server
-var app = require('express')();
 
 //require express for serving other, static files, like .css from the root dir
 var express=require('express');
+var app = express();
 
-//require http
-var http = require('http').Server(app);
+//require https
+var https = require('https');
 
-//attach a socket to the listening http
-var io = require('socket.io')(http);
+//require fs (file system, for getting certificate)
+var fs = require('fs');
+
+var privateKey = fs.readFileSync('key.pem');
+var certificate = fs.readFileSync('cert.pem');
+var credentials = {key: privateKey, cert:certificate};
+
+//attach a socket to the listening https
+var io = require('socket.io')(https);
 
 //include static files like .css
 app.use(express.static(__dirname));
@@ -20,19 +25,6 @@ app.get('/', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/index.html');
 });
-
-//handler for incoming get requests
-app.get('/canvas', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/canvas.html');
-        });
-
-//handler for incoming get requests
-app.get('/svg', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/svg.html');
-        });
-////////////////////////////////////////////////////GET REQUEST HANDLERS
 
 ////////////////////////////////////////////////////SOCKET HANDLERS
 //handler for incoming socket connections
@@ -55,7 +47,6 @@ io.on('connection', function(socket){
                 console.log('chatClientMessage: ' + chatClientMessage);
                 
                 
-                
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
                 io.emit('chat message','{"chatClientMessage":"'+chatClientMessage+'","chatClientAddress":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
 
@@ -70,9 +61,11 @@ io.on('connection', function(socket){
                 io.emit('tap msg',msg);
                 });
 });
-////////////////////////////////////////////////////SOCKET HANDLERS
 
-http.listen(3000, function(){
-            console.log('listening on *:3000');
-});
+///////////////////////////////////////////////////////////START SERVER
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(3000, function(){
+                   console.log('listenting over https on 3000');
+                   });
+
 
