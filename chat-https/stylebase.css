@@ -1,26 +1,3 @@
-
-/*note: same width and height as svg*/
-.divsvg
-{
-    top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
-    height:700px; /*THIS NEEDS TO BE THE SAME AS SVG*/
-    width:700px; /*THIS NEEDS TO BE THE SAME AS SVG*/
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    border: 2px solid;
-    border-radius: 1%;
-    background-color: darkslategray;
-    text-align: center;
-    position:absolute;
-}
-
-svg
-{
-    height:700px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
-    width:700px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
-}
-
 #messagesdiv
 {
     overflow-x: scroll;
@@ -41,49 +18,3 @@ svg
 {
     list-style-type: none;
 }
-
-
-#canvasdiv
-{
-    width: 50%;
-    height: 50%;
-    margin-left:auto;
-    margin-right:auto;
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    border: 2px solid;
-    border-radius: 1%;
-    background-color: rgb(230, 230, 250);
-    text-align: center;
-}
-
-#dragdiv2
-{
-    background-color:orange;
-}
-
-#dragdiv1
-{
-    background-color:purple;
-}
-
-.dragdiv
-{
-    height:500px;
-    width:500px;
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    border: 2px solid;
-    border-radius: 10%;
-    text-align: center;
-    float:left;
-}
-
-
-#svgrect2
-{
-    fill:#f0f0f0;
-}
-
