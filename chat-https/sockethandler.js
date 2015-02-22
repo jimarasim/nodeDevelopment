@@ -1,7 +1,6 @@
 //sockethandler.js - client side javascript for page hosting a chat
 
 var socket = io();
-var divSvgTop = 250; //NOTE: TOP OF .divsvg in  IS 250
 
 //CHAT
 //send chat message to server
