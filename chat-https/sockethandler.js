@@ -1,5 +1,4 @@
 //sockethandler.js - client side javascript for page hosting a chat
-
 var socket = io();
 
 //CHAT
@@ -15,7 +14,6 @@ $('form').submit(function(){
   
     //clear the message box
     $('#chatClientMessage').val('');
-    return false;
 });
 
 //receive chat message from server

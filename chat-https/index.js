@@ -35,8 +35,8 @@ var httpsServer = https.createServer(sslOptions, app);
 httpServer.listen(3000, function(){
                   console.log('listenting over http on 3000');
                   });
-httpsServer.listen(3001, function(){
-                   console.log('listenting over https on 3001');
+httpsServer.listen(8000, function(){
+                   console.log('listenting over https on 8000');
                    });
 
 
