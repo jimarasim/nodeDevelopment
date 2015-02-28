@@ -17,5 +17,16 @@ if(process.argv[3]===""){
 var directory = process.argv[2];
 var extension = "."+process.argv[3];
 
-flm(directory,extension,function(err,files){console.log(files);});
+//use fileListing-module.js 
+flm.list(directory,extension,function(err,files){
+    if(err){
+        return console.error(err);
+    }
+    else{
+        files.forEach(function(file){
 
+            console.log(file);
+
+        });
+    }
+});

@@ -1,119 +1,50 @@
 //include file system module
 var fs = require('fs');
 
-module.exports = function(directory,extension,callback){
-    return {
-        list : function(){
-            fs.exists(directory,function(exists){
-                if(exists){
-                    //print out files with desired extension
-                    fs.readdir(directory, function finishedReadingDirectory(err,files){
-                                if(err){
-                                    return console.error(err);
-                                }
-                                else{
-                                    files.forEach(function(file){
-                                        if(file.indexOf(extension, file.length - extension.length) !== -1){
-                                            console.log(file);
-                                        }
-                                    });
-                                }
-                               });
-                }
-                else{
-                    throw new Error("DIRECTORY SPECIFIED DOES NOT EXIST:"+directory);
-                }
-            }); 
-        }
-    }
-}
+//module.exports = {
+//  sayHelloInEnglish: function(astring) {
+//    return astring;
+//  },
+//        
+//  sayHelloInSpanish: function(astring) {
+//    return "Hola";
+//  }
+//};
+//
+module.exports = {
+    list : function(directory,extension,callback){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//check for valid command line paramters (should be $command directory extension
-if(process.argv.length!==4){
-    throw new Error("WRONG NUMBER OF ARGUMENTS. SHOULD BE: node command.js directory extension");
-}
-
-if(process.argv[2]===""){
-    throw new Error("SPECIFY DIRECTORY");
-}
-
-if(process.argv[3]===""){
-    throw new Error("SPECIFY EXTENSION");
-}
-
-var directory = process.argv[2];
-var extension = "."+process.argv[3];
-
-fs.exists(directory,function(exists){
-    if(exists){
-        //print out files with desired extension
-        fs.readdir(directory, function finishedReadingDirectory(err,files){
+        fs.exists(directory,function(exists){
+            if(exists){
+                //print out files with desired extension
+                fs.readdir(directory, function finishedReadingDirectory(err,files){
                     if(err){
-                        return console.error(err);
+                        callback("DIRECTORY SPECIFIED DOES NOT EXIST:"+err,"");
+                        return;
                     }
                     else{
-                        files.forEach(function(file){
-                            if(file.indexOf(extension, file.length - extension.length) !== -1){
-                                console.log(file);
+                            //declare return data array to find files with the desired extension
+                            var filesWithExtension=new Array();
+
+                            //for each file in the directory listing
+                            files.forEach(function(file){
+                                //check if the file has the desired extension
+                                if(file.indexOf(extension, file.length - extension.length) !== -1){
+                                    //if it does, add it to the return data array
+                                    filesWithExtension.push(file);
                             }
+
+                            //send return data array to caller
+                            callback("",filesWithExtension);
+                            return;
                         });
-//                        for(var i=0;i<files.length;i++){
-//
-//                            //check if ends with
-//                            if(files[i].indexOf(extension, files[i].length - extension.length) !== -1){
-//                                console.log(files[i]);
-//                            }
-//                        }
                     }
-                   });
-               }
-    else{
-        throw new Error("DIRECTORY SPECIFIED DOES NOT EXIST:"+directory);
+                });
+            }
+            else{
+                callback("DIRECTORY SPECIFIED DOES NOT EXIST:"+directory,"");
+                return;
+            }
+        });
     }
-           
-});
+};
