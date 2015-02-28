@@ -1,9 +1,30 @@
 //include file system module
 var fs = require('fs');
 
-module.exports = function(directory,extension){
+module.exports = function(directory,extension,callback){
     return {
-        
+        list : function(){
+            fs.exists(directory,function(exists){
+                if(exists){
+                    //print out files with desired extension
+                    fs.readdir(directory, function finishedReadingDirectory(err,files){
+                                if(err){
+                                    return console.error(err);
+                                }
+                                else{
+                                    files.forEach(function(file){
+                                        if(file.indexOf(extension, file.length - extension.length) !== -1){
+                                            console.log(file);
+                                        }
+                                    });
+                                }
+                               });
+                }
+                else{
+                    throw new Error("DIRECTORY SPECIFIED DOES NOT EXIST:"+directory);
+                }
+            }); 
+        }
     }
 }
 
