@@ -1,5 +1,7 @@
 //include file system module
-var flm = require('./fileListing-module.js');
+var flm = require('./listingmodule.js');
+var directory="";
+var extension="";
 
 //check for valid command line paramters (should be $command directory extension
 if(process.argv.length!==4){
@@ -9,13 +11,16 @@ if(process.argv.length!==4){
 if(process.argv[2]===""){
     throw new Error("SPECIFY DIRECTORY");
 }
+else{
+    directory = process.argv[2];
+}
 
 if(process.argv[3]===""){
     throw new Error("SPECIFY EXTENSION");
 }
-
-var directory = process.argv[2];
-var extension = "."+process.argv[3];
+else{
+    extension = process.argv[3];
+}
 
 //use fileListing-module.js 
 flm.list(directory,extension,function(err,files){
@@ -23,8 +28,8 @@ flm.list(directory,extension,function(err,files){
         return console.error(err);
     }
     else{
+        
         files.forEach(function(file){
-
             console.log(file);
 
         });

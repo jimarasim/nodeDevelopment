@@ -1,16 +1,6 @@
 //include file system module
 var fs = require('fs');
 
-//module.exports = {
-//  sayHelloInEnglish: function(astring) {
-//    return astring;
-//  },
-//        
-//  sayHelloInSpanish: function(astring) {
-//    return "Hola";
-//  }
-//};
-//
 module.exports = {
     list : function(directory,extension,callback){
 
@@ -23,6 +13,9 @@ module.exports = {
                         return;
                     }
                     else{
+                            //add a period to extension
+                            extension = "."+extension;
+                            
                             //declare return data array to find files with the desired extension
                             var filesWithExtension=new Array();
 
