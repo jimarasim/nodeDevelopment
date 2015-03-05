@@ -20,17 +20,17 @@ module.exports = {
                             var filesWithExtension=new Array();
 
                             //for each file in the directory listing
-                            files.forEach(function(file){
+                            for(var i=0;i<files.length;i++) {
                                 //check if the file has the desired extension
-                                if(file.indexOf(extension, file.length - extension.length) !== -1){
-                                    //if it does, add it to the return data array
-                                    filesWithExtension.push(file);
+                                if(files[i].indexOf(extension, files[i].length - extension.length) !== -1){
+                                    console.log(files[i]+"---------------");
+                                    filesWithExtension.push(files[i]);
+                                }
                             }
 
                             //send return data array to caller
                             callback("",filesWithExtension);
                             return;
-                        });
                     }
                 });
             }
