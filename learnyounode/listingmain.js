@@ -23,7 +23,8 @@ else{
 }
 
 //use fileListing-module.js 
-flm.list(directory,extension,function(err,files){
+//flm.list(directory,extension,function(err,files){
+flm(directory,extension,function(err,files){
     if(err){
         return console.error(err);
     }
