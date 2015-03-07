@@ -3,7 +3,7 @@ var fs = require('fs');
 
 //check for valid command line paramters (should be $command directory extension
 if(process.argv.length!==4){
-    throw new Error("WRONG NUMBER OF ARGUMENTS. SHOULD BE: node command.js directory extension");
+    throw new Error("WRONG NUMBER OF ARGUMENTS. SHOULD BE: node directoryfiletypelisting.js {directory} {extension}");
 }
 
 if(process.argv[2]===""){

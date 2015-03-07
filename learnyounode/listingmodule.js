@@ -3,6 +3,7 @@ var fs = require('fs');
 
 module.exports = function(directory,extension,callback){
 
+    
         fs.exists(directory,function(exists){
             if(exists){
                 readDirectory(directory,extension,callback);
