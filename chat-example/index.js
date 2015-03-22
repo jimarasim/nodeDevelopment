@@ -14,6 +14,13 @@ var io = require('socket.io')(http);
 //include static files like .css
 app.use(express.static(__dirname));
 
+////////////////////////////////////////////////////PORT TO USE
+if(process.argv.length < 3){
+    console.log("PLEASE SPECIFY PORT node index.js {port number. e.g. '3000'}");
+    return;
+}
+var listenPort = process.argv[2];
+
 ////////////////////////////////////////////////////GET REQUEST HANDLERS
 //handler for incoming get requests
 app.get('/', function(req, res){
@@ -72,7 +79,7 @@ io.on('connection', function(socket){
 });
 ////////////////////////////////////////////////////SOCKET HANDLERS
 
-http.listen(3000, function(){
-            console.log('listening on *:3000');
+http.listen(listenPort, function(){
+            console.log('listening on *:'+listenPort);
 });
 
