@@ -55,8 +55,6 @@ io.on('connection', function(socket){
       socket.on('chat message', function(chatClientMessage){
           
                 //get the address of the message emitter
-                var chatClientAddress = socket.handshake.address;
-                var chatClientDate = new Date();
                 
           
                 console.log('chatClientMessage: ' + chatClientMessage);
@@ -64,7 +62,7 @@ io.on('connection', function(socket){
                 
                 
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('chat message','{"chatClientMessage":"'+chatClientMessage+'","chatClientAddress":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
+                io.emit('chat message','{"chatClientMessage":"'+chatClientMessage+'}');
 
                    
                 });
