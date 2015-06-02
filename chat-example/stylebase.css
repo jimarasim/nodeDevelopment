@@ -1,3 +1,9 @@
+body {
+    background-image: url("stuffedanimalwar.jpg");
+    background-color: #000000;
+}
+
+
 
 /*note: same width and height as svg*/
 .divsvg
