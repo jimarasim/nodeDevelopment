@@ -42,7 +42,7 @@ $('#svgdiv1').click(function(event){
     socket.emit('tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 
 });
-//when server sends coordinates for someone clicking or tapping
+//when we receive coordinates for the server 
 socket.on('tap msg', function(msg){
           
     //convert json string to an object
