@@ -7,14 +7,32 @@
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
     </head>
     <body>
-        <center>
-        <!--CHAT WINDOW-->
+        
+        
+        <!--CHAT MESSAGE INPUT BOXES-->
         <form action="">
-            ALIAS:<input id="chatClientUser" />
-            <br />
-            MESSAGE:<input id="chatClientMessage" />
-            AUTO RESPONDER:
-            <select id="chatClientAutoResponder" size=3 >
+            <table>
+                <tr>
+                    <td>
+            ALIAS
+            </td>
+                    <td>
+                        <input id="chatClientUser" />
+                        </td>
+            <td>
+            MESSAGE</td>
+            <td>
+                <input id="chatClientMessage" />
+                </td>
+            
+            <td>
+                <button>Send</button>
+            </td>
+            <td>
+            AUTO RESPONDER
+            </td>
+            <td>
+            <select id="chatClientAutoResponder" size=1 >
 
                     <option value="idratherplaywithmycat">I'd rather play with my cat</option>
                     <option value="theinternetduh">You can search for it on the internet, duh</option>
@@ -24,20 +42,26 @@
                     <option value="thatrules">That Rules!</option>
                 
             </select>
-            
-            <button>Send</button>
+            </td>
+            </tr>
+            </table>
         </form>
+        
+        <!--CHAT WINDOW-->
         <div id="messagesdiv">
         </div>
 
         
         <!--STUFFED ANIMAL WAR-->
+        <center>
         <div id="svgdiv1" class="divsvg">
             <svg id="svgtag1">
                 <rect id="svgrect1" x="10" y="10" width="10" height="10" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
             </svg>
         </div>
         </center>
+        
+        
         <script type="text/javascript" src="sockethandler.js"></script>
     </body>
 </html>
