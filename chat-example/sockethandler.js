@@ -32,7 +32,8 @@ socket.on('chat message', function(msg){
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.chatClientMessage;
-    
+
+    $('#messagesdiv').prepend($('<br />'));
     $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
 });
 
