@@ -25,6 +25,8 @@ $('#chatClientAutoResponder').change(function(){
     //send the message
     socket.emit('chat message',messageToEmit); 
     
+    //set the autoresponder back to blanck
+    $('#chatClientAutoResponder').val('blank');
 });
 
 //handler for server socket io.emit
