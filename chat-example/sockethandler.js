@@ -19,16 +19,15 @@ $('form').submit(function(){
 });
 
 //AUTORESPONDER
-$('#chatClientAutoResponder').select(function(){
-                                     
+$('#chatClientAutoResponder').change(function(){
+
                                      var txt = $("#chatClientAutoResponder option:selected").text();
-//                                     var txt = $("#chatClientAutoResponder :selected").text();
-                                     var val = $("#chatClientAutoResponder option:selected").val();
                                      
+                                     console.log("CHAT MESSAGE:"+txt);
                                      socket.emit('chat message',txt);
-                                     socket.emit('chat message',val);
+
                                      
-                                     });
+});
 
 //handler for server socket io.emit
 socket.on('chat message', function(msg){

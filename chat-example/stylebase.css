@@ -9,8 +9,11 @@ body {
     color:white;
 }
 
-
-
+#messagesdiv{
+    color:darkslategray;
+    
+    
+}
 /*note: same width and height as svg*/
 .divsvg
 {
