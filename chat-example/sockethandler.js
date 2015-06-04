@@ -19,7 +19,7 @@ $('form').submit(function(){
 });
 
 //AUTORESPONDER
-$('#chatClientAutoResponder').select(function()
+$('#chatClientAutoResponder').select(function(){
                                      
                                      var txt = $("#chatClientAutoResponder option:selected").text();
 //                                     var txt = $("#chatClientAutoResponder :selected").text();
