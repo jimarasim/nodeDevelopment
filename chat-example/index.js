@@ -1,3 +1,5 @@
+/* global require, __dirname, process */
+
 //http://socket.io/get-started/chat/
 //setup an express application and bind it to an http server
 var app = require('express')();
@@ -17,7 +19,6 @@ app.use(express.static(__dirname));
 ////////////////////////////////////////////////////PORT TO USE
 if(process.argv.length < 3){
     console.log("PLEASE SPECIFY PORT node index.js {port number. e.g. '3000'}");
-    return;
 }
 var listenPort = process.argv[2];
 
@@ -61,8 +62,10 @@ io.on('connection', function(socket){
                 console.log('chatClientMessage: ' + chatClientMessage);
                 
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('chat message','{"chatClientMessage":"'+chatClientMessage+'","chatClientAddress":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
-                });
+                io.emit('chat message','{"chatClientMessage":"'+chatClientMessage+'"}');
+                console.log('chat message','{"chatClientMessage":"'+chatClientMessage+'","chatClientAddress":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
+          
+      });
       
       //specify 'tapmessage' event handler, when emit(ted) by the user connection
       socket.on('tap msg', function(msg){

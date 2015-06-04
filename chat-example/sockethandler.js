@@ -6,9 +6,8 @@ var divSvgTop = 250; //NOTE: TOP OF .divsvg in  IS 250
 //MESSAGE BOX
 $('form').submit(function(){
     
-    messageToEmit = '+'+$('#chatClientUser').val()+':'+$('#chatClientMessage').val();
-    
-    console.log(messageToEmit);
+    messageToEmit = $('#chatClientMessage').val() + "(" + $('#chatClientUser').val()+')';
+    console.log("MESSAGETOEMITTEXTBOX:"+messageToEmit);
     
     //send the message
     socket.emit('chat message',messageToEmit); 
@@ -18,15 +17,14 @@ $('form').submit(function(){
     return false;
 });
 
-//AUTORESPONDER
+//AUTORESPONDER SELECT DROP DOWN
 $('#chatClientAutoResponder').change(function(){
-
-                                     var txt = $("#chatClientAutoResponder option:selected").text();
-                                     
-                                     console.log("CHAT MESSAGE:"+txt);
-                                     socket.emit('chat message',txt);
-
-                                     
+    messageToEmit = $('#chatClientAutoResponder option:selected').text() + "(" + $('#chatClientUser').val()+')';
+    console.log("MESSAGETOEMITAUTORESPONDER:"+messageToEmit);
+    
+    //send the message
+    socket.emit('chat message',messageToEmit); 
+    
 });
 
 //handler for server socket io.emit
