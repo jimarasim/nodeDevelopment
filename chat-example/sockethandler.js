@@ -18,6 +18,18 @@ $('form').submit(function(){
     return false;
 });
 
+//AUTORESPONDER
+$('#chatClientAutoResponder').select(function()
+                                     
+                                     var txt = $("#chatClientAutoResponder option:selected").text();
+//                                     var txt = $("#chatClientAutoResponder :selected").text();
+                                     var val = $("#chatClientAutoResponder option:selected").val();
+                                     
+                                     socket.emit('chat message',txt);
+                                     socket.emit('chat message',val);
+                                     
+                                     });
+
 //handler for server socket io.emit
 socket.on('chat message', function(msg){
     //convert json string to an object
