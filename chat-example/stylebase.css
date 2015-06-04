@@ -10,8 +10,12 @@ body {
 }
 
 #messagesdiv{
-    color:pink;
+    color:orangered;
     background-image: url("stuffedanimalwar.jpg");
+    background-repeat:no-repeat;
+    background-position:right top;
+    
+    background-color: #000000;
     
     
 }
