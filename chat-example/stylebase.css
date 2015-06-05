@@ -22,8 +22,8 @@ body {
 .divsvg
 {
     top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
-    height:500px; /*THIS NEEDS TO BE THE SAME AS SVG*/
-    width:700px; /*THIS NEEDS TO BE THE SAME AS SVG*/
+    height:200px; /*THIS NEEDS TO BE THE SAME AS SVG*/
+    width:200px; /*THIS NEEDS TO BE THE SAME AS SVG*/
     margin: 0%;
     border: 0%;
     padding: 0%;
@@ -36,8 +36,8 @@ body {
 
 svg
 {
-    height:500px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
-    width:700px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
+    height:200px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
+    width:200px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG*/
 }
 
 #messagesdiv
