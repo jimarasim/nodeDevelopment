@@ -16,33 +16,14 @@ var io = require('socket.io')(http);
 //include static files like .css
 app.use(express.static(__dirname));
 
-////////////////////////////////////////////////////PORT TO USE
+////////////////////////////////////////////////////////////////////////////////////////////////////////PORT TO USE
 if(process.argv.length < 3){
     console.log("PLEASE SPECIFY PORT node index.js {port number. e.g. '3000'}");
 }
 var listenPort = process.argv[2];
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////GET REQUEST HANDLERS
-//handler for incoming get requests
-app.get('/', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/index.html');
-});
-
-//handler for incoming get requests
-app.get('/canvas', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/canvas.html');
-        });
-
-//handler for incoming get requests
-app.get('/svg', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/svg.html');
-        });
-////////////////////////////////////////////////////GET REQUEST HANDLERS
-
-////////////////////////////////////////////////////SOCKET HANDLERS
+////////////////////////////////////////////////////////////////////////////////////////////////////////SOCKET HANDLERS
 //handler for incoming socket connections
 io.on('connection', function(socket){
       console.log('a user connected');
@@ -75,7 +56,29 @@ io.on('connection', function(socket){
                 io.emit('tap msg',msg);
                 });
 });
-////////////////////////////////////////////////////SOCKET HANDLERS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////GET REQUEST HANDLERS
+//handler for incoming get requests
+app.get('/', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/index.html');
+});
+
+//handler for incoming get requests
+app.get('/canvas', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/canvas.html');
+        });
+
+//handler for incoming get requests
+app.get('/svg', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/svg.html');
+        });
+////////////////////////////////////////////////////
 
 http.listen(listenPort, function(){
             console.log('LISTENING ON PORT:'+listenPort);
