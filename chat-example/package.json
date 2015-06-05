@@ -1,7 +1,7 @@
 {
-  "name": "socket-chat-example",
-  "version": "0.0.1",
-  "description": "my first socket.io app",
+  "name": "stuffedanimalwar",
+  "version": "1.0.0",
+  "description": "chat draw engine",
   "dependencies": {
     "express": "^4.10.5",
     "socket.io": "^1.2.1"

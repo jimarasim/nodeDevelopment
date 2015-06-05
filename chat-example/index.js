@@ -1,5 +1,7 @@
-/* global require, __dirname, process */
+/*jaemzware*/
 
+
+/* global require, __dirname, process */
 //http://socket.io/get-started/chat/
 //setup an express application and bind it to an http server
 var app = require('express')();
