@@ -11,8 +11,6 @@
     
 }
 
-
-
 /*stuffedanimalwar.com*/
 #messagesdiv{
     background-color: navy;
@@ -20,7 +18,7 @@
 }
 
 /*stuffedanimalwar.com*/
-#stuffedanimalwarsvg{
+stuffedanimalwarsvg{
     height:500px; 
     width:500px; 
 }
@@ -35,8 +33,8 @@ body {
     background-repeat:no-repeat;
     background-position:left;
     
-    background-color: #000000;
-    color:white;
+    background-color: black; /*background behind any elements on the body of the page*/
+    color:white; /*text color*/
 }
 
 /*stuffedanimalwar.com*/
@@ -56,15 +54,19 @@ body {
 /*stuffedanimalwar.com*/
 #messagesdiv
 {
+    /*contents of trash talk window can overflow the window*/
     overflow-x: scroll;
     overflow-y: scroll;
 
     margin: 0%;
     border: 0%;
     padding: 0%;
-    border-radius: 1%;
-    border: 2px solid;
-    background-color: rgb(130, 224, 255);
+    
+    /*border of the trash talk window*/
+    border-radius: 5%;
+    border: 5px solid;
+    
+    background-color: lightgoldenrodyellow;
     text-align: left;
     /*position:absolute;*/
 }
