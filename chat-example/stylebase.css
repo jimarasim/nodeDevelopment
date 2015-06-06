@@ -26,32 +26,25 @@
     
     
 }
-
-
 /*stuffedanimalwar.com*/
 body {
     
     /*http://www.w3schools.com/css/css_background.asp*/
     background-image: url("stuffedanimalwarfinal.jpg");
     background-repeat:no-repeat;
-    background-position:right top;
+    background-position:left;
     
     background-color: #000000;
     color:white;
 }
 /*stuffedanimalwar.com*/
 #messagesdiv{
-
-    
-    background-color: #000000;
-    color:orangered;
-    
+    background-color: black;
+    color:white;
 }
-
 /*stuffedanimalwar.com*/
 #stuffedanimalwardiv
 {
-    top:300px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
 
     margin: 0%;
     border: 0%;
