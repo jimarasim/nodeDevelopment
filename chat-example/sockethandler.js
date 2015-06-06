@@ -8,7 +8,7 @@ var divSvgTop = 0;
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
     
-    messageToEmit = $('#chatClientMessage').val() + " <i>" + $('#chatClientUser').val() + "</i>";
+    messageToEmit = $('#chatClientMessage').val() + "     <-" + $('#chatClientUser').val() + "</i>";
     console.log("MESSAGETOEMITTEXTBOX:"+messageToEmit);
     
     //send the message
@@ -25,7 +25,7 @@ socket.on('chat message', function(msg){
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.chatClientMessage;
 
-    $('#messagesdiv').prepend($('<br /><BR />'));
+    $('#messagesdiv').prepend($('<br />'));
     $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
 });
 
