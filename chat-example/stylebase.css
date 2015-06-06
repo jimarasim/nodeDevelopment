@@ -49,7 +49,7 @@ body {
 /*stuffedanimalwar.com*/
 #stuffedanimalwardiv
 {
-    top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
+    //top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
 
     margin: 0%;
     border: 0%;
