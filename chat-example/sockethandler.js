@@ -45,7 +45,7 @@ socket.on('chat message', function(msg){
 
 //STUFFED ANIMAL WAR
 //tell server about new coordinates when clicked
-$('#stuffedsvg').click(function(event){
+$('#stuffedanimalwarsvg').click(function(event){
     //report coordinates to the server
     socket.emit('tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 
