@@ -61,8 +61,8 @@ socket.on('tap msg', function(msg){
     var newPointY = msgObject.y;
 
     //save off these coordinates (for drawing a line)
-    var oldPointX =$("#stuffedsvg").attr("x");
-    var oldPointY =$("#stuffedsvg").attr("y");
+    var oldPointX =$("#stuffedanimalwarsvg").attr("x");
+    var oldPointY =$("#stuffedanimalwarsvg").attr("y");
 
     //draw a line from the new to the old location
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
@@ -72,12 +72,8 @@ socket.on('tap msg', function(msg){
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
-    $("#svgtag1").append(newLine);
+    $("#stuffedanimalwarsvg").append(newLine);
 
-    //move the rectangle to where the click was made
-    $("#svgrect1").attr("x",newPointX);
-    $("#svgrect1").attr("y",newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 300
-          
 });
 
 /*
