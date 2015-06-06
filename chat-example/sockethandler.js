@@ -1,7 +1,7 @@
 /*jaemzware*/
 
 var socket = io();
-var divSvgTop = 250; //NOTE: TOP OF .divsvg in stylebase.css IS 250
+var divSvgTop = 300; //NOTE: TOP OF .divsvg in stylebase.css IS 300
 
 
 
@@ -68,7 +68,7 @@ socket.on('tap msg', function(msg){
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
     newLine.setAttribute('id','line'+$.now());
     newLine.setAttribute('x1',newPointX);
-    newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
+    newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 300
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
@@ -76,7 +76,7 @@ socket.on('tap msg', function(msg){
 
     //move the rectangle to where the click was made
     $("#svgrect1").attr("x",newPointX);
-    $("#svgrect1").attr("y",newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
+    $("#svgrect1").attr("y",newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 300
           
 });
 

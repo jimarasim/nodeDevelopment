@@ -8,7 +8,9 @@
 /*stuffedanimalwar.com*/
 .divsection {
     
-        height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+    top:300; /*THIS IS THE TOP OF THE CHAT WINDOW*/
+    
+    height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
     width:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
     
     overflow-x: scroll;
@@ -17,9 +19,9 @@
 }
 
 /*stuffedanimalwar.com*/
-#svgtag1{
+.divsvg #svgtag1{
     
-        height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+    height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
     width:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
     
     
@@ -49,7 +51,7 @@ body {
 /*stuffedanimalwar.com*/
 #stuffedanimalwardiv
 {
-    //top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
+    top:300px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
 
     margin: 0%;
     border: 0%;
