@@ -31,7 +31,7 @@ socket.on('chat message', function(msg){
 
 //AUTORESPONDER SELECT DROP DOWN
 $('#chatClientAutoResponder').change(function(){
-    messageToEmit = $('#chatClientAutoResponder option:selected').text() + "-" + $('#chatClientUser').val();
+    messageToEmit = $('#chatClientAutoResponder option:selected').text() + " [" + $('#chatClientUser').val()+"]";
     console.log("MESSAGETOEMITAUTORESPONDER:"+messageToEmit);
     
     //send the message
