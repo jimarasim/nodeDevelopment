@@ -8,7 +8,7 @@ var divSvgTop = 0;
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
     
-    messageToEmit = $('#chatClientMessage').val() + "     <-" + $('#chatClientUser').val() + "</i>";
+    messageToEmit = $('#chatClientMessage').val() + " [" + $('#chatClientUser').val()+"]";
     console.log("MESSAGETOEMITTEXTBOX:"+messageToEmit);
     
     //send the message
