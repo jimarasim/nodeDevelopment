@@ -5,10 +5,10 @@ var divSvgTop = 0;
 
 
 
-//MESSAGE BOX
+//CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
     
-    messageToEmit = $('#chatClientMessage').val() + " <em>" + $('#chatClientUser').val() + "</em>";
+    messageToEmit = $('#chatClientMessage').val() + " <i>" + $('#chatClientUser').val() + "</i>";
     console.log("MESSAGETOEMITTEXTBOX:"+messageToEmit);
     
     //send the message
@@ -17,6 +17,16 @@ $('form').submit(function(){
     //clear the message box
     $('#chatClientMessage').val('');
     return false;
+});
+
+//CHAT MESSAGE: SOCKET => CHAT MESSAGES
+socket.on('chat message', function(msg){
+    //convert json string to an object
+    var msgObject = jQuery.parseJSON(msg);
+    var chatClientMessage = msgObject.chatClientMessage;
+
+    $('#messagesdiv').prepend($('<br /><BR />'));
+    $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
 });
 
 //AUTORESPONDER SELECT DROP DOWN
@@ -30,18 +40,6 @@ $('#chatClientAutoResponder').change(function(){
     //set the autoresponder back to blanck
     $('#chatClientAutoResponder').val('blank');
 });
-
-//handler for server socket io.emit
-socket.on('chat message', function(msg){
-    //convert json string to an object
-    var msgObject = jQuery.parseJSON(msg);
-    var chatClientMessage = msgObject.chatClientMessage;
-
-    $('#messagesdiv').prepend($('<br />'));
-    $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
-});
-
-
 
 //STUFFED ANIMAL WAR
 //tell server about new coordinates when clicked
