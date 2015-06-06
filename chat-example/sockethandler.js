@@ -1,7 +1,7 @@
 /*jaemzware*/
 
 var socket = io();
-var divSvgTop = 300; //NOTE: TOP OF .divsvg in stylebase.css IS 300
+var divSvgTop = 0; 
 
 
 

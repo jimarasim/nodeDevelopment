@@ -9,11 +9,27 @@
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
     </head>
     <body>
-         
+     
         
-<!--CHAT MESSAGE INPUT BOXES-->
 <form action="">
 <table>
+        
+        
+<!--STUFFED ANIMAL WAR ROW-->
+<tr>
+    <td>STUFFED ANIMAL WAR
+    </td>
+    <td>
+        <div id='stuffedanimalwardiv' class='divgamesection'>
+            <svg id="stuffedanimalwarsvg">
+            </svg>
+        </div>
+    </td>
+</tr>
+        
+
+
+<!--CHAT MESSAGE USER ROW-->
 
 <tr>
     <td>
@@ -24,6 +40,9 @@
     </td>
 </tr>
 
+
+<!--CHAT MESSAGE MESSAGE ROW-->
+
 <tr>
     <td>
         msg
@@ -33,6 +52,8 @@
     </td>
 </tr>
 
+
+<!--CHAT MESSAGE AUTO RESPONDER ROW-->
 <tr>
     <td>
         <button>Send</button>
@@ -59,76 +80,36 @@
     </td>
 </tr>
 
+
+<!--CHAT DIALOG WINDOW ROW / SHIT TALK ROW-->
 <tr>
     <td>CHAT</td>
     <td>
-        <!--CHAT DIALOG-->
-        <div id="messagesdiv" class='divsection'>
-        </div>
-    </td>
-</tr>
-
-<tr>
-    <td>STUFFED ANIMAL WAR
-    </td>
-    <td>
-        <!--STUFFED ANIMAL WAR-->
-        <div id='stuffedanimalwardiv' class='divsection'>
-        <center>
-        <div id="svgdiv1" class="divsection">
-            <svg id="svgtag1">
-                <rect id="svgrect1" x="10" y="10" width="10" height="10" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
-            </svg>
+        <div id="messagesdiv" class='divgamesection'>
         </div>
     </td>
 </tr>
 
 
+
+<!-- FULL DISCLOSURE -->
 <tr>
     <td>FULL DISCLOSURE</td>
     <td>
-<!-- FULL DISCLOSURE -->
-            <div id='fulldisclosurediv' class='divsection'>
-                <table>
-                    <tr>
-                <td>Stuffed Animal War will never have advertising nor anything for sale.
-                </td>
-            </tr>
-            <tr>
-                <td>Chat and drawing coordinate data is not stored by this chat engine.
-                </td>
-            </tr>
-            <tr>
-                <td>Stuffed Animal War has no database.
-                </td>
-            </tr>
-            <tr>
-                <td>Stuffed Animal War stores no cookies (at least <a id="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> is not leaving them).  
-                </td>
-            </tr>
-            <tr>
-                <td><a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source. 
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source.
-                </td>
-            </tr>
-            <tr>
-                <td>There's nothing for the NSA to gather as soon as you close your browser., unless they're tracing the http line from my home web server to your computer. 
-                </td>
-            </tr>
-            <tr>
-                <td>I will get an http<b>s</b> page eventually.
-                </td>
-            </tr>
-                </table>
-            </div>   
-
+        <div id='fulldisclosurediv' class='divsection'>
+            <ul>
+                <li>Stuffed Animal War will never have advertising nor anything for sale.</li>
+                <li>Chat and drawing coordinate data is not stored by this chat engine.</li>
+                <li>Stuffed Animal War has no database.</li>
+                <li>Stuffed Animal War stores no cookies (at least <a id="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> is not leaving them).</li>
+                <li><a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source. </li>
+                <li><a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source.</li>
+                <li>There's nothing for the NSA to gather as soon as you close your browser., unless they're tracing the http line from my home web server to your computer.</li>
+                <li></li>
+            </ul>
+        </div> 
+    </td>
 </tr>
-
-
 
 
 </table>
@@ -136,10 +117,6 @@
         
         
         
-        
-        
-    
-        
-        <script type="text/javascript" src="sockethandler.js"></script>
-    </body>
+<script type="text/javascript" src="sockethandler.js"></script>
+</body>
 </html>

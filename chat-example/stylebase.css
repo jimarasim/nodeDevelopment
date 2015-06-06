@@ -1,31 +1,32 @@
 /*jaemzware*/
 
-#fulldisclosurediv{
-    
-}
-
-
 /*stuffedanimalwar.com*/
-.divsection {
+.divgamesection {
     
-    top:300; /*THIS IS THE TOP OF THE CHAT WINDOW*/
-    
-    height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
-    width:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+    height:500px; 
+    width:500px; 
     
     overflow-x: scroll;
     overflow-y: scroll;
     
 }
 
+
+
 /*stuffedanimalwar.com*/
-.divsvg #svgtag1{
-    
-    height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
-    width:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
-    
-    
+#messagesdiv{
+    background-color: navy;
+    color:white;
 }
+
+/*stuffedanimalwar.com*/
+#stuffedanimalwarsvg{
+    height:500px; 
+    width:500px; 
+}
+
+
+
 /*stuffedanimalwar.com*/
 body {
     
@@ -37,11 +38,7 @@ body {
     background-color: #000000;
     color:white;
 }
-/*stuffedanimalwar.com*/
-#messagesdiv{
-    background-color: black;
-    color:white;
-}
+
 /*stuffedanimalwar.com*/
 #stuffedanimalwardiv
 {
@@ -51,7 +48,7 @@ body {
     padding: 0%;
     border: 2px solid;
     border-radius: 1%;
-    background-color: darkslategray;
+    background-color: #ffff00;
     text-align: center;
     position:absolute;
 }
@@ -69,8 +66,15 @@ body {
     border: 2px solid;
     background-color: rgb(130, 224, 255);
     text-align: left;
-    position:absolute;
+    /*position:absolute;*/
 }
+
+/*stuffedanimalwar.com*/
+#fulldisclosurediv{
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
 
 
 
