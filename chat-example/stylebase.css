@@ -1,4 +1,26 @@
 /*jaemzware*/
+
+
+/*stuffedanimalwar.com*/
+stuffedanimalwarsvg{
+    height:1000px; 
+    width:1000px; 
+}
+/*stuffedanimalwar.com*/
+/*#stuffedanimalwardiv*/
+/*{*/
+
+    /*margin: 0%;*/
+    /*border: 0%;*/
+    /*padding: 0%;*/
+    /*border: 2px solid;*/
+    /*border-radius: 1%;*/
+    /*background-color: #ffff00;*/
+    /*text-align: center;*/
+    /*position:absolute;*/
+/*}*/
+
+
 /*stuffedanimalwar.com*/
 td.divgamesectiontitle{
     vertical-align: top;
@@ -27,11 +49,7 @@ td.divgamesectioncontent{
 }
 
 
-/*stuffedanimalwar.com*/
-stuffedanimalwarsvg{
-    height:500px; 
-    width:500px; 
-}
+
 
 
 
@@ -47,19 +65,7 @@ body {
     color:white; /*text color*/
 }
 
-/*stuffedanimalwar.com*/
-#stuffedanimalwardiv
-{
 
-    /*margin: 0%;*/
-    /*border: 0%;*/
-    /*padding: 0%;*/
-    border: 2px solid;
-    border-radius: 1%;
-    background-color: #ffff00;
-    /*text-align: center;*/
-    /*position:absolute;*/
-}
 
 /*stuffedanimalwar.com*/
 #messagesdiv
