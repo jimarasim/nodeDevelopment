@@ -7,7 +7,6 @@ td.divgamesectiontitle{
 }
 
 
-
 /*stuffedanimalwar.com*/
 td.divgamesectioncontent{
     vertical-align: top;
@@ -27,11 +26,6 @@ td.divgamesectioncontent{
     
 }
 
-/*stuffedanimalwar.com*/
-#messagesdiv{
-    background-color: navy;
-    color:white;
-}
 
 /*stuffedanimalwar.com*/
 stuffedanimalwarsvg{
@@ -57,19 +51,23 @@ body {
 #stuffedanimalwardiv
 {
 
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
+    /*margin: 0%;*/
+    /*border: 0%;*/
+    /*padding: 0%;*/
     border: 2px solid;
     border-radius: 1%;
     background-color: #ffff00;
-    text-align: center;
-    position:absolute;
+    /*text-align: center;*/
+    /*position:absolute;*/
 }
 
 /*stuffedanimalwar.com*/
 #messagesdiv
 {
+    background-color: navy;
+    color:white;
+    text-align: left;
+    
     /*contents of trash talk window can overflow the window*/
     overflow-x: scroll;
     overflow-y: scroll;
@@ -81,10 +79,6 @@ body {
     /*border of the trash talk window*/
     border-radius: 5%;
     border: 5px solid;
-    
-    background-color: lightgoldenrodyellow;
-    text-align: left;
-    /*position:absolute;*/
 }
 
 /*stuffedanimalwar.com*/
