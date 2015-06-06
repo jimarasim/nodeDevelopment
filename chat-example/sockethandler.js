@@ -61,8 +61,8 @@ socket.on('tap msg', function(msg){
     var newPointY = msgObject.y;
 
     //save off these coordinates (for drawing a line)
-    var oldPointX =$("#svgrect1").attr("x");
-    var oldPointY =$("#svgrect1").attr("y");
+    var oldPointX =$("#stuffedanimalwarsvg").attr("x");
+    var oldPointY =$("#stuffedanimalwarsvg").attr("y");
 
     //draw a line from the new to the old location
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
