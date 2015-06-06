@@ -45,7 +45,7 @@ socket.on('chat message', function(msg){
 
 //STUFFED ANIMAL WAR
 //tell server about new coordinates when clicked
-$('#stuffedanimalwarsvg').click(function(event){
+$('#stuffedsvg').click(function(event){
     //report coordinates to the server
     socket.emit('tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 
@@ -61,8 +61,8 @@ socket.on('tap msg', function(msg){
     var newPointY = msgObject.y;
 
     //save off these coordinates (for drawing a line)
-    var oldPointX =$("#stuffedanimalwarsvg").attr("x");
-    var oldPointY =$("#stuffedanimalwarsvg").attr("y");
+    var oldPointX =$("#stuffedsvg").attr("x");
+    var oldPointY =$("#stuffedsvg").attr("y");
 
     //draw a line from the new to the old location
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');

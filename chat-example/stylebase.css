@@ -27,6 +27,8 @@ stuffedanimalwarsvg{
 
 /*stuffedanimalwar.com*/
 body {
+    vertical-align: top;
+    text-align: left;
     
     /*http://www.w3schools.com/css/css_background.asp*/
     background-image: url("stuffedanimalwarfinal.jpg");
