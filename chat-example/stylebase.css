@@ -1,4 +1,32 @@
 /*jaemzware*/
+
+#fulldisclosurediv{
+    
+}
+
+
+/*stuffedanimalwar.com*/
+.divsection {
+    
+        height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+    width:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+    
+    overflow-x: scroll;
+    overflow-y: scroll;
+    
+}
+
+/*stuffedanimalwar.com*/
+#svgtag1{
+    
+        height:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+    width:500px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+    
+    
+}
+
+
+/*stuffedanimalwar.com*/
 body {
     
     /*http://www.w3schools.com/css/css_background.asp*/
@@ -9,23 +37,20 @@ body {
     background-color: #000000;
     color:white;
 }
-
+/*stuffedanimalwar.com*/
 #messagesdiv{
-    background-image: url("stuffedanimalwar.jpg");
-    background-repeat:no-repeat;
-    background-position:right top;
+
     
     background-color: #000000;
     color:orangered;
     
 }
 
-/*note: same width and height as svg*/
-.divsvg
+/*stuffedanimalwar.com*/
+#stuffedanimalwardiv
 {
     top:250px; /*THIS NEEDS TO BE ACCOUNTED FOR WHEN SETTING POSITIONS INSIDE SVG*/
-    height:200px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
-    width:200px; /*THIS NEEDS TO BE THE SAME AS SVG AND MESSAGESDIV*/
+
     margin: 0%;
     border: 0%;
     padding: 0%;
@@ -36,18 +61,12 @@ body {
     position:absolute;
 }
 
-svg
-{
-    height:200px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG AND MESSAGESDIV*/
-    width:200px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG AND MESSAGESDIV*/
-}
-
+/*stuffedanimalwar.com*/
 #messagesdiv
 {
     overflow-x: scroll;
     overflow-y: scroll;
-    width: 200px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG AND .SVG*/
-    height: 200px; /*THIS NEEDS TO BE THE SAME AS .DIVSVG AND .SVG*/
+
     margin: 0%;
     border: 0%;
     padding: 0%;
@@ -58,12 +77,32 @@ svg
     position:absolute;
 }
 
+
+
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
 #messages
 {
     list-style-type: none;
 }
 
-
+/*NOT USED BY stuffedanimalwar.com*/
 #canvasdiv
 {
     width: 50%;
@@ -79,16 +118,19 @@ svg
     text-align: center;
 }
 
+/*NOT USED BY stuffedanimalwar.com*/
 #dragdiv2
 {
     background-color:orange;
 }
 
+/*NOT USED BY stuffedanimalwar.com*/
 #dragdiv1
 {
     background-color:purple;
 }
 
+/*NOT USED BY stuffedanimalwar.com*/
 .dragdiv
 {
     height:500px;
@@ -102,7 +144,7 @@ svg
     float:left;
 }
 
-
+/*NOT USED BY stuffedanimalwar.com*/
 #svgrect2
 {
     fill:#f0f0f0;
