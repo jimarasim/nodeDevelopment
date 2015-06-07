@@ -68,6 +68,7 @@ socket.on('tap msg', function(msg){
 
     //draw a line from the new to the old location
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
+    
     newLine.setAttribute('id','line'+$.now());
     newLine.setAttribute('x1',newPointX);
     newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 300
