@@ -63,8 +63,8 @@ socket.on('tap msg', function(msg){
     var newPointY = msgObject.y;
 
     //save off these coordinates (for drawing a line)
-    var oldPointX =$("#stuffedanimalwarsvg").attr("x");
-    var oldPointY =$("#stuffedanimalwarsvg").attr("y");
+    var oldPointX =$("#stuffedanimalwarsvgrect").attr("x");
+    var oldPointY =$("#stuffedanimalwarsvgrect").attr("y");
 
     //draw a line from the new to the old location
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
@@ -76,8 +76,54 @@ socket.on('tap msg', function(msg){
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
     $("#stuffedanimalwarsvg").append(newLine);
+    
+    
+    //move the rectangle to where the click was made
+    $("#stuffedanimalwarsvgrect").attr("x",newPointX);
+    $("#stuffedanimalwarsvgrect").attr("y",newPointY-divSvgTop); 
 
 });
+//when server sends coordinates for someone clicking or tapping
+socket.on('tap msg', function(msg){
+          
+    //convert json string to an object
+    var msgObject = jQuery.parseJSON(msg);
+
+    //get the coordinates emitted
+    var newPointX = msgObject.x;
+    var newPointY = msgObject.y;
+
+    //save off these coordinates (for drawing a line)
+    var oldPointX =$("#svgrect1").attr("x");
+    var oldPointY =$("#svgrect1").attr("y");
+
+    //draw a line from the new to the old location
+    var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
+    newLine.setAttribute('id','line'+$.now());
+    newLine.setAttribute('x1',newPointX);
+    newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
+    newLine.setAttribute('x2',oldPointX);
+    newLine.setAttribute('y2',oldPointY);
+    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
+    $("#svgtag1").append(newLine);
+
+    //move the rectangle to where the click was made
+    $("#svgrect1").attr("x",newPointX);
+    $("#svgrect1").attr("y",newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
+          
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
  * this function returns a random color value, used by drawing new things
