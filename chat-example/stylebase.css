@@ -3,8 +3,19 @@
 
 /*stuffedanimalwar.com*/
 stuffedanimalwarsvg{
-    height:3000px; 
-    width:3000px; 
+    height:1000px; 
+    width:1000px; 
+}
+
+/*stuffedanimalwar.com*/
+.divgamesection {
+    
+    height:1000px; 
+    width:1000px; 
+    
+    overflow-x: scroll;
+    overflow-y: scroll;
+    
 }
 
 /*stuffedanimalwar.com*/
@@ -21,22 +32,6 @@ td.divgamesectioncontent{
     text-align: left;
     
 }
-
-
-/*stuffedanimalwar.com*/
-.divgamesection {
-    
-    height:500px; 
-    width:500px; 
-    
-    overflow-x: scroll;
-    overflow-y: scroll;
-    
-}
-
-
-
-
 
 
 /*stuffedanimalwar.com*/
