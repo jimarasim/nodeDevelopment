@@ -77,7 +77,6 @@ socket.on('tap msg', function(msg){
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
     $("#stuffedanimalwarsvg").append(newLine);
     
-    
     //move the rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY-divSvgTop); 
