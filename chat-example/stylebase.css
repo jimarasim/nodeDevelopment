@@ -1,25 +1,29 @@
 /*jaemzware*/
 
-stuffedanimalwardiv{
-    top:0px;
-}
-
-/*stuffedanimalwar.com*/
-stuffedanimalwarsvg{
-    height:1000px; 
-    width:1000px; 
-}
 
 /*stuffedanimalwar.com*/
 .divgamesection {
     
-    height:1000px; 
-    width:1000px; 
+    height:3000px; 
+    width:3000px; 
     
     overflow-x: scroll;
     overflow-y: scroll;
     
 }
+
+/*stuffedanimalwar.com*/
+#stuffedanimalwardiv{
+    top:0px;
+}
+
+/*stuffedanimalwar.com*/
+#stuffedanimalwarsvg{
+    height:1000px; 
+    width:1000px; 
+}
+
+
 
 /*stuffedanimalwar.com*/
 td.divgamesectiontitle{
