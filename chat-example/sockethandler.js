@@ -1,9 +1,7 @@
 /*jaemzware*/
 
 var socket = io();
-var divSvgTop = 0; 
-
-
+var stuffedanimalwardivTop = 0; 
 
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
@@ -71,7 +69,7 @@ socket.on('tap msg', function(msg){
     
     newLine.setAttribute('id','line'+$.now());
     newLine.setAttribute('x1',newPointX);
-    newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 300
+    newLine.setAttribute('y1',newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
@@ -79,7 +77,7 @@ socket.on('tap msg', function(msg){
     
     //move the rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
-    $("#stuffedanimalwarsvgrect").attr("y",newPointY-divSvgTop); 
+    $("#stuffedanimalwarsvgrect").attr("y",newPointY-stuffedanimalwardivTop); 
 
 });
 //when server sends coordinates for someone clicking or tapping
@@ -100,7 +98,7 @@ socket.on('tap msg', function(msg){
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
     newLine.setAttribute('id','line'+$.now());
     newLine.setAttribute('x1',newPointX);
-    newLine.setAttribute('y1',newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
+    newLine.setAttribute('y1',newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
@@ -108,7 +106,7 @@ socket.on('tap msg', function(msg){
 
     //move the rectangle to where the click was made
     $("#svgrect1").attr("x",newPointX);
-    $("#svgrect1").attr("y",newPointY-divSvgTop); //NOTE: TOP OF .divsvg IS 250
+    $("#svgrect1").attr("y",newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
           
 });
 
