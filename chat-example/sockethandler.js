@@ -111,18 +111,6 @@ socket.on('tap msg', function(msg){
           
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*
  * this function returns a random color value, used by drawing new things
  */
