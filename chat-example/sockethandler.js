@@ -48,10 +48,11 @@ $('#stuffedanimalwarsvg').click(function(event){
 
 });
 
-
-
-//when we receive coordinates for the server 
+//DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
 socket.on('tap msg', function(msg){
+          
+    //width of the line to draw
+    var lineWidth = 5;
           
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
@@ -72,7 +73,7 @@ socket.on('tap msg', function(msg){
     newLine.setAttribute('y1',newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
+    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth);
     $("#stuffedanimalwarsvg").append(newLine);
     
     //move the rectangle to where the click was made
