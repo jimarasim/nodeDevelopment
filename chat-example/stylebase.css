@@ -1,28 +1,18 @@
-/*STUFFED ANIMAL WAR*/
-/*jaemzware.org*/
+/*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 
 /*stuffedanimalwar.com*/
-.divgamesection {
+div.divstuffedanimalwar
+svg.svgstuffedanimalwar
+{
+    vertical-align: top;
+    text-align: left;
     
-    height:50%; 
-    width:99%; 
+    height:100%; 
+    width:100%; 
     
     overflow-x: scroll;
     overflow-y: scroll;
-    
 }
-
-/*stuffedanimalwar.com*/
-#stuffedanimalwarsvg{
-    height:50%; 
-    width:99%; 
-}
-
-/*stuffedanimalwar.com*/
-#stuffedanimalwardiv{
-    top:0px;
-}
-
 
 /*stuffedanimalwar.com*/
 td.divgamesectiontitle{
@@ -31,14 +21,17 @@ td.divgamesectiontitle{
     
 }
 
-
 /*stuffedanimalwar.com*/
 td.divgamesectioncontent{
     vertical-align: top;
     text-align: left;
     
+    height:40%; /*there are 2 block elements using this class*/ 
+    width:99%; 
+    
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
-
 
 /*stuffedanimalwar.com*/
 body {
@@ -51,8 +44,6 @@ body {
     background-color: black; /*background behind any elements on the body of the page*/
     color:white; /*text color*/
 }
-
-
 
 /*stuffedanimalwar.com*/
 #messagesdiv
