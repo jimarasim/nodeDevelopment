@@ -24,7 +24,6 @@ svg.svgstuffedanimalwar
 td.divgamesectiontitle{
     vertical-align: top;
     text-align: left;
-    
 }
 
 /*stuffedanimalwar.com*/
@@ -74,7 +73,29 @@ body {
 
 }
 
+/* unvisited link */
+a.jaemzwarelogo:link {
+    color: white;
+    text-decoration:underline;
+}
 
+/* visited link */
+a.jaemzwarelogo:visited {
+    color: white;
+    text-decoration:underline;
+}
+
+/* mouse over link */
+a.jaemzwarelogo:hover {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+/* selected link */
+a.jaemzwarelogo:active {
+    color: white;
+    text-decoration: underline;
+}
 
 
 /*NOT USED BY stuffedanimalwar.com*/
