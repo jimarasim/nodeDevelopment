@@ -4,6 +4,12 @@
 div.divstuffedanimalwar
 svg.svgstuffedanimalwar
 {
+       
+    /*http://www.w3schools.com/css/css_background.asp*/
+    background-image: url("stuffedanimalwarfinal.jpg");
+    background-repeat:no-repeat;
+    background-position:left;
+    
     vertical-align: top;
     text-align: left;
     
@@ -35,12 +41,6 @@ td.divgamesectioncontent{
 
 /*stuffedanimalwar.com*/
 body {
-    
-    /*http://www.w3schools.com/css/css_background.asp*/
-    background-image: url("stuffedanimalwarfinal.jpg");
-    background-repeat:no-repeat;
-    background-position:left;
-    
     background-color: black; /*background behind any elements on the body of the page*/
     color:white; /*text color*/
 }
