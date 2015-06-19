@@ -34,7 +34,7 @@ socket.on('chat message', function(msg){
             
         $('#messagesdiv').prepend($('<br />'));
         
-            $("<img/>").prependTo("#messagesdiv").attr({s
+            $("<img/>").prependTo("#messagesdiv").attr({
                 src: chatClientMessage,
                 alt: chatClientMessage,
                 height: '50'
