@@ -1,4 +1,4 @@
-<!--jaemzware-->
+<!-- STUFFED ANIMAL WAR - jaemzware.org - 20150611 -->
 
 <!doctype html>
 <html>
@@ -9,21 +9,16 @@
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
     </head>
     <body>
-     
-       
-        
-      
+   
 <form action="">
-  
+    
 <!--STUFFED ANIMAL WAR STANDALONE-->
-<div id="stuffedanimalwardiv" class="divgamesection">
-    <svg id="stuffedanimalwarsvg">
-        <rect id="stuffedanimalwarsvgrect" x="10" y="10" width="10" height="10" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
-    </svg>
+<div id="stuffedanimalwardiv" class="divstuffedanimalwar">
+<svg id="stuffedanimalwarsvg" class="svgstuffedanimalwar">
+<rect id="stuffedanimalwarsvgrect" x="0" y="0" width="1" height="1" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
+</svg>
 </div>
 
-<br />
-<br />
 <br />
     
 <table>
@@ -31,10 +26,12 @@
 <!--CHAT MESSAGE USER ROW-->
 <tr>
     <td class='divgamesectiontitle'>
-        nombre
+        <b>NOMBRE</b> <!--SPANISH FOR "YOUR NAME"-->
     </td>
     <td class='divgamesectioncontent'>
         <input id="chatClientUser" />
+        <br />
+        <em>type an alias here, that you want to identify you in CHAT</em>
     </td>
 </tr>
 
@@ -42,73 +39,90 @@
 <!--CHAT MESSAGE MESSAGE ROW-->
 <tr>
     <td class='divgamesectiontitle'>
-        la touche
+        <b>MESSAGE</b> <!--FRENCH FOR "A MESSAGE"-->
     </td>
     <td class='divgamesectioncontent'>
         <input id="chatClientMessage" />
+        <button>
+            SENDE <!--GERMAN FOR "AUTOMATIC"-->
+        </button>
+        <br />
+        <em>type a message that you want to send to all users in CHAT</em>
     </td>
 </tr>
-
 
 <!--CHAT MESSAGE AUTO RESPONDER ROW-->
 <tr>
     <td class='divgamesectiontitle'>
-        <button>
-            sende
-        </button>
+        
     </td>
     <td class='divgamesectioncontent'>
         <select id="chatClientAutoResponder" size=1 >
-                <option value="blank" selected></option>
+                <option value="blank" selected></option>        
+                <option value="asl">asl?</option>
+                <option value="aybatu">aybatu</option>
+                <option value="idratherplaywithmycat">i'd rather play with my cat</option>
                 <option value="ilikeyou">i like you</option>
-                <option value="iloveyou">i love you</option>
-                <option value="youremybestfriend">youre my best friend</option>
-                <option value="picsoritdidnthappen">pics or it didnt happen</option>
-                <option value="idratherplaywithmycat">id rather play with my cat</option>
+                <option value="lol">lol</option>
+                <option value="omg">omg</option>
+                <option value="picsoritdidnthappen">pics or it didn't happen</option>
+                <option value="reincarnation">i don't believe in reincarnation because i don't want to come back as a bug or as a rabbit</option>  
+                <option value="roflcopter">roflcopter</option>
                 <option value="thatlinkisbusted">that link is busted</option>
                 <option value="thatlinkisrad">that link is rad</option>
                 <option value="thatrules">that rules</option>
                 <option value="thatsucks">that sucks</option>
+                <option value="thatscool">that's cool</option>
                 <option value="thatswhatshesaid">thats what she said</option>
+                <option value="youinspireme">you inspire me</option>
+                <option value="youlookverynicetoday">you look very nice today</option>
+                <option value="youknowyourearealupperson">you know, you're a real 'up' person</option>
+                <option value="youremybestfriend">youre my best friend</option>
+                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
+                <option value="yourewrong">youre wrong</option>  
+                <option value="yourmomgoestocollege">your mom goes to college</option>
                 <option value="yourock">you rock</option>
                 <option value="yousearchforit">you search for it</option>
                 <option value="yousuck">you suck</option>
-                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
-                <option value="yourewrong">youre wrong</option>  
-                <option value="reincarnation">i dont believe in reincarnation because i dont want to come back as a bug or as a rabbit</option>  
         </select>
     </td>
 </tr>
 
-
 <!--CHAT DIALOG WINDOW ROW / SHIT TALK ROW-->
 <tr>
     <td class='divgamesectiontitle'>
-        
+        <b>CHAT</b>
     </td>
      <td class='divgamesectioncontent'>
-        <div id="messagesdiv" class='divgamesection'>
+        <div id="messagesdiv">
         </div>
     </td>
 </tr>
 
-
-
 <!-- FULL DISCLOSURE -->
 <tr>
     <td class='divgamesectiontitle'>
-        FULL DISCLOSURE
+        <b>PRIVACY</b>
     </td>
     <td class='divgamesectioncontent'>
-        <div id='fulldisclosurediv' class='divgamesection'>
+        <div id='fulldisclosurediv'>
+            
             <ul>
-                <li>Stuffed Animal War will never have advertising nor anything for sale.</li>
-                <li>Chat and drawing coordinate data is not stored by this chat engine.</li>
-                <li>Stuffed Animal War has no database.</li>
-                <li>Stuffed Animal War stores no cookies (at least <a id="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> is not leaving them).</li>
-                <li><a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source. </li>
-                <li><a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source.</li>
-                <li>There's nothing for the NSA to gather as soon as you close your browser., unless they're tracing the http line from my home web server to your computer.</li>
+                <li>
+                    stuffedanimalwar will never have advertising nor anything for sale.
+                </li>
+                <li>
+                    stuffedanimalwar chat and drawing coordinate data is not stored by this chat engine.
+                </li>
+                <li>
+                    stuffedanimalwar has no database.
+                </li>
+                <li>
+                    stuffedanimalwar stores no cookies (at least <a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> is not leaving them).
+                </li>
+                <li>
+                    stuffedanimalwar and <a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source.
+                </li>
             </ul>
         </div> 
     </td>

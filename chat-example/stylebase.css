@@ -1,59 +1,50 @@
-/*jaemzware*/
-
+/*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 
 /*stuffedanimalwar.com*/
-.divgamesection {
+div.divstuffedanimalwar
+svg.svgstuffedanimalwar
+{
+       
+    /*http://www.w3schools.com/css/css_background.asp*/
+    background-image: url("stuffedanimalwarfinal.jpg");
+    background-repeat:no-repeat;
+    background-position:left;
     
-    height:3000px; 
-    width:3000px; 
+    vertical-align: top;
+    text-align: left;
+    
+    height:100%; 
+    width:100%; 
     
     overflow-x: scroll;
     overflow-y: scroll;
-    
 }
-
-/*stuffedanimalwar.com*/
-#stuffedanimalwardiv{
-    top:0px;
-}
-
-/*stuffedanimalwar.com*/
-#stuffedanimalwarsvg{
-    height:1000px; 
-    width:1000px; 
-}
-
-
 
 /*stuffedanimalwar.com*/
 td.divgamesectiontitle{
     vertical-align: top;
     text-align: left;
-    
 }
-
 
 /*stuffedanimalwar.com*/
 td.divgamesectioncontent{
     vertical-align: top;
     text-align: left;
     
+    height:40%; /*there are 2 block elements using this class*/ 
+    width:99%; 
+    
+    overflow-x: scroll;
+    overflow-y: scroll;
+    
+    background-color: darkblue;
 }
-
 
 /*stuffedanimalwar.com*/
 body {
-    
-    /*http://www.w3schools.com/css/css_background.asp*/
-    background-image: url("stuffedanimalwarfinal.jpg");
-    background-repeat:no-repeat;
-    background-position:left;
-    
     background-color: black; /*background behind any elements on the body of the page*/
     color:white; /*text color*/
 }
-
-
 
 /*stuffedanimalwar.com*/
 #messagesdiv
@@ -71,8 +62,8 @@ body {
     padding: 0%;
     
     /*border of the trash talk window*/
-    border-radius: 1%;
-    border: 1px solid;
+    /*border-radius: 1%;*/
+    border: 3px solid;
 }
 
 /*stuffedanimalwar.com*/
@@ -84,7 +75,29 @@ body {
 
 }
 
+/* unvisited link */
+a.jaemzwarelogo:link {
+    color: white;
+    text-decoration:underline;
+}
 
+/* visited link */
+a.jaemzwarelogo:visited {
+    color: white;
+    text-decoration:underline;
+}
+
+/* mouse over link */
+a.jaemzwarelogo:hover {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+/* selected link */
+a.jaemzwarelogo:active {
+    color: white;
+    text-decoration: underline;
+}
 
 
 /*NOT USED BY stuffedanimalwar.com*/

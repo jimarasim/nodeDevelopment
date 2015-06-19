@@ -69,6 +69,18 @@ app.get('/', function(req, res){
         res.sendFile(__dirname + '/index.html');
 });
 
+
+app.get('/camppapaken', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/camppapaken.html');
+});
+
+app.get('/vivideyecare', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/vivideyecare.html');
+});
+
+
 //handler for incoming get requests
 app.get('/canvas', function(req, res){
         //send a file back as the response
