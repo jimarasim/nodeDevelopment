@@ -17,14 +17,48 @@ $('form').submit(function(){
     return false;
 });
 
+String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
+
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chat message', function(msg){
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.chatClientMessage;
 
-    $('#messagesdiv').prepend($('<br />'));
-    $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    if ((chatClientMessage.indexOf("http")===0) &&
+            ((  chatClientMessage.indexOf(".jpg") !== -1 ||
+                chatClientMessage.indexOf(".gif") !== -1 ||
+                chatClientMessage.indexOf(".jpeg") !== -1))){
+            
+            
+            
+        $('#messagesdiv').prepend($('<br />'));
+        
+            $("<img/>").prependTo("#messagesdiv").attr({s
+                src: chatClientMessage,
+                alt: chatClientMessage,
+                height: '50'
+             });
+             
+             
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+  
+    }
+    else if(chatClientMessage.indexOf(".mp3") != -1){
+        //TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    }
+    else if(chatClientMessage.indexOf(".mp3") != -1){
+        //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    }
+    else{
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    }
 });
 
 //AUTORESPONDER SELECT DROP DOWN
