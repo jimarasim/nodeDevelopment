@@ -30,8 +30,6 @@ socket.on('chat message', function(msg){
                 chatClientMessage.indexOf(".gif") !== -1 ||
                 chatClientMessage.indexOf(".jpeg") !== -1))){
             
-            
-            
         $('#messagesdiv').prepend($('<br />'));
         
             $("<img/>").prependTo("#messagesdiv").attr({

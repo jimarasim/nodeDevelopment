@@ -28,11 +28,13 @@ var listenPort = process.argv[2];
 ////////////////////////////////////////////////////////////////////////////////////////////////////////SOCKET HANDLERS
 //handler for incoming socket connections
 io.on('connection', function(socket){
-      console.log('a user connected');
+        var chatClientAddress = socket.handshake.address;
+      console.log('CONNECT:'+chatClientAddress);
       
       //specify the socket disconnect event handler to print out a message when the user disconnects
       socket.on('disconnect', function(){
-                console.log('user disconnected');
+          var chatClientAddress = socket.handshake.address;
+                console.log('DISCONNECT:'+chatClientAddress);
                 });
       
       //specify 'chat message' event handler. happens when emit(ted) by the client
@@ -42,11 +44,11 @@ io.on('connection', function(socket){
                 var chatClientAddress = socket.handshake.address;
                 var chatClientDate = new Date();
                 
-                console.log('chatClientMessage: ' + chatClientMessage);
+                console.log('CHATCLIENTMESSAGE: ' + chatClientMessage);
                 
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('chat message','{"chatClientMessage":"'+chatClientMessage+'"}');
-                console.log('chat message','{"chatClientMessage":"'+chatClientMessage+'","chatClientAddress":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
+                io.emit('chat message','{"CHATCLIENTMESSAGE":"'+chatClientMessage+'"}');
+                console.log('chat message','{"CHATCLIENTMESSAGE":"'+chatClientMessage+'","CHATCLIENTADDRESS":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
           
       });
       
