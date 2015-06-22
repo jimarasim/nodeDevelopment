@@ -6,7 +6,8 @@ svg.svgstuffedanimalwar
 {
        
     /*http://www.w3schools.com/css/css_background.asp*/
-    background-image: url("stuffedanimalwarfinal.jpg");
+    /*background-image: url("stuffedanimalwarfinal.jpg");*/
+    background-color: wheat;
     background-repeat:no-repeat;
     background-position:left;
     

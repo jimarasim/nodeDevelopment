@@ -82,6 +82,11 @@ app.get('/vivideyecare', function(req, res){
         res.sendFile(__dirname + '/vivideyecare.html');
 });
 
+app.get('/bartonhouse', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/bartonhouse.html');
+});
+
 
 //handler for incoming get requests
 app.get('/canvas', function(req, res){
