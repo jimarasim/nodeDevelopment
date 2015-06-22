@@ -17,14 +17,46 @@ $('form').submit(function(){
     return false;
 });
 
+String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
+
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chat message', function(msg){
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.chatClientMessage;
 
-    $('#messagesdiv').prepend($('<br />'));
-    $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    if ((chatClientMessage.indexOf("http")===0) &&
+            ((  chatClientMessage.indexOf(".jpg") !== -1 ||
+                chatClientMessage.indexOf(".gif") !== -1 ||
+                chatClientMessage.indexOf(".jpeg") !== -1))){
+            
+        $('#messagesdiv').prepend($('<br />'));
+        
+            $("<img/>").prependTo("#messagesdiv").attr({
+                src: chatClientMessage,
+                alt: chatClientMessage,
+                height: '50'
+             });
+             
+             
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+  
+    }
+    else if(chatClientMessage.indexOf(".mp3") != -1){
+        //TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    }
+    else if(chatClientMessage.indexOf(".mp3") != -1){
+        //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    }
+    else{
+        $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+    }
 });
 
 //AUTORESPONDER SELECT DROP DOWN
@@ -50,7 +82,13 @@ $('#stuffedanimalwarsvg').click(function(event){
 
 //STUFFED ANIMAL WAR
 //the server is telling us new coordinates for the next line from another player
+=======
+//DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
+>>>>>>> d0f1cf2734cddd9524bc48bae4d41addc2469fa1
 socket.on('tap msg', function(msg){
+          
+    //width of the line to draw
+    var lineWidth = 5;
           
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
@@ -71,7 +109,7 @@ socket.on('tap msg', function(msg){
     newLine.setAttribute('y1',newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:7');
+    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth);
     $("#stuffedanimalwarsvg").append(newLine);
     
     //move the rectangle to where the click was made
@@ -79,6 +117,7 @@ socket.on('tap msg', function(msg){
     $("#stuffedanimalwarsvgrect").attr("y",newPointY-stuffedanimalwardivTop); 
 
 });
+
 
 /*
  * this function returns a random color value, used by drawing new things
