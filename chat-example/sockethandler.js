@@ -82,9 +82,9 @@ $('#stuffedanimalwarsvg').click(function(event){
 
 //STUFFED ANIMAL WAR
 //the server is telling us new coordinates for the next line from another player
-=======
+
 //DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
->>>>>>> d0f1cf2734cddd9524bc48bae4d41addc2469fa1
+
 socket.on('tap msg', function(msg){
           
     //width of the line to draw
