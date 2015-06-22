@@ -6,7 +6,7 @@ var stuffedanimalwardivTop = 0;
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
     
-    messageToEmit = $('#chatClientMessage').val() + " [" + $('#chatClientUser').val()+"]";
+    messageToEmit = $('#chatClientMessage').val();
     console.log("MESSAGETOEMITTEXTBOX:"+messageToEmit);
     
     //send the message
@@ -61,7 +61,7 @@ socket.on('chat message', function(msg){
 
 //AUTORESPONDER SELECT DROP DOWN
 $('#chatClientAutoResponder').change(function(){
-    messageToEmit = $('#chatClientAutoResponder option:selected').text() + " [" + $('#chatClientUser').val()+"]";
+    messageToEmit = $('#chatClientAutoResponder option:selected').text();
     console.log("MESSAGETOEMITAUTORESPONDER:"+messageToEmit);
     
     //send the message
