@@ -25,7 +25,7 @@ socket.on('chat message', function(msg){
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.chatClientMessage;
 
-    if ((chatClientMessage.indexOf("http")===0) &&
+    if ((chatClientMessage.indexOf("http")!==-1) &&
             ((  chatClientMessage.indexOf(".jpg") !== -1 ||
                 chatClientMessage.indexOf(".gif") !== -1 ||
                 chatClientMessage.indexOf(".jpeg") !== -1))){
