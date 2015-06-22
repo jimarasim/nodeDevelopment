@@ -25,10 +25,10 @@ socket.on('chat message', function(msg){
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.chatClientMessage;
 
-    if ((chatClientMessage.indexOf("http")!==-1) &&
-            ((  chatClientMessage.indexOf(".jpg") !== -1 ||
-                chatClientMessage.indexOf(".gif") !== -1 ||
-                chatClientMessage.indexOf(".jpeg") !== -1))){
+    if ((chatClientMessage.includes("http")) &&
+            ((  chatClientMessage.includes(".jpg") ||
+                chatClientMessage.includes(".gif") ||
+                chatClientMessage.includes(".jpeg")))){
             
         $('#messagesdiv').prepend($('<br />'));
         
@@ -43,12 +43,12 @@ socket.on('chat message', function(msg){
         $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
   
     }
-    else if(chatClientMessage.indexOf(".mp3") != -1){
+    else if(chatClientMessage.includes(".mp3")){
         //TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE
         $('#messagesdiv').prepend($('<br />'));
         $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
     }
-    else if(chatClientMessage.indexOf(".mp3") != -1){
+    else if(chatClientMessage.includes(".mp3")){
         //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
         $('#messagesdiv').prepend($('<br />'));
         $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
