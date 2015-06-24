@@ -17,7 +17,7 @@ $('form').submit(function(){
     return false;
 });
 
-String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
+String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chat message', function(msg){
@@ -82,9 +82,7 @@ $('#stuffedanimalwarsvg').click(function(event){
 
 //STUFFED ANIMAL WAR
 //the server is telling us new coordinates for the next line from another player
-
 //DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
-
 socket.on('tap msg', function(msg){
           
     //width of the line to draw
