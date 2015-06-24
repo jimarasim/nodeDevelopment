@@ -25,10 +25,10 @@ socket.on('chat message', function(msg){
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.chatClientMessage;
 
-    if ((chatClientMessage.includes("http")) &&
-            ((  chatClientMessage.includes(".jpg") ||
-                chatClientMessage.includes(".gif") ||
-                chatClientMessage.includes(".jpeg")))){
+    if ((chatClientMessage.contains("http")) &&
+            ((  chatClientMessage.contains(".jpg") ||
+                chatClientMessage.contains(".gif") ||
+                chatClientMessage.contains(".jpeg")))){
             
         $('#messagesdiv').prepend($('<br />'));
         
