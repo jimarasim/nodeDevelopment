@@ -23,7 +23,7 @@ String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 socket.on('chat message', function(msg){
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
-    var chatClientMessage = msgObject.chatClientMessage;
+    var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
 
     if ((chatClientMessage.contains("http")) &&
             ((  chatClientMessage.contains(".jpg") ||
