@@ -122,7 +122,11 @@ function getRandomColorValue(){
 }
 
 function emitChatMessage(message){
-    var userSendingMessage = $("#chatClientUser").val();
+    var userSendingMessage = $("#chatClientUser").text();
+    
+    if(userSendingMessage.length===0){
+        userSendingMessage = "Person Doe";
+    }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
     messageToEmit = "{'CHATCLIENTUSER':'"+userSendingMessage+"','CHATCLIENTMESSAGE':'"+message+"'}";
