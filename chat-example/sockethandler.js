@@ -6,21 +6,35 @@ var stuffedanimalwardivTop = 0;
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
     
-    messageToEmit = $('#chatClientMessage').val();
-    console.log("MESSAGETOEMITTEXTBOX:"+messageToEmit);
+    messageToEmit = '{"CHATCLIENTMESSAGE":"'+$('#chatClientMessage').val()+'"}';
+    console.log("MESSAGETOEMIT:"+messageToEmit);
     
     //send the message
-    socket.emit('chat message',messageToEmit); 
+    socket.emit('chatmessage',messageToEmit); 
   
     //clear the message box
     $('#chatClientMessage').val('');
     return false;
 });
 
+
+//AUTORESPONDER SELECT DROP DOWN
+$('#chatClientAutoResponder').change(function(){
+    
+    messageToEmit = '{"CHATCLIENTMESSAGE":"'+$('#chatClientAutoResponder option:selected').text()+'"}';
+    console.log("MESSAGETOEMITAUTORESPONDER:"+messageToEmit);
+    
+    //send the message
+    socket.emit('chatmessage',messageToEmit); 
+    
+    //set the autoresponder back to blanck
+    $('#chatClientAutoResponder').val('blank');
+});
+
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
-socket.on('chat message', function(msg){
+socket.on('chatmessage', function(msg){
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
@@ -59,17 +73,6 @@ socket.on('chat message', function(msg){
     }
 });
 
-//AUTORESPONDER SELECT DROP DOWN
-$('#chatClientAutoResponder').change(function(){
-    messageToEmit = $('#chatClientAutoResponder option:selected').text();
-    console.log("MESSAGETOEMITAUTORESPONDER:"+messageToEmit);
-    
-    //send the message
-    socket.emit('chat message',messageToEmit); 
-    
-    //set the autoresponder back to blanck
-    $('#chatClientAutoResponder').val('blank');
-});
 
 //STUFFED ANIMAL WAR
 //tell server about new coordinates when clicked
