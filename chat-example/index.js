@@ -44,18 +44,12 @@ io.on('connection', function(socket){
                 var chatClientAddress = socket.handshake.address;
                 var chatClientDate = new Date();
                 
-                console.log('CHATCLIENTMESSAGE: ' + chatClientMessage);
-                
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('chatmessage','{"CHATCLIENTMESSAGE":"'+chatClientMessage+'"}');
-                console.log('chatmessage','{"CHATCLIENTMESSAGE":"'+chatClientMessage+'","CHATCLIENTADDRESS":"'+chatClientAddress+'","chatClientDate":"'+chatClientDate.toUTCString()+'"}');
-          
+                io.emit('chatmessage',chatClientMessage);
       });
       
       //specify 'tapmessage' event handler, when emit(ted) by the user connection
       socket.on('tap msg', function(msg){
-                console.log('message: ' + msg);
-                
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
                 io.emit('tap msg',msg);
                 });

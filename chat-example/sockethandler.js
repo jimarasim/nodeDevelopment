@@ -6,12 +6,8 @@ var stuffedanimalwardivTop = 0;
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
     
-    messageToEmit = '{"CHATCLIENTMESSAGE":"'+$('#chatClientMessage').val()+'"}';
-    console.log("MESSAGETOEMIT:"+messageToEmit);
+    emitChatMessage($('#chatClientMessage').val());
     
-    //send the message
-    socket.emit('chatmessage',messageToEmit); 
-  
     //clear the message box
     $('#chatClientMessage').val('');
     return false;
@@ -21,11 +17,7 @@ $('form').submit(function(){
 //AUTORESPONDER SELECT DROP DOWN
 $('#chatClientAutoResponder').change(function(){
     
-    messageToEmit = '{"CHATCLIENTMESSAGE":"'+$('#chatClientAutoResponder option:selected').text()+'"}';
-    console.log("MESSAGETOEMITAUTORESPONDER:"+messageToEmit);
-    
-    //send the message
-    socket.emit('chatmessage',messageToEmit); 
+    emitChatMessage($('#chatClientAutoResponder option:selected').text());
     
     //set the autoresponder back to blanck
     $('#chatClientAutoResponder').val('blank');
@@ -38,6 +30,8 @@ socket.on('chatmessage', function(msg){
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
+    var chatClientUser = msgObject.CHATCLIENTUSER;
+
 
     if ((chatClientMessage.contains("http")) &&
             ((  chatClientMessage.contains(".jpg") ||
@@ -125,4 +119,15 @@ socket.on('tap msg', function(msg){
  */
 function getRandomColorValue(){
     return Math.floor((Math.random() * 255) + 1);
+}
+
+function emitChatMessage(message){
+    var userSendingMessage = $("#chatClientUser").val();
+
+    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
+    messageToEmit = "{'CHATCLIENTUSER':'"+userSendingMessage+"','CHATCLIENTMESSAGE':'"+message+"'}";
+    console.log("MESSAGETOEMIT:"+messageToEmit);
+    
+    //send the message
+    socket.emit('chatmessage',messageToEmit); 
 }
