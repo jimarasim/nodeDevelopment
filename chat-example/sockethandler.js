@@ -4,19 +4,26 @@ var socket = io();
 var stuffedanimalwardivTop = 0; 
 
 function emitChatMessage(message){
-    var userSendingMessage = $("#chatClientUser").val();
     
-    if(userSendingMessage.length===0){
-        userSendingMessage = "PHANTOM JOE";
+    //get the user alias
+    var chatClientUser = $("#chatClientUser").val();
+    
+    if(chatClientUser.length===0){
+        chatClientUser = "PHANTOM JOE";
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    messageToEmit = userSendingMessage+":"+message;
-    console.log("1. MESSAGETOEMIT RIGHT NOW:"+messageToEmit);
+    var chatMessageObject = {
+              CHATCLIENTUSER: chatClientUser,
+              CHATSERVERUSER:'CHATSERVERUSER',
+              CHATCLIENTMESSAGE:message,
+              CHATSERVERDATE:'CHATSERVERDATE'
+          }  
     
+    console.log("1. MESSAGETOEMIT RIGHT NOW:"+chatMessageObject.toString());
     
     //send the message
-    socket.emit('chatmessage',messageToEmit); 
+    socket.emit('chatmessage',+chatMessageObject.toString()); 
     
     console.log("3. MESSAGETOEMIT WAS EMITTED:"+messageToEmit);
 }
@@ -46,22 +53,27 @@ String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chatmessage', function(msgObject){
     
-    /* THIS IS WHAT THE msg OBJECT SHOULD LOOK LIKE FROM THE SOCKET (SEE INDEX.JS)
+    /* THIS IS WHAT THE msg OBJECT SHOULD LOOK LIKE FROM THE SOCKET 
+     * (SEE emitChatMessage and INDEX.JS => socket.on('chatmessage', function(chatClientMessage){...})
      * var chatMessageObject = {
-              CHATSERVERUSER:chatClientAddress,
-              CHATCLIENTMESSAGE:chatClientMessage,
-              CHATSERVERDATE:chatClientDate
+              CHATCLIENTUSER: chatClientUser,
+              CHATSERVERUSER:'CHATSERVERUSER',
+              CHATCLIENTMESSAGE:message,
+              CHATSERVERDATE:'CHATSERVERDATE'
           }    
      */
     
     console.log("2.1 RECEIVING EMITTED MESSAGE msg:"+msgObject.toString());
     
+    var chatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
 
-    console.log("2.2 RECEIVING EMITTED MESSAGE chatClientMessage:"+chatClientMessage);
-    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatServerUser);
+    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatClientUser);
+    console.log("2.3 RECEIVING EMITTED MESSAGE chatServerUser:"+chatServerUser);
+    console.log("2.4 RECEIVING EMITTED MESSAGE chatClientMessage:"+chatClientMessage);
+    console.log("2.5 RECEIVING EMITTED MESSAGE chatServerDate:"+chatServerDate);
 
     if ((chatClientMessage.contains("http")) &&
             ((  chatClientMessage.contains(".jpg") ||
@@ -70,13 +82,13 @@ socket.on('chatmessage', function(msgObject){
             
         //print the message verbatim
         $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text(chatClientMessage+" "+chatServerUser+" "+chatServerDate));
+        $('#messagesdiv').prepend($('<span>').text(chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate));
         
         //display the image contained in the message
         $('#messagesdiv').prepend($('<br />'));
         $("<img/>").prependTo("#messagesdiv").attr({
             src: chatClientMessage,
-            alt: chatClientMessage+" "+chatServerUser+" "+chatServerDate,
+            alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
             height: '50'
          });
          
@@ -87,16 +99,16 @@ socket.on('chatmessage', function(msgObject){
     else if(chatClientMessage.includes(".mp3")){
         //TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE
         $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text("TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE"+chatClientMessage+" "+chatServerUser+" "+chatServerDate));
+        $('#messagesdiv').prepend($('<span>').text("TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
     }
     else if(chatClientMessage.includes(".mp4")){
         //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
         $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER LIKE ANALOG ARCHIVE"+chatClientMessage+" "+chatServerUser+" "+chatServerDate));
+        $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER LIKE ANALOG ARCHIVE. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
     }
     else{
         $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text(chatClientMessage+" "+chatServerUser+" "+chatServerDate));
+        $('#messagesdiv').prepend($('<span>').text("chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
     }
 });
 

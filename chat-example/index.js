@@ -40,22 +40,31 @@ io.on('connection', function(socket){
       //specify 'chat message' event handler. happens when emit(ted) by the client
       socket.on('chatmessage', function(chatClientMessage){
           
-        //get the address of the message emitter
-        var chatClientAddress = socket.handshake.address;
-        var chatClientDate = new Date();
-                
-          var chatMessageObject = {
-              CHATSERVERUSER:chatClientAddress,
-              CHATCLIENTMESSAGE:chatClientMessage,
-              CHATSERVERDATE:chatClientDate
-          }      
-                
-                
-                //broadcast chat message (client page needs to have  a socket.on handler for this)
-          console.log("2. INDEX.JS CHATCLIENTMESSAGE:"+chatMessageObject.toString());      
-          io.emit('chatmessage',chatMessageObject);
-                
+          /* THIS IS EMITTED FROM sockethandler.js => emitChatMessage
+           *     var chatMessageObject = {
+              CHATCLIENTUSER: chatClientUser,
+              CHATSERVERUSER:'CHATSERVERUSER',
+              CHATCLIENTMESSAGE:message,
+              CHATSERVERDATE:'CHATSERVERDATE'
+          }  
+           */
           
+        //get the address of the message emitter
+        var chatServerAddress = socket.handshake.address;
+        
+        //get datestamp from the server
+        var chatServerDate = new Date();
+        
+        //update the emitted json object with server information
+        chatClientMessage.CHATSERVERUSER = chatServerAddress;
+        chatClientMessage.CHATSERVERDATE = chatServerDate;
+           
+        //broadcast chat message to everyone listening
+        //client page needs to have this handler defined to receive it:
+        //                  socket.on('chatmessage', function(msgObject){}
+        
+        console.log("2. INDEX.JS CHATCLIENTMESSAGE:"+chatClientMessage.toString());      
+        io.emit('chatmessage',chatClientMessage);
       });
       
       //specify 'tapmessage' event handler, when emit(ted) by the user connection
