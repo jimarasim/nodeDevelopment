@@ -41,17 +41,22 @@ io.on('connection', function(socket){
       socket.on('chatmessage', function(chatClientMessage){
           
                 //get the address of the message emitter
-                var chatClientAddress = socket.handshake.address;
-                var chatClientDate = new Date();
+//                var chatClientAddress = socket.handshake.address;
+//                var chatClientDate = new Date();
                 
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('chatmessage',chatClientMessage);
+          console.log("INDEX.JS CHATCLIENTMESSAGE:"+chatClientMessage);      
+          io.emit('chatmessage',chatClientMessage);
+                
+          
       });
       
       //specify 'tapmessage' event handler, when emit(ted) by the user connection
-      socket.on('tap msg', function(msg){
+      socket.on('tapmsg', function(msg){
+                console.log('message: ' + msg);
+                
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('tap msg',msg);
+                io.emit('tapmsg',msg);
                 });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -3,6 +3,21 @@
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
+function emitChatMessage(message){
+    var userSendingMessage = $("#chatClientUser").val();
+    
+    if(userSendingMessage.length===0){
+        userSendingMessage = "PHANTOM JOE";
+    }
+
+    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
+    messageToEmit = "{'CHATCLIENTUSER':'"+userSendingMessage+"','CHATCLIENTMESSAGE':'"+message+"'}";
+    console.log("MESSAGETOEMIT:"+messageToEmit);
+    
+    //send the message
+    socket.emit('chatmessage',messageToEmit); 
+}
+
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
 $('form').submit(function(){
     
@@ -71,16 +86,16 @@ socket.on('chatmessage', function(msg){
 //STUFFED ANIMAL WAR
 //tell server about new coordinates when clicked
 $('#stuffedanimalwarsvg').click(function(event){
-    console.log('CLICKSTUFFEDANIMALWARSVG tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
+    console.log('CLICKSTUFFEDANIMALWARSVG tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
     //report coordinates to the server
-    socket.emit('tap msg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
+    socket.emit('tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 
 });
 
 //STUFFED ANIMAL WAR
 //the server is telling us new coordinates for the next line from another player
 //DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
-socket.on('tap msg', function(msg){
+socket.on('tapmsg', function(msg){
           
     //width of the line to draw
     var lineWidth = 5;
@@ -121,17 +136,3 @@ function getRandomColorValue(){
     return Math.floor((Math.random() * 255) + 1);
 }
 
-function emitChatMessage(message){
-    var userSendingMessage = $("#chatClientUser").text();
-    
-    if(userSendingMessage.length===0){
-        userSendingMessage = "Person Doe";
-    }
-
-    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    messageToEmit = "{'CHATCLIENTUSER':'"+userSendingMessage+"','CHATCLIENTMESSAGE':'"+message+"'}";
-    console.log("MESSAGETOEMIT:"+messageToEmit);
-    
-    //send the message
-    socket.emit('chatmessage',messageToEmit); 
-}
