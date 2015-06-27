@@ -45,7 +45,7 @@ io.on('connection', function(socket){
 //                var chatClientDate = new Date();
                 
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
-          console.log("INDEX.JS CHATCLIENTMESSAGE:"+chatClientMessage);      
+          console.log("2. INDEX.JS CHATCLIENTMESSAGE:"+chatClientMessage);      
           io.emit('chatmessage',chatClientMessage);
                 
           

@@ -12,10 +12,13 @@ function emitChatMessage(message){
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
     messageToEmit = "{'CHATCLIENTUSER':'"+userSendingMessage+"','CHATCLIENTMESSAGE':'"+message+"'}";
-    console.log("MESSAGETOEMIT:"+messageToEmit);
+    console.log("1. MESSAGETOEMIT RIGHT NOW:"+messageToEmit);
+    
     
     //send the message
     socket.emit('chatmessage',messageToEmit); 
+    
+    console.log("3. MESSAGETOEMIT WAS EMITTED:"+messageToEmit);
 }
 
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
