@@ -11,7 +11,7 @@ function emitChatMessage(message){
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    messageToEmit = "{'CHATCLIENTUSER':'"+userSendingMessage+"','CHATCLIENTMESSAGE':'"+message+"'}";
+    messageToEmit = userSendingMessage+":"+message;
     console.log("1. MESSAGETOEMIT RIGHT NOW:"+messageToEmit);
     
     
@@ -44,36 +44,42 @@ $('#chatClientAutoResponder').change(function(){
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
-socket.on('chatmessage', function(msg){
+socket.on('chatmessage', function(msgObject){
     
-    console.log("2.1 RECEIVING EMITTED MESSAGE");
+    /* THIS IS WHAT THE msg OBJECT SHOULD LOOK LIKE FROM THE SOCKET (SEE INDEX.JS)
+     * var chatMessageObject = {
+              CHATSERVERUSER:chatClientAddress,
+              CHATCLIENTMESSAGE:chatClientMessage,
+              CHATSERVERDATE:chatClientDate
+          }    
+     */
     
-    //take double quotes out, that were used  for transmission
-    msg.replace("\"","");
+    console.log("2.1 RECEIVING EMITTED MESSAGE msg:"+msg.toString());
     
-    //convert json string to an object
-    var msgObject = jQuery.parseJSON(msg);
+    var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
-    var chatClientUser = msgObject.CHATCLIENTUSER;
+    var chatServerDate = msgObject.CHATSERVERDATE;
 
     console.log("2.2 RECEIVING EMITTED MESSAGE chatClientMessage:"+chatClientMessage);
-    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatClientUser);
-
+    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatServerUser);
 
     if ((chatClientMessage.contains("http")) &&
             ((  chatClientMessage.contains(".jpg") ||
                 chatClientMessage.contains(".gif") ||
                 chatClientMessage.contains(".jpeg")))){
             
+        //print the message verbatim
         $('#messagesdiv').prepend($('<br />'));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage+" "+chatServerUser+" "+chatServerDate));
         
-            $("<img/>").prependTo("#messagesdiv").attr({
-                src: chatClientMessage,
-                alt: chatClientMessage,
-                height: '50'
-             });
-             
-             
+        //display the image contained in the message
+        $('#messagesdiv').prepend($('<br />'));
+        $("<img/>").prependTo("#messagesdiv").attr({
+            src: chatClientMessage,
+            alt: chatClientMessage+" "+chatServerUser+" "+chatServerDate,
+            height: '50'
+         });
+         
         $('#messagesdiv').prepend($('<br />'));
         $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
   
@@ -81,16 +87,16 @@ socket.on('chatmessage', function(msg){
     else if(chatClientMessage.includes(".mp3")){
         //TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE
         $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+        $('#messagesdiv').prepend($('<span>').text("TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE"+chatClientMessage+" "+chatServerUser+" "+chatServerDate));
     }
-    else if(chatClientMessage.includes(".mp3")){
+    else if(chatClientMessage.includes(".mp4")){
         //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
         $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+        $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER LIKE ANALOG ARCHIVE"+chatClientMessage+" "+chatServerUser+" "+chatServerDate));
     }
     else{
         $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
+        $('#messagesdiv').prepend($('<span>').text(chatClientMessage+" "+chatServerUser+" "+chatServerDate));
     }
 });
 
@@ -101,7 +107,6 @@ $('#stuffedanimalwarsvg').click(function(event){
     console.log('CLICKSTUFFEDANIMALWARSVG tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
     //report coordinates to the server
     socket.emit('tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
-
 });
 
 //STUFFED ANIMAL WAR
