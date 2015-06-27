@@ -45,10 +45,16 @@ String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chatmessage', function(msg){
+    
+    console.log("2.1 RECEIVING EMITTED MESSAGE");
+    
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatClientUser = msgObject.CHATCLIENTUSER;
+
+    console.log("2.2 RECEIVING EMITTED MESSAGE chatClientMessage:"+chatClientMessage);
+    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatClientUser);
 
 
     if ((chatClientMessage.contains("http")) &&

@@ -46,7 +46,7 @@ io.on('connection', function(socket){
                 
                 //broadcast chat message (client page needs to have  a socket.on handler for this)
           console.log("2. INDEX.JS CHATCLIENTMESSAGE:"+chatClientMessage);      
-          io.emit('chatmessage',chatClientMessage);
+          io.emit('chatmessage',"\""+chatClientMessage+"\"");
                 
           
       });
