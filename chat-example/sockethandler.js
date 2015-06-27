@@ -54,7 +54,7 @@ socket.on('chatmessage', function(msgObject){
           }    
      */
     
-    console.log("2.1 RECEIVING EMITTED MESSAGE msg:"+msg.toString());
+    console.log("2.1 RECEIVING EMITTED MESSAGE msg:"+msgObject.toString());
     
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
