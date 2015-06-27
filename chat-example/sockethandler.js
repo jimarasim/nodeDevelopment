@@ -23,9 +23,9 @@ function emitChatMessage(message){
     console.log("1. MESSAGETOEMIT RIGHT NOW:"+chatMessageObject.toString());
     
     //send the message
-    socket.emit('chatmessage',+chatMessageObject.toString()); 
+    socket.emit('chatmessage',chatMessageObject); 
     
-    console.log("3. MESSAGETOEMIT WAS EMITTED:"+messageToEmit);
+    console.log("3. MESSAGETOEMIT WAS EMITTED:"+chatMessageObject.toString());
 }
 
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
