@@ -28,52 +28,56 @@ var listenPort = process.argv[2];
 ////////////////////////////////////////////////////////////////////////////////////////////////////////SOCKET HANDLERS
 //handler for incoming socket connections
 io.on('connection', function(socket){
+      
+    var chatClientAddress = socket.handshake.address;
+    console.log('CONNECT:'+chatClientAddress);
+      
+    //specify the socket disconnect event handler to print out a message when the user disconnects
+    socket.on('disconnect', function(){
         var chatClientAddress = socket.handshake.address;
-      console.log('CONNECT:'+chatClientAddress);
+              console.log('DISCONNECT:'+chatClientAddress);
+              });
       
-      //specify the socket disconnect event handler to print out a message when the user disconnects
-      socket.on('disconnect', function(){
-          var chatClientAddress = socket.handshake.address;
-                console.log('DISCONNECT:'+chatClientAddress);
-                });
       
-      //specify 'chat message' event handler. happens when emit(ted) by the client
-      socket.on('chatmessage', function(chatClientMessage){
-          
-          /* THIS IS EMITTED FROM sockethandler.js => emitChatMessage
-           *     var chatMessageObject = {
-              CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'CHATSERVERUSER',
-              CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:'CHATSERVERDATE'
-          }  
-           */
-          
-        //get the address of the message emitter
-        var chatServerAddress = socket.handshake.address;
-        
-        //get datestamp from the server
-        var chatServerDate = new Date();
-        
-        //update the emitted json object with server information
-        chatClientMessage.CHATSERVERUSER = chatServerAddress;
-        chatClientMessage.CHATSERVERDATE = chatServerDate;
-           
-        //broadcast chat message to everyone listening
-        //client page needs to have this handler defined to receive it:
-        //                  socket.on('chatmessage', function(msgObject){}
-        
-        console.log("2. INDEX.JS CHATCLIENTMESSAGE:"+chatClientMessage.toString());      
-        io.emit('chatmessage',chatClientMessage);
-      });
       
-      //specify 'tapmessage' event handler, when emit(ted) by the user connection
-      socket.on('tapmsg', function(msg){
-                console.log('message: ' + msg);
-                
-                //broadcast chat message (client page needs to have  a socket.on handler for this)
-                io.emit('tapmsg',msg);
-                });
+    //specify 'chat message' event handler. happens when emit(ted) by the client
+    socket.on('chatmessage', function(chatClientMessageObject){
+
+        /* THIS IS EMITTED FROM sockethandler.js => emitChatMessage
+         *     var chatMessageObject = {
+            CHATCLIENTUSER: chatClientUser,
+            CHATSERVERUSER:'CHATSERVERUSER',
+            CHATCLIENTMESSAGE:message,
+            CHATSERVERDATE:'CHATSERVERDATE'
+        }  
+         */
+      console.log("INDEX.JS socket.on('chatmessage', function(chatClientMessageObject) chatClientMessageObject.toString():"+chatClientMessageObject.toString());    
+
+      //get the address of the message emitter
+      var chatServerAddress = socket.handshake.address;
+
+      //get datestamp from the server
+      var chatServerDate = new Date();
+
+      //update the emitted json object with server information
+      chatClientMessageObject.CHATSERVERUSER = chatServerAddress;
+      chatClientMessageObject.CHATSERVERDATE = chatServerDate;
+
+      //broadcast chat message to everyone listening
+      //client page needs to have this handler defined to receive it:
+      //                  socket.on('chatmessage', function(msgObject){}
+
+      console.log("INDEX.JS socket.on('chatmessage', function(chatClientMessageObject) chatClientMessageObject.toString():"+chatClientMessageObject.toString());      
+      io.emit('chatmessage',chatClientMessageObject);
+    });
+      
+    //specify 'tapmessage' event handler, when emit(ted) by the user connection
+    socket.on('tapmsg', function(msg){
+              console.log('message: ' + msg);
+
+              //broadcast chat message (client page needs to have  a socket.on handler for this)
+              io.emit('tapmsg',msg);
+              });  
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
