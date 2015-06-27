@@ -48,6 +48,9 @@ socket.on('chatmessage', function(msg){
     
     console.log("2.1 RECEIVING EMITTED MESSAGE");
     
+    //take double quotes out, that were used  for transmission
+    msg.replace("\"","");
+    
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
