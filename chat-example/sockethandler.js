@@ -111,10 +111,7 @@ socket.on('chatmessage', function(msgObject){
     
     //show the whole message
     $('#messagesdiv').prepend($('<br />'));
-    $('#messagesdiv').prepend($('<span>').text("[chatServerUser:"+chatServerUser+"  chatServerDate:"+chatServerDate+"]"));
-
-    $('#messagesdiv').prepend($('<br />'));
-    $('#messagesdiv').prepend($('<span>').text(chatClientUser+":"+chatClientMessage));
+    $('#messagesdiv').prepend($('<span>').text(chatClientUser+":"+chatClientMessage+" ["+chatServerUser+"-"+chatServerDate+"]"));
     
     
     

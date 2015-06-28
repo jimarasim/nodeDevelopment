@@ -58,6 +58,7 @@ td.divgamesectioncontent{
     overflow-x: scroll;
     overflow-y: scroll;
     background-color: black;
+    width:20%;
 }
 
 td.divmessagessectioncontent{
