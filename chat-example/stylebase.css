@@ -9,9 +9,14 @@ table{
     width:100%;
 }
 
-li{
+li.upperroman{
     list-style-type:upper-roman;
 }
+
+li.lowerroman{
+    list-style-type:lower-roman;
+}
+
 
 div.divstuffedanimalwar
 svg.svgstuffedanimalwar
