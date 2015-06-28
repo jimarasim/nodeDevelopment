@@ -42,17 +42,6 @@ io.on('connection', function(socket){
       
     //specify 'chat message' event handler. happens when emit(ted) by the client
     socket.on('chatmessage', function(chatMessageObject){
-
-        /* THIS IS EMITTED FROM sockethandler.js => emitChatMessage
-         var chatMessageObject = {
-              CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'CHATSERVERUSER',
-              CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:'CHATSERVERDATE'
-          }  
-         */
-      console.log("2.1 RECEIVED:"+chatMessageObject.toString());    
-
       //get the address of the message emitter
       var chatServerAddress = socket.handshake.address;
 
@@ -62,9 +51,7 @@ io.on('connection', function(socket){
       //update the emitted json object with server information
       chatMessageObject.CHATSERVERUSER = chatServerAddress;
       chatMessageObject.CHATSERVERDATE = chatServerDate;
-        
-      console.log("2.2 BROADCASTING:"+chatMessageObject.toString());  
-      
+       
       //broadcast
       io.emit('chatmessage',chatMessageObject);
     });

@@ -1,16 +1,23 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 
-/*stuffedanimalwar.com*/
-table{
-    width:50%;
+body {
+    background-color: black; /*background behind any elements on the body of the page*/
+    color:white; /*text color*/
 }
+
+table{
+    width:100%;
+}
+
+li{
+    list-style-type:upper-roman;
+}
+
 div.divstuffedanimalwar
 svg.svgstuffedanimalwar
 {
-       
-    /*http://www.w3schools.com/css/css_background.asp*/
     /*background-image: url("stuffedanimalwarfinal.jpg");*/
-    background-color: wheat;
+    background-color: lightgoldenrodyellow;
     background-repeat:no-repeat;
     background-position:left;
     
@@ -39,7 +46,7 @@ td.divgamesectioncontent{
     overflow-x: scroll;
     overflow-y: scroll;
     
-    background-color: darkblue;
+    background-color: black;
 }
 
 td.divmessagessectioncontent{
@@ -52,26 +59,21 @@ td.divmessagessectioncontent{
 /*stuffedanimalwar.com*/
 #messagesdiv
 {
-    background-color: black;
-    color:white;
-    text-align: left;
-    
-    /*contents of trash talk window can overflow the window*/
     overflow-x: scroll;
     overflow-y: scroll;
-
-    width: 50%;
-    padding: 0px;
-    border: 1px solid white;
-    margin: 0px;
-    height: 100px;
+    width: 90%;
+    height: 40%;
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+    border: 1% solid;
+    border-radius: 1%;
+    background-color: black;
+    text-align: left;
+    
 }
 
-/*stuffedanimalwar.com*/
-body {
-    background-color: black; /*background behind any elements on the body of the page*/
-    color:white; /*text color*/
-}
+
 
 
 
@@ -81,7 +83,7 @@ body {
     overflow-y: scroll;
     
     font-weight: bolder;
-    font-size: x-small;
+    font-size: small;
 
 }
 

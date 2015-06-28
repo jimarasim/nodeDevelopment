@@ -152,7 +152,9 @@ socket.on('tapmsg', function(msg){
     newLine.setAttribute('y1',newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth);
+//    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
+    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth);
+
     $("#stuffedanimalwarsvg").append(newLine);
     
     //move the rectangle to where the click was made
