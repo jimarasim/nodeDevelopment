@@ -21,6 +21,12 @@ li.nobullet{
     list-style-type:none;
 }
 
+ul{
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+}
+
 div.divstuffedanimalwar
 svg.svgstuffedanimalwar
 {
@@ -43,7 +49,7 @@ svg.svgstuffedanimalwar
 td.divgamesectiontitle{
     vertical-align: top;
     text-align: left;
-    width:7%;
+    width:15%;
 }
 
 /*stuffedanimalwar.com*/
