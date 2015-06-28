@@ -3,7 +3,8 @@
 body {
     background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("stuffedanimalwarfinal.jpg");
-    color:white; /*text color*/
+    background-repeat: no-repeat;
+    color:black; /*text color*/
 }
 
 table{
