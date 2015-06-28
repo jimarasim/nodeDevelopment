@@ -7,10 +7,7 @@ body {
     color:black; /*text color*/
 }
 
-span.chatclientmessage{
-    color:lime;
-    font-size: larger;
-}
+
 
 table{
     width:100%;
@@ -60,11 +57,15 @@ td.divgamesectioncontent{
     margin: 0%;
     border: 0%;
     padding: 0%;
-    border: 1% solid white;
+    border: 1px solid black;
     border-radius: 1%;
-    background-color: black;
+    background-color: white;
     text-align: left;
-    
+}
+
+span.chatclientmessage{
+    color:darkorange;
+    font-size: larger;
 }
 
 #fulldisclosurediv{
