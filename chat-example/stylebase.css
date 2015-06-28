@@ -16,18 +16,6 @@ table{
     width:100%;
 }
 
-li.upperroman{
-    list-style-type:upper-roman;
-}
-
-li.lowerroman{
-    list-style-type:lower-roman;
-}
-
-li.nobullet{
-    list-style-type:none;
-}
-
 ul{
     margin: 0%;
     border: 0%;
@@ -53,24 +41,16 @@ td{
     text-align: left;
 }
 
-/*stuffedanimalwar.com*/
 td.divgamesectiontitle{
     width:15%;
 }
 
-/*stuffedanimalwar.com*/
 td.divgamesectioncontent{
     overflow-x: scroll;
     overflow-y: scroll;
-    background-color: black;
     width:20%;
 }
 
-td.divmessagessectioncontent{
-    background-color: green;
-}
-
-/*stuffedanimalwar.com*/
 #messagesdiv
 {
     overflow-x: scroll;
@@ -87,11 +67,6 @@ td.divmessagessectioncontent{
     
 }
 
-
-
-
-
-/*stuffedanimalwar.com*/
 #fulldisclosurediv{
     overflow-x: scroll;
     overflow-y: scroll;
@@ -99,31 +74,27 @@ td.divmessagessectioncontent{
     margin: 0%;
     border: 0%;
     padding: 0%;
-    border: 1% solid white;
+    border: 1px solid white;
     
     font-weight: bolder;
 
 }
 
-/* unvisited link */
 a.jaemzwarelogo:link {
     color: white;
     text-decoration:underline;
 }
 
-/* visited link */
 a.jaemzwarelogo:visited {
     color: white;
     text-decoration:underline;
 }
 
-/* mouse over link */
 a.jaemzwarelogo:hover {
     color: lightblue;
     text-decoration: underline;
 }
 
-/* selected link */
 a.jaemzwarelogo:active {
     color: white;
     text-decoration: underline;
