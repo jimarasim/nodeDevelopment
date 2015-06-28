@@ -12,6 +12,10 @@ span.chatclientmessage{
     font-size: larger;
 }
 
+#chatclientmessage{
+    width:20%;
+}
+
 table{
     width:100%;
 }
