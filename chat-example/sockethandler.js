@@ -52,30 +52,12 @@ String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chatmessage', function(msgObject){
-    
-    /* THIS IS WHAT THE msg OBJECT SHOULD LOOK LIKE FROM THE SOCKET 
-     * (SEE emitChatMessage and INDEX.JS => socket.on('chatmessage', function(chatClientMessage){...})
-     * var chatMessageObject = {
-              CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'CHATSERVERUSER',
-              CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:'CHATSERVERDATE'
-          }    
-     */
-    
-//    console.log("2.1 RECEIVING EMITTED MESSAGE msg:"+msgObject.toString());
-    
     var chatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
 
-//    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatClientUser);
-//    console.log("2.3 RECEIVING EMITTED MESSAGE chatServerUser:"+chatServerUser);
-//    console.log("2.4 RECEIVING EMITTED MESSAGE chatClientMessage:"+chatClientMessage);
-//    console.log("2.5 RECEIVING EMITTED MESSAGE chatServerDate:"+chatServerDate);
-
-//show the image if it's just an image tag
+    //show the image if it's just an image tag
     if (
         chatClientMessage.indexOf("http://")===0||
         chatClientMessage.indexOf("https://")===0
@@ -94,11 +76,33 @@ socket.on('chatmessage', function(msgObject){
                 }
          
        }
-    else if(chatClientMessage.includes(".mp3")){
-        //TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE
-        $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text("TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
-    }
+    else if(
+        chatClientMessage.indexOf("http://")===0||
+        chatClientMessage.indexOf("https://")===0
+       ){ 
+    
+            if(chatClientMessage.indexOf(".mp3") > 0){
+                
+                var audioId = "audio"+chatServerDate;
+                
+                $('#messagesdiv').prepend($('<br />'));
+                
+                //add audio element
+                $("<audio>").prependTo("#messagesdiv").attr({
+                        id: audioId,
+                        preload: none
+                     });
+                
+                //add audio source
+                $("<source />").prependTo("#"+audioId).attr({
+                    src: chatClientMessage,
+                    type: "audio/mpeg"
+                }).text("Your browser doesn't support the HTML5 Audio Tag");
+
+        }
+    
+       }
+    
     else if(chatClientMessage.includes(".mp4")){
         //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
         $('#messagesdiv').prepend($('<br />'));

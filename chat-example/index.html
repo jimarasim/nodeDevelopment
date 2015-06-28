@@ -48,7 +48,6 @@
 </div> 
 
 <h2>CHAT</h2>
-<h4>this is STUFFED ANIMAL war, so be nice (to a degree).</h4>
 <table>
 
 <!--CHAT MESSAGE USER ROW-->
@@ -60,7 +59,9 @@
         <input id="chatClientUser" />
     </td>
     <td>
-        <em>type an alias here, that you want to identify you in CHAT</em>
+        <em>
+            type an alias here, that you want to identify you in CHAT
+        </em>
     </td>
 </tr>
 
@@ -68,7 +69,7 @@
 <!--CHAT MESSAGE MESSAGE ROW-->
 <tr>
     <td class='divgamesectiontitle'>
-        <b>CHAT MESSAGE</b> <!--FRENCH FOR "A MESSAGE"-->
+        <b>CHAT MESSAGE</b> 
     </td>
     <td class='divgamesectioncontent'>
         <input id="chatClientMessage" />
@@ -77,7 +78,9 @@
         </button>
     </td>
     <td>
-        <em>type a message that you want to send to all users in CHAT</em>
+        <em>
+            type a message that you want to send to all users in CHAT
+        </em>
     </td>
 </tr>
 
@@ -86,23 +89,30 @@
     <td class='divgamesectiontitle'>
         SELECT RESPONSE
     </td>
-    <td colspan=2 class='divgamesectioncontent'>
+    <td class='divgamesectioncontent'>
         <!-- dont use apostrophes in these or index.js will freak out -->
         <select id="chatClientAutoResponder" size=1 >
                 <option value="blank" selected></option>
+                <option value="asl">ASL</option>
                 <option value="idk">i dont know</option>
                 <option value="ikr">i know right!?</option>
                 <option value="ilikeyou">i like you</option>
                 <option value="iloveyou">i love you</option>
+                <option value="ithinkyoure">i think youre attractive</option>
                 <option value="picsoritdidnthappen">pics or it didnt happen</option>
                 <option value="idratherplaywithmycat">id rather play with my cat</option>
-                <option value="asl">age/sex/location?</option>
+                <option value="holdmybeerwatchthis">hold my beer, watch this</option>
+                <option value="didyougoogle">did you google that comeback?</option>
                 <option value="idratherplaywithmycat">id rather play with my cat</option>
                 <option value="ilikeyou">i like you</option>
+                <option value="inyourbutt">in your butt</option>
                 <option value="linkisbusted">link is busted</option>
-                <option value="lol">lol</option>
-                <option value="omg">omg</option>
+                <option value="lol">LOL</option>
+                <option value="nuhuh">Nuh UH!</option>
+                <option value="sarcastic"><sarcasticclap /></option>
+                <option value="omg">OMG</option>
                 <option value="picsoritdidnthappen">pics or it didnt happen</option>
+                <option value="stfu">STFU</option>
                 <option value="thatlinkisrad">that link is rad</option>
                 <option value="thatscool">thats cool</option>
                 <option value="thatsucks">that sucks</option>
@@ -110,26 +120,28 @@
                 <option value="thatswhatshesaid">thats what she said</option>
                 <option value="youinspireme">you inspire me</option>
                 <option value="youlookverynicetoday">you look very nice today</option>
-                <option value="youknowyourearealupperson">youre a real UP person</option>
-                <option value="youremybestfriend">youre my best friend</option>
-                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
-                <option value="yourewrong">youre wrong</option>  
-                <option value="yourmomgoestocollege">your mom goes to college</option>
                 <option value="yourock">you rock</option>
                 <option value="yousearchforit">YOU search for it</option>
                 <option value="youdomus">you shop at domus, dumb ass?</option>
                 <option value="yousuck">you suck</option>
+                <option value="youknowyourearealupperson">youre a real UP person</option>
+                <option value="youremybestfriend">youre my best friend</option>
+                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
+                <option value="yourewrong">youre wrong</option>  
+                <option value="yourmom">your mom</option>
+                <option value="yourmomgoestocollege">your mom goes to college</option>
         </select>
+    </td>
+    <td>
+        <em>
+            this is STUFFED ANIMAL war, so be nice (to a degree).
+        </em>
     </td>
 </tr>
 </table>
 <h2>CHAT DIALOG</h2>
-<div id="messagesdiv">
-</div>
-</form>
-        
-        
-        
+<div id="messagesdiv"></div>
+</form>        
 <script type="text/javascript" src="sockethandler.js"></script>
 </body>
 </html>
