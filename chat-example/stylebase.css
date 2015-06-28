@@ -2,9 +2,9 @@
 
 body {
     background-color: black; /*background behind any elements on the body of the page*/
-    background-image: url("stuffedanimalwarfinal.jpg");
-    background-repeat: no-repeat;
-    color:black; /*text color*/
+    /*background-image: url("stuffedanimalwarfinal.jpg");*/
+    /*background-repeat: no-repeat;*/
+    color:whitesmoke; /*text color*/
 }
 
 table{
