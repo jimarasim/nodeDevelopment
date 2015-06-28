@@ -7,6 +7,11 @@ body {
     color:whitesmoke; /*text color*/
 }
 
+span.chatclientmessage{
+    color:lime;
+    font-size: larger;
+}
+
 table{
     width:100%;
 }
