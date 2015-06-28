@@ -7,7 +7,10 @@ body {
     color:black; /*text color*/
 }
 
-
+div{
+    border: 1px solid black;
+    border-radius: 2%;
+}
 
 table{
     width:100%;
@@ -55,10 +58,7 @@ td.divgamesectioncontent{
     width: 90%;
     height: 40%;
     margin: 0%;
-    border: 0%;
     padding: 0%;
-    border: 1px solid black;
-    border-radius: 1%;
     background-color: white;
     text-align: left;
 }
@@ -75,9 +75,7 @@ span.chatclientmessage{
     margin: 0%;
     border: 0%;
     padding: 0%;
-    border: 1px solid white;
     
-    font-weight: bolder;
 
 }
 
