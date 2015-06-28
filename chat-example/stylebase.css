@@ -17,6 +17,9 @@ li.lowerroman{
     list-style-type:lower-roman;
 }
 
+li.nobullet{
+    list-style-type:none;
+}
 
 div.divstuffedanimalwar
 svg.svgstuffedanimalwar
