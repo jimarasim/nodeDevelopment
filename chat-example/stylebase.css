@@ -2,6 +2,7 @@
 
 body {
     background-color: black; /*background behind any elements on the body of the page*/
+    background-image: url("stuffedanimalwarfinal.jpg");
     color:white; /*text color*/
 }
 
@@ -30,43 +31,35 @@ ul{
 div.divstuffedanimalwar
 svg.svgstuffedanimalwar
 {
-    /*background-image: url("stuffedanimalwarfinal.jpg");*/
     background-color: lightgoldenrodyellow;
     background-repeat:no-repeat;
     background-position:left;
-    
     vertical-align: top;
     text-align: left;
-    
     height:100%; 
     width:100%; 
-    
     overflow-x: scroll;
     overflow-y: scroll;
 }
 
-/*stuffedanimalwar.com*/
-td.divgamesectiontitle{
+td{
     vertical-align: top;
     text-align: left;
+}
+
+/*stuffedanimalwar.com*/
+td.divgamesectiontitle{
     width:15%;
 }
 
 /*stuffedanimalwar.com*/
 td.divgamesectioncontent{
-    vertical-align: top;
-    text-align: left;
-    
     overflow-x: scroll;
     overflow-y: scroll;
-    
     background-color: black;
 }
 
 td.divmessagessectioncontent{
-    vertical-align: top;
-    text-align: left;
-    
     background-color: green;
 }
 
