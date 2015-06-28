@@ -1,6 +1,9 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 
 /*stuffedanimalwar.com*/
+table{
+    width:50%;
+}
 div.divstuffedanimalwar
 svg.svgstuffedanimalwar
 {
@@ -25,6 +28,7 @@ svg.svgstuffedanimalwar
 td.divgamesectiontitle{
     vertical-align: top;
     text-align: left;
+    width:10%;
 }
 
 /*stuffedanimalwar.com*/
@@ -32,13 +36,35 @@ td.divgamesectioncontent{
     vertical-align: top;
     text-align: left;
     
-    height:40%; /*there are 2 block elements using this class*/ 
-    width:99%; 
-    
     overflow-x: scroll;
     overflow-y: scroll;
     
     background-color: darkblue;
+}
+
+td.divmessagessectioncontent{
+    vertical-align: top;
+    text-align: left;
+    
+    background-color: green;
+}
+
+/*stuffedanimalwar.com*/
+#messagesdiv
+{
+    background-color: black;
+    color:white;
+    text-align: left;
+    
+    /*contents of trash talk window can overflow the window*/
+    overflow-x: scroll;
+    overflow-y: scroll;
+
+    width: 50%;
+    padding: 25px;
+    border: 2px solid white;
+    margin: 25px;
+    height: 100px;
 }
 
 /*stuffedanimalwar.com*/
@@ -47,25 +73,7 @@ body {
     color:white; /*text color*/
 }
 
-/*stuffedanimalwar.com*/
-#messagesdiv
-{
-    background-color: navy;
-    color:white;
-    text-align: left;
-    
-    /*contents of trash talk window can overflow the window*/
-    overflow-x: scroll;
-    overflow-y: scroll;
 
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    
-    /*border of the trash talk window*/
-    /*border-radius: 1%;*/
-    border: 3px solid;
-}
 
 /*stuffedanimalwar.com*/
 #fulldisclosurediv{
@@ -73,6 +81,7 @@ body {
     overflow-y: scroll;
     
     font-weight: bolder;
+    font-size: x-small;
 
 }
 

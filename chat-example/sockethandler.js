@@ -63,39 +63,37 @@ socket.on('chatmessage', function(msgObject){
           }    
      */
     
-    console.log("2.1 RECEIVING EMITTED MESSAGE msg:"+msgObject.toString());
+//    console.log("2.1 RECEIVING EMITTED MESSAGE msg:"+msgObject.toString());
     
     var chatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
 
-    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatClientUser);
-    console.log("2.3 RECEIVING EMITTED MESSAGE chatServerUser:"+chatServerUser);
-    console.log("2.4 RECEIVING EMITTED MESSAGE chatClientMessage:"+chatClientMessage);
-    console.log("2.5 RECEIVING EMITTED MESSAGE chatServerDate:"+chatServerDate);
+//    console.log("2.3 RECEIVING EMITTED MESSAGE chatClientUser:"+chatClientUser);
+//    console.log("2.3 RECEIVING EMITTED MESSAGE chatServerUser:"+chatServerUser);
+//    console.log("2.4 RECEIVING EMITTED MESSAGE chatClientMessage:"+chatClientMessage);
+//    console.log("2.5 RECEIVING EMITTED MESSAGE chatServerDate:"+chatServerDate);
 
-    if ((chatClientMessage.contains("http")) &&
-            ((  chatClientMessage.contains(".jpg") ||
-                chatClientMessage.contains(".gif") ||
-                chatClientMessage.contains(".jpeg")))){
-            
-        //print the message verbatim
-        $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text(chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate));
-        
-        //display the image contained in the message
-        $('#messagesdiv').prepend($('<br />'));
-        $("<img/>").prependTo("#messagesdiv").attr({
-            src: chatClientMessage,
-            alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
-            height: '50'
-         });
+//show the image if it's just an image tag
+    if (
+        chatClientMessage.indexOf("http://")===0||
+        chatClientMessage.indexOf("https://")===0
+       ){ 
+            if( chatClientMessage.indexOf(".jpg")   >   0 ||
+                chatClientMessage.indexOf(".jpeg")  >   0 ||
+                chatClientMessage.indexOf(".gif")   >   0 ||
+                chatClientMessage.indexOf(".png")   >   0)
+                {
+                    //display the image contained in the message
+                    $('#messagesdiv').prepend($('<br />'));
+                    $("<img/>").prependTo("#messagesdiv").attr({
+                        src: chatClientMessage,
+                        alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
+                     });
+                }
          
-        $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text(chatClientMessage));
-  
-    }
+       }
     else if(chatClientMessage.includes(".mp3")){
         //TODO ADD MP3 PLAYER LIKE ANALOG ARCHIVE
         $('#messagesdiv').prepend($('<br />'));
@@ -106,10 +104,16 @@ socket.on('chatmessage', function(msgObject){
         $('#messagesdiv').prepend($('<br />'));
         $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER LIKE ANALOG ARCHIVE. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
     }
-    else{
-        $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text("chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
-    }
+    
+    //show the whole message
+    $('#messagesdiv').prepend($('<br />'));
+    $('#messagesdiv').prepend($('<span>').text("[chatServerUser:"+chatServerUser+"  chatServerDate:"+chatServerDate+"]"));
+
+    $('#messagesdiv').prepend($('<br />'));
+    $('#messagesdiv').prepend($('<span>').text(chatClientUser+":"+chatClientMessage));
+    
+    
+    
 });
 
 
