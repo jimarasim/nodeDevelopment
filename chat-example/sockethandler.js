@@ -76,7 +76,7 @@ socket.on('chatmessage', function(msgObject){
                  });
             }
             else if(chatClientMessage.indexOf(".mp3") > 0){
-                var audioId = "JAEMZWARE-AUDIO-"+chatServerDate+"-ID";
+                var audioId = "JAEMZWAREAUDIO";//+chatServerDate+"-ID";
                 
                 $('#messagesdiv').prepend($('<br />'));
                 
