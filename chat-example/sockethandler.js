@@ -57,7 +57,7 @@ socket.on('chatmessage', function(msgObject){
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
 
-    //show the image if it's just an image tag
+    //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
         chatClientMessage.indexOf("http://")===0||
         chatClientMessage.indexOf("https://")===0
@@ -66,23 +66,16 @@ socket.on('chatmessage', function(msgObject){
                 chatClientMessage.indexOf(".jpeg")  >   0 ||
                 chatClientMessage.indexOf(".gif")   >   0 ||
                 chatClientMessage.indexOf(".png")   >   0)
-                {
-                    //display the image contained in the message
-                    $('#messagesdiv').prepend($('<br />'));
-                    $("<img/>").prependTo("#messagesdiv").attr({
-                        src: chatClientMessage,
-                        alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
-                     });
-                }
-         
-       }
-    else if(
-        chatClientMessage.indexOf("http://")===0||
-        chatClientMessage.indexOf("https://")===0
-       ){ 
-    
-            if(chatClientMessage.indexOf(".mp3") > 0){
-                
+            {
+
+                //show the image if it's just an image tag
+                $('#messagesdiv').prepend($('<br />'));
+                $("<img/>").prependTo("#messagesdiv").attr({
+                    src: chatClientMessage,
+                    alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
+                 });
+            }
+            else if(chatClientMessage.indexOf(".mp3") > 0){
                 var audioId = "audio"+chatServerDate;
                 
                 $('#messagesdiv').prepend($('<br />'));
@@ -98,16 +91,17 @@ socket.on('chatmessage', function(msgObject){
                     src: chatClientMessage,
                     type: "audio/mpeg"
                 }).text("Your browser doesn't support the HTML5 Audio Tag");
-
+            }
+            else if(chatClientMessage.includes(".mp4")){
+                var videoId = "video"+chatServerDate;
+                
+                $('#messagesdiv').prepend($('<br />'));
+                
+                //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
+                $('#messagesdiv').prepend($('<br />'));
+                $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER WITH ID:"+videoId+" LIKE BLACKMARKET. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
+            }
         }
-    
-       }
-    
-    else if(chatClientMessage.includes(".mp4")){
-        //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
-        $('#messagesdiv').prepend($('<br />'));
-        $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER LIKE ANALOG ARCHIVE. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
-    }
     
     //show the whole message
     $('#messagesdiv').prepend($('<br />'));
