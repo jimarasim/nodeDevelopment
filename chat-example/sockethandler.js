@@ -133,7 +133,6 @@ socket.on('chatmessage', function(msgObject){
         }
 });
 
-
 //STUFFED ANIMAL WAR
 //tell server about new coordinates when clicked
 $('#stuffedanimalwarsvg').click(function(event){
