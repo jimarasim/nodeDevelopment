@@ -83,7 +83,7 @@ socket.on('chatmessage', function(msgObject){
                 //add audio element
                 $("<audio>").prependTo("#messagesdiv").attr({
                         id: audioId,
-                        preload: none
+                        preload: "none"
                      });
                 
                 //add audio source
@@ -95,33 +95,32 @@ socket.on('chatmessage', function(msgObject){
             else if(chatClientMessage.includes(".mp4")){
                 var videoId = "video"+chatServerDate;
                 
-                $('#messagesdiv').prepend($('<br />'));
-                
                 //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
                 $('#messagesdiv').prepend($('<br />'));
                 $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER WITH ID:"+videoId+" LIKE BLACKMARKET. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
             }
+            else{
+                //show the whole message
+                $('#messagesdiv').prepend($('<br />'));
+
+                //ip and time stamp
+                var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]";
+                $("<span>").prependTo("#messagesdiv").attr({
+                   class: "serverdate"
+                }).text(serverStamp);
+
+                 //chat message
+                $("<span>").prependTo("#messagesdiv").attr({
+                   class: "chatclientmessage"
+                }).text(chatClientMessage);
+
+                //user alias
+                $("<span>").prependTo("#messagesdiv").attr({
+                                    class: "chatclientuser"
+                                 }).text(chatClientUser);
+                
+            }
         }
-    
-    //show the whole message
-    $('#messagesdiv').prepend($('<br />'));
-    
-    //ip and time stamp
-    var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]";
-    $("<span>").prependTo("#messagesdiv").attr({
-       class: "serverdate"
-    }).text(serverStamp);
-    
-     //chat message
-    $("<span>").prependTo("#messagesdiv").attr({
-       class: "chatclientmessage"
-    }).text(chatClientMessage);
-    
-    //user alias
-    $("<span>").prependTo("#messagesdiv").attr({
-                        class: "chatclientuser"
-                     }).text(chatClientUser);
-    
 });
 
 
