@@ -78,7 +78,8 @@ socket.on('chatmessage', function(msgObject){
             else if(chatClientMessage.indexOf(".mp3") > 0){
                 //change the source of the media player
                 $('#changeableaudiosource').attr("src",chatClientMessage);
-                
+                document.getElementById("changeableaudiosource").load();
+                document.getElementById("changeableaudiosource").play();
             }
             else if(chatClientMessage.includes(".mp4")){
                 var videoId = "video"+chatServerDate;
