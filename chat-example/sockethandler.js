@@ -84,13 +84,9 @@ socket.on('chatmessage', function(msgObject){
                 $("<audio>").prependTo("#messagesdiv").attr({
                         id: audioId,
                         preload: "none"
-                     });
-                
-                //add audio source
-                $("<source />").prepend("#"+audioId).attr({
-                    src: chatClientMessage,
-                    type: "audio/mpeg"
-                }).text("Your browser doesn't support the HTML5 Audio Tag");
+                     })
+                             .append("<source src='"+chatClientMessage+"' type='audio/mpeg'>")
+                             .text("Your browser doesn't support the HTML5 Audio Tag");
             }
             else if(chatClientMessage.includes(".mp4")){
                 var videoId = "video"+chatServerDate;
