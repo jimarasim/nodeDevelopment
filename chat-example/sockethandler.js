@@ -117,6 +117,27 @@ socket.on('chatmessage', function(msgObject){
                 
             }
         }
+        else{
+            //show the whole message
+            $('#messagesdiv').prepend($('<br />'));
+
+            //ip and time stamp
+            var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]";
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "serverdate"
+            }).text(serverStamp);
+
+             //chat message
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "chatclientmessage"
+            }).text(chatClientMessage);
+
+            //user alias
+            $("<span>").prependTo("#messagesdiv").attr({
+                                class: "chatclientuser"
+                             }).text(chatClientUser);
+
+        }
 });
 
 
