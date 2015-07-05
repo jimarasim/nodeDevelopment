@@ -87,7 +87,7 @@ socket.on('chatmessage', function(msgObject){
                      });
                 
                 //add audio source
-                $("<source />").prependTo("#"+audioId).attr({
+                $("<source />").prepend("#"+audioId).attr({
                     src: chatClientMessage,
                     type: "audio/mpeg"
                 }).text("Your browser doesn't support the HTML5 Audio Tag");
