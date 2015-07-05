@@ -76,17 +76,9 @@ socket.on('chatmessage', function(msgObject){
                  });
             }
             else if(chatClientMessage.indexOf(".mp3") > 0){
-                var audioId = "JAEMZWAREAUDIOID"+chatServerDate;
+                //change the source of the media player
+                $('#changeableaudiosource').attr("src",chatClientMessage);
                 
-                $('#messagesdiv').prepend($('<br />'));
-                
-                //add audio element
-                $("<audio>").prependTo("#messagesdiv").attr({
-                        id: audioId,
-                        preload: "none"
-                     })
-//                             .append("<source src='"+chatClientMessage+"' type='audio/mpeg'>")
-                             .text("<source src='"+chatClientMessage+"' type='audio/mpeg'>Your browser doesn't support the HTML5 Audio Tag");
             }
             else if(chatClientMessage.includes(".mp4")){
                 var videoId = "video"+chatServerDate;
