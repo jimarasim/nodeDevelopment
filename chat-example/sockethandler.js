@@ -76,14 +76,14 @@ socket.on('chatmessage', function(msgObject){
                  });
             }
           else if((chatClientMessage.indexOf(".mp3") > 0)&&
-                  (chatClientUser.indexOf("DJ NACHOS") > 0)){
+                  (chatClientUser==="DJ NACHOS"))){
                 //change the source of the media player
                 $('#jaemzwaredynamicaudiosource').attr("src",chatClientMessage);
                 document.getElementById("jaemzwaredynamicaudioplayer").load();
                 document.getElementById("jaemzwaredynamicaudioplayer").play();
             }
           else if((chatClientMessage.includes(".mp4")&&
-                   (chatClientUser.indexOf("DJ NACHOS") > 0))){
+                   (chatClientUser==="DJ NACHOS"))){
                 var videoId = "video"+chatServerDate;
                 
                 //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
