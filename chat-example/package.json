@@ -1,7 +1,8 @@
 {
   "name": "stuffedanimalwar",
-  "version": "1.0.0",
-  "description": "chat draw engine",
+  "version": "2.0.0",
+  "description": "chat draw jukebox engine",
+    "private" : true,
   "dependencies": {
     "express": "^4.10.5",
     "socket.io": "^1.2.1"
