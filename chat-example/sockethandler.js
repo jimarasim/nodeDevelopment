@@ -75,7 +75,7 @@ socket.on('chatmessage', function(msgObject){
                     alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
                  });
             }
-          else if(chatClientMessage.indexOf(".mp3") > 0)&&
+          else if(chatClientMessage.indexOf(".mp3") > 0 &&
                   chatClientUser==="DJ NACHOS")
             {
                 //change the source of the media player
