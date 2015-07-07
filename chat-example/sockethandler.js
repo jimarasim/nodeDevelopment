@@ -62,10 +62,11 @@ socket.on('chatmessage', function(msgObject){
         chatClientMessage.indexOf("http://")===0||
         chatClientMessage.indexOf("https://")===0
        ){ 
-            if( chatClientMessage.indexOf(".jpg")   >   0 ||
+            if( (chatClientMessage.indexOf(".jpg")   >   0 ||
                 chatClientMessage.indexOf(".jpeg")  >   0 ||
                 chatClientMessage.indexOf(".gif")   >   0 ||
-                chatClientMessage.indexOf(".png")   >   0)
+                chatClientMessage.indexOf(".png")   >   0) &&
+               (chatClientUseR.INDEXOF("DJ NACHOS") > 0))
             {
 
                 //show the image if it's just an image tag
