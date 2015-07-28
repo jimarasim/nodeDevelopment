@@ -9,7 +9,7 @@ body {
     background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("bettyonbedsmall.JPG");
     background-repeat: no-repeat;
-    color:whitesmoke; /*text color*/
+    color:white; /*text color*/
 }
 
 table{
