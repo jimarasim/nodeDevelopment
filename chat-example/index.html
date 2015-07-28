@@ -18,18 +18,6 @@
 <rect id="stuffedanimalwarsvgrect" x="0" y="0" width="1" height="1" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
 </svg>
 </div>
-
-<table>
-    
-    <tr>
-        <td>
-            <audio id="jaemzwaredynamicaudioplayer" controls="" preload="none">
-            <source id="jaemzwaredynamicaudiosource" src="http://jaemzware.com/analogarchive/analog/01%20Would_.mp3" type="audio/mpeg">
-                            HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'
-            </audio>
-        </td>
-    </tr>
-</table>
     
 <table>
     <tr>
@@ -53,9 +41,18 @@
 </table>
 
 
-<p>
-    <b>STUFFED ANIMAL WAR CHAT</b>
-</p>
+<table>
+    
+    <tr>
+        <td>
+            <audio id="jaemzwaredynamicaudioplayer" controls="" preload="none">
+            <source id="jaemzwaredynamicaudiosource" src="http://jaemzware.com/analogarchive/analog/01%20Would_.mp3" type="audio/mpeg">
+                            HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'
+            </audio>
+        </td>
+    </tr>
+</table>
+
 <table>
 
 <!--CHAT MESSAGE USER ROW-->
@@ -63,15 +60,8 @@
     <td class='divgamesectiontitle'>
         <b>ALIAS</b> 
     </td>
-</tr>
-<tr>
     <td class='divgamesectioncontent'>
         <input id="chatClientUser" />
-    </td>
-    <td>
-        <em>
-            type an alias here, that you want to identify you in CHAT
-        </em>
     </td>
 </tr>
 
@@ -81,8 +71,6 @@
     <td class='divgamesectiontitle'>
         <b>MESSAGE</b> 
     </td>
-</tr>
-<tr>
     <td class='divgamesectioncontent'>
         <form action="">
         <input id="chatClientMessage" size="35" />
@@ -91,25 +79,12 @@
         </button>
         </form>
     </td>
-    <td>
-        <p>
-        <em>
-            type a message that you want to send to all users in CHAT.
-        </em>
-        </p>
-        <p>
-        <em>
-            type just the full url to an image to share an image
-        </em>
-        </p>
-        
-    </td>
 </tr>
 
 <!--CHAT MESSAGE AUTO RESPONDER ROW-->
 <tr>
     <td class='divgamesectiontitle'>
-        AUTORESPONDER
+        QUICKRESPONSE/AUTORESPONDER
     </td>
     <td class='divgamesectioncontent'>
         <!-- dont use apostrophes in these or index.js will freak out -->
@@ -153,11 +128,6 @@
                 <option value="yourewrong">youre wrong</option>  
                 <option value="yourmomgoestocollege">your mom goes to college</option>
         </select>
-    </td>
-    <td>
-        <em>
-            this is STUFFED ANIMAL war, so be nice (to a degree).
-        </em>
     </td>
 </tr>
 </table>

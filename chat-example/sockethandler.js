@@ -56,6 +56,8 @@ socket.on('chatmessage', function(msgObject){
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
+    
+    var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]"; //ip and time stamp
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -95,6 +97,14 @@ socket.on('chatmessage', function(msgObject){
                 //show the whole message
                 $('#messagesdiv').prepend($('<br />'));
 
+                
+                
+                //user alias
+                $("<span>").prependTo("#messagesdiv").attr({
+                                    class: "chatclientuser"
+                                 }).text(chatClientUser);
+
+
                 //ip and time stamp
                 var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]";
                 $("<span>").prependTo("#messagesdiv").attr({
@@ -102,11 +112,7 @@ socket.on('chatmessage', function(msgObject){
                 }).text(serverStamp);
 
 
-                //user alias
-                $("<span>").prependTo("#messagesdiv").attr({
-                                    class: "chatclientuser"
-                                 }).text(chatClientUser);
-                                 
+
                  //chat message
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "chatclientmessage"
@@ -118,22 +124,20 @@ socket.on('chatmessage', function(msgObject){
             //show the whole message
             $('#messagesdiv').prepend($('<br />'));
 
-            //ip and time stamp
-            var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]";
-            $("<span>").prependTo("#messagesdiv").attr({
-               class: "serverdate"
-            }).text(serverStamp);
-
-             //chat message
-            $("<span>").prependTo("#messagesdiv").attr({
-               class: "chatclientmessage"
-            }).text(chatClientMessage);
-
             //user alias
             $("<span>").prependTo("#messagesdiv").attr({
                                 class: "chatclientuser"
                              }).text(chatClientUser);
 
+            //ip and time stamp
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "serverdate"
+            }).text(serverStamp);
+
+            //chat message
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "chatclientmessage"
+            }).text(chatClientMessage);
         }
 });
 
