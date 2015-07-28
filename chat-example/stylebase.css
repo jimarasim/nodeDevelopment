@@ -4,8 +4,9 @@ body {
     background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("stuffedanimalwarfinal.jpg");
     background-repeat: no-repeat;
-    color:hotpink; /*text color*/
+    color:lime; /*text color*/
     font-weight:bolder;
+    font-size:larger;
 }
 
 div{
