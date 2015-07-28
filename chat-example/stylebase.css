@@ -3,7 +3,7 @@
 body {
     background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("haters.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-position: center;
     color:gold; /*text color*/
     font-weight:normal;
