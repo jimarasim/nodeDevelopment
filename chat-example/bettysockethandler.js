@@ -1,5 +1,8 @@
-/*jaemzware*/
+/* BETTY  - jaemzware.org - 20150728 */
+
+
 var masterAlias = "BETTY";
+var unspecifiedAlias = "MR NOBODY";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
@@ -9,7 +12,7 @@ function emitChatMessage(message){
     var chatClientUser = $("#chatClientUser").val();
     
     if(chatClientUser.length===0){
-        chatClientUser = "SOMEONE";
+        chatClientUser = unspecifiedAlias;
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
@@ -92,7 +95,7 @@ socket.on('chatmessage', function(msgObject){
                 $('#messagesdiv').prepend($('<br />'));
 
                 //ip and time stamp
-                var serverStamp = " ["+chatServerUser+"-"+chatServerDate+"]";
+                var serverStamp = " [ "+chatServerUser+" - "+chatServerDate+" ] ";
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "serverdate"
                 }).text(serverStamp);
@@ -115,20 +118,20 @@ socket.on('chatmessage', function(msgObject){
             $('#messagesdiv').prepend($('<br />'));
 
             //ip and time stamp
-            var serverStamp = " ["+chatServerUser+"-"+chatServerDate+"]";
+            var serverStamp = " [ "+chatServerUser+" - "+chatServerDate+" ] ";
             $("<span>").prependTo("#messagesdiv").attr({
                class: "serverdate"
             }).text(serverStamp);
-
-             //chat message
-            $("<span>").prependTo("#messagesdiv").attr({
-               class: "chatclientmessage"
-            }).text(chatClientMessage);
 
             //user alias
             $("<span>").prependTo("#messagesdiv").attr({
                                 class: "chatclientuser"
                              }).text(chatClientUser);
+
+             //chat message
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "chatclientmessage"
+            }).text(chatClientMessage);
 
         }
 });

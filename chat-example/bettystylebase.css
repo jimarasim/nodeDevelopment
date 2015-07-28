@@ -1,7 +1,7 @@
 /* BETTY (DERIVED FROM STUFFED ANIMAL WAR) - jaemzware.org - 20150728 */
 
 body {
-    background-color: whitesmoke; /*background behind any elements on the body of the page*/
+    background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("bettyonbedsmall.JPG");
     background-repeat: no-repeat;
     color:black; /*text color*/
@@ -50,7 +50,7 @@ td.divgamesectioncontent{
 }
 
 span.chatclientmessage{
-    color:darkorange;
+    color:hotpink;
     font-size: larger;
 }
 
