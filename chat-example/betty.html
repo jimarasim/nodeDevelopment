@@ -3,63 +3,27 @@
 <!doctype html>
 <html>
     <head>
-        <title>StuffedAnimalWar</title>
+        <title>Betty James - Premium Escort</title>
         <link rel="Stylesheet" href="stylebase.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
     </head>
-    <body>
+    <body id='bettyhtml'>
    
 <!--<form action="">-->
-    
-<!--STUFFED ANIMAL WAR STANDALONE-->
-<div id="stuffedanimalwardiv" class="divstuffedanimalwar">
-<svg id="stuffedanimalwarsvg" class="svgstuffedanimalwar">
-<rect id="stuffedanimalwarsvgrect" x="0" y="0" width="1" height="1" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
-</svg>
-</div>
-
-<p>
-    <b>
-        STUFFED ANIMAL WAR ETCH-A-SKETCHY
-    </b>
-  Click or tap in the box above to draw for everyone to enjoy. Refresh page to clear canvas, which will also clear the CHAT DIALOG.
-</p>
 
 <table>
     <tr>
-        <td>
-            <b>
-                DJ NACHOS JUKEBOX
-            </b>
-        </td>
-
-        <td>
-            <audio id="jaemzwaredynamicaudioplayer" controls="" preload="none">
-            <source id="jaemzwaredynamicaudiosource" src="http://jaemzware.com/analogarchive/analog/01%20Would_.mp3" type="audio/mpeg">
-                            HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'
-            </audio>
-        </td>
-    </tr>
-</table>
-    
-<table>
-    <tr>
-        <td>
-            <b>
-                DJ NACHOS TV
-            </b>
-        </td>
-
+        
         <td>
             <video style="width: 25%;" 
                    controls="controls" 
                    preload="metadata" 
                    poster="https://blackmarketskates.com/media/marginaladam/IMG_0682.png" 
-                   title="DJ Nachos TV" 
+                   title="BETTY JAMES TV" 
                    id="jaemzwaredynamicvideoplayer">
                 
-                browser doesn't support mp4 video. use chrome.
+                Your browser doesn't support an MP4 HTML5 VIDEO. try a different one, like chrome.
                 
                 <source src="https://blackmarketskates.com/media/marginaladam/IMG_0682.mp4" type="video/mp4" id="jaemzwaredynamicvideosource">
                 </video>
@@ -69,52 +33,28 @@
 </table>
 
 
-<p>
-    <b>STUFFED ANIMAL WAR CHAT</b>
-</p>
-<table>
+<table id='chattable'>
 
 <!--CHAT MESSAGE USER ROW-->
 <tr>
     <td class='divgamesectiontitle'>
-        <b>CHAT ALIAS</b> 
+        <b>ALIAS</b> 
     </td>
     <td class='divgamesectioncontent'>
         <input id="chatClientUser" />
     </td>
-    <td>
-        <em>
-            type an alias here, that you want to identify you in CHAT
-        </em>
-    </td>
-</tr>
-
-
-<!--CHAT MESSAGE MESSAGE ROW-->
+</tr>  
 <tr>
     <td class='divgamesectiontitle'>
-        <b>CHAT MESSAGE</b> 
+        <b>MESSAGE</b> 
     </td>
     <td class='divgamesectioncontent'>
         <form action="">
-        <input id="chatClientMessage" size="35" />
-        <button>
-            SEND MESSAGE
-        </button>
+            <input id="chatClientMessage" size="35" />
+            <button>
+                SEND
+            </button>
         </form>
-    </td>
-    <td>
-        <p>
-        <em>
-            type a message that you want to send to all users in CHAT.
-        </em>
-        </p>
-        <p>
-        <em>
-            type just the full url to an image to share an image
-        </em>
-        </p>
-        
     </td>
 </tr>
 
@@ -166,23 +106,9 @@
                 <option value="yourmomgoestocollege">your mom goes to college</option>
         </select>
     </td>
-    <td>
-        <em>
-            this is STUFFED ANIMAL war, so be nice (to a degree).
-        </em>
-    </td>
 </tr>
 </table>
-<h2>CHAT DIALOG</h2>
 <div id="messagesdiv"></div>
-<h2>PRIVACY</h2>
-<p>
-    stuffedanimalwar will never have advertising nor anything for sale.<br />
-    stuffedanimalwar chat and drawing coordinate data is not stored by this chat engine.<br />
-    stuffedanimalwar has no database.<br />
-    stuffedanimalwar stores no cookies.<br /> 
-</p>
-    
 <!--</form>-->        
 <script type="text/javascript" src="sockethandler.js"></script>
 </body>

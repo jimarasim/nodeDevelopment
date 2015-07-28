@@ -95,6 +95,10 @@ app.get('/bartonhouse', function(req, res){
         res.sendFile(__dirname + '/bartonhouse.html');
 });
 
+app.get('/betty', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/betty.html');
+});
 
 //handler for incoming get requests
 app.get('/canvas', function(req, res){

@@ -1,5 +1,5 @@
 /*jaemzware*/
-var masterAlias = "DJ NACHOS";
+var masterAlias = "BETTY";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
