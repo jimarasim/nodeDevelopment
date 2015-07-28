@@ -1,4 +1,9 @@
-/* BETTY (DERIVED FROM STUFFED ANIMAL WAR) - jaemzware.org - 20150728 */
+/* BETTY  - jaemzware.org - 20150728 */
+
+#jaemzwaredynamicvideoplayer{
+    width: 50%;
+    opacity: 0.5;
+}
 
 body {
     background-color: black; /*background behind any elements on the body of the page*/
@@ -46,7 +51,7 @@ td.divgamesectioncontent{
     padding: 0%;
     background-color: white;
     text-align: left;
-    opacity: 0.35;
+    opacity: 0.5;
 }
 
 span.chatclientmessage{
@@ -74,75 +79,4 @@ a.jaemzwarelogo:active {
     text-decoration: underline;
 }
 
-
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-#messages
-{
-    list-style-type: none;
-}
-
-/*NOT USED BY stuffedanimalwar.com*/
-#canvasdiv
-{
-    width: 50%;
-    height: 50%;
-    margin-left:auto;
-    margin-right:auto;
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    border: 2px solid;
-    border-radius: 1%;
-    background-color: rgb(230, 230, 250);
-    text-align: center;
-}
-
-/*NOT USED BY stuffedanimalwar.com*/
-#dragdiv2
-{
-    background-color:orange;
-}
-
-/*NOT USED BY stuffedanimalwar.com*/
-#dragdiv1
-{
-    background-color:purple;
-}
-
-/*NOT USED BY stuffedanimalwar.com*/
-.dragdiv
-{
-    height:500px;
-    width:500px;
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-    border: 2px solid;
-    border-radius: 10%;
-    text-align: center;
-    float:left;
-}
-
-/*NOT USED BY stuffedanimalwar.com*/
-#svgrect2
-{
-    fill:#f0f0f0;
-}
 

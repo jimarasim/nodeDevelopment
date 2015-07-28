@@ -3,6 +3,8 @@
 
 var masterAlias = "BETTY";
 var unspecifiedAlias = "MR NOBODY";
+
+
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
