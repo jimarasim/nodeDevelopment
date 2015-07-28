@@ -1,0 +1,147 @@
+/* BETTY (DERIVED FROM STUFFED ANIMAL WAR) - jaemzware.org - 20150728 */
+
+body {
+    background-color: whitesmoke; /*background behind any elements on the body of the page*/
+    background-image: url("bettyonbedsmall.JPG");
+    background-repeat: no-repeat;
+    color:black; /*text color*/
+}
+
+table{
+    width:100%;
+}
+
+#chattable{
+    width:25%
+}
+
+ul{
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+}
+
+td{
+    vertical-align: top;
+    text-align: left;
+}
+
+td.divgamesectiontitle{
+    width:15%;
+}
+
+td.divgamesectioncontent{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width:20%;
+}
+
+#messagesdiv
+{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    background-color: white;
+    text-align: left;
+}
+
+span.chatclientmessage{
+    color:darkorange;
+    font-size: larger;
+}
+
+a.jaemzwarelogo:link {
+    color: white;
+    text-decoration:underline;
+}
+
+a.jaemzwarelogo:visited {
+    color: white;
+    text-decoration:underline;
+}
+
+a.jaemzwarelogo:hover {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+a.jaemzwarelogo:active {
+    color: white;
+    text-decoration: underline;
+}
+
+
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+/*NOT USED BY stuffedanimalwar.com*/
+#messages
+{
+    list-style-type: none;
+}
+
+/*NOT USED BY stuffedanimalwar.com*/
+#canvasdiv
+{
+    width: 50%;
+    height: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+    border: 2px solid;
+    border-radius: 1%;
+    background-color: rgb(230, 230, 250);
+    text-align: center;
+}
+
+/*NOT USED BY stuffedanimalwar.com*/
+#dragdiv2
+{
+    background-color:orange;
+}
+
+/*NOT USED BY stuffedanimalwar.com*/
+#dragdiv1
+{
+    background-color:purple;
+}
+
+/*NOT USED BY stuffedanimalwar.com*/
+.dragdiv
+{
+    height:500px;
+    width:500px;
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+    border: 2px solid;
+    border-radius: 10%;
+    text-align: center;
+    float:left;
+}
+
+/*NOT USED BY stuffedanimalwar.com*/
+#svgrect2
+{
+    fill:#f0f0f0;
+}
+

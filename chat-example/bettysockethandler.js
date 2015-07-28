@@ -1,5 +1,5 @@
 /*jaemzware*/
-var masterAlias = "DJ NACHOS";
+var masterAlias = "BETTY";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
@@ -9,7 +9,7 @@ function emitChatMessage(message){
     var chatClientUser = $("#chatClientUser").val();
     
     if(chatClientUser.length===0){
-        chatClientUser = "PHANTOM JOE";
+        chatClientUser = "SOMEONE";
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
@@ -19,13 +19,9 @@ function emitChatMessage(message){
               CHATCLIENTMESSAGE:message,
               CHATSERVERDATE:'CHATSERVERDATE'
           }  
-    
-    console.log("1. MESSAGETOEMIT RIGHT NOW:"+chatMessageObject.toString());
-    
+
     //send the message
     socket.emit('chatmessage',chatMessageObject); 
-    
-    console.log("3. MESSAGETOEMIT WAS EMITTED:"+chatMessageObject.toString());
 }
 
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
@@ -96,7 +92,7 @@ socket.on('chatmessage', function(msgObject){
                 $('#messagesdiv').prepend($('<br />'));
 
                 //ip and time stamp
-                var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]";
+                var serverStamp = " ["+chatServerUser+"-"+chatServerDate+"]";
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "serverdate"
                 }).text(serverStamp);
@@ -119,7 +115,7 @@ socket.on('chatmessage', function(msgObject){
             $('#messagesdiv').prepend($('<br />'));
 
             //ip and time stamp
-            var serverStamp = "["+chatServerUser+"-"+chatServerDate+"]";
+            var serverStamp = " ["+chatServerUser+"-"+chatServerDate+"]";
             $("<span>").prependTo("#messagesdiv").attr({
                class: "serverdate"
             }).text(serverStamp);
