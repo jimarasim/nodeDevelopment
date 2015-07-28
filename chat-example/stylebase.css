@@ -11,16 +11,13 @@ body {
 }
 
 div{
-    border-radius: 2%;
+    border-radius: 1%;
 }
 
 table{
-    width:100%;
+    width:70%;
 }
 
-#chattable{
-    width:25%
-}
 
 ul{
     margin: 0%;
@@ -106,24 +103,6 @@ a.jaemzwarelogo:active {
     text-decoration: underline;
 }
 
-
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
-/*NOT USED BY stuffedanimalwar.com*/
 /*NOT USED BY stuffedanimalwar.com*/
 #messages
 {
