@@ -15,8 +15,12 @@ div{
     border-radius: 1%;
 }
 
-table, video{
-    width:69%;
+table{
+    width:70%;
+
+
+.videodiv{
+    width:70%;
 }
 
 
