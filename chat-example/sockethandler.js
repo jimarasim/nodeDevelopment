@@ -1,5 +1,5 @@
 /*jaemzware*/
-
+var masterAlias = "DJ NACHOS";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
@@ -76,21 +76,20 @@ socket.on('chatmessage', function(msgObject){
                  });
             }
           else if(chatClientMessage.indexOf(".mp3") > 0 &&
-                  chatClientUser==="DJ NACHOS")
+                  chatClientUser===masterAlias)
             {
-                //change the source of the media player
+                //change the source of the AUDIO player
                 $('#jaemzwaredynamicaudiosource').attr("src",chatClientMessage);
                 document.getElementById("jaemzwaredynamicaudioplayer").load();
                 document.getElementById("jaemzwaredynamicaudioplayer").play();
             }
           else if(chatClientMessage.includes(".mp4")&&
-                   chatClientUser==="DJ NACHOS")
+                   chatClientUser===masterAlias)
             {
-                var videoId = "video"+chatServerDate;
-                
-                //TODO ADD VIDEO PLAYER LIKE RUTHLESS ON BLACK MARKET SITE
-                $('#messagesdiv').prepend($('<br />'));
-                $('#messagesdiv').prepend($('<span>').text("TODO ADD VIDEO PLAYER WITH ID:"+videoId+" LIKE BLACKMARKET. chatClientUser:"+chatClientUser+" chatServerUser:"+chatServerUser+" chatClientMessage:"+chatClientMessage+" chatServerDate:"+chatServerDate));
+                //change the source of the VIDEO player
+                $('#jaemzwaredynamicvideosource').attr("src",chatClientMessage);
+                document.getElementById("jaemzwaredynamicvideoplayer").load();
+                document.getElementById("jaemzwaredynamicvideoplayer").play();
             }
             else{
                 //show the whole message
