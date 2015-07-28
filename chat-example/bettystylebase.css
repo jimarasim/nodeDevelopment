@@ -8,8 +8,12 @@
 body {
     background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("bettyonbedsmall.JPG");
-    background-repeat: no-repeat;
-    color:white; /*text color*/
+    background-repeat: repeat-y;
+    background-position: center;
+    color:hotpink; /*text color*/
+    font-weight:normal;
+    font-family:cursive;
+    font-size:x-large;
 }
 
 table{
