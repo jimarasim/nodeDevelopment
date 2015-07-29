@@ -11,6 +11,27 @@ body {
     font-size:x-large;
 }
 
+div.divstuffedanimalwar
+{
+    background-color: lightgoldenrodyellow;
+    background-position:left;
+    vertical-align: top;
+    text-align: left;
+    height:10%; 
+    width:90%; 
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+svg.svgstuffedanimalwar
+{
+    background-color: lightgoldenrodyellow;
+    background-position:left;
+    vertical-align: top;
+    text-align: left;
+    height:100%; 
+    width:100%; 
+}
 div{
     border-radius: 1%;
 }
@@ -25,19 +46,6 @@ ul{
     padding: 0%;
 }
 
-div.divstuffedanimalwar
-svg.svgstuffedanimalwar
-{
-    background-color: lightgoldenrodyellow;
-    background-repeat:no-repeat;
-    background-position:left;
-    vertical-align: top;
-    text-align: left;
-    height:100%; 
-    width:100%; 
-    overflow-x: scroll;
-    overflow-y: scroll;
-}
 
 td{
     vertical-align: top;
