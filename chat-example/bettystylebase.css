@@ -1,10 +1,5 @@
 /* BETTY  - jaemzware.org - 20150728 */
 
-#jaemzwaredynamicvideoplayer{
-    width: 50%;
-    opacity: 0.7;
-}
-
 body {
     background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("bettyonbedsmall.JPG");
