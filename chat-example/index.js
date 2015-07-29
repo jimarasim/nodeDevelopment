@@ -68,7 +68,7 @@ io.on('connection', function(socket){
     socket.on('error', function(msg){
               console.log('bettyerror: ' + msg  );
               });  
-});
+              
     ///////////////////////////////////////////////////////////////////////////////////////////////////////chatmessage for index.html, sockerhandler.js, stylebase.css
     //specify 'chat message' event handler. happens when emit(ted) by the client
     socket.on('chatmessage', function(chatMessageObject){
@@ -97,6 +97,7 @@ io.on('connection', function(socket){
     socket.on('error', function(msg){
               console.log('error: ' + msg  );
               });  
+});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
