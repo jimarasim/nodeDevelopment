@@ -57,6 +57,8 @@ socket.on('bettychatmessage', function(msgObject){
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
+    var serverStamp = "  ["+chatServerUser+" - "+chatServerDate+"]   ";
+
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -97,7 +99,6 @@ socket.on('bettychatmessage', function(msgObject){
                 $('#messagesdiv').prepend($('<br />'));
 
                 //ip and time stamp
-                var serverStamp = " [ "+chatServerUser+" - "+chatServerDate+" ] ";
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "serverdate"
                 }).text(serverStamp);
@@ -119,8 +120,6 @@ socket.on('bettychatmessage', function(msgObject){
             //show the whole message
             $('#messagesdiv').prepend($('<br />'));
 
-            //ip and time stamp
-            var serverStamp = " [ "+chatServerUser+" - "+chatServerDate+" ] ";
             $("<span>").prependTo("#messagesdiv").attr({
                class: "serverdate"
             }).text(serverStamp);
