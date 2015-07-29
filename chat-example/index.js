@@ -55,18 +55,21 @@ io.on('connection', function(socket){
        
       //broadcast
       io.emit('bettychatmessage',chatMessageObject);
+      
+      console.log(chatMessageObject.CHATCLIENTMESSAGE+" "+chatMessageObject.CHATSERVERUSER+" "+chatMessageObject.CHATSERVERDATE);
+
     });
       
     //specify 'tapmessage' event handler, when emit(ted) by the user connection
     socket.on('bettytapmsg', function(msg){
-              console.log('message: ' + msg);
+              console.log('bettytapmsg: ' + msg);
 
               //broadcast chat message (client page needs to have  a socket.on handler for this)
               io.emit('bettytapmsg',msg);
               });  
               
     socket.on('error', function(msg){
-              console.log('bettyerror: ' + msg  );
+              console.log('bettytapmsg: ' + msg  );
               });  
               
     ///////////////////////////////////////////////////////////////////////////////////////////////////////chatmessage for index.html, sockerhandler.js, stylebase.css
@@ -84,6 +87,8 @@ io.on('connection', function(socket){
        
       //broadcast
       io.emit('chatmessage',chatMessageObject);
+      
+      console.log(chatMessageObject.CHATCLIENTMESSAGE+" "+chatMessageObject.CHATSERVERUSER+" "+chatMessageObject.CHATSERVERDATE);
     });
       
     //specify 'tapmessage' event handler, when emit(ted) by the user connection
