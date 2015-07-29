@@ -38,8 +38,38 @@ io.on('connection', function(socket){
               console.log('DISCONNECT:'+chatClientAddress);
               });
       
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////bettychatmessage for betty.html, bettysockethandler.js, bettystylebase.css
+    //
+    //
+    //specify 'chat message' event handler. happens when emit(ted) by the client
+    socket.on('bettychatmessage', function(chatMessageObject){
+      //get the address of the message emitter
+      var chatServerAddress = socket.handshake.address;
+
+      //get datestamp from the server
+      var chatServerDate = new Date();
+
+      //update the emitted json object with server information
+      chatMessageObject.CHATSERVERUSER = chatServerAddress;
+      chatMessageObject.CHATSERVERDATE = chatServerDate;
+       
+      //broadcast
+      io.emit('bettychatmessage',chatMessageObject);
+    });
       
-      
+    //specify 'tapmessage' event handler, when emit(ted) by the user connection
+    socket.on('bettytapmsg', function(msg){
+              console.log('message: ' + msg);
+
+              //broadcast chat message (client page needs to have  a socket.on handler for this)
+              io.emit('bettytapmsg',msg);
+              });  
+              
+    socket.on('error', function(msg){
+              console.log('bettyerror: ' + msg  );
+              });  
+});
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////chatmessage for index.html, sockerhandler.js, stylebase.css
     //specify 'chat message' event handler. happens when emit(ted) by the client
     socket.on('chatmessage', function(chatMessageObject){
       //get the address of the message emitter
@@ -67,7 +97,6 @@ io.on('connection', function(socket){
     socket.on('error', function(msg){
               console.log('error: ' + msg  );
               });  
-});
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
