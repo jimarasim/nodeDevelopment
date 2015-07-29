@@ -12,8 +12,25 @@ body {
     background-position: center;
     color:hotpink; /*text color*/
     font-weight:normal;
-    font-family:cursive;
-    font-size:x-large;
+    font-family:sans-serif;
+    font-size:xx-large;
+}
+
+#messagesdiv
+{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 30%;
+    height: 30%;
+    margin: 0%;
+    padding: 0%;
+    background-color:darkmagenta;
+    text-align: left;
+    opacity: 0.5;
+    color:hotpink; /*text color*/
+    font-weight:bold;
+    font-family:sans-serif;
+    font-size:large;
 }
 
 div.divstuffedanimalwar
@@ -23,7 +40,7 @@ div.divstuffedanimalwar
     vertical-align: top;
     text-align: left;
     height:10%; 
-    width:90%; 
+    width:30%; 
     overflow-x: scroll;
     overflow-y: scroll;
 }
@@ -39,7 +56,7 @@ svg.svgstuffedanimalwar
 }
 
 table{
-    width:100%;
+    width:30%;
 }
 
 #chattable{
@@ -67,18 +84,7 @@ td.divgamesectioncontent{
     width:20%;
 }
 
-#messagesdiv
-{
-    overflow-x: scroll;
-    overflow-y: scroll;
-    width: 100%;
-    height: 100%;
-    margin: 0%;
-    padding: 0%;
-    background-color: white;
-    text-align: left;
-    opacity: 0.7;
-}
+
 
 span.chatclientmessage{
     color:hotpink;
