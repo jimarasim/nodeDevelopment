@@ -57,7 +57,7 @@ socket.on('chatmessage', function(msgObject){
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
     
-    var serverStamp = "   ["+chatServerUser+"-"+chatServerDate+"]   "; //ip and time stamp
+    var serverStamp = "<span class='messageMetaData'>[USER:"+chatServerUser+" DATE:"+chatServerDate+"]</span>"; //ip and time stamp
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
