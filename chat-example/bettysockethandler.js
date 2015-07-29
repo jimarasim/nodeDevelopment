@@ -26,7 +26,7 @@ function emitChatMessage(message){
           }  
 
     //send the message
-    socket.emit('chatmessage',chatMessageObject); 
+    socket.emit('bettychatmessage',chatMessageObject); 
 }
 
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
@@ -52,11 +52,13 @@ $('#chatClientAutoResponder').change(function(){
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
-socket.on('chatmessage', function(msgObject){
+socket.on('bettychatmessage', function(msgObject){
     var chatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
+    var serverStamp = "  ["+chatServerUser+" - "+chatServerDate+"]   ";
+
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -97,7 +99,6 @@ socket.on('chatmessage', function(msgObject){
                 $('#messagesdiv').prepend($('<br />'));
 
                 //ip and time stamp
-                var serverStamp = " [ "+chatServerUser+" - "+chatServerDate+" ] ";
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "serverdate"
                 }).text(serverStamp);
@@ -119,8 +120,6 @@ socket.on('chatmessage', function(msgObject){
             //show the whole message
             $('#messagesdiv').prepend($('<br />'));
 
-            //ip and time stamp
-            var serverStamp = " [ "+chatServerUser+" - "+chatServerDate+" ] ";
             $("<span>").prependTo("#messagesdiv").attr({
                class: "serverdate"
             }).text(serverStamp);
@@ -143,13 +142,13 @@ socket.on('chatmessage', function(msgObject){
 $('#stuffedanimalwarsvg').click(function(event){
     console.log('CLICKSTUFFEDANIMALWARSVG tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
     //report coordinates to the server
-    socket.emit('tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
+    socket.emit('bettytapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 });
 
 //STUFFED ANIMAL WAR
 //the server is telling us new coordinates for the next line from another player
 //DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
-socket.on('tapmsg', function(msg){
+socket.on('bettytapmsg', function(msg){
           
     //width of the line to draw
     var lineWidth = 5;

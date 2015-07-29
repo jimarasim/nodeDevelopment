@@ -10,12 +10,26 @@ body {
     font-family:normal;
     font-size:xx-large;
 }
-
-#messagesdiv
+div.divstuffedanimalwar
 {
+    width:50%; 
+    background-color: lightgoldenrodyellow;
+    background-position:left;
+    vertical-align: top;
+    text-align: left;
+    height:10%; 
     overflow-x: scroll;
     overflow-y: scroll;
+}
+
+table{
+    width:50%;
+}  
+#messagesdiv
+{
     width: 50%;
+    overflow-x: scroll;
+    overflow-y: scroll;
     height: 30%;
     margin: 0%;
     padding: 0%;
@@ -31,17 +45,7 @@ body {
 
 }
 
-div.divstuffedanimalwar
-{
-    background-color: lightgoldenrodyellow;
-    background-position:left;
-    vertical-align: top;
-    text-align: left;
-    height:10%; 
-    width:50%; 
-    overflow-x: scroll;
-    overflow-y: scroll;
-}
+
 
 svg.svgstuffedanimalwar
 {
@@ -56,10 +60,6 @@ svg.svgstuffedanimalwar
 div{
     border-radius: 1%;
 }
-
-table{
-    width:30%;
-
 
 ul{
     margin: 0%;
