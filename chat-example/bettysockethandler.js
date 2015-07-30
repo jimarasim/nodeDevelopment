@@ -1,15 +1,12 @@
 /* BETTY  - jaemzware.org - 20150728 */
-
-
+/* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
 var masterAlias = "BETTY";
-var unspecifiedAlias = "MR NOBODY";
-
-
+var unspecifiedAlias = "ANONYMOUS";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
+//CONTAINS METHOD
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
-
 
 function emitChatMessage(message){
     

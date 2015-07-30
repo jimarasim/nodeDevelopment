@@ -1,13 +1,12 @@
-/*jaemzware*/
+/*STUFFED ANIMAL WAR - jaemzware.org - 2015*/
 /* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
-
 var masterAlias = "DJ NACHOS";
+var unspecifiedAlias = "ANONYMOUS";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
 //CONTAINS METHOD
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
-
 
 function emitChatMessage(message){
     
@@ -15,7 +14,7 @@ function emitChatMessage(message){
     var chatClientUser = $("#chatClientUser").val();
     
     if(chatClientUser.length===0){
-        chatClientUser = "PHANTOM JOE";
+        chatClientUser = unspecifiedAlias;
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
@@ -26,12 +25,8 @@ function emitChatMessage(message){
               CHATSERVERDATE:'CHATSERVERDATE'
           }  
     
-    console.log("1. MESSAGETOEMIT RIGHT NOW:"+chatMessageObject.toString());
-    
     //send the message
     socket.emit('chatmessage',chatMessageObject); 
-    
-    console.log("3. MESSAGETOEMIT WAS EMITTED:"+chatMessageObject.toString());
 }
 
 //CHAT MESSAGE: CHAT MESSAGE => SOCKET
@@ -54,26 +49,26 @@ $('#chatClientAutoResponder').change(function(){
     $('#chatClientAutoResponder').val('blank');
 });
 
-//SONGS - CHANGE SONG
+//SONGS - CHANGE SONG - SOCKET => SONGS
 $('#selectsongs').change(function(){
     
-if($('#chatClientUser').val()===masterAlias){    //PLAY SONG
-    //change the source of the AUDIO player
-    $('#jaemzwaredynamicaudiosource').attr("src",$('#selectsongs option:selected').text());
-    document.getElementById("jaemzwaredynamicaudioplayer").load();
-    document.getElementById("jaemzwaredynamicaudioplayer").play();
-}
+    if($('#chatClientUser').val()===masterAlias){    //PLAY SONG
+        //change the source of the AUDIO player
+        $('#jaemzwaredynamicaudiosource').attr("src",$('#selectsongs option:selected').text());
+        document.getElementById("jaemzwaredynamicaudioplayer").load();
+        document.getElementById("jaemzwaredynamicaudioplayer").play();
+    }   
 });
 
-//VIDEOS - CHANGE VIDEO
+//VIDEOS - CHANGE VIDEO - SOCKET => VIDEOS
 $('#selectvideos').change(function(){
     
-if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
-     //change the source of the VIDEO player
-    $('#jaemzwaredynamicvideosource').attr("src",$('#selectvideos option:selected').text());
-    document.getElementById("jaemzwaredynamicvideoplayer").load();
-    document.getElementById("jaemzwaredynamicvideoplayer").play();
-}
+    if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
+         //change the source of the VIDEO player
+        $('#jaemzwaredynamicvideosource').attr("src",$('#selectvideos option:selected').text());
+        document.getElementById("jaemzwaredynamicvideoplayer").load();
+        document.getElementById("jaemzwaredynamicvideoplayer").play();
+    }
 });
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
