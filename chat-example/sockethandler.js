@@ -1,7 +1,13 @@
 /*jaemzware*/
+/* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
+
 var masterAlias = "DJ NACHOS";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
+
+//CONTAINS METHOD
+String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
+
 
 function emitChatMessage(message){
     
@@ -48,7 +54,33 @@ $('#chatClientAutoResponder').change(function(){
     $('#chatClientAutoResponder').val('blank');
 });
 
-String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
+//SONGS - CHANGE SONG
+$('#selectsongs').change(function(){
+    
+    if(chatClientUser===masterAlias){
+    //PLAY SONG
+    //change the source of the AUDIO player
+    $('#jaemzwaredynamicaudiosource').attr("src",$('#selectsongs option:selected').text());
+    document.getElementById("jaemzwaredynamicaudioplayer").load();
+    document.getElementById("jaemzwaredynamicaudioplayer").play();
+}
+});
+
+//VIDEOS - CHANGE VIDEO
+$('#selectvideos').change(function(){
+    
+    if(chatClientUser===masterAlias){
+    //PLAY VIDEO
+     //change the source of the VIDEO player
+    $('#jaemzwaredynamicvideosource').attr("src",$('#selectvideos option:selected').text());
+    document.getElementById("jaemzwaredynamicvideoplayer").load();
+    document.getElementById("jaemzwaredynamicvideoplayer").play();
+}
+});
+
+
+
+
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chatmessage', function(msgObject){
