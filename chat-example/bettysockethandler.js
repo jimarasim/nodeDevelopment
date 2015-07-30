@@ -55,6 +55,7 @@ $('#chatClientAutoResponder').change(function(){
 //SONGS - CHANGE SONG
 $('#selectsongs').change(function(){
     
+    console.log("if("+chatClientUser+"==="+masterAlias+"){");
     if(chatClientUser===masterAlias){
     //PLAY SONG
     //change the source of the AUDIO player
