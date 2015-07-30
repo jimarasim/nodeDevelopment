@@ -76,10 +76,6 @@ if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
 }
 });
 
-
-
-
-
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
 socket.on('chatmessage', function(msgObject){
     var chatClientUser = msgObject.CHATCLIENTUSER;
