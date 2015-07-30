@@ -56,7 +56,7 @@ $('#chatClientAutoResponder').change(function(){
 $('#selectsongs').change(function(){
     
     console.log("if("+chatClientUser+"==="+masterAlias+"){");
-    if(chatClientUser===masterAlias){
+    if($('#chatClientUser').val()===masterAlias){
     //PLAY SONG
     //change the source of the AUDIO player
     $('#jaemzwaredynamicaudiosource').attr("src",$('#selectsongs option:selected').text());
@@ -68,7 +68,7 @@ $('#selectsongs').change(function(){
 //VIDEOS - CHANGE VIDEO
 $('#selectvideos').change(function(){
     
-    if(chatClientUser===masterAlias){
+    if($('#chatClientUser').val()===masterAlias){
     //PLAY VIDEO
      //change the source of the VIDEO player
     $('#jaemzwaredynamicvideosource').attr("src",$('#selectvideos option:selected').text());
