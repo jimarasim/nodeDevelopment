@@ -10,6 +10,18 @@ body {
     font-family:normal;
     font-size:xx-large;
 }
+
+span.serverdate{
+    color:hotpink;
+}
+
+span.chatclientuser{
+    color:hotpink;
+}
+span.chatclientmessage{
+    color:darkorange;
+    font-size: larger;
+}
 div.divstuffedanimalwar
 {
     width:50%; 
@@ -84,10 +96,6 @@ td.divgamesectioncontent{
 }
 
 
-span.chatclientmessage{
-    color:darkorange;
-    font-size: larger;
-}
 
 #fulldisclosurediv{
     overflow-x: scroll;

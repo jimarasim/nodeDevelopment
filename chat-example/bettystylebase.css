@@ -86,6 +86,14 @@ span.chatclientmessage{
     font-size: larger;
 }
 
+span.serverdate{
+    color:hotpink;
+}
+
+span.chatclientuser{
+    color:hotpink;
+}
+
 a.jaemzwarelogo:link {
     color: white;
     text-decoration:underline;
