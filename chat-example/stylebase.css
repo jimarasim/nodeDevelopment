@@ -1,14 +1,14 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
-
 body {
     background-color: black; /*background behind any elements on the body of the page*/
-    background-image: url("stuffedanimalwarfinal.jpg");
+    background-image: url("stuffedanimalwarfinal.JPG");
     background-repeat: repeat-y;
     background-position: center;
-    color:orange; /*text color*/
+    color:white; /*text color*/
     font-weight:normal;
-    font-family:normal;
-    font-size:large;
+    font-family:sans-serif;
+    font-size:xx-large;
+    
 }
 
 //CHAT MESSAGES
