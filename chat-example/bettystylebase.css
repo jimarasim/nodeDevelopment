@@ -15,8 +15,8 @@ body {
 {
     overflow-x: scroll;
     overflow-y: scroll;
-    width: 50%;
-    height: 30%;
+    width: 70%;
+    height: 50%;
     margin: 0%;
     padding: 0%;
     background-color:darkmagenta;
@@ -34,8 +34,8 @@ div.divstuffedanimalwar
     background-position:left;
     vertical-align: top;
     text-align: left;
-    height:10%; 
-    width:50%; 
+    height:30%; 
+    width:70%; 
     overflow-x: scroll;
     overflow-y: scroll;
 }
@@ -51,7 +51,7 @@ svg.svgstuffedanimalwar
 }
 
 table{
-    width:30%;
+    width:70%;
 }
 
 #chattable{
