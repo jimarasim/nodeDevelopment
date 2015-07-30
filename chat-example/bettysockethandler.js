@@ -57,7 +57,7 @@ socket.on('bettychatmessage', function(msgObject){
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
-    var serverStamp = "<span class='messageMetaData'>[USER:"+chatServerUser+" DATE:"+chatServerDate+"]</span>"; //ip and time stamp
+    var serverStamp = "[USER:"+chatServerUser+" DATE:"+chatServerDate+"]"; //ip and time stamp
 
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
