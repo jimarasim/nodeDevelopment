@@ -30,15 +30,16 @@ body {
     font-size:x-small;
     border: 3px solid;
     border-radius: 1%;
-
 }
 
 span.serverdate{
     color:lightblue;
+    font-size: small;
 }
 
 span.chatclientuser{
     color:green;
+    font-size: small;
 }
 span.chatclientmessage{
     color:yellow;

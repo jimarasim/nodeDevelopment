@@ -34,10 +34,14 @@ body {
 
 span.serverdate{
     color:blue;
+    font-size: small;
+
 }
 
 span.chatclientuser{
     color:green;
+    font-size: small;
+
 }
 span.chatclientmessage{
     color:yellow;
