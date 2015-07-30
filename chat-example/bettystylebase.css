@@ -5,18 +5,20 @@ body {
     background-image: url("bettyonbedsmall.JPG");
     background-repeat: repeat-y;
     background-position: center;
-    color:hotpink; /*text color*/
+    color:yellow; /*text color*/
     font-weight:normal;
     font-family:sans-serif;
     font-size:xx-large;
+    
 }
 
+//CHAT MESSAGES
 #messagesdiv
 {
+    width: 50%;
     overflow-x: scroll;
     overflow-y: scroll;
-    width: 70%;
-    height:500px;
+    height: 30%;
     margin: 0%;
     padding: 0%;
     background-color:darkblue;
@@ -26,16 +28,33 @@ body {
     font-weight:bold;
     font-family:sans-serif;
     font-size:large;
+    border: 3px solid;
+    border-radius: 1%;
+
 }
 
+span.serverdate{
+    color:blue;
+}
+
+span.chatclientuser{
+    color:green;
+}
+span.chatclientmessage{
+    color:yellow;
+    font-size: larger;
+}
+
+//STUFFED ANIMAL WAR
 div.divstuffedanimalwar
 {
+    width:70%; 
+    height:500px;
     background-color: lightgoldenrodyellow;
     background-position:left;
     vertical-align: top;
     text-align: left;
-    height:30%; 
-    width:70%; 
+    height:10%; 
     overflow-x: scroll;
     overflow-y: scroll;
 }
@@ -71,31 +90,6 @@ ul{
 td{
     vertical-align: top;
     text-align: left;
-}
-
-td.divgamesectiontitle{
-    width:15%;
-}
-
-td.divgamesectioncontent{
-    overflow-x: scroll;
-    overflow-y: scroll;
-    width:20%;
-}
-
-
-
-span.chatclientmessage{
-    color:hotpink;
-    font-size: larger;
-}
-
-span.serverdate{
-    color:hotpink;
-}
-
-span.chatclientuser{
-    color:hotpink;
 }
 
 a.jaemzwarelogo:link {

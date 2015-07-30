@@ -5,39 +5,13 @@ body {
     background-image: url("stuffedanimalwarfinal.jpg");
     background-repeat: repeat-y;
     background-position: center;
-    color:gold; /*text color*/
+    color:red; /*text color*/
     font-weight:normal;
     font-family:normal;
     font-size:xx-large;
 }
 
-span.serverdate{
-    color:hotpink;
-}
-
-span.chatclientuser{
-    color:hotpink;
-}
-span.chatclientmessage{
-    color:darkorange;
-    font-size: larger;
-}
-div.divstuffedanimalwar
-{
-    width:70%; 
-    height:500px;
-    background-color: lightgoldenrodyellow;
-    background-position:left;
-    vertical-align: top;
-    text-align: left;
-    height:10%; 
-    overflow-x: scroll;
-    overflow-y: scroll;
-}
-
-table{
-    width:50%;
-}  
+//CHAT MESSAGES
 #messagesdiv
 {
     width: 50%;
@@ -58,7 +32,31 @@ table{
 
 }
 
+span.serverdate{
+    color:blue;
+}
 
+span.chatclientuser{
+    color:green;
+}
+span.chatclientmessage{
+    color:yellow;
+    font-size: larger;
+}
+
+//STUFFED ANIMAL WAR
+div.divstuffedanimalwar
+{
+    width:70%; 
+    height:500px;
+    background-color: lightgoldenrodyellow;
+    background-position:left;
+    vertical-align: top;
+    text-align: left;
+    height:10%; 
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
 
 svg.svgstuffedanimalwar
 {
@@ -69,6 +67,11 @@ svg.svgstuffedanimalwar
     height:100%; 
     width:100%; 
 }
+
+table{
+    width:50%;
+}  
+
 
 div{
     border-radius: 1%;
