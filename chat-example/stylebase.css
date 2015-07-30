@@ -5,10 +5,10 @@ body {
     background-image: url("stuffedanimalwarfinal.jpg");
     background-repeat: repeat-y;
     background-position: center;
-    color:hotpink; /*text color*/
+    color:darkblue; /*text color*/
     font-weight:normal;
     font-family:normal;
-    font-size:xx-large;
+    font-size:x-large;
 }
 
 //CHAT MESSAGES
