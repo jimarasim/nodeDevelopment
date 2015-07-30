@@ -24,7 +24,8 @@ span.chatclientmessage{
 }
 div.divstuffedanimalwar
 {
-    width:50%; 
+    width:70%; 
+    height:500px;
     background-color: lightgoldenrodyellow;
     background-position:left;
     vertical-align: top;
