@@ -26,6 +26,7 @@ body {
     opacity: 0.7;
     font-weight:bold;
     font-family:sans-serif;
+    font-size:x-small;
     border: 3px solid;
     border-radius: 1%;
 
@@ -40,7 +41,7 @@ span.chatclientuser{
 }
 span.chatclientmessage{
     color:yellow;
-    font-size: larger;
+    font-size: small;
 }
 
 //STUFFED ANIMAL WAR
