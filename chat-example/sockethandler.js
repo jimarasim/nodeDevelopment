@@ -108,6 +108,8 @@ socket.on('chatmessage', function(msgObject){
                                     class: "chatclientuser"
                                  }).text(chatClientUser);
 
+                $('#messagesdiv').prepend($('<br />'));
+
                  //chat message
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "chatclientmessage"
@@ -129,6 +131,8 @@ socket.on('chatmessage', function(msgObject){
             $("<span>").prependTo("#messagesdiv").attr({
                                 class: "chatclientuser"
                              }).text(chatClientUser);
+
+            $('#messagesdiv').prepend($('<br />'));
 
              //chat message
             $("<span>").prependTo("#messagesdiv").attr({
