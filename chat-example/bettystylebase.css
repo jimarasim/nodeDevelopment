@@ -54,6 +54,10 @@ table{
     width:70%;
 }
 
+table.narrowertable{
+    width:40%;
+}
+
 #chattable{
     width:25%
 }
