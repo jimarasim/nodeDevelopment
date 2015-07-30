@@ -46,9 +46,9 @@ table{
     margin: 0%;
     padding: 0%;
     background-color:darkblue;
+    color:yellow; /*text color*/
     text-align: left;
     opacity: 0.7;
-    color:darkslateblue; /*text color*/
     font-weight:bold;
     font-family:sans-serif;
     font-size:large;
