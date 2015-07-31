@@ -1,5 +1,7 @@
 /* BETTY  - jaemzware.org - 20150728 */
 /* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
+
+//BETTY-------------------------------------------------------------------------------------------BETTY
 var masterAlias = "BETTY";
 var unspecifiedAlias = "ANONYMOUS";
 var socket = io();
@@ -26,6 +28,7 @@ function emitChatMessage(message){
           }  
 
     //send the message
+//BETTY-------------------------------------------------------------------------------------------BETTY
     socket.emit('bettychatmessage',chatMessageObject); 
 }
 
@@ -74,8 +77,8 @@ $('#selectvideos').change(function(){
 }
 });
 
-
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES
+//BETTY-------------------------------------------------------------------------------------------BETTY
 socket.on('bettychatmessage', function(msgObject){
     var chatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
@@ -171,12 +174,15 @@ socket.on('bettychatmessage', function(msgObject){
 $('#stuffedanimalwarsvg').click(function(event){
     console.log('CLICKSTUFFEDANIMALWARSVG tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
     //report coordinates to the server
+//BETTY-------------------------------------------------------------------------------------------BETTY
     socket.emit('bettytapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 });
 
 //STUFFED ANIMAL WAR
 //the server is telling us new coordinates for the next line from another player
 //DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
+//
+//BETTY-------------------------------------------------------------------------------------------BETTY
 socket.on('bettytapmsg', function(msg){
           
     //width of the line to draw
@@ -201,8 +207,8 @@ socket.on('bettytapmsg', function(msg){
     newLine.setAttribute('y1',newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-//    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
-    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth);
+    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
+//    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth);
 
     $("#stuffedanimalwarsvg").append(newLine);
     
