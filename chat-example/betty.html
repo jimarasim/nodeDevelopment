@@ -17,84 +17,6 @@
 <rect id="stuffedanimalwarsvgrect" x="0" y="0" width="1" height="1" style="fill:rgb(0,0,255);stroke-width:2;stroke:rgb(0,0,0)" />
 </svg>
 </div>
-
-<table class="narrowertable">
-
-<!--CHAT MESSAGE USER ROW-->
-<tr>
-    <td class='divgamesectiontitle'>
-        <b>ALIAS</b> 
-    </td>
-    <td class='divgamesectioncontent'>
-        <input id="chatClientUser" />
-    </td>
-</tr>  
-<tr>
-    <td class='divgamesectiontitle'>
-        <b>MESSAGE</b> 
-    </td>
-    <td class='divgamesectioncontent'>
-        <form action="">
-            <input id="chatClientMessage" size="35" />
-            <button>
-                SEND
-            </button>
-        </form>
-    </td>
-</tr>
-
-<!--CHAT MESSAGE AUTO RESPONDER ROW-->
-<tr>
-    <td class='divgamesectiontitle'>
-        <b>AUTORESPONSE</b>
-    </td>
-    <td class='divgamesectioncontent'>
-        <!-- dont use apostrophes in these or index.js will freak out -->
-        <select id="chatClientAutoResponder" size=1 >
-                <option value="blank" selected></option>
-                <option value="didyougoogle">did you google that comeback?</option>
-                <option value="idk">i dont know</option>
-                <option value="ikr">i know right</option>
-                <option value="ilikeyou">i like you</option>
-                <option value="iloveyou">i love you</option>
-                <option value="ithinkyoure">i think youre attractive</option>
-                <option value="holdmybeerwatchthis">hold my beer, watch this</option>
-                <option value="idratherplaywithmycat">id rather play with my cat</option>
-                <option value="ilikeyou">i like you</option>
-                <option value="linkisbusted">that link is busted</option>
-                <option value="look it up">look it up</option>
-                <option value="lol">LOL</option>
-                <option value="nuhuh">Nuh UH!</option>
-                <option value="ok">ok</option>
-                <option value="picsoritdidnthappen">pics or it didnt happen</option>
-                <option value="sarcastic">sarcastic clap</option>
-                <option value="silence">silence for effect</option>
-                <option value="vague">vague hipster comment</option>
-                <option value="witty">witty comeback</option>
-                <option value="omg">OMG</option>
-                <option value="picsoritdidnthappen">pics or it didnt happen</option>
-                <option value="stfu">STFU</option>
-                <option value="thatlinkisrad">that link is rad</option>
-                <option value="thatscool">thats cool</option>
-                <option value="thatsucks">that sucks</option>
-                <option value="thatscool">thats cool</option>
-                <option value="thatswhatshesaid">thats what she said</option>
-                <option value="whatever">whatever</option>
-                <option value="youinspireme">you inspire me</option>
-                <option value="youlookverynicetoday">you look very nice today</option>
-                <option value="yourock">you rock</option>
-                <option value="yousuck">you suck</option>
-                <option value="youknowyourearealupperson">youre a real UP person</option>
-                <option value="youremybestfriend">youre my best friend</option>
-                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
-                <option value="yourewrong">youre wrong</option>  
-        </select>
-    </td>
-</tr>
-</table>
-
-<div id="messagesdiv"></div>
-
 <table>
 <tr><td>
             <video width="640"
@@ -110,8 +32,8 @@
                 <source src="http://helena.seattlerules.com/media/marginalbenefit20140913/ZOOM0001-marginalbenefit-2bit20140913.mp4" type="video/mp4" id="jaemzwaredynamicvideosource">
                 </video>
     </td></tr>
-<tr><td>
-      
+<tr>
+    <td>
 <select id="selectvideos">
     <option selected>https://blackmarketskates.seattlerules.com/theshop/media/lordsofseatown20140914/IMG_0320-lordsofseatown2014.mp4</option>
 <option>https://blackmarketskates.seattlerules.com/theshop/media/lordsofseatown20140914/IMG_0321-lordsofseatown2014.mp4</option>
@@ -1549,7 +1471,85 @@
         </td>
     </tr>
 </table>
+<table class="narrowertable">
 
+<!--CHAT MESSAGE USER ROW-->
+<tr>
+    <td class='divgamesectiontitle'>
+        <b>ALIAS</b> 
+    </td>
+    <td class='divgamesectioncontent'>
+        <input id="chatClientUser" />
+    </td>
+</tr>  
+<tr>
+    <td class='divgamesectiontitle'>
+        <b>MESSAGE</b> 
+    </td>
+    <td class='divgamesectioncontent'>
+        <form action="">
+            <input id="chatClientMessage" size="35" />
+            <button>
+                SEND
+            </button>
+        </form>
+    </td>
+</tr>
+
+<!--CHAT MESSAGE AUTO RESPONDER ROW-->
+<tr>
+    <td class='divgamesectiontitle'>
+        <b>AUTORESPONSE</b>
+    </td>
+    <td class='divgamesectioncontent'>
+        <!-- dont use apostrophes in these or index.js will freak out -->
+        <select id="chatClientAutoResponder" size=1 >
+                <option value="blank" selected></option>
+                <option value="didyougoogle">did you google that comeback?</option>
+                <option value="idk">i dont know</option>
+                <option value="ikr">i know right</option>
+                <option value="ilikeyou">i like you</option>
+                <option value="iloveyou">i love you</option>
+                <option value="ithinkyoure">i think youre attractive</option>
+                <option value="holdmybeerwatchthis">hold my beer, watch this</option>
+                <option value="idratherplaywithmycat">id rather play with my cat</option>
+                <option value="ilikeyou">i like you</option>
+                <option value="linkisbusted">that link is busted</option>
+                <option value="look it up">look it up</option>
+                <option value="lol">LOL</option>
+                <option value="nuhuh">Nuh UH!</option>
+                <option value="ok">ok</option>
+                <option value="picsoritdidnthappen">pics or it didnt happen</option>
+                <option value="sarcastic">sarcastic clap</option>
+                <option value="silence">silence for effect</option>
+                <option value="vague">vague hipster comment</option>
+                <option value="witty">witty comeback</option>
+                <option value="omg">OMG</option>
+                <option value="picsoritdidnthappen">pics or it didnt happen</option>
+                <option value="stfu">STFU</option>
+                <option value="thatlinkisrad">that link is rad</option>
+                <option value="thatscool">thats cool</option>
+                <option value="thatsucks">that sucks</option>
+                <option value="thatscool">thats cool</option>
+                <option value="thatswhatshesaid">thats what she said</option>
+                <option value="whatever">whatever</option>
+                <option value="youinspireme">you inspire me</option>
+                <option value="youlookverynicetoday">you look very nice today</option>
+                <option value="yourock">you rock</option>
+                <option value="yousuck">you suck</option>
+                <option value="youknowyourearealupperson">youre a real UP person</option>
+                <option value="youremybestfriend">youre my best friend</option>
+                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
+                <option value="yourewrong">youre wrong</option>  
+        </select>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <div id="messagesdiv"></div>
+    </td>
+</tr>
+</table>
 <hr size="10"/>
 
 <a href="http://jaemzware.org" class="jaemzwarelogo" target="_blank">jaemzware.org</a> is supporter of <a href="http://swop-seattle.org/" target="_blank" class="jaemzwarelogo">swop-seattle</a> and internet privacy.<br />
