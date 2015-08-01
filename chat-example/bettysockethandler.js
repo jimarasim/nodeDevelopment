@@ -1,22 +1,26 @@
 /* BETTY  - jaemzware.org - 20150728 */
 /* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
-
-//BETTY-------------------------------------------------------------------------------------------BETTY
 var masterAlias = "BETTY";
-var unspecifiedAlias = "ANONYMOUS";
+var unspecifiedAlias = "ANONYMOUS BETTY WANNABE";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
 //CONTAINS METHOD
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
+//EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER (UNCOMMON, CALLS UNIQUE SOCKET.EMIT CALLBACK
 function emitChatMessage(message){
+    
+    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message);
     
     //get the user alias
     var chatClientUser = $("#chatClientUser").val();
+    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" FROM THE USER:"+chatClientUser);
     
+    //SET THE DEFAULT ALIAS IF IT'S EMPTY
     if(chatClientUser.length===0){
         chatClientUser = unspecifiedAlias;
+        console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" AND SET THE USER TO:"+chatClientUser);
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
@@ -28,63 +32,85 @@ function emitChatMessage(message){
           }  
 
     //send the message
-//BETTY-------------------------------------------------------------------------------------------BETTY
-    socket.emit('bettychatmessage',chatMessageObject); 
+    console.log("emitting bettychatmessage with chatMessageObject:"+JSON.stringify(chatMessageObject));
+    socket.emit('bettychatmessage',chatMessageObject); //BETTY-------------------------------------------------------------------------------------------BETTY
 }
 
-//CHAT MESSAGE: CHAT MESSAGE => SOCKET
+
+//CHAT MESSAGE - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
     
-    emitChatMessage($('#chatClientMessage').val());
-    
-    //clear the message box
+    //GET THE MESSAGE IN THE MESSAGE BOX
+    var chatMessage = $('#chatClientMessage').val();
+
+    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
     $('#chatClientMessage').val('');
+    
+    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
+    emitChatMessage(chatMessage);
+    
     return false;
 });
 
-
-//AUTORESPONDER SELECT DROP DOWN
+//AUTORESPONDER - SELECT DROP DOWN (COMMON) 
 $('#chatClientAutoResponder').change(function(){
     
-    emitChatMessage($('#chatClientAutoResponder option:selected').text());
+    //GET THE MESSAGE FROM THE AUTORESPONDER
+    var chatMessage = $('#chatClientAutoResponder option:selected').text();
+    
+    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
+    emitChatMessage(chatMessage);
     
     //set the autoresponder back to blanck
     $('#chatClientAutoResponder').val('blank');
 });
 
-//SONGS - CHANGE SONG
+//SONGS - CHANGE SONG (COMMON)
 $('#selectsongs').change(function(){
     
-    console.log("if("+chatClientUser+"==="+masterAlias+"){");
-    if($('#chatClientUser').val()===masterAlias){
-    //PLAY SONG
-    //change the source of the AUDIO player
-    $('#jaemzwaredynamicaudiosource').attr("src",$('#selectsongs option:selected').text());
-    document.getElementById("jaemzwaredynamicaudioplayer").load();
-    document.getElementById("jaemzwaredynamicaudioplayer").play();
-}
+    if($('#chatClientUser').val()===masterAlias){    //PLAY SONG
+        console.log(masterAlias+" IS THE MASTER");
+        
+        var songToPlay = $('#selectsongs option:selected').text();
+        
+        console.log(masterAlias+" IS THE MASTER AND CHOSE THE SONGTOPLAY:"+songToPlay);
+
+        console.log("CALLING EMITCHATMESSAGE FROM SONG CHANGER WITH #selectsongs option:selected => "+songToPlay);
+        emitChatMessage(songToPlay);
+    }   
+    else{
+        console.log($('#chatClientUser').val()+" IS NOT THE MASTER");
+    }
 });
 
-//VIDEOS - CHANGE VIDEO
+//VIDEOS - CHANGE VIDEO (COMMON)
 $('#selectvideos').change(function(){
     
-    if($('#chatClientUser').val()===masterAlias){
-    //PLAY VIDEO
-     //change the source of the VIDEO player
-    $('#jaemzwaredynamicvideosource').attr("src",$('#selectvideos option:selected').text());
-    document.getElementById("jaemzwaredynamicvideoplayer").load();
-    document.getElementById("jaemzwaredynamicvideoplayer").play();
-}
+    if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
+        console.log(masterAlias+" IS THE MASTER");
+        
+        var videoToPlay = $('#selectvideos option:selected').text();
+        
+        console.log(masterAlias+" IS THE MASTER AND CHOSE THE VIDEOTOPLAY:"+videoToPlay);
+
+        console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #selectvideos option:selected => "+videoToPlay);
+        emitChatMessage(videoToPlay);
+    }
+    else{
+        console.log($('#chatClientUser').val()+" IS NOT THE MASTER");
+    }
 });
 
-//CHAT MESSAGE: SOCKET => CHAT MESSAGES
-//BETTY-------------------------------------------------------------------------------------------BETTY
-socket.on('bettychatmessage', function(msgObject){
+//CHAT MESSAGE: SOCKET => CHAT MESSAGES - BETTY (bettychatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
+socket.on('bettychatmessage', function(msgObject){ 
     var chatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
     var serverStamp = "[IP:"+chatServerUser+" DATE:"+chatServerDate+"]"; //ip and time stamp
+    
+    console.log("RECEIVED MSGOBJECT FROM A BETTYCHATMESSAGE BROADCAST:"+JSON.stringify(msgObject));
+    console.log("PARAMETERIZED FOR READABILITY CHATCLIENTUSER:"+chatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
 
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
@@ -169,7 +195,7 @@ socket.on('bettychatmessage', function(msgObject){
         }
 });
 
-//STUFFED ANIMAL WAR
+//STUFFED ANIMAL WAR (COMMON)
 //tell server about new coordinates when clicked
 $('#stuffedanimalwarsvg').click(function(event){
     console.log('CLICKSTUFFEDANIMALWARSVG tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
@@ -178,11 +204,9 @@ $('#stuffedanimalwarsvg').click(function(event){
     socket.emit('bettytapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 });
 
-//STUFFED ANIMAL WAR
+//STUFFED ANIMAL WAR - BETTY (bettytapmsg) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
 //the server is telling us new coordinates for the next line from another player
 //DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
-//
-//BETTY-------------------------------------------------------------------------------------------BETTY
 socket.on('bettytapmsg', function(msg){
           
     //width of the line to draw
@@ -208,7 +232,7 @@ socket.on('bettytapmsg', function(msg){
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
-//    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth);
+//    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth); //BLACK LINE
 
     $("#stuffedanimalwarsvg").append(newLine);
     
