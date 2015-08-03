@@ -148,6 +148,11 @@ app.get('/', function(req, res){
         res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/djnachos', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachos.html');
+});
+
 app.get('/bartonhouse', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/bartonhouse.html');
