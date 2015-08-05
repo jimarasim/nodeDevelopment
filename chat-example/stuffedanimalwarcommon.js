@@ -185,7 +185,7 @@ function WriteVideoPlayer(group)
     if(filePathsNoExtension.length>0)
     {
 
-        document.write("<video style='width: 100%;' controls='controls' preload='metadata' ");
+        document.write("<video width='640' height=480' controls='controls' preload='metadata' ");
         document.write("poster='"+filePathsNoExtension[0]+".png' ");
         document.write("title='"+filePathsNoExtension[0]+"'");
         document.write("id='"+group+"videopng'>");

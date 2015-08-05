@@ -3,8 +3,8 @@ body {
     background-color: black; /*background behind any elements on the body of the page*/
 /*BETTY-------------------------------------------------------------------------------------------BETTY*/
     background-image: url("media/rose.png");
-    background-repeat: repeat-y;
-    background-position: center;
+    background-repeat:no-repeat;
+    background-position: right;
     color:white; /*text color*/
     font-weight:normal;
     font-family:sans-serif;
@@ -58,6 +58,11 @@ div.divstuffedanimalwar
     height:10%; 
     overflow-x: scroll;
     overflow-y: scroll;
+}
+
+img.videolink{
+    width:5%;
+    height:5%;
 }
 
 svg.svgstuffedanimalwar
