@@ -1,9 +1,6 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 body {
     background-color: black; /*background behind any elements on the body of the page*/
-    background-image: url("media/stuffedanimalwarv1.png");
-    background-repeat:no-repeat;
-    background-position:right;
     color:white; /*text color*/
     font-weight:normal;
     font-family:sans-serif;
@@ -104,8 +101,8 @@ td.divgamesectioncontent{
 }
 
 img.videolink{
-    width:5%;
-    height:5%;
+    width:15%;
+    height:15%;
 }
 
 #fulldisclosurediv{
