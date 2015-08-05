@@ -130,16 +130,18 @@ socket.on('chatmessage', function(msgObject){
                     alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
                  });
             }
-          else if(chatClientMessage.indexOf(".mp3") > 0 &&
-                  chatClientUser===masterAlias)
+          else if(chatClientMessage.indexOf(".mp3") > 0 )
+//                      &&
+//                  chatClientUser===masterAlias)
             {
                 //change the source of the AUDIO player
                 $('#jaemzwaredynamicaudiosource').attr("src",chatClientMessage);
                 document.getElementById("jaemzwaredynamicaudioplayer").load();
                 document.getElementById("jaemzwaredynamicaudioplayer").play();
             }
-          else if(chatClientMessage.includes(".mp4")&&
-                   chatClientUser===masterAlias)
+          else if(chatClientMessage.includes(".mp4"))
+//                      &&
+//                   chatClientUser===masterAlias)
             {
                 //change the source of the VIDEO player
                 $('#jaemzwaredynamicvideosource').attr("src",chatClientMessage);
