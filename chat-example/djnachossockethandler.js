@@ -86,20 +86,19 @@ $('#selectsongs').change(function(){
 //VIDEOS - CHANGE VIDEO (COMMON)
 $('#selectvideos').change(function(){
     
-    if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
+    var currentUser = $('#chatClientUser').val();
+    var videoToPlay = $('#selectvideos option:selected').text();
+    
+//    if($(currentUser===masterAlias){    //PLAY VIDEO
         console.log(masterAlias+" IS THE MASTER");
-        
-        var videoToPlay = $('#selectvideos option:selected').text();
-        
-        console.log(masterAlias+" IS THE MASTER AND CHOSE THE VIDEOTOPLAY:"+videoToPlay);
-
+        console.log(currentUser+" IS A USER AND CHOSE THE VIDEOTOPLAY:"+videoToPlay);
         console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #selectvideos option:selected => "+videoToPlay);
         emitChatMessage(videoToPlay);
         
-    }
-    else{
-        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE VIDEOS");
-    }
+//    }
+//    else{
+//        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE VIDEOS");
+//    }
 });
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES - DJ NACHOS (chatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
