@@ -66,20 +66,21 @@ $('#chatClientAutoResponder').change(function(){
 
 //SONGS - CHANGE SONG (COMMON)
 $('#selectsongs').change(function(){
+    var currentUser = $('#chatClientUser').val();
     
-    if($('#chatClientUser').val()===masterAlias){    //PLAY SONG
+//    if(currentUser===masterAlias){   
         console.log(masterAlias+" IS THE MASTER");
         
         var songToPlay = $('#selectsongs option:selected').text();
         
-        console.log(masterAlias+" IS THE MASTER AND CHOSE THE SONGTOPLAY:"+songToPlay);
+        console.log(currentUser+" IS A USER AND CHOSE THE SONGTOPLAY:"+songToPlay);
 
         console.log("CALLING EMITCHATMESSAGE FROM SONG CHANGER WITH #selectsongs option:selected => "+songToPlay);
         emitChatMessage(songToPlay);
-    }   
-    else{
-        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE SONGS");
-    }
+//    }   
+//    else{
+//        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE SONGS");
+//    }
 });
 
 //VIDEOS - CHANGE VIDEO (COMMON)
