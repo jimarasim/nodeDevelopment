@@ -5,25 +5,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function SetupEvents(){
-    
-    
     //NEW JQUERY - MULTIPLE VIDEOS
     //if there are jaemzware-video ids
     if($('span[id*="jaemzwarevideo"]').length>0){
-        
-        
         //get all the video ids
-        
         var multiGroup=[];
         $('span[id*="jaemzwarevideo"]').each(function(index, element){
                                                multiGroup[index]=$(element).attr('id');
                                                });
-        
-       
-        
         MultiVideoJquery(multiGroup);
     }
-    
 }
 
 

@@ -103,7 +103,10 @@ td.divgamesectioncontent{
     width:20%;
 }
 
-
+img.videolink{
+    width:5%;
+    height:5%;
+}
 
 #fulldisclosurediv{
     overflow-x: scroll;
