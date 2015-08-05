@@ -29,7 +29,8 @@ function SetupEvents(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////CURRENT JQUERY WAY, PRECEDE GROUPE NAME WITH "jaemzwarevid
 //ADD ARRAY ASSIGNMENT TO ELSE IF BELOW
-//MEDIA URL[0]  (REQUIRED: MP4, OGV, PNG), TITLE[1]
+//MEDIA URL[0]  (REQUIRED: MP4, OGV*, PNG), TITLE[1]
+//*removed for this implementation
 var jaemzwarevideotennis20150212 = [
                                     ["https://blackmarketskates.com/media/tenniscourts/tompeha-tenniscourts-20150212","Tom Peha"],
                                     ["https://blackmarketskates.com/media/tenniscourts/jimarasim-tenniscourts-20150212","Jim"],
@@ -41,7 +42,6 @@ var jaemzwarevideotennis20150212 = [
 
 var jaemzwarevideomarginalAnt20150203 = [["https://blackmarketskates.com/media/marginalant/ant_marginal","Ant hip"]];
 
-//backwards compatibility with old adam post, OLD JQUERY WAY
 var jaemzwarevideoadam20150207 = [
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0682","Adam Ruthless rocking"],
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0684","Adam Ruthless cradle"],
@@ -337,19 +337,19 @@ function MultiVideoJquery(multiGroup){
      * of the video images and video, so there could be more than one on a page
      * @returns {undefined}
 */
-function ChangeVideoJQuery(png,mp4,ogv,group,title)
-{
-        //set elements of the video
-        document.getElementById(group+"-video").setAttribute("poster",png);
-        document.getElementById(group+"-videomp4").setAttribute("src",mp4);
-//        document.getElementById(group+"-videoogv").setAttribute("src",ogv);
-        
-        //set element of the video title
-        document.getElementById(group+"-videoTitle").innerHTML=title;
-        
-        //reload the video
-        document.getElementById(group+"-video").load();
-}
+//function ChangeVideoJQuery(png,mp4,ogv,group,title)
+//{
+//        //set elements of the video
+//        document.getElementById(group+"-video").setAttribute("poster",png);
+//        document.getElementById(group+"-videomp4").setAttribute("src",mp4);
+////        document.getElementById(group+"-videoogv").setAttribute("src",ogv);
+//        
+//        //set element of the video title
+//        document.getElementById(group+"-videoTitle").innerHTML=title;
+//        
+//        //reload the video
+//        document.getElementById(group+"-video").load();
+//}
 
 
 
