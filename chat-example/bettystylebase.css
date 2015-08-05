@@ -1,9 +1,8 @@
-/* BETTY  - jaemzware.org - 20150728 */
-
+/*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 body {
     background-color: black; /*background behind any elements on the body of the page*/
 /*BETTY-------------------------------------------------------------------------------------------BETTY*/
-    background-image: url("bettyonbedsmall.JPG");
+    background-image: url("media/rose.png");
     background-repeat: repeat-y;
     background-position: center;
     color:white; /*text color*/

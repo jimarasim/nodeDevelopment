@@ -1,7 +1,7 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 body {
     background-color: black; /*background behind any elements on the body of the page*/
-    background-image: url("streetdome.jpg");
+    background-image: url("media/streetdome.jpg");
     background-repeat: repeat-y;
     background-position: center;
     color:white; /*text color*/
