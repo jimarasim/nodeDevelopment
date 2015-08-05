@@ -2,8 +2,8 @@
 body {
     background-color: black; /*background behind any elements on the body of the page*/
     background-image: url("media/stuffedanimalwarv1.png");
-    background-repeat: repeat-x;
-    background-position: center;
+    background-repeat:no-repeat;
+    background-position:right;
     color:white; /*text color*/
     font-weight:normal;
     font-family:sans-serif;
