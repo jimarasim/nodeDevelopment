@@ -8,35 +8,69 @@ var stuffedanimalwardivTop = 0;
 //CONTAINS METHOD
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
+//CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
+$('form').submit(function(){
+
+    //GET THE MESSAGE IN THE MESSAGE BOX
+    var chatMessage = $('#chatClientMessage').val();
+
+    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
+    $('#chatClientMessage').val('');
+
+    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
+    emitChatMessage(chatMessage);
+
+    return false;
+});
+
+//AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
+$('#chatClientAutoResponder').change(function(){
+
+    //GET THE MESSAGE FROM THE AUTORESPONDER
+    var chatMessage = $('#chatClientAutoResponder option:selected').text();
+
+    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
+    emitChatMessage(chatMessage);
+
+    //set the autoresponder back to blanck
+    $('#chatClientAutoResponder').val('blank');
+});
+
+    //SONGS HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
+    $('#selectsongs').change(function(){
+        var songToPlay = $('#selectsongs option:selected').attr("value");
+
+        emitChatMessage(songToPlay);
+    });
+
+    //VIDEOS - CHANGE VIDEO (COMMON)
+    $('#selectvideos').change(function(){
+        var videoToPlay = $('#selectvideos option:selected').attr("value");
+
+        emitChatMessage(videoToPlay);
+    });
+
 //EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER (UNCOMMON, CALLS UNIQUE SOCKET.EMIT CALLBACK
 function emitChatMessage(message){
-    
-    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message);
-    
     //get the user alias
     var chatClientUser = $("#chatClientUser").val();
-    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" FROM THE USER:"+chatClientUser);
-
+    
     //SET THE DEFAULT ALIAS IF IT'S EMPTY
     if(chatClientUser.length===0){
         chatClientUser = unspecifiedAlias;
-        console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" AND SET THE USER TO:"+chatClientUser);
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
     var chatMessageObject = {
               CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'CHATSERVERUSER',
+              CHATSERVERUSER:'',
               CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:'CHATSERVERDATE'
+              CHATSERVERDATE:''
           }  
     
     //send the message
-    console.log("emitting chatmessage with chatMessageObject:"+JSON.stringify(chatMessageObject));
     socket.emit('chatmessage',chatMessageObject); 
 }
-
-
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES - DJ NACHOS (chatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
 socket.on('chatmessage', function(msgObject){
