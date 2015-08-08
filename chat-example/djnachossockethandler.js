@@ -36,70 +36,7 @@ function emitChatMessage(message){
     socket.emit('chatmessage',chatMessageObject); 
 }
 
-//CHAT MESSAGE - CHAT MESSAGE => SOCKET (COMMON)
-$('form').submit(function(){
-    
-    //GET THE MESSAGE IN THE MESSAGE BOX
-    var chatMessage = $('#chatClientMessage').val();
 
-    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
-    $('#chatClientMessage').val('');
-    
-    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
-    emitChatMessage(chatMessage);
-    
-    return false;
-});
-
-//AUTORESPONDER - SELECT DROP DOWN (COMMON) 
-$('#chatClientAutoResponder').change(function(){
-    
-    //GET THE MESSAGE FROM THE AUTORESPONDER
-    var chatMessage = $('#chatClientAutoResponder option:selected').text();
-    
-    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
-    emitChatMessage(chatMessage);
-    
-    //set the autoresponder back to blanck
-    $('#chatClientAutoResponder').val('blank');
-});
-
-//SONGS - CHANGE SONG (COMMON)
-$('#selectsongs').change(function(){
-    var currentUser = $('#chatClientUser').val();
-    
-//    if(currentUser===masterAlias){   
-        console.log(masterAlias+" IS THE MASTER");
-        
-        var songToPlay = $('#selectsongs option:selected').text();
-        
-        console.log(currentUser+" IS A USER AND CHOSE THE SONGTOPLAY:"+songToPlay);
-
-        console.log("CALLING EMITCHATMESSAGE FROM SONG CHANGER WITH #selectsongs option:selected => "+songToPlay);
-        emitChatMessage(songToPlay);
-//    }   
-//    else{
-//        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE SONGS");
-//    }
-});
-
-//VIDEOS - CHANGE VIDEO (COMMON)
-$('#selectvideos').change(function(){
-    
-    var currentUser = $('#chatClientUser').val();
-    var videoToPlay = $('#selectvideos option:selected').text();
-    
-//    if($(currentUser===masterAlias){    //PLAY VIDEO
-        console.log(masterAlias+" IS THE MASTER");
-        console.log(currentUser+" IS A USER AND CHOSE THE VIDEOTOPLAY:"+videoToPlay);
-        console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #selectvideos option:selected => "+videoToPlay);
-        emitChatMessage(videoToPlay);
-        
-//    }
-//    else{
-//        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE VIDEOS");
-//    }
-});
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES - DJ NACHOS (chatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
 socket.on('chatmessage', function(msgObject){
