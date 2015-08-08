@@ -85,7 +85,7 @@ $('#selectsongs').change(function(){
 //VIDEOS - CHANGE VIDEO (COMMON)
 $('#selectvideos').change(function(){
     
-    if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
+//    if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
         console.log(masterAlias+" IS THE MASTER");
         
         var videoToPlay = $('#selectvideos option:selected').text();
@@ -95,10 +95,10 @@ $('#selectvideos').change(function(){
         console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #selectvideos option:selected => "+videoToPlay);
         emitChatMessage(videoToPlay);
         
-    }
-    else{
-        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE VIDEOS");
-    }
+//    }
+//    else{
+//        console.log($('#chatClientUser').val()+" IS NOT THE MASTER AND CANT CHANGE VIDEOS");
+//    }
 });
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES - STANDARD (chatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
