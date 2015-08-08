@@ -109,8 +109,8 @@ socket.on('chatmessage', function(msgObject){
     var chatServerDate = msgObject.CHATSERVERDATE;
     var serverStamp = "[IP:"+chatServerUser+" DATE:"+chatServerDate+"]"; //ip and time stamp
     
-    console.log("RECEIVED MSGOBJECT FROM A CHATMESSAGE BROADCAST:"+JSON.stringify(msgObject));
-    console.log("PARAMETERIZED FOR READABILITY CHATCLIENTUSER:"+chatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
+//    console.log("RECEIVED MSGOBJECT FROM A CHATMESSAGE BROADCAST:"+JSON.stringify(msgObject));
+    console.log("CHATCLIENTUSER:"+chatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -130,16 +130,18 @@ socket.on('chatmessage', function(msgObject){
                     alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
                  });
             }
-          else if(chatClientMessage.indexOf(".mp3") > 0 &&
-                  chatClientUser===masterAlias)
+          else if(chatClientMessage.indexOf(".mp3"))
+//                      > 0 &&
+//                  chatClientUser===masterAlias)
             {
                 //change the source of the AUDIO player
                 $('#jaemzwaredynamicaudiosource').attr("src",chatClientMessage);
                 document.getElementById("jaemzwaredynamicaudioplayer").load();
                 document.getElementById("jaemzwaredynamicaudioplayer").play();
             }
-          else if(chatClientMessage.includes(".mp4")&&
-                   chatClientUser===masterAlias)
+          else if(chatClientMessage.includes(".mp4"))
+//                      &&
+//                   chatClientUser===masterAlias)
             {
                 //change the source of the VIDEO player
                 $('#jaemzwaredynamicvideosource').attr("src",chatClientMessage);
