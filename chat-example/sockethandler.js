@@ -70,7 +70,7 @@ $('#selectsongs').change(function(){
     if($('#chatClientUser').val()===masterAlias){    //PLAY SONG
         console.log(masterAlias+" IS THE MASTER");
         
-        var songToPlay = $('#selectsongs option:selected').text();
+        var songToPlay = $('#selectsongs option:selected').attr('value');
         
         console.log(masterAlias+" IS THE MASTER AND CHOSE THE SONGTOPLAY:"+songToPlay);
 
@@ -88,7 +88,7 @@ $('#selectvideos').change(function(){
 //    if($('#chatClientUser').val()===masterAlias){    //PLAY VIDEO
         console.log(masterAlias+" IS THE MASTER");
         
-        var videoToPlay = $('#selectvideos option:selected').text();
+        var videoToPlay = $('#selectvideos option:selected').attr('value');
         
         console.log(masterAlias+" IS THE MASTER AND CHOSE THE VIDEOTOPLAY:"+videoToPlay);
 
