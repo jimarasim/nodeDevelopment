@@ -10,30 +10,24 @@ String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
 //EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER (UNCOMMON, CALLS UNIQUE SOCKET.EMIT CALLBACK
 function emitChatMessage(message){
-    
-    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message);
-    
     //get the user alias
     var chatClientUser = $("#chatClientUser").val();
-    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" FROM THE USER:"+chatClientUser);
     
     //SET THE DEFAULT ALIAS IF IT'S EMPTY
     if(chatClientUser.length===0){
         chatClientUser = unspecifiedAlias;
-        console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" AND SET THE USER TO:"+chatClientUser);
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
     var chatMessageObject = {
               CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'CHATSERVERUSER',
+              CHATSERVERUSER:'',
               CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:'CHATSERVERDATE'
+              CHATSERVERDATE:''
           }  
-
+    
     //send the message
-    console.log("emitting bettychatmessage with chatMessageObject:"+JSON.stringify(chatMessageObject));
-    socket.emit('bettychatmessage',chatMessageObject); //BETTY-------------------------------------------------------------------------------------------BETTY
+    socket.emit('bettychatmessage',chatMessageObject); 
 }
 
 
