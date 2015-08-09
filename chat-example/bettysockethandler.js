@@ -69,6 +69,7 @@ $('#chatClientAutoResponder').change(function(){
 //VIDEOS - CHANGE VIDEO (COMMON)
 $('#selectvideos').change(function(){
     var videoToPlay = $('#selectvideos option:selected').attr("value");
+
     emitChatMessage(videoToPlay);
 });
 
@@ -80,16 +81,18 @@ socket.on('bettychatmessage', function(msgObject){
     var chatServerDate = msgObject.CHATSERVERDATE;
     var serverStamp = "[IP:"+chatServerUser+" DATE:"+chatServerDate+"]"; //ip and time stamp
     
+    console.log("RECEIVED MSGOBJECT FROM A CHATMESSAGE BROADCAST:"+JSON.stringify(msgObject));
+    console.log("PARAMETERIZED FOR READABILITY CHATCLIENTUSER:"+chatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
         chatClientMessage.indexOf("http://")===0||
         chatClientMessage.indexOf("https://")===0
        ){ 
-            if( chatClientMessage.contains(".jpg") ||
-                chatClientMessage.contains(".jpeg") ||
-                chatClientMessage.contains(".gif") ||
-                chatClientMessage.contains(".png"))
+            if( chatClientMessage.indexOf(".jpg")   >   0 ||
+                chatClientMessage.indexOf(".jpeg")  >   0 ||
+                chatClientMessage.indexOf(".gif")   >   0 ||
+                chatClientMessage.indexOf(".png")   >   0)
             {
 
                 //show the image if it's just an image tag
@@ -99,14 +102,18 @@ socket.on('bettychatmessage', function(msgObject){
                     alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
                  });
             }
-          else if(chatClientMessage.contains(".mp3"))
+          else if(chatClientMessage.indexOf(".mp3") > 0 )
+//                      &&
+//                  chatClientUser===masterAlias)
             {
                 //change the source of the AUDIO player
                 $('#jaemzwaredynamicaudiosource').attr("src",chatClientMessage);
                 document.getElementById("jaemzwaredynamicaudioplayer").load();
                 document.getElementById("jaemzwaredynamicaudioplayer").play();
             }
-          else if(chatClientMessage.contains(".mp4"))
+          else if(chatClientMessage.includes(".mp4"))
+//                      &&
+//                   chatClientUser===masterAlias)
             {
                 //change the source of the VIDEO player
                 $('#jaemzwaredynamicvideosource').attr("src",chatClientMessage);
@@ -126,7 +133,7 @@ socket.on('bettychatmessage', function(msgObject){
                 $("<span>").prependTo("#messagesdiv").attr({
                                     class: "chatclientuser"
                                  }).text(chatClientUser);
-                                 
+
                 $('#messagesdiv').prepend($('<br />'));
 
                  //chat message
@@ -137,27 +144,26 @@ socket.on('bettychatmessage', function(msgObject){
             }
         }
         else{
-                //show the whole message
-                $('#messagesdiv').prepend($('<br />'));
+            //show the whole message
+            $('#messagesdiv').prepend($('<br />'));
 
 
-                //ip and time stamp
-                $("<span>").prependTo("#messagesdiv").attr({
-                   class: "serverdate"
-                }).text(serverStamp);
-                
-                //user alias
-                $("<span>").prependTo("#messagesdiv").attr({
-                                    class: "chatclientuser"
-                                 }).text(chatClientUser);
+            //ip and time stamp
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "serverdate"
+            }).text(serverStamp);
 
-                $('#messagesdiv').prepend($('<br />'));
+            //user alias
+            $("<span>").prependTo("#messagesdiv").attr({
+                                class: "chatclientuser"
+                             }).text(chatClientUser);
 
-                 //chat message
-                $("<span>").prependTo("#messagesdiv").attr({
-                   class: "chatclientmessage"
-                }).text(chatClientMessage);
+            $('#messagesdiv').prepend($('<br />'));
 
+             //chat message
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "chatclientmessage"
+            }).text(chatClientMessage);
         }
 });
 
