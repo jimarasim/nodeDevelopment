@@ -68,7 +68,7 @@ $('#chatClientAutoResponder').change(function(){
 
 //VIDEOS - CHANGE VIDEO (COMMON)
 $('#selectvideos').change(function(){
-    var videoToPlay = $('#selectvideos option:selected').text();
+    var videoToPlay = $('#selectvideos option:selected').attr("value");
     emitChatMessage(videoToPlay);
 });
 
