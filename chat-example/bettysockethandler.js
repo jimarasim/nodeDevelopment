@@ -27,6 +27,7 @@ function emitChatMessage(message){
           }  
     
     //send the message
+    console.log(JSON.stringify("CHAT MESSAGE"+chatMessageObject));
     socket.emit('bettychatmessage',chatMessageObject); 
 }
 
@@ -63,7 +64,7 @@ $('#chatClientAutoResponder').change(function(){
 //VIDEOS - CHANGE VIDEO (COMMON)
 $('#selectvideos').change(function(){
     var videoToPlay = $('#selectvideos option:selected').attr("value");
-
+    console.log("VIDEOTOPLAY:"+videoToPlay);
     emitChatMessage(videoToPlay);
 });
 
@@ -88,7 +89,6 @@ socket.on('bettychatmessage', function(msgObject){
                 chatClientMessage.indexOf(".gif")   >   0 ||
                 chatClientMessage.indexOf(".png")   >   0)
             {
-
                 //show the image if it's just an image tag
                 $('#messagesdiv').prepend($('<br />'));
                 $("<img/>").prependTo("#messagesdiv").attr({
@@ -97,8 +97,6 @@ socket.on('bettychatmessage', function(msgObject){
                  });
             }
           else if(chatClientMessage.indexOf(".mp3") > 0 )
-//                      &&
-//                  chatClientUser===masterAlias)
             {
                 //change the source of the AUDIO player
                 $('#jaemzwaredynamicaudiosource').attr("src",chatClientMessage);
@@ -106,8 +104,6 @@ socket.on('bettychatmessage', function(msgObject){
                 document.getElementById("jaemzwaredynamicaudioplayer").play();
             }
           else if(chatClientMessage.includes(".mp4"))
-//                      &&
-//                   chatClientUser===masterAlias)
             {
                 //change the source of the VIDEO player
                 $('#jaemzwaredynamicvideosource').attr("src",chatClientMessage);
