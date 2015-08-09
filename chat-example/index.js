@@ -24,14 +24,6 @@ if(process.argv.length < 3){
 }
 var listenPort = process.argv[2];
 
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////ON - SOCKET HANDLERS
-////////////////////////////////////////////////////////////////////////////////////////////////////////ON - SOCKET HANDLERS
-////////////////////////////////////////////////////////////////////////////////////////////////////////ON - SOCKET HANDLERS
-
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
 io.on('connection', function(socket){
@@ -115,26 +107,6 @@ io.on('connection', function(socket){
             io.emit('tapmsg',tapMsgObject);
     }); 
     
-    //ON BETTYTAPMSG
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////bettychatmessage for betty.html, bettysockethandler.js, bettystylebase.css
-    //specify 'tapmessage' event handler, when emit(ted) by the user connection
-    socket.on('bettytapmsg', function(bettyTapMsgObject){
-            console.log('received bettytapmsg bettyTapMsgObject: ' + JSON.stringify(bettyTapMsgObject));
-              
-            //get the address of the message emitter
-            var chatClientAddress = socket.handshake.address;
-            console.log("received bettytapmsg bettyTapMsgObject:" + JSON.stringify(bettyTapMsgObject)+" FROM:"+chatClientAddress);
-
-            //get datestamp from the server
-            var chatServerDate = new Date();
-            console.log("received bettytapmsg bettyTapMsgObject:" + JSON.stringify(bettyTapMsgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
-
-            //broadcast chat message (client page needs to have  a socket.on handler for this)
-            console.log("emitting bettyTapMsgObject:"+bettyTapMsgObject);    
-            io.emit('bettyTapMsgObject',bettyTapMsgObject);
-    });  
-     
-              
     //ON ERROR
     socket.on('error', function(msg){
               console.log('error: ' + msg  );
