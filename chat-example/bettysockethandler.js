@@ -27,7 +27,6 @@ function emitChatMessage(message){
           }  
     
     //send the message
-    console.log(JSON.stringify("CHAT MESSAGE"+chatMessageObject));
     socket.emit('bettychatmessage',chatMessageObject); 
 }
 
