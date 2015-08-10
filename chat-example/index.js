@@ -65,20 +65,16 @@ io.on('connection', function(socket){
     ///////////////////////////////////////////////////////////////////////////////////////////////////////bettychatmessage for betty.html, bettysockethandler.js, bettystylebase.css
     //specify 'chat message' event handler. happens when emit(ted) by the client
     socket.on('bettychatmessage', function(bettyChatMessageObject){
-      console.log("received bettychatmessage bettyChatMessageObject:" + JSON.stringify(bettyChatMessageObject));
-
       //get the address of the message emitter
       var chatClientAddress = socket.handshake.address;
-      console.log("received bettychatmessage bettyChatMessageObject:" + JSON.stringify(bettyChatMessageObject)+" FROM:"+chatClientAddress);
-
-
       //get datestamp from the server
       var chatServerDate = new Date();
+      
       console.log("received bettychatmessage bettyChatMessageObject:" + JSON.stringify(bettyChatMessageObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
 
       //update the emitted json object with server information
-      chatMessageObject.CHATSERVERUSER = chatClientAddress;
-      chatMessageObject.CHATSERVERDATE = chatServerDate;
+      bettyChatMessageObject.CHATSERVERUSER = chatClientAddress;
+      bettyChatMessageObject.CHATSERVERDATE = chatServerDate;
        
       //broadcast
       console.log("emitting bettychatmessage with bettyChatMessageObject:"+JSON.stringify(bettyChatMessageObject));
