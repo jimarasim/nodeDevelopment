@@ -30,13 +30,13 @@ body {
 }
 
 span.serverdate{
-    color:blue;
+    color:black;
     font-size: small;
 
 }
 
 span.chatclientuser{
-    color:black;
+    color:blue;
     font-size: small;
 
 }
