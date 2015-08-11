@@ -1,7 +1,7 @@
 /* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
 /* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
 var masterAlias = "DJ NACHOS";
-var unspecifiedAlias = "ANONYMOUS DJ NACHOS WANNABE";
+var unspecifiedAlias = "[______]";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
