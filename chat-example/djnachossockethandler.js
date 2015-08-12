@@ -120,7 +120,8 @@ socket.on('chatmessage', function(msgObject){
                 document.getElementById("jaemzwaredynamicvideoplayer").play();
             }
             else{
-
+                $('#messagesdiv').prepend($('<br />'));
+                
                 //ip and time stamp
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "serverdate"
@@ -139,7 +140,8 @@ socket.on('chatmessage', function(msgObject){
             }
         }
         else{
-
+            $('#messagesdiv').prepend($('<br />'));
+            
             //ip and time stamp
             $("<span>").prependTo("#messagesdiv").attr({
                class: "serverdate"
