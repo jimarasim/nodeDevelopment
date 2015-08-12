@@ -46,25 +46,11 @@
 <!--CHAT MESSAGE USER ROW-->
 <tr>
     <td class='divgamesectioncontent' colspan='3'>
-        <input id="chatClientUser" placeholder="alias"/>
         <form action="">
+            <input id="chatClientUser" placeholder="alias"/>
             <input id="chatClientMessage" size="35" placeholder="message" />
-            <button>
-                SEND
-            </button>
-        </form>
-    </td>
-</tr>  
-
-<!--CHAT MESSAGE AUTO RESPONDER ROW-->
-<tr>
-    <td class='divgamesectiontitle'>
-        <b>AUTORESPONSE</b>
-    </td>
-    <td class='divgamesectioncontent'>
-        <!-- dont use apostrophes in these or index.js will freak out -->
-        <select id="chatClientAutoResponder" size=1 >
-                <option value="blank" selected></option>
+            <select id="chatClientAutoResponder" size=10 >
+                <option value="--autoresponse--" selected>--autoresponse--</option>
                 <option value="didyougoogle">did you google that comeback?</option>
                 <option value="idk">i dont know</option>
                 <option value="ikr">i know right</option>
@@ -101,7 +87,20 @@
                 <option value="youremybestfriend">youre my best friend</option>
                 <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
                 <option value="yourewrong">youre wrong</option>  
-        </select>
+            </select>
+            <button>SEND</button>
+        </form>
+    </td>
+</tr>  
+
+<!--CHAT MESSAGE AUTO RESPONDER ROW-->
+<tr>
+    <td class='divgamesectiontitle'>
+        <b>AUTORESPONSE</b>
+    </td>
+    <td class='divgamesectioncontent'>
+        <!-- dont use apostrophes in these or index.js will freak out -->
+        
     </td>
     <td><div id="messagesdiv"></div></td>
 </tr>
