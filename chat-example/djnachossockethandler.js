@@ -133,8 +133,6 @@ socket.on('chatmessage', function(msgObject){
                                     class: "chatclientuser"
                                  }).text(chatClientUser);
 
-                $('#messagesdiv').prepend($('<br />'));
-
                  //chat message
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "chatclientmessage"
@@ -146,7 +144,6 @@ socket.on('chatmessage', function(msgObject){
             //show the whole message
             $('#messagesdiv').prepend($('<br />'));
 
-
             //ip and time stamp
             $("<span>").prependTo("#messagesdiv").attr({
                class: "serverdate"
@@ -156,8 +153,6 @@ socket.on('chatmessage', function(msgObject){
             $("<span>").prependTo("#messagesdiv").attr({
                                 class: "chatclientuser"
                              }).text(chatClientUser);
-
-            $('#messagesdiv').prepend($('<br />'));
 
              //chat message
             $("<span>").prependTo("#messagesdiv").attr({
