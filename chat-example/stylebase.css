@@ -104,11 +104,11 @@ img.videolink{
     height:10%;
 }
 
-#fulldisclosurediv{
+.fulldisclosurediv{
     overflow-x: scroll;
     overflow-y: scroll;
     
-    font-size: small;
+    font-size:xx-small;
     
     margin: 0%;
     border: 0%;
