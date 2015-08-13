@@ -32,7 +32,6 @@ var jaemzwarevideoadam20150207 = [
                     ];
 
 var jaemzwarevideojimroxhill20150802 = [
-                    ["http://seattlerules.com/media/marginal/jim-marginal-overthelight-march2015","Jim Marginal Over the Light"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
