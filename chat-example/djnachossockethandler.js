@@ -36,12 +36,12 @@ $('#chatClientAutoResponder').change(function(){
     $('#chatClientAutoResponder').val('blank');
 });
 
-    //SONGS HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
-    $('#selectsongs').change(function(){
-        var songToPlay = $('#selectsongs option:selected').attr("value");
+//SONGS HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
+$('#selectsongs').change(function(){
+    var songToPlay = $('#selectsongs option:selected').attr("value");
 
-        emitChatMessage(songToPlay);
-    });
+    emitChatMessage(songToPlay);
+});
 
     //VIDEOS - CHANGE VIDEO (COMMON)
     $('#selectvideos').change(function(){
