@@ -32,6 +32,7 @@ var jaemzwarevideoadam20150207 = [
                     ];
 
 var jaemzwarevideojimroxhill20150802 = [
+                    ["https://blackmarketskates.com/media/tenniscourts/jimarasim-tenniscourts-20150212b","Jim Tennis Courts at Cal Anderson"],                
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
