@@ -11,116 +11,88 @@
 <body>
    
 <iframe src="https://onedrive.live.com/embed?cid=142D4C889339F976&resid=142D4C889339F976%21646&authkey=AMvtKeD-lkZkDFw" width="165" height="128" frameborder="0" scrolling="no"></iframe>
-        
-<form action="">
-    
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--STUFFED ANIMAL WAR CHAT -->
 <table>
-
-<!--CHAT MESSAGE USER ROW-->
 <tr>
-    <td class='divgamesectiontitle'>
-        <b>NOMBRE</b> <!--SPANISH FOR "YOUR NAME"-->
-    </td>
-    <td class='divgamesectioncontent'>
-        <input id="chatClientUser" />
-        <br />
-        <em>type an alias here, that you want to identify you in CHAT</em>
-    </td>
-</tr>
-
-
-<!--CHAT MESSAGE MESSAGE ROW-->
-<tr>
-    <td class='divgamesectiontitle'>
-        <b>MESSAGE</b> <!--FRENCH FOR "A MESSAGE"-->
-    </td>
-    <td class='divgamesectioncontent'>
-        <input id="chatClientMessage" />
-        <button>
-            <!--GERMAN FOR "AUTOMATIC"-->
-            SENDE
-        </button>
-        <br />
-        <em>type a message that you want to send to all users in CHAT</em>
-    </td>
-</tr>
-
-<!--CHAT MESSAGE AUTO RESPONDER ROW-->
-<tr>
-    <td class='divgamesectiontitle'>
-    </td>
-    <td class='divgamesectioncontent'>
-        <select id="chatClientAutoResponder" size=1 >
-                <option value="blank" selected></option>        
-                <option value="asl">asl?</option>
-                <option value="aybatu">aybatu</option>
-                <option value="idratherplaywithmycat">i'd rather play with my cat</option>
+    <td>
+        <form action="">
+            <input id="chatClientUser" placeholder="alias"/>
+            <input id="chatClientMessage" size="35" placeholder="message" />
+            <select id="chatClientAutoResponder" size=1 >
+                <option value="--autoresponse--" selected>--autoresponse--</option>
+                <option value="didyougoogle">did you google that comeback?</option>
+                <option value="idk">i dont know</option>
+                <option value="ikr">i know right</option>
                 <option value="ilikeyou">i like you</option>
-                <option value="lol">lol</option>
-                <option value="omg">omg</option>
-                <option value="picsoritdidnthappen">pics or it didn't happen</option>
-                <option value="reincarnation">i don't believe in reincarnation because i don't want to come back as a bug or as a rabbit</option>  
-                <option value="roflcopter">roflcopter</option>
-                <option value="thatlinkisbusted">that link is busted</option>
+                <option value="iloveyou">i love you</option>
+                <option value="ithinkyoure">i think youre attractive</option>
+                <option value="holdmybeerwatchthis">hold my beer, watch this</option>
+                <option value="idratherplaywithmycat">id rather play with my cat</option>
+                <option value="ilikeyou">i like you</option>
+                <option value="linkisbusted">that link is busted</option>
+                <option value="look it up">look it up</option>
+                <option value="lol">LOL</option>
+                <option value="nuhuh">Nuh UH!</option>
+                <option value="ok">ok</option>
+                <option value="picsoritdidnthappen">pics or it didnt happen</option>
+                <option value="sarcastic">sarcastic clap</option>
+                <option value="silence">silence for effect</option>
+                <option value="vague">vague hipster comment</option>
+                <option value="witty">witty comeback</option>
+                <option value="omg">OMG</option>
+                <option value="picsoritdidnthappen">pics or it didnt happen</option>
+                <option value="stfu">STFU</option>
                 <option value="thatlinkisrad">that link is rad</option>
-                <option value="thatrules">that rules</option>
+                <option value="thatscool">thats cool</option>
                 <option value="thatsucks">that sucks</option>
-                <option value="thatscool">that's cool</option>
+                <option value="thatscool">thats cool</option>
                 <option value="thatswhatshesaid">thats what she said</option>
+                <option value="whatever">whatever</option>
                 <option value="youinspireme">you inspire me</option>
                 <option value="youlookverynicetoday">you look very nice today</option>
-                <option value="youknowyourearealupperson">you know, you're a real 'up' person</option>
+                <option value="yourock">you rock</option>
+                <option value="yousuck">you suck</option>
+                <option value="youknowyourearealupperson">youre a real UP person</option>
                 <option value="youremybestfriend">youre my best friend</option>
                 <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
                 <option value="yourewrong">youre wrong</option>  
-                <option value="yourmomgoestocollege">your mom goes to college</option>
-                <option value="yourock">you rock</option>
-                <option value="yousearchforit">you search for it</option>
-                <option value="yousuck">you suck</option>
-        </select>
+            </select>
+            <button>SEND</button>
+        </form>
     </td>
 </tr>
-
-<!--CHAT DIALOG WINDOW ROW / SHIT TALK ROW-->
 <tr>
-    <td class='divgamesectiontitle'>
-        <b>CHAT</b>
-    </td>
-     <td class='divgamesectioncontent'>
-        <div id="messagesdiv">
-        </div>
-    </td>
-</tr>
-
-<!-- FULL DISCLOSURE -->
+    <td><div id="messagesdiv"></div></td>
+</tr>  
 <tr>
-    <td class='divgamesectiontitle'>
-        <b>PRIVACY</b>
-    </td>
-    <td class='divgamesectioncontent'>
-        <div id='fulldisclosurediv'>
-            stuffedanimalwar will never have advertising nor anything for sale.
-            <br />
-            stuffedanimalwar Chat and drawing coordinate data is not stored by this chat engine.
-            <br />
-            stuffedanimalwar has no database.
-            <br />
-            stuffedanimalwar stores no cookies (at least <a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> is not leaving them).
-            <br />
-            stuffedanimalwar and <a class="jaemzwarelogo" href="http://jaemzware.com">jaemzware</a> can't speak for dependency libraries, though they're reputable open source.
-            <br />
-            There's nothing for the NSA to gather from your computer, as soon as you close your browser.  
-            <br >
-        </div> 
+    <td>
+        <p class="fulldisclosurediv">
+        Use the Autoresponse if you can't think of anything to say.<br />
+        If you send a Chat Message that's only an Image URL (e.g. "https://seattlerules.com/whale.jpg"), the image will render.<br />
+        If you send a Chat Message that's only an MP3 URL (e.g. "http://analogarchive.com/analogarchive/analog/blackflag-louielouieBWdamagedI.mp3"), the song will play.<br />
+        </p>
     </td>
 </tr>
-
-
 </table>
-</form>
-        
-        
-        
-<script type="text/javascript" src="sockethandler.js"></script>
+<!--STUFFED ANIMAL WAR CHAT -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--STUFFED ANIMAL WAR FULL DISCLOSURE -->
+<table>
+    <tr>
+        <td>
+            <p class="fulldisclosurediv">
+                This page does not have a Database, nor does it use Cookies; i.e. This page will not attempt to sell your soul to the man.<br />
+                Videos, Music, and Images are all hosted remotely.<br />
+            </p>
+        </td>
+    </tr>
+</table>
+<!--STUFFED ANIMAL WAR FULL DISCLOSURE -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--CUSTOM -->
+<script type="text/javascript" src="djnachossockethandler.js"></script>
+<!--CUSTOM -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 </body>
 </html>
