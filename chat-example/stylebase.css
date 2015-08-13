@@ -69,7 +69,7 @@ svg.svgstuffedanimalwar
 }
 
 table{
-    /*width:70%;*/
+    width:60%;
 }  
 
 
@@ -108,7 +108,7 @@ img.videolink{
     overflow-x: scroll;
     overflow-y: scroll;
     
-    font-size:xx-small;
+    font-size:x-small;
     
     margin: 0%;
     border: 0%;
