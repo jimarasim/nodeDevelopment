@@ -30,6 +30,13 @@ function emitChatMessage(message){
     socket.emit('bettychatmessage',chatMessageObject); 
 }
 
+//SONGS HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
+$('#selectsongs').change(function(){
+    var songToPlay = $('#selectsongs option:selected').attr("value");
+
+    emitChatMessage(songToPlay);
+});
+
 
 //CHAT MESSAGE - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
