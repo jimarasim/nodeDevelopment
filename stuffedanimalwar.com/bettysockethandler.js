@@ -1,7 +1,7 @@
 /* BETTY  - jaemzware.org - 20150728 */
 /* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
 var masterAlias = "BETTY";
-var unspecifiedAlias = "ANONYMOUS BETTY WANNABE";
+var unspecifiedAlias = "ANONYMOUS";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
@@ -74,6 +74,8 @@ $('#selectvideos').change(function(){
     emitChatMessage(videoToPlay);
 });
 
+
+
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES - BETTY (bettychatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
 socket.on('bettychatmessage', function(msgObject){ 
     var chatClientUser = msgObject.CHATCLIENTUSER;
@@ -82,9 +84,6 @@ socket.on('bettychatmessage', function(msgObject){
     var chatServerDate = msgObject.CHATSERVERDATE;
     var serverStamp = "[IP:"+chatServerUser+" DATE:"+chatServerDate+"]"; //ip and time stamp
     
-    console.log("RECEIVED MSGOBJECT FROM A CHATMESSAGE BROADCAST:"+JSON.stringify(msgObject));
-    console.log("PARAMETERIZED FOR READABILITY CHATCLIENTUSER:"+chatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
-
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
         chatClientMessage.indexOf("http://")===0||
@@ -156,4 +155,22 @@ socket.on('bettychatmessage', function(msgObject){
             }).text(chatClientMessage);
         }
 });
+
+
+//THIS FUNCTION CHANGES THE AUDIO FILE IN THE PLAYER.  SEPARATED OUT SO BOTH EMIT AND LOCAL USER COULD CALL IT
+function changeAudio(audiofile){
+    //change the source of the AUDIO player
+    $('#jaemzwaredynamicaudiosource').attr("src",audiofile);
+    document.getElementById("jaemzwaredynamicaudioplayer").load();
+    document.getElementById("jaemzwaredynamicaudioplayer").play();
+}
+
+//THIS FUNCTION CHANGES THE VIDEO FILE IN THE PLAYER.  SEPARATED OUT SO BOTH EMIT AND LOCAL USER COULD CALL IT
+
+function changeVideo(videofile){
+    //change the source of the VIDEO player
+    $('#jaemzwaredynamicvideosource').attr("src",videofile);
+    document.getElementById("jaemzwaredynamicvideoplayer").load();
+    document.getElementById("jaemzwaredynamicvideoplayer").play();
+}
 
