@@ -5,11 +5,9 @@ body {
     background-position:right;
 }
 
-.fulldisclosuredivbetty{
-    overflow-x: scroll;
-    overflow-y: scroll;
-    
-    font-size:small;
+.fulldisclosurebetty{
+
+    font-size:x-small;
     
     margin: 0%;
     border: 0%;
