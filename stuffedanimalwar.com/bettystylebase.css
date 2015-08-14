@@ -5,3 +5,15 @@ body {
     background-position:right;
 }
 
+.fulldisclosuredivbetty{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    
+    font-size:small;
+    
+    margin: 0%;
+    border: 0%;
+    padding: 0%;
+   
+}
+
