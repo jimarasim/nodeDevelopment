@@ -60,8 +60,8 @@ div.divstuffedanimalwar
 
 div.divstuffedanimalwaronly
 {
-    width:375px; 
-    height:667px;
+    width:100%; 
+    height:1000px;
     background-color: pink;
     background-position:left;
     vertical-align: top;
