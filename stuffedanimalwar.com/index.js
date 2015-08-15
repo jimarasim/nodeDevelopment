@@ -132,15 +132,9 @@ app.get('/betty', function(req, res){
 });
 
 //handler for incoming get requests
-app.get('/canvas', function(req, res){
+app.get('/only', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/canvas.html');
-        });
-
-//handler for incoming get requests
-app.get('/svg', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/svg.html');
+        res.sendFile(__dirname + '/djnachos_stuffedanimalwar_only.html');
         });
 ////////////////////////////////////////////////////
 
