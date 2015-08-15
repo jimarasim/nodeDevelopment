@@ -130,6 +130,18 @@ app.get('/betty', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/betty.html');
 });
+
+//handler for incoming get requests
+app.get('/canvas', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/canvas.html');
+        });
+
+//handler for incoming get requests
+app.get('/svg', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/svg.html');
+        });
 ////////////////////////////////////////////////////
 
 http.listen(listenPort, function(){

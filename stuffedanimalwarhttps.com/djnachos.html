@@ -1,16 +1,25 @@
 <!--STUFFED ANIMAL WAR - jaemzware.org - 20150611 -->
 <!DOCTYPE html>
 <html>
-<head>
-<title>betty.html - video player with dropdown selector</title>
+    <head>
+        <title>stuffed animal war - djnachos</title>
         <!--jaemzware includes-->
         <link rel="Stylesheet" href="stylebase.css" />
-        <link rel="Stylesheet" href="bettystylebase.css" />
+        <link rel="Stylesheet" href="djnachosstylebase.css" />
+        <script type="text/javascript" src="tabstripvideo.js"></script>
         <!--3rd party includes-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
-</head>
+    </head>
 <body>
+<!--STUFFED ANIMAL WAR -->
+<div id="stuffedanimalwardiv" class="divstuffedanimalwar">
+    <svg id="stuffedanimalwarsvg" class="svgstuffedanimalwar">
+        <rect id="stuffedanimalwarsvgrect" x="0" y="0" width="1" height="1" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+    </svg>
+</div>
+<!--STUFFED ANIMAL WAR -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ->
 <!-- STUFFED ANIMAL WAR VIDEO PLAYER -->
 <table>
 <tr>
@@ -44,6 +53,26 @@
 </tr>
 </table>
 <!-- STUFFED ANIMAL WAR VIDEO PLAYER -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ->
+<!--BLACK MARKET VIDEO PLAYERS-->
+<table>
+    <tr>
+        <td>
+            <span id="jaemzwarevideojimroxhill20150802"></span>
+        </td>
+    </tr>
+</table>
+
+<hr>
+
+<table>
+    <tr>
+        <td>
+            <span id="jaemzwarevideoadam20150207"></span>
+        </td>
+    </tr>
+</table>
+<!--BLACK MARKET VIDEO PLAYERS-->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--STUFFED ANIMAL WAR AUDIO PLAYER-->
 <table>
@@ -51,6 +80,8 @@
             <td>
                 <select id="selectsongs">
                     <option selected value="http://analogarchive.com/analogarchive/analog/01%20Would_.mp3">alice in chains - would</option>
+                    <option value="http://analogarchive.com/analogarchive/analog/beck-onefootinthegrave-sideb.mp3">beck - one foot in the grave - a</option>
+                    <option value="http://analogarchive.com/analogarchive/analog/beck-onefootinthegrave-sidea.mp3">beck - one foot in the grave - b</option>
                     <option value="http://analogarchive.com/analogarchive/analog/01%20-%20Corrosion%20of%20Conformity%20-%20Tell%20Me.mp3">corrosion of conformity-tell me</option>
                     <option value="http://analogarchive.com/analogarchive/analog/01%20-%20Missing%20Pieces%20.mp3">jack white-missing pieces</option>
                     <option value="http://analogarchive.com/analogarchive/analog/01%20Ghost%20Of%20Love.mp3">david lynch-ghost of love</option>
@@ -121,16 +152,17 @@
 </tr>
 <tr>
     <td><div id="messagesdiv"></div></td>
-</tr>
+</tr>  
 <tr>
     <td>
         <p class="fulldisclosurediv">
-        Use the Autoresponse if you can't think of anything to say.<br />
-        If you send a Chat Message that's only an Image URL (e.g. "https://seattlerules.com/whale.jpg"), the image will render.<br />
-        If you send a Chat Message that's only an MP3 URL (e.g. "http://analogarchive.com/analogarchive/analog/blackflag-louielouieBWdamagedI.mp3"), the song will play.<br />
+        You do not need to specify an Alias to send a Chat Message.<br />
+        Use the Autoresponder drop down if you can't think of anything to say.<br />
+        This is Stuffed Animal War, if you don't have something nice to say, just throw it like a plush toy.<br />
+        If you send a Chat Message that's only an Image URL (e.g. "https://seattlerules.com/whale.jpg"), the image will render in the chat.<br />
+        If you send a Chat Message that's only an MP3 URL (e.g. "http://analogarchive.com/analogarchive/analog/blackflag-louielouieBWdamagedI.mp3"), the TUNES player will start playing that song.<br />
         If you send a Chat Message that's only an MP4 URL (e.g. "http://www.helena.seattlerules.com/media/jim/IMG_3273.mp4"), the Video Player will start playing that video.<br />
         </p>
-        
     </td>
 </tr>
 </table>
@@ -144,7 +176,6 @@
                 This page does not have a Database, nor does it use Cookies; i.e. This page will not attempt to sell your soul to the man.<br />
                 Videos, Music, and Images are all hosted remotely.<br />
             </p>
-            
         </td>
     </tr>
 </table>
@@ -152,54 +183,10 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--CUSTOM -->
 <p class="fulldisclosurediv">
-    <a href="http://jaemzware.org" class="jaemzwarelogo" target="_blank">jaemzware.org</a> supports <a href="http://swop-seattle.org/" target="_blank" class="jaemzwarelogo">swop-seattle</a> and <a href="https://en.wikipedia.org/wiki/Internet_privacy" target="_blank" class="jaemzwarelogo">internet privacy.<br />
+    <a href="http://jaemzware.org" class="jaemzwarelogo" target="_blank">jaemzware.org</a> supports <a href="https://en.wikipedia.org/wiki/Internet_privacy" target="_blank" class="jaemzwarelogo">internet privacy.<br />
 </p>
-<img src="media/rose.png" /><br />
-<img src="media/aphrodite.jpg" /><br />
-<img src="http://jaemzware.org/media/milly/IMG_3110.jpg" /><br />
-<img src="http://jaemzware.org/media/milly/IMG_3113.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3116.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3119.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3122.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3125.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3128.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3131.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3134.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3137.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3140.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3143.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3146.jpg" /><br />
-<img src="http://jaemzware.org/media/milly/IMG_3111.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3114.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3117.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3120.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3123.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3126.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3129.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3132.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3135.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3138.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3141.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3144.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3147.jpg" /><br />
-<img src="http://jaemzware.org/media/milly/IMG_3112.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3115.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3118.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3121.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3124.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3127.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3130.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3133.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3136.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3139.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3142.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3145.jpg" /><br /> 
-<img src="http://jaemzware.org/media/milly/IMG_3148.jpg" /><br />
-<img src="http://jaemzware.org/media/betty/IMG_3186small.jpeg" /><br />
-<img src="http://jaemzware.org/media/betty/bettyonbedsmall.JPG" /><br /> 
+<script type="text/javascript" src="djnachossockethandler.js"></script>
 <!--CUSTOM -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-
-<script type="text/javascript" src="bettysockethandler.js"></script>
 </body>
-</html>
+</html> 
