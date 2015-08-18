@@ -136,9 +136,20 @@ app.get('/only', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachos_stuffedanimalwar_only.html');
         });
+
+app.get('/videodjonly', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachos_video_only.html');
+        });
+
+
+app.get('/audiodjonly', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachos_audio_only.html');
+        });
 ////////////////////////////////////////////////////
 
 http.listen(listenPort, function(){
-    console.log('LISTENING ON PORT:'+listenPort);
+    console.log('LISTENING TO PORT:'+listenPort);
 });
 
