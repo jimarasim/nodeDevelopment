@@ -3,45 +3,21 @@
 <html>
     <head>
         <title>stuffed animal war - djnachos</title>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- CUSTOM -->
+        <!--jaemzware includes-->
         <link rel="Stylesheet" href="stylebase.css" />
-        <script type="text/javascript" src="tabstripvideo.js"></script>
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!-- 3RD PARTY -->
+        <!--3rd party includes-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
     </head>
 <body>
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ->
-<!-- STUFFED ANIMAL WAR VIDEO PLAYER -->
-<table>
-<tr>
-    <td>
-        <video width="640"
-               height="480"
-                controls="controls" 
-                poster="http://jaemzware.org/media/randompng/tv.png"
-               preload="metadata" 
-               title="jaemzwareTV" 
-               id="jaemzwaredynamicvideoplayer">
-
-            browser doesn't support mp4 video. use chrome.
-
-            <source src="http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4" type="video/mp4" id="jaemzwaredynamicvideosource">
-        </video>
-    </td>
-    </tr>
-<td>
-<select id="selectvideos">
-        <option value="http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4">Built to Spill - Going against your mind - Fremont Fair 2014</option>
-        <option value="http://jaemzware.org/media/randommp4/sk8cretewall.mp4">Sk8crete or Die</option>
-        <option value="http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4">True Value Baby Sessions 2001</option>
-</select>
-</td>
-</tr>
-</table>
-<!-- STUFFED ANIMAL WAR VIDEO PLAYER -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!--STUFFED ANIMAL WAR -->
+<div id="stuffedanimalwardiv" class="divstuffedanimalwaronly">
+    <svg id="stuffedanimalwarsvg" class="svgstuffedanimalwar">
+        <rect id="stuffedanimalwarsvgrect" x="0" y="0" width="1" height="1" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)" />
+    </svg>
+</div>
+<!--STUFFED ANIMAL WAR -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--STUFFED ANIMAL WAR CHAT -->
 <table>
@@ -98,7 +74,16 @@
 </tr>  
 </table>
 <!--STUFFED ANIMAL WAR CHAT -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <script type="text/javascript" src="djnachossockethandler.js"></script>
+<!-- /-/-/-/-/-/-/-/-/-/-GOOGLE ANALYTICS/-/-/-/-/-/-/-/-/-/- -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-54552330-2', 'auto');
+    ga('send', 'pageview');
+</script>
 </body>
 </html> 

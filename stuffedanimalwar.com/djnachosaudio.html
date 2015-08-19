@@ -1,47 +1,18 @@
 <!--STUFFED ANIMAL WAR - jaemzware.org - 20150611 -->
 <!DOCTYPE html>
 <html>
-<head>
-<title>betty.html - video player with dropdown selector</title>
-        <!--jaemzware includes-->
+    <head>
+        <title>stuffed animal war - djnachos</title>
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <!-- CUSTOM -->
         <link rel="Stylesheet" href="stylebase.css" />
-        <link rel="Stylesheet" href="bettystylebase.css" />
-        <!--3rd party includes-->
+        <script type="text/javascript" src="tabstripvideo.js"></script>
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <!-- 3RD PARTY -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
-</head>
+    </head>
 <body>
-<!-- STUFFED ANIMAL WAR VIDEO PLAYER -->
-<table>
-<tr>
-    <td>
-        <video width="640"
-               height="480"
-                controls="controls" 
-                poster="http://jaemzware.org/media/randompng/tv.png"
-               preload="metadata" 
-               title="jaemzwareTV" 
-               id="jaemzwaredynamicvideoplayer">
-
-            browser doesn't support mp4 video. use chrome.
-
-            <source src="http://jaemzware.org/media/randommp4/pride.mp4" type="video/mp4" id="jaemzwaredynamicvideosource">
-        </video>
-    </td>
-    <tr>
-<td>
-<select id="selectvideos">
-        <option value="http://jaemzware.org/media/randommp4/pride.mp4">Pride Parade 2014 - Pirate Canon</option>
-        <option value="http://jaemzware.org/media/randommp4/pridegeorge.mp4">Pride Parade 2014 - Star Trek Guy</option>
-        <option value="http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4">Built to Spill - Going against your mind - Fremont Fair 2014</option>
-        <option value="http://jaemzware.org/media/randommp4/sk8cretewall.mp4">Sk8crete or Die</option>
-        <option value="http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4">True Value Baby Sessions 2001</option>
-</select>
-</td>
-</tr>
-</tr>
-</table>
-<!-- STUFFED ANIMAL WAR VIDEO PLAYER -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <!--STUFFED ANIMAL WAR AUDIO PLAYER-->
 <table>
@@ -121,16 +92,11 @@
 </tr>
 <tr>
     <td><div id="messagesdiv"></div></td>
-</tr>
+</tr>  
 </table>
 <!--STUFFED ANIMAL WAR CHAT -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--CUSTOM -->
-<img src="media/aphrodite.jpg" /><br />
-<img src="media/rose.png" /><br />
-<!--CUSTOM -->
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<script type="text/javascript" src="bettysockethandler.js"></script>
+<script type="text/javascript" src="djnachossockethandler.js"></script>
 <!-- /-/-/-/-/-/-/-/-/-/-GOOGLE ANALYTICS/-/-/-/-/-/-/-/-/-/- -->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -142,4 +108,4 @@
     ga('send', 'pageview');
 </script>
 </body>
-</html>
+</html> 

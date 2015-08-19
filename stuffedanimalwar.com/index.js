@@ -134,19 +134,20 @@ app.get('/betty', function(req, res){
 //handler for incoming get requests
 app.get('/only', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/djnachos_stuffedanimalwar_only.html');
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
         });
 
 app.get('/videodjonly', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/djnachos_video_only.html');
+        res.sendFile(__dirname + '/djnachosvideo.html');
         });
 
 
 app.get('/audiodjonly', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/djnachos_audio_only.html');
+        res.sendFile(__dirname + '/djnachosaudio.html');
         });
+
 ////////////////////////////////////////////////////
 
 http.listen(listenPort, function(){
