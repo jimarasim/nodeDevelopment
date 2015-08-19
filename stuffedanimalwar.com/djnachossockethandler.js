@@ -1,6 +1,6 @@
 /* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
 /* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
-var masterAlias = "DJ NACHOS";
+var masterAlias = "DJ";
 var unspecifiedAlias = "[______]";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
@@ -36,19 +36,31 @@ $('#chatClientAutoResponder').change(function(){
     $('#chatClientAutoResponder').val('blank');
 });
 
-//SONGS HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
+//AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
 $('#selectsongs').change(function(){
     var songToPlay = $('#selectsongs option:selected').attr("value");
-
-    emitChatMessage(songToPlay);
+    var chatClientUser = $("#chatClientUser").val();
+    
+    if(chatClientUser===masterAlias){
+        emitChatMessage(songToPlay);
+    }
+    else{
+        changeMp3(songToPlay);
+    }
 });
 
-    //VIDEOS - CHANGE VIDEO (COMMON)
-    $('#selectvideos').change(function(){
-        var videoToPlay = $('#selectvideos option:selected').attr("value");
+//VIDEO DROPDOWN HANDLER - CHANGE VIDEO (COMMON)
+$('#selectvideos').change(function(){
+    var videoToPlay = $('#selectvideos option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
 
+    if(chatClientUser===masterAlias){
         emitChatMessage(videoToPlay);
-    });
+    }
+    else{
+        changeMp4(videoToPlay);
+    }
+});
 
 //EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER (UNCOMMON, CALLS UNIQUE SOCKET.EMIT CALLBACK
 function emitChatMessage(message){
@@ -74,14 +86,14 @@ function emitChatMessage(message){
 
 //CHAT MESSAGE: SOCKET => CHAT MESSAGES - DJ NACHOS (chatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
 socket.on('chatmessage', function(msgObject){
-    var chatClientUser = msgObject.CHATCLIENTUSER;
+    var remoteChatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
     var chatServerDate = msgObject.CHATSERVERDATE;
     var serverStamp = "[IP:"+chatServerUser+" DATE:"+chatServerDate+"]"; //ip and time stamp
     
     console.log("RECEIVED MSGOBJECT FROM A CHATMESSAGE BROADCAST:"+JSON.stringify(msgObject));
-    console.log("PARAMETERIZED FOR READABILITY CHATCLIENTUSER:"+chatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
+    console.log("PARAMETERIZED FOR READABILITY remoteChatClientUser:"+remoteChatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -98,26 +110,21 @@ socket.on('chatmessage', function(msgObject){
                 $('#messagesdiv').prepend($('<br />'));
                 $("<img/>").prependTo("#messagesdiv").attr({
                     src: chatClientMessage,
-                    alt: chatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
+                    alt: remoteChatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
                  });
             }
-          else if(chatClientMessage.indexOf(".mp3") > 0 )
-//                      &&
-//                  chatClientUser===masterAlias)
+          else if(chatClientMessage.indexOf(".mp3") && remoteChatClientUser===masterAlias)
             {
-                //change the source of the AUDIO player
-                $('#jaemzwaredynamicaudiosource').attr("src",chatClientMessage);
-                document.getElementById("jaemzwaredynamicaudioplayer").load();
-                document.getElementById("jaemzwaredynamicaudioplayer").play();
+                
+                    //change the source of the AUDIO player
+                    changeMp3(chatClientMessage);
+                
             }
-          else if(chatClientMessage.includes(".mp4"))
-//                      &&
-//                   chatClientUser===masterAlias)
+          else if(chatClientMessage.indexOf(".mp4") > 0 && remoteChatClientUser===masterAlias)
             {
-                //change the source of the VIDEO player
-                $('#jaemzwaredynamicvideosource').attr("src",chatClientMessage);
-                document.getElementById("jaemzwaredynamicvideoplayer").load();
-                document.getElementById("jaemzwaredynamicvideoplayer").play();
+                    //change the source of the VIDEO player
+                    changeMp4(chatClientMessage);
+                
             }
             else{
                 $('#messagesdiv').prepend($('<br />'));
@@ -129,8 +136,8 @@ socket.on('chatmessage', function(msgObject){
                 
                 //user alias
                 $("<span>").prependTo("#messagesdiv").attr({
-                                    class: "chatclientuser"
-                                 }).text(chatClientUser);
+                                    class: "remoteChatClientUser"
+                                 }).text(remoteChatClientUser);
 
                  //chat message
                 $("<span>").prependTo("#messagesdiv").attr({
@@ -149,8 +156,8 @@ socket.on('chatmessage', function(msgObject){
 
             //user alias
             $("<span>").prependTo("#messagesdiv").attr({
-                                class: "chatclientuser"
-                             }).text(chatClientUser);
+                                class: "remoteChatClientUser"
+                             }).text(remoteChatClientUser);
 
              //chat message
             $("<span>").prependTo("#messagesdiv").attr({
@@ -158,6 +165,7 @@ socket.on('chatmessage', function(msgObject){
             }).text(chatClientMessage);
         }
 });
+
 
 //STUFFED ANIMAL WAR (COMMON)
 //tell server about new coordinates when clicked
@@ -211,5 +219,25 @@ socket.on('tapmsg', function(msg){
  */
 function getRandomColorValue(){
     return Math.floor((Math.random() * 255) + 1);
+}
+
+/*
+ * CHANGEMP3 (COMMON)
+ */
+function changeMp3(mp3Url)
+{
+    //change the source of the AUDIO player
+    $('#jaemzwaredynamicaudiosource').attr("src",mp3Url);
+    document.getElementById("jaemzwaredynamicaudioplayer").load();
+    document.getElementById("jaemzwaredynamicaudioplayer").play();
+}
+
+/*
+ * CHANGEMP4 (COMMON)
+ */
+function changeMp4(mp4Url){
+    $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
+    document.getElementById("jaemzwaredynamicvideoplayer").load();
+    document.getElementById("jaemzwaredynamicvideoplayer").play();
 }
 
