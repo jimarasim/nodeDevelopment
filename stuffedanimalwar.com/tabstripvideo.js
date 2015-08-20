@@ -4,20 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function SetupEvents(){
-    
-    //SETUP VIDEO STRIP-LIKE VIDEO PLAYER
-    if($('span[id*="jaemzwarevideo"]').length>0){
-        //GET IDS OF ALL THE VIDEOS
-        var multiGroup=[];
-        $('span[id*="jaemzwarevideo"]').each(function(index, element){
-                                               multiGroup[index]=$(element).attr('id');
-                                               });
-        //CREATE VIDEO PLAYERS WITH THOSE IDS
-        MultiVideoJquery(multiGroup);
-    }
-}
-
 //1. PRECEDE GROUPE NAME WITH "jaemzwarevid"
 //2. ADD ARRAY ASSIGNMENT FOR GROUP NAME e.g. jaemzwarevideojimroxhill20150802 TO ELSE IF BELOW
 var jaemzwarevideomarginalbenefit20140913 = [
@@ -68,6 +54,21 @@ var jaemzwarevideojimroxhill20150802 = [
 
                     
 
+
+function SetupEvents(){
+    
+    //SETUP VIDEO STRIP-LIKE VIDEO PLAYER
+    if($('span[id*="jaemzwarevideo"]').length>0){
+        //GET IDS OF ALL THE VIDEOS
+        var multiGroup=[];
+        $('span[id*="jaemzwarevideo"]').each(function(index, element){
+                                               multiGroup[index]=$(element).attr('id');
+                                               });
+        //CREATE VIDEO PLAYERS WITH THOSE IDS
+        MultiVideoJquery(multiGroup);
+    }
+}
+
 /* this function writes the video player and individual videos from jquery */
 function MultiVideoJquery(multiGroup){
     
@@ -75,13 +76,13 @@ function MultiVideoJquery(multiGroup){
     for(i=0;i<multiGroup.length;i++){
         
         //get the array of video file paths (sans extension) from the pre-built array
-        if(multiGroup[i]==="jaemzwarevideojimroxhill20150802"){
+        if(multiGroup[i]===             "jaemzwarevideojimroxhill20150802"){
             filePathsNoExtensionArray = jaemzwarevideojimroxhill20150802;
         }
-        else if(multiGroup[i]==="jaemzwarevideoadam20150207"){
+        else if(multiGroup[i]===        "jaemzwarevideoadam20150207"){
             filePathsNoExtensionArray = jaemzwarevideoadam20150207;
         }
-        else if(multiGroup[i]==="jaemzwarevideomarginalbenefit20140913"){
+        else if(multiGroup[i]===        "jaemzwarevideomarginalbenefit20140913"){
             filePathsNoextensionArray = jaemzwarevideomarginalbenefit20140913;
         }
         else{
@@ -89,55 +90,47 @@ function MultiVideoJquery(multiGroup){
             break;
         }
         
-        //write out the video player
-        if(filePathsNoExtensionArray.length>0)
-        {
-            //write the video player
-            $("#"+multiGroup[i]).after("<video style='width: 100%;' controls='controls' preload='metadata' poster='"+filePathsNoExtensionArray[0][0]+".png' title='"+filePathsNoExtensionArray[0][1]+"' id='"+multiGroup[i]+"Video'>browser doesn't support video</video>");
-            
-            //add the different file format clips
-            $("#"+multiGroup[i]+"Video").append("<source src='"+filePathsNoExtensionArray[0][0]+".mp4' type='video/mp4' id='"+multiGroup[i]+"Videomp4'/>");
-            
-            //write out the video strip
-            $("#"+multiGroup[i]+"Video").before("<span class='videolinktext' id='"+multiGroup[i]+"VideoTitle'>"+filePathsNoExtensionArray[0][1]+"</span>");
-            $("#"+multiGroup[i]+"VideoTitle").after("<div class='videostrip' id='"+multiGroup[i]+"VideoStripDiv' class='videostrip'></div>");
-            $("#"+multiGroup[i]+"VideoStripDiv").append("<table id='"+multiGroup[i]+"VideoStripTable'></table>");
-            $("#"+multiGroup[i]+"VideoStripTable").append("<tr id='"+multiGroup[i]+"VideoStripTR'></tr>");
+        //write the video player
+        $("#"+multiGroup[i]).after("<video style='width: 100%;' controls='controls' preload='metadata' poster='"+filePathsNoExtensionArray[0][0]+".png' title='"+filePathsNoExtensionArray[0][1]+"' id='"+multiGroup[i]+"Video'>browser doesn't support video</video>");
 
-            
-            //WRITE OUT THE FIRST VIDEO
-            $("#"+multiGroup[i]+"VideoStripTR").append("<td id='"+multiGroup[i]+"VideoStripTD0'></td>");
-            $("#"+multiGroup[i]+"VideoStripTD0").append("<img class='videolink' id='"+multiGroup[i]+"VideoStripIMG0' \
-                                                       title='"+filePathsNoExtensionArray[0][1]+"' \
-                                                       alt='"+filePathsNoExtensionArray[0][1]+"' \
-                                                       src='"+filePathsNoExtensionArray[0][0]+".png' \
-                                                       onclick='MultiVideoJqueryChanger(\""+
-                                                                    filePathsNoExtensionArray[0][0]+".png\",\""+
-                                                                    filePathsNoExtensionArray[0][0]+".mp4\",\""+
-                                                                    multiGroup[i]+"\",\""+
-                                                                    filePathsNoExtensionArray[0][1]+"\")' \
+        //add the different file format clips
+        $("#"+multiGroup[i]+"Video").append("<source src='"+filePathsNoExtensionArray[0][0]+".mp4' type='video/mp4' id='"+multiGroup[i]+"Videomp4'/>");
+
+        //write out the video strip
+        $("#"+multiGroup[i]+"Video").before("<span class='videolinktext' id='"+multiGroup[i]+"VideoTitle'>"+filePathsNoExtensionArray[0][1]+"</span>");
+        $("#"+multiGroup[i]+"VideoTitle").after("<div class='videostrip' id='"+multiGroup[i]+"VideoStripDiv' class='videostrip'></div>");
+        $("#"+multiGroup[i]+"VideoStripDiv").append("<table id='"+multiGroup[i]+"VideoStripTable'></table>");
+        $("#"+multiGroup[i]+"VideoStripTable").append("<tr id='"+multiGroup[i]+"VideoStripTR'></tr>");
+
+
+        //WRITE OUT THE FIRST VIDEO
+        $("#"+multiGroup[i]+"VideoStripTR").append("<td id='"+multiGroup[i]+"VideoStripTD0'></td>");
+        $("#"+multiGroup[i]+"VideoStripTD0").append("<img class='videolink' id='"+multiGroup[i]+"VideoStripIMG0' \
+                                                   title='"+filePathsNoExtensionArray[0][1]+"' \
+                                                   alt='"+filePathsNoExtensionArray[0][1]+"' \
+                                                   src='"+filePathsNoExtensionArray[0][0]+".png' \
+                                                   onclick='MultiVideoJqueryChanger(\""+
+                                                                filePathsNoExtensionArray[0][0]+".png\",\""+
+                                                                filePathsNoExtensionArray[0][0]+".mp4\",\""+
+                                                                multiGroup[i]+"\",\""+
+                                                                filePathsNoExtensionArray[0][1]+"\")' \
+                                                   />");
+
+        //WRITE OUT THE REST OF THE VIDEOS
+        for (var j=1;j<filePathsNoExtensionArray.length;j++)
+        {
+            $("#"+multiGroup[i]+"VideoStripTR").append("<td id='"+multiGroup[i]+"VideoStripTD"+j+"'></td>");
+            $("#"+multiGroup[i]+"VideoStripTD"+j).append("<img class='videolink' id='"+multiGroup[i]+"VideoStripIMG"+j+"' \
+                                                       title='"+filePathsNoExtensionArray[j][1]+"' \
+                                                       alt='"+filePathsNoExtensionArray[j][1]+"' \
+                                                       src='"+filePathsNoExtensionArray[j][0]+".png' \
+                                                       onclick='MultiVideoJqueryChanger(\""+filePathsNoExtensionArray[j][0]+".png\",\""+
+                                                                                            filePathsNoExtensionArray[j][0]+".mp4\",\""+
+                                                                                            multiGroup[i]+
+                                                                                            "\",\""+filePathsNoExtensionArray[j][1]+"\")' \
                                                        />");
-            
-            //WRITE OUT THE REST OF THE VIDEOS
-            for (var j=1;j<filePathsNoExtensionArray.length;j++)
-            {
-                $("#"+multiGroup[i]+"VideoStripTR").append("<td id='"+multiGroup[i]+"VideoStripTD"+j+"'></td>");
-                $("#"+multiGroup[i]+"VideoStripTD"+j).append("<img class='videolink' id='"+multiGroup[i]+"VideoStripIMG"+j+"' \
-                                                           title='"+filePathsNoExtensionArray[j][1]+"' \
-                                                           alt='"+filePathsNoExtensionArray[j][1]+"' \
-                                                           src='"+filePathsNoExtensionArray[j][0]+".png' \
-                                                           onclick='MultiVideoJqueryChanger(\""+filePathsNoExtensionArray[j][0]+".png\",\""+
-                                                                                                filePathsNoExtensionArray[j][0]+".mp4\",\""+
-                                                                                                multiGroup[i]+
-                                                                                                "\",\""+filePathsNoExtensionArray[j][1]+"\")' \
-                                                           />");
-                
-            }
+
         }
-        else{
-            $("#"+multiGroup[i]).text("unexpected no filePathsNoExtensionArray, or no entries:"+filePathsNoExtensionArray);
-        }
-        
     }
 }
 
