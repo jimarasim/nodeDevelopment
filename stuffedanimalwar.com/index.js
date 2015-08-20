@@ -121,11 +121,6 @@ app.get('/djnachos', function(req, res){
         res.sendFile(__dirname + '/djnachos.html');
 });
 
-app.get('/bartonhouse', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/bartonhouse.html');
-});
-
 app.get('/betty', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/betty.html');
@@ -146,6 +141,11 @@ app.get('/videodjonly', function(req, res){
 app.get('/audiodjonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosaudio.html');
+        });
+        
+app.get('/tabstripvideo', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachostabstripvideo.html');
         });
 
 ////////////////////////////////////////////////////
