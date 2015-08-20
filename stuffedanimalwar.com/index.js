@@ -127,7 +127,7 @@ app.get('/betty', function(req, res){
 });
 
 //handler for incoming get requests
-app.get('/only', function(req, res){
+app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
         });
