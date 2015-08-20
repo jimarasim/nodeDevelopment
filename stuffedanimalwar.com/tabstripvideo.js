@@ -20,21 +20,6 @@ function SetupEvents(){
 
 //1. PRECEDE GROUPE NAME WITH "jaemzwarevid"
 //2. ADD ARRAY ASSIGNMENT FOR GROUP NAME e.g. jaemzwarevideojimroxhill20150802 TO ELSE IF BELOW
-
-var jaemzwarevideoadam20150207 = [
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0682","Adam Marginal rocking"],
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0684","Adam Marginal cradle"],
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0686","Adam Marginal lipping"],
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0688","Adam Marginal sliding"]
-                    ];
-
-var jaemzwarevideojimroxhill20150802 = [
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3273","Jim Roxhill board slide"]
-                    ];
-                    
 var jaemzwarevideomarginalbenefit20140913 = [
                     
                         ["http://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0001-marginalbenefit-2bit20140913","marginal"],
@@ -66,6 +51,21 @@ var jaemzwarevideomarginalbenefit20140913 = [
                         ["http://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0026-marginalbenefit-2bit20140913","marginal"],
                         ["http://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0027-marginalbenefit-2bit20140913","marginal"]
 ];
+var jaemzwarevideoadam20150207 = [
+                    ["https://blackmarketskates.com/media/marginaladam/IMG_0682","Adam Marginal rocking"],
+                    ["https://blackmarketskates.com/media/marginaladam/IMG_0684","Adam Marginal cradle"],
+                    ["https://blackmarketskates.com/media/marginaladam/IMG_0686","Adam Marginal lipping"],
+                    ["https://blackmarketskates.com/media/marginaladam/IMG_0688","Adam Marginal sliding"]
+                    ];
+
+var jaemzwarevideojimroxhill20150802 = [
+                    ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
+                    ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
+                    ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
+                    ["http://www.helena.seattlerules.com/media/jim/IMG_3273","Jim Roxhill board slide"]
+                    ];
+                    
+
                     
 
 /* this function writes the video player and individual videos from jquery */
@@ -118,11 +118,6 @@ function MultiVideoJquery(multiGroup){
                                                                     filePathsNoExtensionArray[0][1]+"\")' \
                                                        />");
             
-            
-            
-            console.log('CHECK STRIP WITH ONE VIDEO');
-            
-            
             //WRITE OUT THE REST OF THE VIDEOS
             for (var j=1;j<filePathsNoExtensionArray.length;j++)
             {
@@ -138,10 +133,6 @@ function MultiVideoJquery(multiGroup){
                                                            />");
                 
             }
-            
-            console.log('CHECK STRIP WITH ALL VIDEOS');
-            
-            
         }
         else{
             $("#"+multiGroup[i]).text("unexpected no filePathsNoExtensionArray, or no entries:"+filePathsNoExtensionArray);
