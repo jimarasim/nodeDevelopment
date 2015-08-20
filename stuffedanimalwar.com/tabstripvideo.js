@@ -83,7 +83,7 @@ function MultiVideoJquery(multiGroup){
             filePathsNoExtensionArray = jaemzwarevideoadam20150207;
         }
         else if(multiGroup[i]===        "jaemzwarevideomarginalbenefit20140913"){
-            filePathsNoextensionArray = jaemzwarevideomarginalbenefit20140913;
+            filePathsNoExtensionArray = jaemzwarevideomarginalbenefit20140913;
         }
         else{
             console.error("UNEXPECTED JAEMZWAREVIDEOGROUP PRE-BUILT VIDEO ARRAY:"+multiGroup[i]);
