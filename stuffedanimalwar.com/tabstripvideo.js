@@ -17,12 +17,9 @@ function SetupEvents(){
         MultiVideoJquery(multiGroup);
     }
 }
-    
-//CURRENT JQUERY WAY:
+
 //1. PRECEDE GROUPE NAME WITH "jaemzwarevid"
-//1. ADD ARRAY ASSIGNMENT FOR GROUP NAME e.g. jaemzwarevideojimroxhill20150802 TO ELSE IF BELOW
-//MEDIA URL[0]  (REQUIRED: MP4, OGV*, PNG), TITLE[1]
-//*removed for this implementation
+//2. ADD ARRAY ASSIGNMENT FOR GROUP NAME e.g. jaemzwarevideojimroxhill20150802 TO ELSE IF BELOW
 
 var jaemzwarevideoadam20150207 = [
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0682","Adam Marginal rocking"],
@@ -84,8 +81,12 @@ function MultiVideoJquery(multiGroup){
         else if(multiGroup[i]==="jaemzwarevideoadam20150207"){
             filePathsNoExtensionArray = jaemzwarevideoadam20150207;
         }
+        else if(multiGroup[i]==="jaemzwarevideomarginalbenefit20140913"){
+            filePathsNoextensionArray = jaemzwarevideomarginalbenefit20140913;
+        }
         else{
-            console.error("UNEXPECTED JAEMZWAREVIDEOGROUP PRE-BUILT VIDEO ARRAY");
+            console.error("UNEXPECTED JAEMZWAREVIDEOGROUP PRE-BUILT VIDEO ARRAY:"+multiGroup[i]);
+            break;
         }
         
         //write out the video player
