@@ -126,6 +126,12 @@ app.get('/betty', function(req, res){
         res.sendFile(__dirname + '/betty.html');
 });
 
+app.get('/lexze', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/betty.html');
+});
+
+
 //handler for incoming get requests
 app.get('/sawonly', function(req, res){
         //send a file back as the response
