@@ -16,4 +16,6 @@ body {
     color:black;
    
 }
-
+td {
+    padding: 15px;
+}
