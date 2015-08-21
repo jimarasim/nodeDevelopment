@@ -1,0 +1,49 @@
+/* 
+    Created on : Aug 20, 2015, 5:45:01 PM
+    Author     : jaemzware.org james arasim
+*/
+
+img.videolink
+{
+    max-height:75px;
+    max-width:75px;
+    vertical-align:middle;
+    border-style:solid;
+    border-color:#000000;
+    opacity:0.5;
+}
+
+img.videolink:hover
+{
+    opacity:1.0;
+    border-style:solid;
+    border-color:#ffffff;
+}
+
+span.videolinktext
+{
+    font-size:25%;
+}
+
+div.videostrip
+{
+    overflow-x:scroll;
+    margin:0px;
+    border:0px;
+    padding:0px;
+    border:0px solid;
+    border-radius:0px;
+    text-align:center;
+}
+
+#shoplink{
+    border:1px solid #000000;
+}
+
+#shoplink:hover{
+    border:5px solid #00ff00;
+}
+
+#videoplayer-notes{
+    font-size:small;
+}

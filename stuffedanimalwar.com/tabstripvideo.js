@@ -1,3 +1,7 @@
+/* 
+    Author     : jaemzware.org james arasim
+*/
+
 /* PAGE HAS FINISHED LOADING, SETUP PAGE EVENTS */
 document.addEventListener('DOMContentLoaded', function () {
     SetupEvents();
@@ -8,34 +12,34 @@ document.addEventListener('DOMContentLoaded', function () {
 //2. ADD ARRAY ASSIGNMENT FOR GROUP NAME e.g. jaemzwarevideojimroxhill20150802 TO ELSE IF BELOW
 var jaemzwarevideomarginalbenefit20140913 = [
                     
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0001-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0002-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0003-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0004-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0005-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0006-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0007-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0008-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0009-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0010-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0011-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0012-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0013-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0014-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0015-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0016-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0016-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0017-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0018-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0019-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0020-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0021-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0022-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0023-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0024-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0025-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0026-marginalbenefit-2bit20140913","marginal"],
-                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0027-marginalbenefit-2bit20140913","marginal"]
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0001-marginalbenefit-2bit20140913","marginal 01"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0002-marginalbenefit-2bit20140913","marginal 02"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0003-marginalbenefit-2bit20140913","marginal 03"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0004-marginalbenefit-2bit20140913","marginal 04"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0005-marginalbenefit-2bit20140913","marginal 05"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0006-marginalbenefit-2bit20140913","marginal 06"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0007-marginalbenefit-2bit20140913","marginal 07"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0008-marginalbenefit-2bit20140913","marginal 08"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0009-marginalbenefit-2bit20140913","marginal 09"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0010-marginalbenefit-2bit20140913","marginal 10"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0011-marginalbenefit-2bit20140913","marginal 11"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0012-marginalbenefit-2bit20140913","marginal 12"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0013-marginalbenefit-2bit20140913","marginal 13"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0014-marginalbenefit-2bit20140913","marginal 14"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0015-marginalbenefit-2bit20140913","marginal 15"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0016-marginalbenefit-2bit20140913","marginal 16"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0016-marginalbenefit-2bit20140913","marginal 17"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0017-marginalbenefit-2bit20140913","marginal 18"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0018-marginalbenefit-2bit20140913","marginal 19"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0019-marginalbenefit-2bit20140913","marginal 20"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0020-marginalbenefit-2bit20140913","marginal 21"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0021-marginalbenefit-2bit20140913","marginal 22"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0022-marginalbenefit-2bit20140913","marginal 23"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0023-marginalbenefit-2bit20140913","marginal 24"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0024-marginalbenefit-2bit20140913","marginal 25"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0025-marginalbenefit-2bit20140913","marginal 26"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0026-marginalbenefit-2bit20140913","marginal 27"],
+                        ["https://blackmarketskates.seattlerules.com/theshop/media/marginalbenefit20140913/ZOOM0027-marginalbenefit-2bit20140913","marginal 28"]
 ];
 var jaemzwarevideoadam20150207 = [
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0682","Adam Marginal rocking"],
