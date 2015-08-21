@@ -121,6 +121,15 @@ app.get('/djnachos', function(req, res){
         res.sendFile(__dirname + '/djnachos.html');
 });
 
+
+app.get('/Lexze', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/lexze.html');
+});
+app.get('/LEXZE', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/lexze.html');
+});
 app.get('/lexze', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/lexze.html');
