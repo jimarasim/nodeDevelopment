@@ -1,7 +1,7 @@
-/* BETTY  - jaemzware.org - 20150728 */
+/* LEXZE replaced BETTY  - jaemzware.org - 20150728 */
 /* THIS SCRIPT NEEDS TO BE INCLUDED AFTER THE ELEMENTS REFERENCED ARE DEFINED ON THE PAGE */
-var masterAlias = "BETTY";
-var unspecifiedAlias = "ANONYMOUS";
+var masterAlias = "LEXZE";
+var unspecifiedAlias = "FAN";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
@@ -27,7 +27,7 @@ function emitChatMessage(message){
           }  
     
     //send the message
-    socket.emit('bettychatmessage',chatMessageObject); 
+    socket.emit('lexzechatmessage',chatMessageObject); 
 }
 
 //SONGS HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
@@ -76,8 +76,8 @@ $('#selectvideos').change(function(){
 
 
 
-//CHAT MESSAGE: SOCKET => CHAT MESSAGES - BETTY (bettychatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
-socket.on('bettychatmessage', function(msgObject){ 
+//CHAT MESSAGE: SOCKET => CHAT MESSAGES - LEXZE (lexzechatmessage) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
+socket.on('lexzechatmessage', function(msgObject){ 
     var chatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
     var chatClientMessage = msgObject.CHATCLIENTMESSAGE;

@@ -61,24 +61,24 @@ io.on('connection', function(socket){
       io.emit('chatmessage',chatMessageObject);
     });
     
-    //ON BETTYCHATMESSAGE
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////bettychatmessage for betty.html, bettysockethandler.js, bettystylebase.css
+    //ON LEXZECHATMESSAGE
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////lexzechatmessage for lexze.html, lexzesockethandler.js, lexzestylebase.css
     //specify 'chat message' event handler. happens when emit(ted) by the client
-    socket.on('bettychatmessage', function(bettyChatMessageObject){
+    socket.on('lexzechatmessage', function(lexzeChatMessageObject){
       //get the address of the message emitter
       var chatClientAddress = socket.handshake.address;
       //get datestamp from the server
       var chatServerDate = new Date();
       
-      console.log("received bettychatmessage bettyChatMessageObject:" + JSON.stringify(bettyChatMessageObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
+      console.log("received lexzechatmessage lexzeChatMessageObject:" + JSON.stringify(lexzeChatMessageObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
 
       //update the emitted json object with server information
-      bettyChatMessageObject.CHATSERVERUSER = chatClientAddress;
-      bettyChatMessageObject.CHATSERVERDATE = chatServerDate;
+      lexzeChatMessageObject.CHATSERVERUSER = chatClientAddress;
+      lexzeChatMessageObject.CHATSERVERDATE = chatServerDate;
        
       //broadcast
-      console.log("emitting bettychatmessage with bettyChatMessageObject:"+JSON.stringify(bettyChatMessageObject));
-      io.emit('bettychatmessage',bettyChatMessageObject);
+      console.log("emitting lexzechatmessage with lexzeChatMessageObject:"+JSON.stringify(lexzeChatMessageObject));
+      io.emit('lexzechatmessage',lexzeChatMessageObject);
     });
       
 
@@ -121,16 +121,10 @@ app.get('/djnachos', function(req, res){
         res.sendFile(__dirname + '/djnachos.html');
 });
 
-app.get('/betty', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/betty.html');
-});
-
 app.get('/lexze', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/betty.html');
+        res.sendFile(__dirname + '/lexze.html');
 });
-
 
 //handler for incoming get requests
 app.get('/sawonly', function(req, res){
