@@ -152,6 +152,13 @@ app.get('/audiodjonly', function(req, res){
         res.sendFile(__dirname + '/djnachosaudio.html');
         });
         
+app.get('/AUDIODJONLY', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosaudio.html');
+        });
+        
+        
+        
 app.get('/tabstripvideo', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachostabstripvideo.html');
