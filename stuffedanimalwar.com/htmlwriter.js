@@ -10,14 +10,10 @@ function writeStuffedAnimalWar(){
 
 function writeStuffedAnimalWarWithChat(){
 document.write("<table>");
-document.write("<tr>");
-document.write("<td>");
-writeStuffedAnimalWar();
-document.write("</td>");
-document.write("<td></td>");
-document.write("</tr>");
         document.write("<tr>");
-        document.write("<td></td>");
+        document.write("<td>");
+        writeStuffedAnimalWar();
+        document.write("</td>");
         document.write("<td>");
             document.write("<form action=\"\">");
                 document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
