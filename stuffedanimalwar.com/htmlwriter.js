@@ -9,7 +9,7 @@ function writeChat(){
                 document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
                 document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
                 document.write("<select id=\"chatClientAutoResponder\" size=1 >");
-                document.write("<option value=\"--autoresponse--\" selected>--autoresponse--</option>");
+                document.write("<option value=\"blank\" selected>--autoresponse--</option>");
                 document.write("<option value=\"wink\">;)</option>");
                 document.write("<option value=\"smiley\">:)</option>");
                 document.write("<option value=\"bigsmiley\">:D</option>");
