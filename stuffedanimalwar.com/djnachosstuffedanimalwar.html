@@ -5,6 +5,7 @@
         <title>stuffed animal war - djnachos</title>
         <!--jaemzware includes-->
         <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
         <!--3rd party includes-->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
@@ -19,61 +20,10 @@
 </div>
 <!--STUFFED ANIMAL WAR -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-<!--STUFFED ANIMAL WAR CHAT -->
-<table>
-<tr>
-    <td>
-        <form action="">
-            <input id="chatClientUser" placeholder="alias"/>
-            <input id="chatClientMessage" size="35" placeholder="message" />
-            <select id="chatClientAutoResponder" size=1 >
-                <option value="--autoresponse--" selected>--autoresponse--</option>
-                <option value="didyougoogle">did you google that comeback?</option>
-                <option value="idk">i dont know</option>
-                <option value="ikr">i know right</option>
-                <option value="ilikeyou">i like you</option>
-                <option value="iloveyou">i love you</option>
-                <option value="ithinkyoure">i think youre attractive</option>
-                <option value="holdmybeerwatchthis">hold my beer, watch this</option>
-                <option value="idratherplaywithmycat">id rather play with my cat</option>
-                <option value="ilikeyou">i like you</option>
-                <option value="linkisbusted">that link is busted</option>
-                <option value="look it up">look it up</option>
-                <option value="lol">LOL</option>
-                <option value="nuhuh">Nuh UH!</option>
-                <option value="ok">ok</option>
-                <option value="picsoritdidnthappen">pics or it didnt happen</option>
-                <option value="sarcastic">sarcastic clap</option>
-                <option value="silence">silence for effect</option>
-                <option value="vague">vague hipster comment</option>
-                <option value="witty">witty comeback</option>
-                <option value="omg">OMG</option>
-                <option value="picsoritdidnthappen">pics or it didnt happen</option>
-                <option value="stfu">STFU</option>
-                <option value="thatlinkisrad">that link is rad</option>
-                <option value="thatscool">thats cool</option>
-                <option value="thatsucks">that sucks</option>
-                <option value="thatscool">thats cool</option>
-                <option value="thatswhatshesaid">thats what she said</option>
-                <option value="whatever">whatever</option>
-                <option value="youinspireme">you inspire me</option>
-                <option value="youlookverynicetoday">you look very nice today</option>
-                <option value="yourock">you rock</option>
-                <option value="yousuck">you suck</option>
-                <option value="youknowyourearealupperson">youre a real UP person</option>
-                <option value="youremybestfriend">youre my best friend</option>
-                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
-                <option value="yourewrong">youre wrong</option>  
-            </select>
-            <button>SEND</button>
-        </form>
-    </td>
-</tr>
-<tr>
-    <td><div id="messagesdiv"></div></td>
-</tr>  
-</table>
-<!--STUFFED ANIMAL WAR CHAT -->
+<script type="text/javascript">
+    writeChat();
+</script>
+
 <script type="text/javascript" src="djnachossockethandler.js"></script>
 <!-- /-/-/-/-/-/-/-/-/-/-GOOGLE ANALYTICS/-/-/-/-/-/-/-/-/-/- -->
 <script>
