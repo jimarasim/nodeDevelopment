@@ -87,7 +87,7 @@ document.write("</table>");
 //                                originally just called from writeAudioPlayer
 function writeAudioPlayerDropdownSongs()
 {
-    document.write("<option selected value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-01.mp3\">crack sabbath-May 9th, 2015-01</option>");
+    document.write("<option selected value=\"\"></option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-02.mp3\">crack sabbath-May 9th, 2015-02</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-03.mp3\">crack sabbath-May 9th, 2015-03</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-04.mp3\">crack sabbath-May 9th, 2015-04</option>");
