@@ -6,8 +6,8 @@ function writeChat(){
         document.write("<tr>");
         document.write("<td>");
             document.write("<form action=\"\">");
-                document.write("<input id=\"chatClientUser\" placeholder=\"alias\"/>");
-                document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"message\" />");
+                document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
+                document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
                 document.write("<select id=\"chatClientAutoResponder\" size=1 >");
                 document.write("<option value=\"--autoresponse--\" selected>--autoresponse--</option>");
                 document.write("<option value=\"wink\">;)</option>");
