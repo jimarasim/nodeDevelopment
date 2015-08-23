@@ -1,4 +1,27 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
+function writeVideoPlayerWithChat(){
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+    document.write(" browser doesn't support mp4 video. use chrome.");
+    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+    document.write("</video>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<select id=\"selectvideos\">");
+    writeVideoPlayerDefaultVideos();
+    document.write("</select>");
+    document.write("</td>");
+    document.write("<td>");
+    writeChatControls();
+    writeChatMessagesDiv();
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
+}
 
 function writeStuffedAnimalWar(){
     document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
@@ -9,25 +32,24 @@ function writeStuffedAnimalWar(){
 }
 
 function writeStuffedAnimalWarWithChat(){
-document.write("<table>");
-        document.write("<tr>");
-        document.write("<td>");
-        writeStuffedAnimalWar();
-        document.write("</td>");
-        document.write("<td>");
-            document.write("<form action=\"\">");
-                document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
-                document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
-                document.write("<select id=\"chatClientAutoResponder\" size=1 >");
-                writeAutoResponderOptions();
-                document.write("</select>");
-                document.write("<button>SEND</button>");
-            document.write("</form>");
-            document.write("<div id=\"messagesdiv\"></div>");
-        document.write("</td>");
-        document.write("</tr>");
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    writeStuffedAnimalWar();
+    document.write("</td>");
+    document.write("<td>");
+    document.write("<form action=\"\">");
+    document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
+    document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
+    document.write("<select id=\"chatClientAutoResponder\" size=1 >");
+    writeAutoResponderOptions();
+    document.write("</select>");
+    document.write("<button>SEND</button>");
+    document.write("</form>");
+    document.write("<div id=\"messagesdiv\"></div>");
+    document.write("</td>");
+    document.write("</tr>");
     document.write("</table>");
-    
 }
 
 function writeChatControls(){
@@ -258,27 +280,4 @@ function writeVideoPlayerDefaultVideos(){
     document.write("<option value=\"http://jaemzware.org/media/randommp4/sk8cretewall.mp4\">Sk8crete or Die</option>");
     document.write("<option value=\"http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4\">True Value Baby Sessions 2001</option>");
     document.write("<option value=\"http://jaemzware.org/media/skate/fortboise201508.mp4\">Jim, Fort Boise August 2015</option>");
-}
-
-function writeVideoPlayerWithChat(){
-    document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-    document.write(" browser doesn't support mp4 video. use chrome.");
-    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-    document.write("</video>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<td>");
-    document.write("<select id=\"selectvideos\">");
-    writeVideoPlayerDefaultVideos();
-    document.write("</select>");
-    document.write("</td>");
-    document.write("<td>");
-    writeChatControls();
-    writeChatMessagesDiv();
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
 }
