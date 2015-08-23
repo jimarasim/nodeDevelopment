@@ -34,19 +34,6 @@ app.get('/', function(req, res){
         res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/djnachos', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachos.html');
-});
-
-app.get('/Lexze', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/lexze.html');
-});
-app.get('/LEXZE', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/lexze.html');
-});
 app.get('/lexze', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/lexze.html');
@@ -58,11 +45,6 @@ app.get('/sawonly', function(req, res){
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
         });
         
-app.get('/only', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
-        });
-
 app.get('/videodjonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosvideo.html');
@@ -74,11 +56,6 @@ app.get('/djnachos', function(req, res){
         });
 
 app.get('/audiodjonly', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosaudio.html');
-        });
-        
-app.get('/AUDIODJONLY', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosaudio.html');
         });
