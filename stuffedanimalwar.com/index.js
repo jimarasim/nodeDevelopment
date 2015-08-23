@@ -140,6 +140,11 @@ app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
         });
+        
+app.get('/only', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        });
 
 app.get('/videodjonly', function(req, res){
         //send a file back as the response
