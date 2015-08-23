@@ -64,11 +64,8 @@ document.write("<table>");
                 document.write("</select>");
                 document.write("<button>SEND</button>");
             document.write("</form>");
+            document.write("<div id=\"messagesdiv\"></div>");
         document.write("</td>");
-        document.write("</tr>");
-        document.write("<tr>");
-        document.write("<td></td>");
-        document.write("<td><div id=\"messagesdiv\"></div></td>");
         document.write("</tr>");
     document.write("</table>");
     
