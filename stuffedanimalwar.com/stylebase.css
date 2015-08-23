@@ -8,14 +8,6 @@ body {
     
 }
 
-select{
-    color:lightgray;
-}
-
-option{
-    color:lightgray;
-}
-
 //CHAT MESSAGES
 #messagesdiv
 {

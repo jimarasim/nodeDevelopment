@@ -1,5 +1,14 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 
+
+function writeStuffedAnimalWar(){
+    document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
+    document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
+    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
+    document.write("</svg>");
+    document.write("</div>");
+}
+
 //WRITECHAT - this function writes the Stuffed Animal War style chat  to the page
 function writeChat(){
     document.write("<table>");
@@ -186,3 +195,34 @@ function writeAudioPlayerDropdownSongs()
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/nirvana-wipeout-sideb.mp3\">Nirvana-Wipeout-Side B</option>");
 }
 
+//WRITEVIDEOPLAYER - write the video player control and its dropdown fo rthe videos
+function writeVideoPlayer(){
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+    document.write(" browser doesn't support mp4 video. use chrome.");
+    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+    document.write("</video>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<td>");
+    document.write("<select id=\"selectvideos\">");
+
+    writeVideoPlayerDropdownVideos();
+    
+    document.write("</select>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
+}
+
+function writeVideoPlayerDropdownVideos(){
+    document.write("<option value=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\">Jim, Roxhill, Backside Ollie Line,  August 2015</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/roxhillollierockline201508.mp4\">Jim, Roxhill Ollie Rock Line</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/yakima201508.mp4\">Jim, Yakima August 2015</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4\">Built to Spill - Going against your mind - Fremont Fair 2014</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/sk8cretewall.mp4\">Sk8crete or Die</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4\">True Value Baby Sessions 2001</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/fortboise201508.mp4\">Jim, Fort Boise August 2015</option>");
+}
