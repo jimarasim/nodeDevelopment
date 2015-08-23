@@ -9,17 +9,15 @@ function writeStuffedAnimalWar(){
 }
 
 function writeStuffedAnimalWarWithChat(){
-    document.write("<table>");
-    
-    document.write("<tr>");
-        document.write("<td>");
-    
-    writeStuffedAnimalWar();
-            document.write("</td>");
-
-    document.write("</tr>");
-    
+document.write("<table>");
+document.write("<tr>");
+document.write("<td>");
+writeStuffedAnimalWar();
+document.write("</td>");
+document.write("<td></td>");
+document.write("</tr>");
         document.write("<tr>");
+        document.write("<td></td>");
         document.write("<td>");
             document.write("<form action=\"\">");
                 document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
@@ -73,6 +71,7 @@ function writeStuffedAnimalWarWithChat(){
         document.write("</td>");
         document.write("</tr>");
         document.write("<tr>");
+        document.write("<td></td>");
         document.write("<td><div id=\"messagesdiv\"></div></td>");
         document.write("</tr>");
     document.write("</table>");
