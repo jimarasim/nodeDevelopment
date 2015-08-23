@@ -1,6 +1,5 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 
-
 function writeStuffedAnimalWar(){
     document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
     document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
@@ -8,6 +7,78 @@ function writeStuffedAnimalWar(){
     document.write("</svg>");
     document.write("</div>");
 }
+
+function writeStuffedAnimalWarWithChat(){
+    document.write("<table>");
+    
+    document.write("<tr>");
+        document.write("<td>");
+    
+    writeStuffedAnimalWar();
+            document.write("</td>");
+
+    document.write("</tr>");
+    
+        document.write("<tr>");
+        document.write("<td>");
+            document.write("<form action=\"\">");
+                document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
+                document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
+                document.write("<select id=\"chatClientAutoResponder\" size=1 >");
+                document.write("<option value=\"blank\" selected>--autoresponse--</option>");
+                document.write("<option value=\"wink\">;)</option>");
+                document.write("<option value=\"smiley\">:)</option>");
+                document.write("<option value=\"bigsmiley\">:D</option>");
+                document.write("<option value=\"didyougoogle\">did you google that comeback?</option>");
+                document.write("<option value=\"idk\">i dont know</option>");
+                document.write("<option value=\"ikr\">i know right</option>");
+                document.write("<option value=\"ilikeyou\">i like you</option>");
+                document.write("<option value=\"iloveyou\">i love you</option>");
+                document.write("<option value=\"ithinkyoure\">i think youre attractive</option>");
+                document.write("<option value=\"holdmybeerwatchthis\">hold my beer, watch this</option>");
+                document.write("<option value=\"idratherplaywithmycat\">id rather play with my cat</option>");
+                document.write("<option value=\"ilikeyou\">i like you</option>");
+                document.write("<option value=\"linkisbusted\">that link is busted/option>");
+                document.write("<option value=\"look it up\">look it up/option>");
+                document.write("<option value=\"lol\">LOL</option>");
+                document.write("<option value=\"nice\">nice</option>");
+                document.write("<option value=\"nuhuh\">Nuh UH!</option>");
+                document.write("<option value=\"ok\">ok</option>");
+                document.write("<option value=\"picsoritdidnthappen\">pics or it didnt happen</option>");
+                document.write("<option value=\"sarcastic\">sarcastic clap</option>");
+                document.write("<option value=\"silence\">silence for effect</option>");
+                document.write("<option value=\"vague\">vague hipster comment</option>");
+                document.write("<option value=\"witty\">witty comeback</option>");
+                document.write("<option value=\"omg\">OMG</option>");
+                document.write("<option value=\"picsoritdidnthappen\">pics or it didnt happen</option>");
+                document.write("<option value=\"stfu\">STFU</option>");
+                document.write("<option value=\"thatlinkisrad\">that link is rad</option>");
+                document.write("<option value=\"thatscool\">thats cool</option>");
+                document.write("<option value=\"thatsucks\">that sucks</option>");
+                document.write("<option value=\"thatscool\">thats cool</option>");
+                document.write("<option value=\"thatswhatshesaid\">thats what she said</option>");
+                document.write("<option value=\"whatever\">whatever</option>");
+                document.write("<option value=\"youinspireme\">you inspire me</option>");
+                document.write("<option value=\"youlookverynicetoday\">you look very nice today</option>");
+                document.write("<option value=\"yourock\">you rock</option>");
+                document.write("<option value=\"youropinioniswrong\">your opinion is wrong</option>");
+                document.write("<option value=\"yousuck\">you suck</option>");
+                document.write("<option value=\"youknowyourearealupperson\">youre a real UP person</option>");
+                document.write("<option value=\"youremybestfriend\">youre my best friend</option>");
+                document.write("<option value=\"youreworkingthatoutfitgirl\">youre working that outfit girl</option>");
+                document.write("<option value=\"yourewrong\">youre wrong</option>");
+                document.write("</select>");
+                document.write("<button>SEND</button>");
+            document.write("</form>");
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("<tr>");
+        document.write("<td><div id=\"messagesdiv\"></div></td>");
+        document.write("</tr>");
+    document.write("</table>");
+    
+}
+
 
 //WRITECHAT - this function writes the Stuffed Animal War style chat  to the page
 function writeChat(){
