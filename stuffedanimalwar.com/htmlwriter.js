@@ -154,6 +154,8 @@ document.write("</table>");
 function writeAudioPlayerDropdownSongs()
 {
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
+    
+
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-02.mp3\">crack sabbath-May 9th, 2015-02</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-03.mp3\">crack sabbath-May 9th, 2015-03</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-04.mp3\">crack sabbath-May 9th, 2015-04</option>");
@@ -207,6 +209,11 @@ function writeAudioPlayerDropdownSongs()
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0024-sufferingfuckheads-coppergate-20130212.mp3\">suffering fuckheads-February 12th, 2013-09</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0025-sufferingfuckheads-coppergate-20130212.mp3\">suffering fuckheads-February 12th, 2013-10</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0026-sufferingfuckheads-coppergate-20130212.mp3\">suffering fuckheads-February 12th, 2013-11</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/accused-fastzombiesrule.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/accused-grinninglikeanundertaker-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/accused-grinninglikeanundertaker-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/accused-no hope for relief close insight.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/accused-straightrazor-sidea.mp3\"></option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/aliceinchains-sidea.mp3\">Alice In Chains-3 Legged Dog-Side A</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/aliceinchains-sideb.mp3\">Alice In Chains-3 Legged Dog-Side B</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/aliceinchains-sidec.mp3\">Alice In Chains-3 Legged Dog-Side C</option>");
@@ -214,24 +221,110 @@ function writeAudioPlayerDropdownSongs()
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/aliceinchains-jarofflies-sidea.mp3\">Alice In Chains-Jar of Flies-Side A</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/aliceinchains-jarofflies-sideb.mp3\">Alice In Chains-Jar of Flies-Side B</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/aliceinchains-sap-sidea.mp3\">Alice In Chains-Sap-Side Only</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Soundgarden-Come-Together.mp3\">Soundgarden-Come Together-Come Together 7\"</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Soundgarden-Heretic.mp3\">Soundgarden-Heretic-Come Together 7\"</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-screaminglife-sidea.mp3\">Soundgarden-Screaming Life-Side A</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-screaminglife-sideb.mp3\">Soundgarden-Screaming Life-Side B</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/07%20Birth%20Ritual.mp3\">Soundgarden-Singles Soundtrack CD-Birth Ritual</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-telephantasm-sided.mp3\">Soundgarden-Telephantasm-Side D</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-telephantasm-sidee.mp3\">Soundgarden-Telephantasm-Side E</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-ultramegaok-sidea.mp3\">Soundgarden-Ultramega OK-Side A</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-more%20than%20a%20feeling.mp3\">Treepeople-Bostonot 7\" Set-More Than A Feeling</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-guiltregretandembarassment-sidea.mp3\">Treepeople-Guilt Regret and Embarassment-Side A</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-guiltregretandembarassment-sideb.mp3\">Treepeople-Guilt Regret and Embarassment-Side B</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-hide%20and%20find%20out.mp3\">Treepeople-Hide and Find Out 7\"-Hide and Find Out</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-justkidding-sidea.mp3\">Treepeople-Just Kidding-Side A</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-justkidding-sideb.mp3\">Treepeople-Just Kidding-Side B</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-somethingviciousfortomorrow-sidea.mp3\">Treepeople-Something Viscious For Tomorrow LP-Side A</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-somethingviciousfortomorrow-sideb.mp3\">Treepeople-Something Viscious For Tomorrow LP-Side B</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/heart-crazyonyou-7.mp3\">Heart-Crazy on You 7\"-Crazy on You b/w</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/heart-magicman-7.mp3\">Heart-Magic Man 7\"-Magic Man b/w</option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/bostonot-7inch-recorda.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/bostonot-7inch-recordb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/christonacrutch-crimepayswhenpigsdie-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/christonacrutch-crimepayswhenpigsdie-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/christonacrutch-shitedge-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/christonacrutch-shitedge-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/christonacrutch-spreadyourfilth-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/christonacrutch-spreadyourfilth-sideb.mp3\"></option>");
+
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-bite-7.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-bonedry-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-bonedry-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-fuckshitupBWfuckshitupversion.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-industrialbreakdown-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-industrialbreakdown-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Dub%20Narcotic%20Sound%20System%20Out%20of%20Your%20Mind.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-rhytemrecord-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-rhytemrecord-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-shakeapuddinBWshakeapuddinversion.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dubnarcoticsoundsystem-wastedgrooveBWversion.mp3\"></option>");
+
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dwarves-bloodgutsandpussy-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dwarves-bloodgutsandpussy-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dwarves-inventedrockandroll-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dwarves-inventedrockandroll-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dwarves-thedwarvesarebornagain-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dwarves-thedwarvesarebornagain-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/dwarves-trailertrashBWunpredictable.mp3\"></option>");
+
+    
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/heart-crazyonyou-7.mp3\">Heart-Crazy on You 7\"-Crazy on You b/w</option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/heart-magicman-7.mp3\">Heart-Magic Man 7\"-Magic Man b/w</option>");
+    
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/selector-dub-narcotic-sidea.mp3\">K Records-Selector-Side A</option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/selector-dub-narcotic-sideb.mp3\">K Records-Selector-Side B</option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/selector-dub-narcotic-sidec.mp3\">K Records-Selector-Side C</option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/selector-dub-narcotic-sided.mp3\">K Records-Selector-Side D</option>");
+
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/lastgasp-drunkennessanddesperation-7inch.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/lastgasp-happilyeveraftermeanseternalhell-7inch.mp3\"></option>");
+
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-bluesfuneral-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-bluesfuneral-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-bluesfuneral-sidec.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-bluesfuneral-sided.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan_bubblegum_sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan_bubblegum_sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-gravediggerssongBWburningjacobsladder-7inch.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hasgodseenmyshadow-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hasgodseenmyshadow-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hasgodseenmyshadow-sidec.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hasgodseenmyshadow-sided.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hasgodseenmyshadow-sidee.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hasgodseenmyshadow-sidef.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hitthecity7inch-hitthecity.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-hitthecity7inch-mudpinkskag_mirrored.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-phantomradio-album.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-sameoldmanBWkarendalton-sameoldman.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-thewindingsheet-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/marklanegan-thewindingsheet-sideb.mp3\"></option>");
+
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Melvins8songsCzRecordsSideA.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Melvins8songsCzRecordsSideB.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-electroretard-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-electroretard-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-glueyporchtreatments-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-glueyporchtreatments-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-holditin-album.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-hostileambientakeover-braincenterBWtodayyourlovetomorrowtheworld.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-hostileambienttakeover-blackstoogesBWfoaming-7.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-hostileambienttakeover-drgeekBWreturnofspiders-7.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-hostileambienttakeover-foamingBWarnie-7.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-hostileambienttakeover-judaschangBWjerkincrokus.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-hostileambienttakeover-thefoolthemeddlingidiltBWpromiseme-7.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-houdini-lp-rocketreducer62ramalamafafafa.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-mangleddemos-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-mangleddemos-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-mangleddemos-sidec.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-mangleddemos-sided.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-nightgoatBWadolescentwetdream.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-nudewithboots-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-nudewithboots-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-ozma-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-ozma-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-poisonBWdoubletroubled-7.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-saladofathousanddelights-dvd.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-stonerwitch-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-stonerwitch-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Melvins Sweet Young Thing Aint Sweet No More.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-themakinglovedemos-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-themakinglovedemos-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-thevulgarjokeBWhistoryofbadmen.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/melvins-withyoheartnotyohands-bw-fourletterwoman-anasatan.mp3\"></option>");
+
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-5dollarbobsmockcooterstew-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-5dollarbobsmockcooterstew-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-marchtofuzz-sidea.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-marchtofuzz-sideb.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-marchtofuzz-sidec.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-marchtofuzz-sided.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-marchtofuzz-sidee.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-marchtofuzz-sidef.mp3\"></option>");
+document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mudhoney-youstupidassholeBWgashuffer-knifemanual.mp3\"></option>");
+
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/nirvana-sliverBWdive.mp3\">Nirvana-Sliver b/w Dive</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/nirvana-bleach-sidea.mp3\">Nirvana-Bleach-Side A</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/nirvana-bleach-sideb.mp3\">Nirvana-Bleach-Side B</option>");
@@ -250,6 +343,37 @@ function writeAudioPlayerDropdownSongs()
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/nirvana-smellsliketeenspirit-ep.mp3\">Nirvana-Smells Like Teen Spirit-EP</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/nirvana-wipeout-sidea.mp3\">Nirvana-Wipeout-Side A</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/nirvana-wipeout-sideb.mp3\">Nirvana-Wipeout-Side B</option>");
+    
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-anthology-sidea.mp3\">Screaming Trees-Anthology-Side A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-anthology-sideb.mp3\">Screaming Trees-Anthology-Side B</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-anthology-sidec.mp3\">Screaming Trees-Anthology-Side C</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-anthology-sided.mp3\">Screaming Trees-Anthology-Side D</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-changehascome7inch-recorda.mp3\">Screaming Trees-Change Has Come-Record A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-changehascome7inch-recordb.mp3\">Screaming Trees-Change Has Come-Record B</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-somethingabouttoday.mp3\">Screaming Trees-Something About Today-EP</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-uncleanesthasia-sidea.mp3\">Screaming Trees-Uncle Anesthasia-Side A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/screamingtrees-uncleanesthasia-sideb.mp3\">Screaming Trees-Uncle Anesthasia-SideB</option>");
+
+    
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Soundgarden-Come-Together.mp3\">Soundgarden-Come Together-Come Together 7\"</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/Soundgarden-Heretic.mp3\">Soundgarden-Heretic-Come Together 7\"</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-screaminglife-sidea.mp3\">Soundgarden-Screaming Life-Side A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-screaminglife-sideb.mp3\">Soundgarden-Screaming Life-Side B</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/07%20Birth%20Ritual.mp3\">Soundgarden-Singles Soundtrack CD-Birth Ritual</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-telephantasm-sided.mp3\">Soundgarden-Telephantasm-Side D</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-telephantasm-sidee.mp3\">Soundgarden-Telephantasm-Side E</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/soundgarden-ultramegaok-sidea.mp3\">Soundgarden-Ultramega OK-Side A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-somethingviciousfortomorrow-sidea.mp3\">Treepeople-Something Viscious For Tomorrow LP-Side A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-somethingviciousfortomorrow-sideb.mp3\">Treepeople-Something Viscious For Tomorrow LP-Side B</option>");
+    
+    
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-more%20than%20a%20feeling.mp3\">Treepeople-Bostonot 7\" Set-More Than A Feeling</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-guiltregretandembarassment-sidea.mp3\">Treepeople-Guilt Regret and Embarassment-Side A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-guiltregretandembarassment-sideb.mp3\">Treepeople-Guilt Regret and Embarassment-Side B</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-hide%20and%20find%20out.mp3\">Treepeople-Hide and Find Out 7\"-Hide and Find Out</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-justkidding-sidea.mp3\">Treepeople-Just Kidding-Side A</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-justkidding-sideb.mp3\">Treepeople-Just Kidding-Side B</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/analog/undertowresolutionsplit-conditioned-7inch.mp3\">Undertow/Resolution-Conditioned</option>");
 }
 
 //WRITEVIDEOPLAYER - write the video player control and its dropdown fo rthe videos
