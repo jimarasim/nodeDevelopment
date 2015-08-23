@@ -62,8 +62,7 @@ div.divstuffedanimalwaronly
 {
     
     float:left;
-    width:65%; 
-    height:1000px;
+    height:500px;
     background-color: pink;
     background-position:left;
     vertical-align: top;
@@ -82,8 +81,8 @@ svg.svgstuffedanimalwar
     width:100%; 
 }
 
+/*affects djnachosstuffedanimalwar significantly*/
 table{
-    /*width:60%;*/
 }  
 
 
