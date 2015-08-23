@@ -1,6 +1,4 @@
 /*jaemzware.org*/
-
-
 /* global require, __dirname, process */
 //http://socket.io/get-started/chat/
 //setup an express application and bind it to an http server
@@ -8,6 +6,7 @@ var app = require('express')();
 
 //require express for serving other, static files, like .css from the root dir
 var express=require('express');
+app.use(express.static(__dirname));
 
 //require http
 var http = require('http').Server(app);
@@ -15,15 +14,76 @@ var http = require('http').Server(app);
 //attach a socket to the listening http
 var io = require('socket.io')(http);
 
-//THIS ALLOWS ME TO include static files like .css
-app.use(express.static(__dirname));
-
 //GET PORT TO USE
+var listenPort =3000;
 if(process.argv.length < 3){
-    console.log("USAGE (e.g. to listen on port 2000: node index.js 3000");
+    console.log("USAGE: node index.js 3000");  
+    listenPort = 3000;
 }
-var listenPort = process.argv[2];
+else{
+    listenPort = process.argv[2];
+}
 
+//LISTEN FOR INCOMING REQUESTS
+http.listen(listenPort, function(){
+    console.log('LISTENING TO PORT:'+listenPort);
+});
+
+app.get('/', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/djnachos', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachos.html');
+});
+
+app.get('/Lexze', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/lexze.html');
+});
+app.get('/LEXZE', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/lexze.html');
+});
+app.get('/lexze', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/lexze.html');
+});
+
+//handler for incoming get requests
+app.get('/sawonly', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        });
+        
+app.get('/only', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        });
+
+app.get('/videodjonly', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosvideo.html');
+        });
+
+
+app.get('/audiodjonly', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosaudio.html');
+        });
+        
+app.get('/AUDIODJONLY', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosaudio.html');
+        });
+        
+app.get('/tabstripvideo', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachostabstripvideo.html');
+        });
+        
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
 io.on('connection', function(socket){
@@ -109,67 +169,4 @@ io.on('connection', function(socket){
     });  
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////GET REQUEST HANDLERS
-//handler for incoming get requests
-app.get('/', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/djnachos', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachos.html');
-});
-
-
-app.get('/Lexze', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/lexze.html');
-});
-app.get('/LEXZE', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/lexze.html');
-});
-app.get('/lexze', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/lexze.html');
-});
-
-//handler for incoming get requests
-app.get('/sawonly', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
-        });
-        
-app.get('/only', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
-        });
-
-app.get('/videodjonly', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosvideo.html');
-        });
-
-
-app.get('/audiodjonly', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosaudio.html');
-        });
-        
-app.get('/AUDIODJONLY', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosaudio.html');
-        });
-        
-app.get('/tabstripvideo', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachostabstripvideo.html');
-        });
-
-////////////////////////////////////////////////////
-
-http.listen(listenPort, function(){
-    console.log('LISTENING TO PORT:'+listenPort);
-});
 
