@@ -275,7 +275,7 @@ function writeVideoPlayerWithChat(){
     writeVideoPlayerDefaultVideos();
     document.write("</select>");
     document.write("</td>");
-    document.write("</td>");
+    document.write("<td>");
     writeChatControls();
     writeChatMessagesDiv();
     document.write("</td>");
