@@ -83,6 +83,37 @@ function writeChat(){
     document.write("</table>");
 }
 
+
+//WRITEVIDEOPLAYER - write the video player control and its dropdown fo rthe videos
+function writeVideoPlayer(){
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+    document.write(" browser doesn't support mp4 video. use chrome.");
+    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+    document.write("</video>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<td>");
+    document.write("<select id=\"selectvideos\">");
+    writeVideoPlayerDropdownVideos();
+    document.write("</select>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
+}
+
+function writeVideoPlayerDefaultVideos(){
+    document.write("<option selected value=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\">Jim, Roxhill, Backside Ollie Line,  August 2015</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/roxhillollierockline201508.mp4\">Jim, Roxhill Ollie Rock Line</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/yakima201508.mp4\">Jim, Yakima August 2015</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4\">Built to Spill - Going against your mind - Fremont Fair 2014</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/sk8cretewall.mp4\">Sk8crete or Die</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4\">True Value Baby Sessions 2001</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/fortboise201508.mp4\">Jim, Fort Boise August 2015</option>");
+}
+
 //WRITEDEFAULTAUTORESPONDEROPTIONS
 function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"blank\" selected>--autoresponse--</option>");
@@ -166,7 +197,7 @@ function writeAudioPlayerDropdownSongs()
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-11.mp3\">crack sabbath-May 9th, 2015-11</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-12.mp3\">crack sabbath-May 9th, 2015-12</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-13.mp3\">crack sabbath-May 9th, 2015-13</option>");
-    document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-14.mp3\">crack sabbath-May 9th, 2015-14</option>");
+    document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-14.mp3\">crack sabbath-May 9th, 2015-Territorial Pissings</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-15.mp3\">crack sabbath-May 9th, 2015-15</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-16.mp3\">crack sabbath-May 9th, 2015-16</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-17.mp3\">crack sabbath-May 9th, 2015-17</option>");
@@ -362,32 +393,3 @@ document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mu
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/undertowresolutionsplit-conditioned-7inch.mp3\">Undertow/Resolution-Conditioned</option>");
 }
 
-//WRITEVIDEOPLAYER - write the video player control and its dropdown fo rthe videos
-function writeVideoPlayer(){
-    document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-    document.write(" browser doesn't support mp4 video. use chrome.");
-    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-    document.write("</video>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<td>");
-    document.write("<select id=\"selectvideos\">");
-    writeVideoPlayerDropdownVideos();
-    document.write("</select>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
-}
-
-function writeVideoPlayerDefaultVideos(){
-    document.write("<option selected value=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\">Jim, Roxhill, Backside Ollie Line,  August 2015</option>");
-    document.write("<option value=\"http://jaemzware.org/media/skate/roxhillollierockline201508.mp4\">Jim, Roxhill Ollie Rock Line</option>");
-    document.write("<option value=\"http://jaemzware.org/media/skate/yakima201508.mp4\">Jim, Yakima August 2015</option>");
-    document.write("<option value=\"http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4\">Built to Spill - Going against your mind - Fremont Fair 2014</option>");
-    document.write("<option value=\"http://jaemzware.org/media/randommp4/sk8cretewall.mp4\">Sk8crete or Die</option>");
-    document.write("<option value=\"http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4\">True Value Baby Sessions 2001</option>");
-    document.write("<option value=\"http://jaemzware.org/media/skate/fortboise201508.mp4\">Jim, Fort Boise August 2015</option>");
-}
