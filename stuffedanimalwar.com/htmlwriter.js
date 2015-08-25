@@ -129,8 +129,8 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"holdmybeerwatchthis\">hold my beer, watch this</option>");
     document.write("<option value=\"idratherplaywithmycat\">id rather play with my cat</option>");
     document.write("<option value=\"ilikeyou\">i like you</option>");
-    document.write("<option value=\"linkisbusted\">that link is busted/option>");
-    document.write("<option value=\"look it up\">look it up/option>");
+    document.write("<option value=\"linkisbusted\">that link is busted</option>");
+    document.write("<option value=\"look it up\">look it up</option>");
     document.write("<option value=\"lol\">LOL</option>");
     document.write("<option value=\"nice\">nice</option>");
     document.write("<option value=\"nuhuh\">Nuh UH!</option>");
@@ -174,7 +174,7 @@ document.write("<table>");
     document.write("<tr>");
         document.write("<td>");
             document.write("<select id=\"selectsongs\">");
-            writeAudioPlayerDropdownSongs();
+            writeAudioPlayerDropdownOptions();
             document.write("</select>");
         document.write("</td>");
     document.write("</tr>");
@@ -182,7 +182,7 @@ document.write("</table>");
 }
 
 //WRITEAUDIOPLAYERDROPDOWNSONGS 
-function writeAudioPlayerDropdownSongs()
+function writeAudioPlayerDropdownOptions()
 {
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-02.mp3\">crack sabbath-May 9th, 2015-02</option>");
