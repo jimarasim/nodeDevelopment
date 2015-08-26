@@ -1,166 +1,6 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
-function writeVideoPlayerWithChat(){
-    document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-    document.write(" browser doesn't support mp4 video. use chrome.");
-    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-    document.write("</video>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<select id=\"selectvideos\">");
-    writeVideoPlayerDefaultVideos();
-    document.write("</select>");
-    document.write("</td>");
-    document.write("<td>");
-    writeChatControls();
-    writeChatMessagesDiv();
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
-}
 
-function writeStuffedAnimalWar(){
-    document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
-    document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
-    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
-    document.write("</svg>");
-    document.write("</div>");
-}
-
-function writeStuffedAnimalWarWithChat(){
-    document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    writeStuffedAnimalWar();
-    document.write("</td>");
-    document.write("<td>");
-    document.write("<form action=\"\">");
-    document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
-    document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
-    document.write("<select id=\"chatClientAutoResponder\" size=1 >");
-    writeAutoResponderOptions();
-    document.write("</select>");
-    document.write("<button>SEND</button>");
-    document.write("</form>");
-    document.write("<div id=\"messagesdiv\"></div>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
-}
-
-function writeChatControls(){
-    document.write("<form action=\"\">");
-    document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
-    document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
-    document.write("<select id=\"chatClientAutoResponder\" size=1 >");
-    writeDefaultAutoResponderOptions();
-    document.write("</select>");
-    document.write("<button>SEND</button>");
-    document.write("</form>");
-}
-
-function writeChatMessagesDiv(){
-    document.write("<div id=\"messagesdiv\"></div>");
-}
-
-//WRITECHAT
-function writeChat(){
-    document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    writeChatControls();
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<tr>");
-    document.write("<td>");
-    writeChatMessagesDiv();
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
-}
-
-
-//WRITEVIDEOPLAYER - write the video player control and its dropdown fo rthe videos
-function writeVideoPlayer(){
-    document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-    document.write(" browser doesn't support mp4 video. use chrome.");
-    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-    document.write("</video>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<td>");
-    document.write("<select id=\"selectvideos\">");
-    writeVideoPlayerDropdownVideos();
-    document.write("</select>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
-}
-
-function writeVideoPlayerDefaultVideos(){
-    document.write("<option selected value=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\">Jim, Roxhill, Backside Ollie Line,  August 2015</option>");
-    document.write("<option value=\"http://jaemzware.org/media/skate/roxhillollierockline201508.mp4\">Jim, Roxhill Ollie Rock Line</option>");
-    document.write("<option value=\"http://jaemzware.org/media/skate/yakima201508.mp4\">Jim, Yakima August 2015</option>");
-    document.write("<option value=\"http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4\">Built to Spill - Going against your mind - Fremont Fair 2014</option>");
-    document.write("<option value=\"http://jaemzware.org/media/randommp4/sk8cretewall.mp4\">Sk8crete or Die</option>");
-    document.write("<option value=\"http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4\">True Value Baby Sessions 2001</option>");
-    document.write("<option value=\"http://jaemzware.org/media/skate/fortboise201508.mp4\">Jim, Fort Boise August 2015</option>");
-}
-
-//WRITEDEFAULTAUTORESPONDEROPTIONS
-function writeDefaultAutoResponderOptions(){
-    document.write("<option value=\"blank\" selected>--autoresponse--</option>");
-    document.write("<option value=\"wink\">;)</option>");
-    document.write("<option value=\"smiley\">:)</option>");
-    document.write("<option value=\"bigsmiley\">:D</option>");
-    document.write("<option value=\"didyougoogle\">did you google that comeback?</option>");
-    document.write("<option value=\"idk\">i dont know</option>");
-    document.write("<option value=\"ikr\">i know right</option>");
-    document.write("<option value=\"ilikeyou\">i like you</option>");
-    document.write("<option value=\"iloveyou\">i love you</option>");
-    document.write("<option value=\"ithinkyoure\">i think youre attractive</option>");
-    document.write("<option value=\"holdmybeerwatchthis\">hold my beer, watch this</option>");
-    document.write("<option value=\"idratherplaywithmycat\">id rather play with my cat</option>");
-    document.write("<option value=\"ilikeyou\">i like you</option>");
-    document.write("<option value=\"linkisbusted\">that link is busted</option>");
-    document.write("<option value=\"look it up\">look it up</option>");
-    document.write("<option value=\"lol\">LOL</option>");
-    document.write("<option value=\"nice\">nice</option>");
-    document.write("<option value=\"nuhuh\">Nuh UH!</option>");
-    document.write("<option value=\"ok\">ok</option>");
-    document.write("<option value=\"picsoritdidnthappen\">pics or it didnt happen</option>");
-    document.write("<option value=\"sarcastic\">sarcastic clap</option>");
-    document.write("<option value=\"silence\">silence for effect</option>");
-    document.write("<option value=\"vague\">vague hipster comment</option>");
-    document.write("<option value=\"witty\">witty comeback</option>");
-    document.write("<option value=\"omg\">OMG</option>");
-    document.write("<option value=\"picsoritdidnthappen\">pics or it didnt happen</option>");
-    document.write("<option value=\"stfu\">STFU</option>");
-    document.write("<option value=\"thatlinkisrad\">that link is rad</option>");
-    document.write("<option value=\"thatscool\">thats cool</option>");
-    document.write("<option value=\"thatsucks\">that sucks</option>");
-    document.write("<option value=\"thatscool\">thats cool</option>");
-    document.write("<option value=\"thatswhatshesaid\">thats what she said</option>");
-    document.write("<option value=\"whatever\">whatever</option>");
-    document.write("<option value=\"youinspireme\">you inspire me</option>");
-    document.write("<option value=\"youlookverynicetoday\">you look very nice today</option>");
-    document.write("<option value=\"yourock\">you rock</option>");
-    document.write("<option value=\"youropinioniswrong\">your opinion is wrong</option>");
-    document.write("<option value=\"yousuck\">you suck</option>");
-    document.write("<option value=\"youknowyourearealupperson\">youre a real UP person</option>");
-    document.write("<option value=\"youremybestfriend\">youre my best friend</option>");
-    document.write("<option value=\"youreworkingthatoutfitgirl\">youre working that outfit girl</option>");
-    document.write("<option value=\"yourewrong\">youre wrong</option>");
-}
-
-//WRITEAUDIOPLAYER 
+//AUDIO 
 function writeAudioPlayer(){
 document.write("<table>");
     document.write("<tr>");
@@ -174,15 +14,13 @@ document.write("<table>");
     document.write("<tr>");
         document.write("<td>");
             document.write("<select id=\"selectsongs\">");
-            writeAudioPlayerDropdownOptions();
+            writeDefaultAudioPlayerOptions();
             document.write("</select>");
         document.write("</td>");
     document.write("</tr>");
 document.write("</table>");       
 }
-
-//WRITEAUDIOPLAYERDROPDOWNSONGS 
-function writeAudioPlayerDropdownOptions()
+function writeDefaultAudioPlayerOptions()
 {
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-02.mp3\">crack sabbath-May 9th, 2015-02</option>");
@@ -431,4 +269,154 @@ document.write("<option value=\"http://analogarchive.com/analogarchive/analog/mu
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/treepeople-justkidding-sideb.mp3\">Treepeople-Just Kidding-Side B</option>");
     document.write("<option value=\"http://analogarchive.com/analogarchive/analog/undertowresolutionsplit-conditioned-7inch.mp3\">Undertow/Resolution-Conditioned</option>");
 }
+
+//STUFFEDANIMALWAR
+function writeStuffedAnimalWar(){
+    document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
+    document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
+    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
+    document.write("</svg>");
+    document.write("</div>");
+}
+function writeStuffedAnimalWarWithChat(){
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    writeStuffedAnimalWar();
+    document.write("</td>");
+    document.write("<td>");
+    writeChatControls();
+    writeChatMessagesDiv();
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
+}
+
+//CHAT
+function writeChat(){
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    writeChatControls();
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+    document.write("<td>");
+    writeChatMessagesDiv();
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
+}
+function writeChatControls(){
+    document.write("<form action=\"\">");
+    document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
+    document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
+    document.write("<select id=\"chatClientAutoResponder\" size=1 >");
+    writeDefaultAutoResponderOptions();
+    document.write("</select>");
+    document.write("<button>SEND</button>");
+    document.write("</form>");
+}
+function writeDefaultAutoResponderOptions(){
+    document.write("<option value=\"blank\" selected>--autoresponse--</option>");
+    document.write("<option value=\"wink\">;)</option>");
+    document.write("<option value=\"smiley\">:)</option>");
+    document.write("<option value=\"bigsmiley\">:D</option>");
+    document.write("<option value=\"didyougoogle\">did you google that comeback?</option>");
+    document.write("<option value=\"idk\">i dont know</option>");
+    document.write("<option value=\"ikr\">i know right</option>");
+    document.write("<option value=\"ilikeyou\">i like you</option>");
+    document.write("<option value=\"iloveyou\">i love you</option>");
+    document.write("<option value=\"ithinkyoure\">i think youre attractive</option>");
+    document.write("<option value=\"holdmybeerwatchthis\">hold my beer, watch this</option>");
+    document.write("<option value=\"idratherplaywithmycat\">id rather play with my cat</option>");
+    document.write("<option value=\"ilikeyou\">i like you</option>");
+    document.write("<option value=\"linkisbusted\">that link is busted</option>");
+    document.write("<option value=\"look it up\">look it up</option>");
+    document.write("<option value=\"lol\">LOL</option>");
+    document.write("<option value=\"nice\">nice</option>");
+    document.write("<option value=\"nuhuh\">Nuh UH!</option>");
+    document.write("<option value=\"ok\">ok</option>");
+    document.write("<option value=\"picsoritdidnthappen\">pics or it didnt happen</option>");
+    document.write("<option value=\"sarcastic\">sarcastic clap</option>");
+    document.write("<option value=\"silence\">silence for effect</option>");
+    document.write("<option value=\"vague\">vague hipster comment</option>");
+    document.write("<option value=\"witty\">witty comeback</option>");
+    document.write("<option value=\"omg\">OMG</option>");
+    document.write("<option value=\"picsoritdidnthappen\">pics or it didnt happen</option>");
+    document.write("<option value=\"stfu\">STFU</option>");
+    document.write("<option value=\"thatlinkisrad\">that link is rad</option>");
+    document.write("<option value=\"thatscool\">thats cool</option>");
+    document.write("<option value=\"thatsucks\">that sucks</option>");
+    document.write("<option value=\"thatscool\">thats cool</option>");
+    document.write("<option value=\"thatswhatshesaid\">thats what she said</option>");
+    document.write("<option value=\"whatever\">whatever</option>");
+    document.write("<option value=\"youinspireme\">you inspire me</option>");
+    document.write("<option value=\"youlookverynicetoday\">you look very nice today</option>");
+    document.write("<option value=\"yourock\">you rock</option>");
+    document.write("<option value=\"youropinioniswrong\">your opinion is wrong</option>");
+    document.write("<option value=\"yousuck\">you suck</option>");
+    document.write("<option value=\"youknowyourearealupperson\">youre a real UP person</option>");
+    document.write("<option value=\"youremybestfriend\">youre my best friend</option>");
+    document.write("<option value=\"youreworkingthatoutfitgirl\">youre working that outfit girl</option>");
+    document.write("<option value=\"yourewrong\">youre wrong</option>");
+}
+function writeChatMessagesDiv(){
+    document.write("<div id=\"messagesdiv\"></div>");
+}
+
+//VIDEO 
+function writeVideoPlayer(){
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+    document.write(" browser doesn't support mp4 video. use chrome.");
+    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+    document.write("</video>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<td>");
+    document.write("<select id=\"selectvideos\">");
+    writeDefaultVideoPlayerOptions();
+    document.write("</select>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
+}
+function writeVideoPlayerWithChat(){
+    document.write("<table>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+    document.write(" browser doesn't support mp4 video. use chrome.");
+    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+    document.write("</video>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<select id=\"selectvideos\">");
+    writeDefaultVideoPlayerOptions();
+    document.write("</select>");
+    document.write("</td>");
+    document.write("<td>");
+    writeChatControls();
+    writeChatMessagesDiv();
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
+}
+function writeDefaultVideoPlayerOptions(){
+    document.write("<option selected value=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\">Jim, Roxhill, Backside Ollie Line,  August 2015</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/roxhillollierockline201508.mp4\">Jim, Roxhill Ollie Rock Line</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/yakima201508.mp4\">Jim, Yakima August 2015</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/01goingagainstyourmind.mp4\">Built to Spill - Going against your mind - Fremont Fair 2014</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/sk8cretewall.mp4\">Sk8crete or Die</option>");
+    document.write("<option value=\"http://jaemzware.org/media/randommp4/babysessionstruevalue.mp4\">True Value Baby Sessions 2001</option>");
+    document.write("<option value=\"http://jaemzware.org/media/skate/fortboise201508.mp4\">Jim, Fort Boise August 2015</option>");
+}
+
+
+
 
