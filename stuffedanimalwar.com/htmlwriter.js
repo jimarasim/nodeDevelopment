@@ -400,6 +400,8 @@ function writeVideoPlayerWithChat(){
     writeDefaultVideoPlayerOptions();
     document.write("</select>");
     document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
     document.write("<td>");
     writeChatControls();
     writeChatMessagesDiv();
