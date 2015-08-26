@@ -347,6 +347,7 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"stfu\">STFU</option>");
     document.write("<option value=\"thatlinkisrad\">that link is rad</option>");
     document.write("<option value=\"thatscool\">thats cool</option>");
+    document.write("<option value=\"thatsiteistooslow\">that site is too slow</option>");
     document.write("<option value=\"thatsucks\">that sucks</option>");
     document.write("<option value=\"thatscool\">thats cool</option>");
     document.write("<option value=\"thatswhatshesaid\">thats what she said</option>");
