@@ -20,18 +20,18 @@ function SetupEvents(){
     
 //CURRENT JQUERY WAY:
 //1. PRECEDE GROUPE NAME WITH "jaemzwarevid"
-//1. ADD ARRAY ASSIGNMENT FOR GROUP NAME e.g. jaemzwarevideojimroxhill20150802 TO ELSE IF BELOW
+//1. ADD ARRAY ASSIGNMENT FOR GROUP NAME e.g. jaemzwarevideojim TO ELSE IF BELOW
 //MEDIA URL[0]  (REQUIRED: MP4, OGV*, PNG), TITLE[1]
 //*removed for this implementation
 
-var jaemzwarevideoadam20150207 = [
+var jaemzwarevideoadam = [
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0682","Adam Marginal rocking"],
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0684","Adam Marginal cradle"],
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0686","Adam Marginal lipping"],
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0688","Adam Marginal sliding"]
                     ];
 
-var jaemzwarevideojimroxhill20150802 = [
+var jaemzwarevideojim = [
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
@@ -47,11 +47,11 @@ function MultiVideoJquery(multiGroup){
     for(i=0;i<multiGroup.length;i++){
         
         //get the array of video file paths (sans extension) from the pre-built array
-        if(multiGroup[i]==="jaemzwarevideojimroxhill20150802"){
-            filePathsNoExtensionArray = jaemzwarevideojimroxhill20150802;
+        if(multiGroup[i]==="jaemzwarevideojim"){
+            filePathsNoExtensionArray = jaemzwarevideojim;
         }
-        else if(multiGroup[i]==="jaemzwarevideoadam20150207"){
-            filePathsNoExtensionArray = jaemzwarevideoadam20150207;
+        else if(multiGroup[i]==="jaemzwarevideoadam"){
+            filePathsNoExtensionArray = jaemzwarevideoadam;
         }
         else{
             console.error("UNEXPECTED JAEMZWAREVIDEOGROUP PRE-BUILT VIDEO ARRAY");
