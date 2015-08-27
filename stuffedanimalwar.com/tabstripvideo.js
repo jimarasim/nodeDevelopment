@@ -80,8 +80,8 @@ function MultiVideoJquery(multiGroup){
     for(i=0;i<multiGroup.length;i++){
         
         //get the array of video file paths (sans extension) from the pre-built array
-        if(multiGroup[i]===             "jaemzwarevideojimroxhill20150802"){
-            filePathsNoExtensionArray = jaemzwarevideojimroxhill20150802;
+        if(multiGroup[i]===             "jaemzwarevideojim"){
+            filePathsNoExtensionArray = jaemzwarevideojim;
         }
         else if(multiGroup[i]===        "jaemzwarevideoadam20150207"){
             filePathsNoExtensionArray = jaemzwarevideoadam20150207;
