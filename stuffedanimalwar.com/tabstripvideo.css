@@ -5,24 +5,24 @@
 
 img.videolink
 {
-    max-height:75px;
-    max-width:75px;
-    vertical-align:middle;
+    max-height:60px;
+    /*max-width:75px;*/
+    vertical-align:left;
     border-style:solid;
-    border-color:#000000;
-    opacity:0.85;
+    border-color:#ffffff;
+    opacity:0.80;
 }
 
 img.videolink:hover
 {
     opacity:1.0;
-    border-style:solid;
-    border-color:#ffffff;
+    border-style:groove;
+    border-color:#00ff00;
 }
 
 span.videolinktext
 {
-    font-size:25%;
+    font-size:medium;
 }
 
 div.videostrip
@@ -31,17 +31,9 @@ div.videostrip
     margin:0px;
     border:0px;
     padding:0px;
-    border:0px solid;
+    border:0px;
     border-radius:0px;
     text-align:center;
-}
-
-#shoplink{
-    border:1px solid #000000;
-}
-
-#shoplink:hover{
-    border:5px solid #00ff00;
 }
 
 #videoplayer-notes{

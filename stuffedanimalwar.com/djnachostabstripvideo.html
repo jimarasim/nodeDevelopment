@@ -1,100 +1,29 @@
 <!--STUFFED ANIMAL WAR - jaemzware.org - 20150611 -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>jaemzware.org - stuffed animal war - djnachos djnachostabstripvideo.html</title>
-        <!--jaemzware includes-->
-        <link rel="Stylesheet" href="stylebase.css" />
-        <link rel="Stylesheet" href="djnachosstylebase.css" />
-        <link rel="Stylesheet" href="tabstripvideo.css" />
-        <script type="text/javascript" src="tabstripvideo.js"></script>
-        <!--3rd party includes-->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
-    </head>
-    <body>
-        
-<!---->
-<!-- /-/-/-/-/-/-/-/-/-/-BLACK MARKET VIDEO PLAYERS/-/-/-/-/-/-/-/-/-/- -->
+<head>
+    <title>jaemzware.org - stuffed animal war - djnachos djnachostabstripvideo.html</title>
+    <!--jaemzware includes-->
+    <link rel="Stylesheet" href="stylebase.css" />
+    <link rel="Stylesheet" href="djnachosstylebase.css" />
+    <link rel="Stylesheet" href="tabstripvideo.css" />
+    <script type="text/javascript" src="tabstripvideo.js"></script>
+    <!--3rd party includes-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+</head>
+<body>
 <table>
     <tr>
         <td>
-            <span id="jaemzwarevideojimroxhill20150802"></span>
+            <span id="jaemzwarevideojim"><!--meant for use with tabstripvideo.js and tabstripvideo.css--></span>
         </td>
     </tr>
 </table>
-<table>
-    <tr>
-        <td>
-            <span id="jaemzwarevideoadam20150207"></span>
-        </td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td>
-            <span id="jaemzwarevideomarginalbenefit20140913"></span>
-        </td>
-    </tr>
-</table>
-<!--S -->
-<!-- /-/-/-/-/-/-/-/-/-/-STUFFED ANIMAL WAR CHAT/-/-/-/-/-/-/-/-/-/- -->
-
-<table>
-<tr>
-    <td>
-        <form action="">
-            <input id="chatClientUser" placeholder="alias"/>
-            <input id="chatClientMessage" size="35" placeholder="message" />
-            <select id="chatClientAutoResponder" size=1 >
-                <option value="--autoresponse--" selected>--autoresponse--</option>
-                <option value="didyougoogle">did you google that comeback?</option>
-                <option value="idk">i dont know</option>
-                <option value="ikr">i know right</option>
-                <option value="ilikeyou">i like you</option>
-                <option value="iloveyou">i love you</option>
-                <option value="ithinkyoure">i think youre attractive</option>
-                <option value="holdmybeerwatchthis">hold my beer, watch this</option>
-                <option value="idratherplaywithmycat">id rather play with my cat</option>
-                <option value="ilikeyou">i like you</option>
-                <option value="linkisbusted">that link is busted</option>
-                <option value="look it up">look it up</option>
-                <option value="lol">LOL</option>
-                <option value="nuhuh">Nuh UH!</option>
-                <option value="ok">ok</option>
-                <option value="picsoritdidnthappen">pics or it didnt happen</option>
-                <option value="sarcastic">sarcastic clap</option>
-                <option value="silence">silence for effect</option>
-                <option value="vague">vague hipster comment</option>
-                <option value="witty">witty comeback</option>
-                <option value="omg">OMG</option>
-                <option value="picsoritdidnthappen">pics or it didnt happen</option>
-                <option value="stfu">STFU</option>
-                <option value="thatlinkisrad">that link is rad</option>
-                <option value="thatscool">thats cool</option>
-                <option value="thatsucks">that sucks</option>
-                <option value="thatscool">thats cool</option>
-                <option value="thatswhatshesaid">thats what she said</option>
-                <option value="whatever">whatever</option>
-                <option value="youinspireme">you inspire me</option>
-                <option value="youlookverynicetoday">you look very nice today</option>
-                <option value="yourock">you rock</option>
-                <option value="yousuck">you suck</option>
-                <option value="youknowyourearealupperson">youre a real UP person</option>
-                <option value="youremybestfriend">youre my best friend</option>
-                <option value="youreworkingthatoutfitgirl">youre working that outfit girl</option>
-                <option value="yourewrong">youre wrong</option>  
-            </select>
-            <button>SEND</button>
-        </form>
-    </td>
-</tr>
-<tr>
-    <td><div id="messagesdiv"></div></td>
-</tr>  
-</table>
+<script type="text/javascript">
+    writeChat();
+</script>
 <script type="text/javascript" src="djnachossockethandler.js"></script>
-<!-- /-/-/-/-/-/-/-/-/-/-GOOGLE ANALYTICS/-/-/-/-/-/-/-/-/-/- -->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -48,7 +48,7 @@ var jaemzwarevideoadam20150207 = [
                     ["https://blackmarketskates.com/media/marginaladam/IMG_0688","Adam Marginal sliding"]
                     ];
 
-var jaemzwarevideojimroxhill20150802 = [
+var jaemzwarevideojim = [
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
