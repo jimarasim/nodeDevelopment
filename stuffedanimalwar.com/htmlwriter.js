@@ -420,6 +420,10 @@ function writeDefaultVideoPlayerOptions(){
     document.write("<option value=\"http://jaemzware.org/media/skate/fortboise201508.mp4\">Jim, Fort Boise August 2015</option>");
 }
 
+function writeTabStripVideoPlayer(){
+    
+}
+
 
 
 
