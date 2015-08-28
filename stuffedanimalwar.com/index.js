@@ -29,6 +29,12 @@ http.listen(listenPort, function(){
     console.log('LISTENING TO PORT:'+listenPort);
 });
 
+        
+app.get('/roxhillsessions', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/roxhillsessions.html');
+        });
+        
 app.get('/', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/index.html');
@@ -95,6 +101,11 @@ io.on('connection', function(socket){
     socket.on('djnachoschatmessage', function(chatMessageObject){
         sendChatMessage('djnachoschatmessage',chatMessageObject);
     });
+    
+    socket.on('roxhillsessionschatmessage', function(chatMessageObject){
+        sendChatMessage('roxhillsessionschatmessage',chatMessageObject);
+    });
+    
     
     
     //TAPMESSAGES--------------------------------------------------------------------------------------

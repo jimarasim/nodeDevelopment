@@ -20,6 +20,65 @@ document.write("<table>");
     document.write("</tr>");
 document.write("</table>");       
 }
+function writeRoxhillAudioPlayer(){
+    document.write("<table>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/analogarchive/live/ZOOM0001roxhillsessions20150827.mp3\" type=\"audio/mpeg\">");
+                document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+            document.write("</audio>");
+        document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<select id=\"selectsongs\">");
+            writeRoxhillSessionsAudioPlayerOptions();
+            document.write("</select>");
+        document.write("</td>");
+    document.write("</tr>");
+document.write("</table>"); 
+}
+function writeRoxhillSessionsAudioPlayerOptions(){
+        document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0001roxhillsessions20150827.mp3\">01 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0002roxhillsessions20150827.mp3\">02 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0003roxhillsessions20150827.mp3\">03 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0004roxhillsessions20150827.mp3\">04 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0005roxhillsessions20150827.mp3\">05 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0006roxhillsessions20150827.mp3\">06 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0007roxhillsessions20150827.mp3\">07 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0008roxhillsessions20150827.mp3\">08 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0009roxhillsessions20150827.mp3\">09 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0010roxhillsessions20150827.mp3\">10 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0011roxhillsessions20150827.mp3\">11 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0012roxhillsessions20150827.mp3\">12 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0013roxhillsessions20150827.mp3\">13 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0014roxhillsessions20150827.mp3\">14 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0015roxhillsessions20150827.mp3\">15 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0016roxhillsessions20150827.mp3\">16 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0017roxhillsessions20150827.mp3\">17 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0018roxhillsessions20150827.mp3\">18 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0019roxhillsessions20150827.mp3\">19 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0020roxhillsessions20150827.mp3\">20 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0021roxhillsessions20150827.mp3\">21 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0022roxhillsessions20150827.mp3\">22 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0023roxhillsessions20150827.mp3\">23 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0024roxhillsessions20150827.mp3\">24 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0025roxhillsessions20150827.mp3\">25 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0026roxhillsessions20150827.mp3\">26 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0027roxhillsessions20150827.mp3\">27 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0028roxhillsessions20150827.mp3\">28 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0029roxhillsessions20150827.mp3\">29 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0030roxhillsessions20150827.mp3\">30 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0031roxhillsessions20150827.mp3\">31 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0032roxhillsessions20150827.mp3\">32 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0033roxhillsessions20150827.mp3\">33 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0034roxhillsessions20150827.mp3\">34 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0035roxhillsessions20150827.mp3\">35 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0036roxhillsessions20150827.mp3\">36 Roxhill Sessions August 27th, 2015</option>");
+        document.write("<option value=\"http://analogarchive.com/analogarchive/live/ZOOM0037roxhillsessions20150827.mp3\">37 Roxhill Sessions August 27th, 2015</option>");
+}
 function writeDefaultAudioPlayerOptions()
 {
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
