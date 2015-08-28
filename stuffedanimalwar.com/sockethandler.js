@@ -92,7 +92,6 @@ $('#selectvideos').change(function(){
     }
 });
 
-
 $('#stuffedanimalwarsvg').click(function(event){
     console.log('EMITTING:'+tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
     baseSocket.emit(tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
@@ -121,7 +120,6 @@ function emitChatMessage(message){
     //send the message
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
-
 
 function onBaseTapSocketEvent(msg){
     //width of the line to draw
@@ -257,6 +255,7 @@ function changeMp3(mp3Url)
     $('#jaemzwaredynamicaudiosource').attr("src",mp3Url);
     document.getElementById("jaemzwaredynamicaudioplayer").load();
     document.getElementById("jaemzwaredynamicaudioplayer").play();
+    $('#selectsongs').val(mp3Url);
 }
 
 /*
