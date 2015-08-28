@@ -38,6 +38,8 @@ function initializeTapSocketHandler(socket){
     baseSocket=socket;
 }
 
+
+
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
 
@@ -78,6 +80,37 @@ $('#selectsongs').change(function(){
         changeMp3(songToPlay);
     }
 });
+
+//AUDIO PLAYER SONG ENDED
+$('#jaemzwaredynamicaudioplayer').bind("ended", function(){
+    var currentFile = $(this).children(":first").attr('src');
+    PlayNextTrack(currentFile);
+});
+
+//USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
+function PlayNextTrack(currentFile)
+{
+    //don't do anything if there are no tracks
+    if($('#selectsongs option').length===0)
+    {
+        return;
+    }
+
+    //get the next track, if there isn't one, use the first one
+    if($('#selectsongs option[value="'+currentFile+'"]').next().text().length!==0)
+    {
+        PlayTrack($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
+    }
+    else if($('#selectsongs option[value="'+currentFile+'"]').first().text().length!==0)
+    {
+        PlayTrack($('#playlistdiv li').first().attr('id'));
+    }
+    else{
+        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
+    }
+
+
+}
 
 //VIDEO DROPDOWN HANDLER - CHANGE VIDEO (COMMON)
 $('#selectvideos').change(function(){
