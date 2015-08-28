@@ -210,6 +210,8 @@ function onBaseChatSocketEvent(msgObject){
                                     class: "remoteChatClientUser"
                                  }).text(remoteChatClientUser);
 
+                  $("<br />").prependTo("#messagesdiv");
+
                  //chat message
                 $("<span>").prependTo("#messagesdiv").attr({
                    class: "chatclientmessage"
