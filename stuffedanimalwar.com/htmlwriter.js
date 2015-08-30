@@ -5,7 +5,7 @@ function writeAudioPlayer(){
 document.write("<table>");
     document.write("<tr>");
         document.write("<td>");
-            document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+            document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\" width=\"640\">");
                 document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/analogarchive/live/cracksabbath20140509-02.mp3\" type=\"audio/mpeg\">");
                 document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
             document.write("</audio>");
