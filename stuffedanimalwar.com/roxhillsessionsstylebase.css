@@ -4,3 +4,8 @@ body {
     background-repeat:no-repeat;
     background-position:top right;
 }
+
+audio {
+    width: 500px;
+    height: 50px;
+}
