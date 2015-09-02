@@ -6,6 +6,10 @@ body {
 }
 
 audio {
-    width: 500px;
-    height: 50px;
+    width: 700px; /*iphone 6 is 750 pixels wide. didn't have much luck using a percentage here, in chrome'*/
+    height: 100px;
+}
+
+table.roxhillsession{
+    width: 700px; /*iphone 6 is 750 pixels wide */
 }

@@ -390,7 +390,7 @@ function writeStuffedAnimalWarWithChat(){
 
 //CHAT
 function writeChat(){
-    document.write("<table>");
+    document.write("<table class='roxhillsession'>");
     document.write("<tr>");
     document.write("<td>");
     writeChatControls();
@@ -407,6 +407,7 @@ function writeChatControls(){
     document.write("<form action=\"\">");
     document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
     document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
+    document.write("</td></tr><tr><td>");
     document.write("<select id=\"chatClientAutoResponder\" size=1 >");
     writeDefaultAutoResponderOptions();
     document.write("</select>");
