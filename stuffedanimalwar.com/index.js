@@ -17,8 +17,7 @@ var io = require('socket.io')(http);
 //GET PORT TO USE
 var listenPort =3000;
 if(process.argv.length < 3){
-    console.log("USAGE: node index.js 3000");  
-    listenPort = 3000;
+    console.log("USING: node index.js 3000");  
 }
 else{
     listenPort = process.argv[2];
