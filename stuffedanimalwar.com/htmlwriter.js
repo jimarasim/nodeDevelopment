@@ -6,7 +6,7 @@ document.write("<table>");
     document.write("<tr>");
         document.write("<td>");
             document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\" width=\"640\">");
-                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/cracksabbath20140509-02.mp3\" type=\"audio/mpeg\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/ZOOM0001-SkerikTrio-OwlnThistle-20130227.mp3\" type=\"audio/mpeg\">");
                 document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
             document.write("</audio>");
         document.write("</td>");
