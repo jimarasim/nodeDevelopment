@@ -99,11 +99,11 @@ function PlayNextTrack(currentFile)
     //get the next track, if there isn't one, use the first one
     if($('#selectsongs option[value="'+currentFile+'"]').next().text().length!==0)
     {
-        PlayTrack($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
+        changeMp3($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
     }
     else if($('#selectsongs option[value="'+currentFile+'"]').first().text().length!==0)
     {
-        PlayTrack($('#playlistdiv li').first().attr('id'));
+        changeMp3($('#selectsongs option[value="'+currentFile+'"]').first().attr('value'));
     }
     else{
         console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
