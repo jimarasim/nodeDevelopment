@@ -1,15 +1,11 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 body {
-    background-image: url("media/rose.png");
+    background-image: url("https://seattlerules.com/whale.jpg");
     background-repeat:no-repeat;
     background-position:top right;
 }
 
 audio {
-    width: 700px; /*iphone 6 is 750 pixels wide. didn't have much luck using a percentage here, in chrome'*/
+    width: 500px; /*iphone 6 is 750 pixels wide. didn't have much luck using a percentage here, in chrome'*/
     height: 100px;
-}
-
-table.roxhillsession{
-    width: 700px; /*iphone 6 is 750 pixels wide */
 }

@@ -3,14 +3,16 @@
 //REQUIRE BASE SOCKET HANDLER JAVASCRIPT
 $.getScript('sockethandler.js', function()
 {
+    var endpoint = "sufferingfuckheads";
+    
     //SET AND INITIALIZE HANDLER SPECIFIC VARIABLES FOR THIS OVERRIDDEN HANDLER
-    masterAlias = "LEXZE";
-    chatSocketEvent = 'lexzechatmessage';
-    tapSocketEvent = 'lexzetapmessage';
-    unspecifiedAlias = 'NOBODY COOL';
+    masterAlias = "DJ";
+    unspecifiedAlias="SHADOW CREEPER";
+    chatSocketEvent = endpoint+'chatmessage';
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
-    initializeTapSocketHandler(socket,tapSocketEvent);
 });
+
+

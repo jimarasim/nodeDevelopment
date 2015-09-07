@@ -27,21 +27,10 @@ else{
 http.listen(listenPort, function(){
     console.log('LISTENING TO PORT:'+listenPort);
 });
-
-        
-app.get('/roxhillsessions', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/roxhillsessions.html');
-        });
         
 app.get('/', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/lexze', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/lexze.html');
 });
 
 //handler for incoming get requests
@@ -70,6 +59,16 @@ app.get('/tabstripvideo', function(req, res){
         res.sendFile(__dirname + '/djnachostabstripvideo.html');
         });
         
+app.get('/sufferingfuckheads', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/sufferingfuckheads.html');
+        });
+        
+app.get('/roxhillsessions', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/roxhillsessions.html');
+        });
+        
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
 io.on('connection', function(socket){
@@ -93,10 +92,6 @@ io.on('connection', function(socket){
         sendChatMessage('chatmessage',chatMessageObject);
     });
     
-    socket.on('lexzechatmessage', function(chatMessageObject){
-        sendChatMessage('lexzechatmessage',chatMessageObject);
-    });
-    
     socket.on('djnachoschatmessage', function(chatMessageObject){
         sendChatMessage('djnachoschatmessage',chatMessageObject);
     });
@@ -105,6 +100,9 @@ io.on('connection', function(socket){
         sendChatMessage('roxhillsessionschatmessage',chatMessageObject);
     });
     
+    socket.on('sufferingfuckheadschatmessage', function(chatMessageObject){
+        sendChatMessage('sufferingfuckheadschatmessage',chatMessageObject);
+    });
     
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
@@ -115,10 +113,6 @@ io.on('connection', function(socket){
     socket.on('djnachostapmessage', function(tapMsgObject){
         sendTapMessage('djnachostapmessage',tapMsgObject);
     });  
-    
-    socket.on('lexzetapmessage', function(tapMsgObject){
-        sendTapMessage('lexzetapmessage',tapMsgObject);
-    });
     
     
     //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
