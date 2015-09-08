@@ -68,7 +68,12 @@ app.get('/roxhillsessions', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/roxhillsessions.html');
         });
-        
+
+app.get('/melvins', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/melvins.html');
+        });
+
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
 io.on('connection', function(socket){
@@ -102,6 +107,10 @@ io.on('connection', function(socket){
     
     socket.on('sufferingfuckheadschatmessage', function(chatMessageObject){
         sendChatMessage('sufferingfuckheadschatmessage',chatMessageObject);
+    });
+    
+    socket.on('melvinschatmessage', function(chatMessageObject){
+        sendChatMessage('melvinschatmessage',chatMessageObject);
     });
     
     

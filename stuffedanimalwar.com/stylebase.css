@@ -8,6 +8,10 @@ body {
     
 }
 
+audio {
+    width: 400px; /*iphone 6 is 750 pixels wide. didn't have much luck using a percentage here, in chrome'*/
+}
+
 //CHAT MESSAGES
 #messagesdiv
 {

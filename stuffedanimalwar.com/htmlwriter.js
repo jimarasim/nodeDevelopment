@@ -58,6 +58,52 @@ function writeSufferingFuckheadsAudioPlayer(){
     document.write("</tr>");
     document.write("</table>"); 
 }
+function writeMelvinsAudioPlayer(){
+    document.write("<table>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/ZOOM0005-sufferingfuckheads-coppergate-20130205.mp3\" type=\"audio/mpeg\">");
+                document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+            document.write("</audio>");
+        document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<select id=\"selectsongs\">");
+            writeMelvinsAudioPlayerOptions();
+            document.write("</select>");
+        document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>"); 
+}
+function writeMelvinsAudioPlayerOptions(){
+    document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-melvins-showboxmarket-20141018.mp3\">01 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-melvins-showboxmarket-20141018.mp3\">02 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-melvins-showboxmarket-20141018.mp3\">03 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0004-melvins-showboxmarket-20141018.mp3\">04 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-melvins-showboxmarket-20141018.mp3\">05 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0006-melvins-showboxmarket-20141018.mp3\">01 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0007-melvins-showboxmarket-20141018.mp3\">02 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0008-melvins-showboxmarket-20141018.mp3\">03 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0009-melvins-showboxmarket-20141018.mp3\">04 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0010-melvins-showboxmarket-20141018.mp3\">05 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0011-melvins-showboxmarket-20141018.mp3\">06 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0012-melvins-showboxmarket-20141018.mp3\">07 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0013-melvins-showboxmarket-20141018.mp3\">08 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0014-melvins-showboxmarket-20141018.mp3\">09 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0006melvinsportlandwonderballroom20150907.mp3\">01 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0007melvinsportlandwonderballroom20150907.mp3\">02 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0008melvinsportlandwonderballroom20150907.mp3\">03 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0009melvinsportlandwonderballroom20150907.mp3\">04 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0010melvinsportlandwonderballroom20150907.mp3\">05 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0011melvinsportlandwonderballroom20150907.mp3\">06 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0012melvinsportlandwonderballroom20150907.mp3\">07 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0013melvinsportlandwonderballroom20150907.mp3\">08 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0014melvinsportlandwonderballroom20150907.mp3\">09 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
+}
+
 function writeSufferingFuckheadsAudioPlayerOptions(){
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-sufferingfuckheads-coppergate-20130205.mp3\">01 Suffering Fuckheads - Coppergate - February 5th, 2013</option>");
