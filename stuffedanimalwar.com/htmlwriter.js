@@ -174,7 +174,6 @@ function writeRoxhillSessionsAudioPlayerOptions(){
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0023roxhillsessions20150827.mp3\">23 Grinch</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0024roxhillsessions20150827.mp3\">24 Dont Speak Spanish</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0025roxhillsessions20150827.mp3\">25 Get Up On Aurora</option>");
-        document.write("<option value=\"http://analogarchive.com/live/ZOOM0026roxhillsessions20150827.mp3\">26 Roxhill Sessions August 27th, 2015</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0027roxhillsessions20150827.mp3\">27 Too Murderous</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0028roxhillsessions20150827.mp3\">28 Driving Your Mom's Car</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0029roxhillsessions20150827.mp3\">29 Skate Beats</option>");
