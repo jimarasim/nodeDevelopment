@@ -77,6 +77,28 @@ function writeMelvinsAudioPlayer(){
     document.write("</tr>");
     document.write("</table>"); 
 }
+function writeCrackSabbathAudioPlayer(){
+    document.write("<table>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/ZOOM0001-CrackSabbath-RoyalRoom-20130622.mp3\" type=\"audio/mpeg\">");
+                document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+            document.write("</audio>");
+        document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<select id=\"selectsongs\">");
+            writeCrackSabbathAudioPlayerOptions();
+            document.write("</select>");
+        document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>"); 
+}
+
+
+
 function writeMelvinsAudioPlayerOptions(){
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-melvins-showboxmarket-20141018.mp3\">01 Melvins - Showbox Market - October 18th, 2014</option>");
@@ -103,7 +125,6 @@ function writeMelvinsAudioPlayerOptions(){
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0013melvinsportlandwonderballroom20150907.mp3\">08 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0014melvinsportlandwonderballroom20150907.mp3\">09 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
 }
-
 function writeSufferingFuckheadsAudioPlayerOptions(){
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-sufferingfuckheads-coppergate-20130205.mp3\">01 Suffering Fuckheads - Coppergate - February 5th, 2013</option>");
@@ -181,6 +202,88 @@ function writeRoxhillSessionsAudioPlayerOptions(){
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0035roxhillsessions20150827.mp3\">35 Pop You in the Brain</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0037roxhillsessions20150827.mp3\">37 Laxative</option>");
 }
+function writeCrackSabbathAudioPlayerOptions(){
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-CrackSabbath-RoyalRoom-20130622.mp3\">01 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-CrackSabbath-RoyalRoom-20130622.mp3\">02 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-CrackSabbath-RoyalRoom-20130622.mp3\">03 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0004-CrackSabbath-RoyalRoom-20130622.mp3\">04 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-CrackSabbath-RoyalRoom-20130622.mp3\">05 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0008-CrackSabbath-RoyalRoom-20130622.mp3\">01 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0009-CrackSabbath-RoyalRoom-20130622.mp3\">02 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0010-CrackSabbath-RoyalRoom-20130622.mp3\">03 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0011-CrackSabbath-RoyalRoom-20130622.mp3\">04 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0012-CrackSabbath-RoyalRoom-20130622.mp3\">05 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0013-CrackSabbath-RoyalRoom-20130622.mp3\">06 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0014-CrackSabbath-RoyalRoom-20130622.mp3\">07 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-cracksabbath-themix-20130920.mp3\">01 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-cracksabbath-themix-20130920.mp3\">02 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-cracksabbath-themix-20130920.mp3\">03 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0004-cracksabbath-themix-20130920.mp3\">04 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-cracksabbath-themix-20130920.mp3\">05 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0007-cracksabbath-themix-20130920.mp3\">01 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0008-cracksabbath-themix-20130920.mp3\">02 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0009-cracksabbath-themix-20130920.mp3\">03 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0010-cracksabbath-themix-20130920.mp3\">04 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0011-cracksabbath-themix-20130920.mp3\">05 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0012-cracksabbath-themix-20130920.mp3\">06 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0013-cracksabbath-themix-20130920.mp3\">07 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0014-cracksabbath-themix-20130920.mp3\">08 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0015-cracksabbath-themix-20130920.mp3\">09 Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0016-cracksabbath-themix-20130920.mp3\">10Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0017-cracksabbath-themix-20130920.mp3\">11Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0018-cracksabbath-themix-20130920.mp3\">12Crack Sabbath - The Mix - September 20th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0019-cracksabbath-themix-20130920.mp3\">13Crack Sabbath - The Mix - September 20th, 2013</option>");
+    
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-01.mp3\">01 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-02.mp3\">02 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-03.mp3\">03 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-04.mp3\">04 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-05.mp3\">05 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-06.mp3\">01 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-07.mp3\">02 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-08.mp3\">03 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-09.mp3\">04 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-10.mp3\">05 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-11.mp3\">06 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-12.mp3\">07 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-13.mp3\">08 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-14.mp3\">09 Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-15.mp3\">10Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-16.mp3\">11Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-17.mp3\">12Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-18.mp3\">13Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-19.mp3\">14Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-20.mp3\">15Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-21.mp3\">16Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-22.mp3\">17Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-23.mp3\">18Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-24.mp3\">19Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/cracksabbath20140509-25.mp3\">20Crack Sabbath - Darrell's - May 8th, 2014</option>");
+    
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-cracksabbath-owlandthistle-20140917.mp3\">01 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-cracksabbath-owlandthistle-20140917.mp3\">02 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0004-cracksabbath-owlandthistle-20140917.mp3\">03 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-cracksabbath-owlandthistle-20140917.mp3\">04 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0006-cracksabbath-owlandthistle-20140917.mp3\">05 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0007-cracksabbath-owlandthistle-20140917.mp3\">01 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0008-cracksabbath-owlandthistle-20140917.mp3\">02 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0009-cracksabbath-owlandthistle-20140917.mp3\">03 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0010-cracksabbath-owlandthistle-20140917.mp3\">04 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0011-cracksabbath-owlandthistle-20140917.mp3\">05 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0012-cracksabbath-owlandthistle-20140917.mp3\">06 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0013-cracksabbath-owlandthistle-20140917.mp3\">07 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0014-cracksabbath-owlandthistle-20140917.mp3\">08 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0015-cracksabbath-owlandthistle-20140917.mp3\">09 Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0016-cracksabbath-owlandthistle-20140917.mp3\">10Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0017-cracksabbath-owlandthistle-20140917.mp3\">11Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0018-cracksabbath-owlandthistle-20140917.mp3\">12Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0019-cracksabbath-owlandthistle-20140917.mp3\">13Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0020-cracksabbath-owlandthistle-20140917.mp3\">14Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0021-cracksabbath-owlandthistle-20140917.mp3\">15Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0022-cracksabbath-owlandthistle-20140917.mp3\">16Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0023-cracksabbath-owlandthistle-20140917.mp3\">17Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+}
 function writeDefaultAudioPlayerOptions()
 {
     document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
@@ -202,21 +305,21 @@ function writeDefaultAudioPlayerOptions()
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0019-SkerikTrio-OwlnThistle-20130227.mp3\">skerik trio-February 27th, 2013-16</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0020-SkerikTrio-OwlnThistle-20130227.mp3\">skerik trio-February 27th, 2013-17</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0021-SkerikTrio-OwlnThistle-20130227.mp3\">skerik trio-February 27th, 2013-18</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik1-SkerikTrio-OwlnThistle-20130206.mp3\">skerik1-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik10-SkerikTrio-OwlnThistle-20130206.mp3\">skerik10-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik11-SkerikTrio-OwlnThistle-20130206.mp3\">skerik11-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik12-SkerikTrio-OwlnThistle-20130206.mp3\">skerik12-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik13-SkerikTrio-OwlnThistle-20130206.mp3\">skerik13-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik14-SkerikTrio-OwlnThistle-20130206.mp3\">skerik14-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik15-SkerikTrio-OwlnThistle-20130206.mp3\">skerik15-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik2-SkerikTrio-OwlnThistle-20130206.mp3\">skerik2-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik3-SkerikTrio-OwlnThistle-20130206.mp3\">skerik3-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik4-SkerikTrio-OwlnThistle-20130206.mp3\">skerik4-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik5-SkerikTrio-OwlnThistle-20130206.mp3\">skerik5-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik6-SkerikTrio-OwlnThistle-20130206.mp3\">skerik6-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik7-SkerikTrio-OwlnThistle-20130206.mp3\">skerik7-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik8-SkerikTrio-OwlnThistle-20130206.mp3\">skerik8-SkerikTrio-OwlnThistle-20130206</option>");
-    document.write("<option value=\"http://analogarchive.com/live/skerik9-SkerikTrio-OwlnThistle-20130206.mp3\">skerik9-SkerikTrio-OwlnThistle-20130206</option>");
+    document.write("<option value=\"http://analogarchive.com/live/skerik1-SkerikTrio-OwlnThistle-20130206.mp3\">skerik1-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik2-SkerikTrio-OwlnThistle-20130206.mp3\">skerik2-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik3-SkerikTrio-OwlnThistle-20130206.mp3\">skerik3-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik4-SkerikTrio-OwlnThistle-20130206.mp3\">skerik4-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik5-SkerikTrio-OwlnThistle-20130206.mp3\">skerik5-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik6-SkerikTrio-OwlnThistle-20130206.mp3\">skerik6-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik7-SkerikTrio-OwlnThistle-20130206.mp3\">skerik7-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik8-SkerikTrio-OwlnThistle-20130206.mp3\">skerik8-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik9-SkerikTrio-OwlnThistle-20130206.mp3\">skerik9-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik10-SkerikTrio-OwlnThistle-20130206.mp3\">skerik10-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik11-SkerikTrio-OwlnThistle-20130206.mp3\">skerik11-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik12-SkerikTrio-OwlnThistle-20130206.mp3\">skerik12-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik13-SkerikTrio-OwlnThistle-20130206.mp3\">skerik13-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik14-SkerikTrio-OwlnThistle-20130206.mp3\">skerik14-SkerikTrio-OwlnThistle-20130206.mp3</option>");
+document.write("<option value=\"http://analogarchive.com/live/skerik15-SkerikTrio-OwlnThistle-20130206.mp3\">skerik15-SkerikTrio-OwlnThistle-20130206.mp3</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-SkerikTrio-OwlnThistle-20130213.mp3\">ZOOM0001-SkerikTrio-OwlnThistle-20130213</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-SkerikTrio-OwlnThistle-20130213.mp3\">ZOOM0002-SkerikTrio-OwlnThistle-20130213</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-SkerikTrio-OwlnThistle-20130213.mp3\">ZOOM0003-SkerikTrio-OwlnThistle-20130213</option>");

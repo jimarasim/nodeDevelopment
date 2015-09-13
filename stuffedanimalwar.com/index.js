@@ -74,6 +74,12 @@ app.get('/melvins', function(req, res){
         res.sendFile(__dirname + '/melvins.html');
         });
 
+
+app.get('/cracksabbath', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/cracksabbath.html');
+        });
+
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
 io.on('connection', function(socket){
