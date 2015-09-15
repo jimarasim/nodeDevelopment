@@ -4,6 +4,8 @@
 /* global require, __dirname, process */
 //http://socket.io/get-started/chat/
 //setup an express application and bind it to an http server
+var fs = require('fs');
+
 var app = require('express')();
 
 //require express for serving other, static files, like .css from the root dir
