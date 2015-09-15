@@ -63,7 +63,7 @@ function writeMelvinsAudioPlayer(){
     document.write("<tr>");
         document.write("<td>");
             document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
-                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/ZOOM0005-sufferingfuckheads-coppergate-20130205.mp3\" type=\"audio/mpeg\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/ZOOM0001-melvins-showboxmarket-20141018.mp3\" type=\"audio/mpeg\">");
                 document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
             document.write("</audio>");
         document.write("</td>");
@@ -97,8 +97,7 @@ function writeCrackSabbathAudioPlayer(){
     document.write("</table>"); 
 }
 function writeMelvinsAudioPlayerOptions(){
-    document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
-    document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-melvins-showboxmarket-20141018.mp3\">01 Melvins - Showbox Market - October 18th, 2014</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-melvins-showboxmarket-20141018.mp3\" selected>01 Melvins - Showbox Market - October 18th, 2014</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-melvins-showboxmarket-20141018.mp3\">02 Melvins - Showbox Market - October 18th, 2014</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-melvins-showboxmarket-20141018.mp3\">03 Melvins - Showbox Market - October 18th, 2014</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0004-melvins-showboxmarket-20141018.mp3\">04 Melvins - Showbox Market - October 18th, 2014</option>");
@@ -123,8 +122,7 @@ function writeMelvinsAudioPlayerOptions(){
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0014melvinsportlandwonderballroom20150907.mp3\">09 Melvins - Wonder Ballroom - Portland - September 7th, 2015</option>");
 }
 function writeSufferingFuckheadsAudioPlayerOptions(){
-    document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
-    document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-sufferingfuckheads-coppergate-20130205.mp3\">01 Suffering Fuckheads - Coppergate - February 5th, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0005-sufferingfuckheads-coppergate-20130205.mp3\" selected>01 Suffering Fuckheads - Coppergate - February 5th, 2013</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0008-sufferingfuckheads-coppergate-20130205.mp3\">02 Suffering Fuckheads - Coppergate - February 5th, 2013</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0011-sufferingfuckheads-coppergate-20130205.mp3\">03 Suffering Fuckheads - Coppergate - February 5th, 2013</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0013-sufferingfuckheads-coppergate-20130205.mp3\">04 Suffering Fuckheads - Coppergate - February 5th, 2013</option>");
@@ -177,7 +175,6 @@ function writeSufferingFuckheadsAudioPlayerOptions(){
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0017-sufferingfuckheads-coppergate-20130604.mp3\">10 Suffering Fuckheads - Coppergate - June 4th, 2013</option>");
 }
 function writeRoxhillSessionsAudioPlayerOptions(){
-        document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0003roxhillsessions20150827.mp3\">03 Acting Like a Bee</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0007roxhillsessions20150827.mp3\">07 Beau</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0008roxhillsessions20150827.mp3\">08 Spicy Divine Intervention with Ex Stacy</option>");
@@ -283,7 +280,6 @@ function writeCrackSabbathAudioPlayerOptions(){
 }
 function writeDefaultAudioPlayerOptions()
 {
-    document.write("<option selected value=\"blank\">--pick a song from seattle--</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-SkerikTrio-OwlnThistle-20130227.mp3\">skerik trio-February 27th, 2013-01</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-SkerikTrio-OwlnThistle-20130227.mp3\">skerik trio-February 27th, 2013-02</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-SkerikTrio-OwlnThistle-20130227.mp3\">skerik trio-February 27th, 2013-03</option>");
