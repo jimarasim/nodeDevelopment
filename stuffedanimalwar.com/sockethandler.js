@@ -39,6 +39,10 @@ function initializeTapSocketHandler(socket){
         $('#stuffedanimalwarlines').is(':checked')){
             onBaseTapSocketEvent(msg);
         }
+        else if(
+        $('#stuffedanimalwarcats').is(':checked')){
+            onBaseTapSocketEventCats(msg);
+        }
         else{
             console.log("CANT TELL IF DOTS OR LINES ARE CHECKED");
         }  
@@ -95,6 +99,24 @@ $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
     PlayNextTrack(currentFile);
 });
 
+//VIDEO DROPDOWN HANDLER - CHANGE VIDEO (COMMON)
+$('#selectvideos').change(function(){
+    var videoToPlay = $('#selectvideos option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
+
+    if(chatClientUser===baseMasterAlias){
+        emitChatMessage(videoToPlay);
+    }
+    else{
+        changeMp4(videoToPlay);
+    }
+});
+
+$('#stuffedanimalwarsvg').click(function(event){
+    console.log('EMITTING:'+tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
+    baseSocket.emit(tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
+});
+
 //USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
 function PlayNextTrack(currentFile)
 {
@@ -116,30 +138,9 @@ function PlayNextTrack(currentFile)
     else{
         console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
     }
-
-
 }
 
-//VIDEO DROPDOWN HANDLER - CHANGE VIDEO (COMMON)
-$('#selectvideos').change(function(){
-    var videoToPlay = $('#selectvideos option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(videoToPlay);
-    }
-    else{
-        changeMp4(videoToPlay);
-    }
-});
-
-$('#stuffedanimalwarsvg').click(function(event){
-    console.log('EMITTING:'+tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
-    baseSocket.emit(tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
-});
-
-//UNCOMMON - chatmessage
-//EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER (UNCOMMON, CALLS UNIQUE SOCKET.EMIT CALLBACK
+//EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
 function emitChatMessage(message){
     //get the user alias
     var chatClientUser = $("#chatClientUser").val();
@@ -165,7 +166,7 @@ function emitChatMessage(message){
 //STUFFED ANIMAL WAR GAME TAP SOCKET EVENT FUNCTIONS
 function onBaseTapSocketEvent(msg){
     //width of the line to draw
-    var lineWidth = 7;
+    var lineWidth = 5;
 
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
@@ -198,14 +199,14 @@ function onBaseTapSocketEvent(msg){
 
 function onBaseTapSocketEventDots(msg){
     //width of the line to draw
-    var radius = 7;
+    var radius = 6;
 
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
-    var pointX = msgObject.x;
-    var pointY = msgObject.y;
+    var pointX = msgObject.x-(radius/2);
+    var pointY = msgObject.y-(radius/2);
 
     //draw a circle from the new to the old location
     var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
@@ -226,34 +227,32 @@ function onBaseTapSocketEventDots(msg){
 //draw cat
 
 function onBaseTapSocketEventCats(msg){
-    //width of the line to draw
-    var radius = 7;
-
-var imagePath="https://seattlerules.com/wp-content/uploads/2014/04/seattlerules_metallica.png";
-var width="20px";
-var height="20px";
+    var imagePath="http://seattlerules.com/media/cat.jpg";
+    var width="20px";
+    var height="20px";
 
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
-    var pointX = msgObject.x;
-    var pointY = msgObject.y;
+    var pointX = msgObject.x-10;
+    var pointY = msgObject.y-10;
 
     //draw a circle (image) from the new to the old location
-    var newCircle = document.createElementNS('http://www.w3.org/2000/svg','image');
+    var newImage = document.createElementNS('http://www.w3.org/2000/svg','image');
 
-    newCircle.setAttribute('id','image'+$.now());
-    newCircle.setAttribute('x',pointX);
-    newCircle.setAttribute('y',pointY);
-    newCircle.setAttribute('xlink:href',radius);
-    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:2;fill:black;'); //RANDOM COLOR
+    newImage.setAttribute('id','image'+$.now());
+    newImage.setAttribute('x',pointX);
+    newImage.setAttribute('y',pointY);
+    newImage.setAttribute('width',width);
+    newImage.setAttribute('height',height);
+    newImage.setAttribute('xlink:href',imagePath);
 
-    $("#stuffedanimalwarsvg").append(newCircle);
+    $("#stuffedanimalwarsvg").append(newImage);
     
     //move the state rectangle to where the click was made
-    $("#stuffedanimalwarsvgrect").attr("x",pointX);
-    $("#stuffedanimalwarsvgrect").attr("y",pointY); 
+    $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
+    $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
 }
 
 function onBaseChatSocketEvent(msgObject){

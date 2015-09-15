@@ -360,6 +360,7 @@ function writeStuffedAnimalWarChoices(){
     document.write("<form>");
     document.write("<input type=\"radio\" id=\"stuffedanimalwardots\" name=\"sawstyle\" value=\"dots\" checked >Dots");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarlines\" name=\"sawstyle\" value=\"lines\" >Lines");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarcats\" name=\"sawstyle\" value=\"cats\" >Cats");
     document.write("</form>"); 
     
 }

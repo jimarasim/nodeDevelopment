@@ -1,23 +1,22 @@
-/*jaemzware.org*/
-/* global require, __dirname, process */
-//http://socket.io/get-started/chat/
-//setup an express application and bind it to an http server
-var app = require('express')();
+//JAEMZWARE
+//EXAMPLE STARTED FROM: http://socket.io/get-started/chat/
+//
+/* global require, __dirname, process, http */
 
-//require express for serving other, static files, like .css from the root dir
-var express=require('express');
+//setup an express application and bind it to an http server
+var fs = require('fs');
+var app = require('express')(); 
+var express=require('express'); 
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var listenPort =3000;
+
+//serve .css and .js and media files
 app.use(express.static(__dirname));
 
-//require http
-var http = require('http').Server(app);
-
-//attach a socket to the listening http
-var io = require('socket.io')(http);
-
 //GET PORT TO USE
-var listenPort =3000;
-if(process.argv.length < 3){
-    console.log("USING: node index.js 3000");  
+if(process.argv.length !== 3){
+    console.log("PARAMETERS EXPECTED:3 ACTUAL:"+process.argv.length+" ASSUMING: $ node index.js "+listenPort);
 }
 else{
     listenPort = process.argv[2];
@@ -34,6 +33,11 @@ app.get('/', function(req, res){
 });
 
 //handler for incoming get requests
+app.get('http://stuffedanimalwar.com', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        });
+        
 app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
@@ -74,7 +78,6 @@ app.get('/melvins', function(req, res){
         res.sendFile(__dirname + '/melvins.html');
         });
 
-
 app.get('/cracksabbath', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/cracksabbath.html');
@@ -96,7 +99,6 @@ io.on('connection', function(socket){
     socket.on('error', function(msg){
               console.log('error: ' + msg  );
     }); 
-    
     
     //CHATMESSAGES--------------------------------------------------------------------------------------
     socket.on('chatmessage', function(chatMessageObject){
@@ -154,10 +156,7 @@ io.on('connection', function(socket){
 
             //broadcast chat message (client page needs to have  a socket.on handler for this)
             io.emit(socketEvent,tapMsgObject);
-    }
-    
-    
-    
+    } 
 });
 
 

@@ -1,152 +1,161 @@
-/*jaemzware.org*/
+//JAEMZWARE
+//EXAMPLE STARTED FROM: http://www.chovy.com/web-development/self-signed-certs-with-secure-websockets-in-node-js/
+//
+/* global require, __dirname, process, http */
 
-
-/* global require, __dirname, process */
-//http://socket.io/get-started/chat/
-//setup an express application and bind it to an http server
+//setup an express application and bind it to an https server
 var fs = require('fs');
-
-var app = require('express')();
-
-//require express for serving other, static files, like .css from the root dir
-var express=require('express');
-
-//require http
+var app = require('express')(); 
+var express=require('express'); 
 var https = require('https').Server(app);
-
-//attach a socket to the listening http
 var io = require('socket.io')(https);
+var listenPort =8443;
 
-//THIS ALLOWS ME TO include static files like .css
+//serve .css and .js and media files
 app.use(express.static(__dirname));
 
 //GET PORT TO USE
-if(process.argv.length < 3){
-    console.log("USAGE (e.g. to listen on port 3000: node index.js 3000");
+if(process.argv.length !== 3){
+    console.log("PARAMETERS EXPECTED:3 ACTUAL:"+process.argv.length+" ASSUMING: $ node index.js "+listenPort);
 }
-var listenPort = process.argv[2];
+else{
+    listenPort = process.argv[2];
+}
 
-//ON PERSISTENT CONNECTION
-//handler for incoming socket connections
-io.on('connection', function(socket){
-      
-    var chatClientAddress = socket.handshake.address;
-    console.log('CONNECT:'+chatClientAddress);
-      
-    //ON DISCONNECT
-    //specify the socket disconnect event handler to print out a message when the user disconnects
-    socket.on('disconnect', function(){
-        var chatClientAddress = socket.handshake.address;
-              console.log('DISCONNECT:'+chatClientAddress);
-              });
-         
-    //ON CHATMESSAGE (OG STUFFEDANIMALWAR)
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////chatmessage for index.html, sockerhandler.js, stylebase.css
-    //specify 'chat message' event handler. happens when emit(ted) by the client
-    socket.on('chatmessage', function(chatMessageObject){
-      console.log("received chatmessage chatMessageObject:"+JSON.stringify(chatMessageObject));
-      
-      //get the address of the message emitter
-      var chatClientAddress = socket.handshake.address;
-      console.log("received chatmessage chatMessageObject:"+JSON.stringify(chatMessageObject)+" FROM:"+chatClientAddress);
-
-      //get datestamp from the server
-      var chatServerDate = new Date();
-      console.log("received chatmessage chatMessageObject:"+JSON.stringify(chatMessageObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
-
-      //update the emitted json object with server information
-      chatMessageObject.CHATSERVERUSER = chatClientAddress;
-      chatMessageObject.CHATSERVERDATE = chatServerDate;
-       
-      //broadcast
-      console.log("emitting chatmessage with chatMessageObject:"+JSON.stringify(chatMessageObject));
-      io.emit('chatmessage',chatMessageObject);
-    });
-    
-    //ON BETTYCHATMESSAGE
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////bettychatmessage for betty.html, bettysockethandler.js, bettystylebase.css
-    //specify 'chat message' event handler. happens when emit(ted) by the client
-    socket.on('bettychatmessage', function(bettyChatMessageObject){
-      //get the address of the message emitter
-      var chatClientAddress = socket.handshake.address;
-      //get datestamp from the server
-      var chatServerDate = new Date();
-      
-      console.log("received bettychatmessage bettyChatMessageObject:" + JSON.stringify(bettyChatMessageObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
-
-      //update the emitted json object with server information
-      bettyChatMessageObject.CHATSERVERUSER = chatClientAddress;
-      bettyChatMessageObject.CHATSERVERDATE = chatServerDate;
-       
-      //broadcast
-      console.log("emitting bettychatmessage with bettyChatMessageObject:"+JSON.stringify(bettyChatMessageObject));
-      io.emit('bettychatmessage',bettyChatMessageObject);
-    });
-      
-
-    //ON TAPMESSAGE (OG STUFFED ANIMAL WAR
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////chatmessage for index.html, sockerhandler.js, stylebase.css
-    //specify 'tapmessage' event handler, when emit(ted) by the user connection
-    socket.on('tapmsg', function(tapMsgObject){
-            console.log('received tapmsg tapMsgObject: ' + JSON.stringify(tapMsgObject));
-              
-            //get the address of the message emitter
-            var chatClientAddress = socket.handshake.address;
-            console.log("received tapmsg tapMsgObject:" + JSON.stringify(tapMsgObject)+" FROM:"+chatClientAddress);
-
-            //get datestamp from the server
-            var chatServerDate = new Date();
-            console.log("received tapmsg tapMsgObject:" + JSON.stringify(tapMsgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
-
-            //broadcast chat message (client page needs to have  a socket.on handler for this)
-            console.log("emitting tapmsg with tapMsgObject:"+tapMsgObject);    
-            
-            //broadcast chat message (client page needs to have  a socket.on handler for this)
-            io.emit('tapmsg',tapMsgObject);
-    }); 
-    
-    //ON ERROR
-    socket.on('error', function(msg){
-              console.log('error: ' + msg  );
-    });  
+//LISTEN FOR INCOMING REQUESTS
+https.listen(listenPort, function(){
+    console.log('LISTENING TO PORT:'+listenPort);
 });
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////GET REQUEST HANDLERS
-//handler for incoming get requests
 app.get('/', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/index.html');
 });
 
+//handler for incoming get requests
+app.get('http://stuffedanimalwar.com', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        });
+        
+app.get('/sawonly', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        });
+        
+app.get('/videodjonly', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosvideo.html');
+        });
+
 app.get('/djnachos', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/djnachos.html');
-});
-
-app.get('/bartonhouse', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/bartonhouse.html');
-});
-
-app.get('/betty', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/betty.html');
-});
-
-//handler for incoming get requests
-app.get('/canvas', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/canvas.html');
+        res.sendFile(__dirname + '/djnachosaudio.html');
         });
 
-//handler for incoming get requests
-app.get('/svg', function(req, res){
+app.get('/audiodjonly', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/svg.html');
+        res.sendFile(__dirname + '/djnachosaudio.html');
         });
-////////////////////////////////////////////////////
+        
+app.get('/tabstripvideo', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachostabstripvideo.html');
+        });
+        
+app.get('/sufferingfuckheads', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/sufferingfuckheads.html');
+        });
+        
+app.get('/roxhillsessions', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/roxhillsessions.html');
+        });
 
-http.listen(listenPort, function(){
-    console.log('LISTENING ON PORT:'+listenPort);
+app.get('/melvins', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/melvins.html');
+        });
+
+app.get('/cracksabbath', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/cracksabbath.html');
+        });
+
+//ON PERSISTENT CONNECTION
+//handler for incoming socket connections
+io.on('connection', function(socket){
+    var chatClientAddress = socket.handshake.address;
+    console.log('CONNECT:'+chatClientAddress);
+    
+    //COMMON--------------------------------------------------------------------------------------
+    socket.on('disconnect', function(){
+        var chatClientAddress = socket.handshake.address;
+              console.log('DISCONNECT:'+chatClientAddress);
+              });
+         
+    //ON ERROR
+    socket.on('error', function(msg){
+              console.log('error: ' + msg  );
+    }); 
+    
+    //CHATMESSAGES--------------------------------------------------------------------------------------
+    socket.on('chatmessage', function(chatMessageObject){
+        sendChatMessage('chatmessage',chatMessageObject);
+    });
+    
+    socket.on('djnachoschatmessage', function(chatMessageObject){
+        sendChatMessage('djnachoschatmessage',chatMessageObject);
+    });
+    
+    socket.on('roxhillsessionschatmessage', function(chatMessageObject){
+        sendChatMessage('roxhillsessionschatmessage',chatMessageObject);
+    });
+    
+    socket.on('sufferingfuckheadschatmessage', function(chatMessageObject){
+        sendChatMessage('sufferingfuckheadschatmessage',chatMessageObject);
+    });
+    
+    socket.on('melvinschatmessage', function(chatMessageObject){
+        sendChatMessage('melvinschatmessage',chatMessageObject);
+    });
+    
+    
+    //TAPMESSAGES--------------------------------------------------------------------------------------
+    socket.on('tapmsg', function(tapMsgObject){
+        sendTapMessage('tapmsg',tapMsgObject);
+    }); 
+    
+    socket.on('djnachostapmessage', function(tapMsgObject){
+        sendTapMessage('djnachostapmessage',tapMsgObject);
+    });  
+    
+    
+    //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
+    function sendChatMessage(socketEvent,chatMessageObject){
+          //GET THE ADDRESS AND DATE
+          var chatClientAddress = socket.handshake.address;
+          var chatServerDate = new Date();
+
+          //update the emitted json object with server information
+          chatMessageObject.CHATSERVERUSER = chatClientAddress;
+          chatMessageObject.CHATSERVERDATE = chatServerDate;
+
+          console.log("BROADCAST SOCKETEVENT:"+socketEvent+" CHATMESSAGEOBJECT:" + JSON.stringify(chatMessageObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
+
+          //broadcast
+          io.emit(socketEvent,chatMessageObject);
+    }
+
+    function sendTapMessage(socketEvent,tapMsgObject){
+            //GET THE ADDRESS AND DATE
+            var chatClientAddress = socket.handshake.address;
+            var chatServerDate = new Date();
+            console.log("BROADCAST SOCKETEVENT:"+socketEvent+" TAPMSGOBJECT:" + JSON.stringify(tapMsgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
+
+            //broadcast chat message (client page needs to have  a socket.on handler for this)
+            io.emit(socketEvent,tapMsgObject);
+    }
 });
 
