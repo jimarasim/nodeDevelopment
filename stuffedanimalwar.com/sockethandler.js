@@ -223,6 +223,39 @@ function onBaseTapSocketEventDots(msg){
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
 
+//draw cat
+
+function onBaseTapSocketEventCats(msg){
+    //width of the line to draw
+    var radius = 7;
+
+var imagePath="https://seattlerules.com/wp-content/uploads/2014/04/seattlerules_metallica.png";
+var width="20px";
+var height="20px";
+
+    //convert json string to an object
+    var msgObject = jQuery.parseJSON(msg);
+
+    //get the coordinates emitted
+    var pointX = msgObject.x;
+    var pointY = msgObject.y;
+
+    //draw a circle (image) from the new to the old location
+    var newCircle = document.createElementNS('http://www.w3.org/2000/svg','image');
+
+    newCircle.setAttribute('id','image'+$.now());
+    newCircle.setAttribute('x',pointX);
+    newCircle.setAttribute('y',pointY);
+    newCircle.setAttribute('xlink:href',radius);
+    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:2;fill:black;'); //RANDOM COLOR
+
+    $("#stuffedanimalwarsvg").append(newCircle);
+    
+    //move the state rectangle to where the click was made
+    $("#stuffedanimalwarsvgrect").attr("x",pointX);
+    $("#stuffedanimalwarsvgrect").attr("y",pointY); 
+}
+
 function onBaseChatSocketEvent(msgObject){
     var remoteChatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
