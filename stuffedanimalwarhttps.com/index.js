@@ -10,17 +10,17 @@ var app = require('express')();
 var express=require('express');
 
 //require http
-var http = require('http').Server(app);
+var https = require('https').Server(app);
 
 //attach a socket to the listening http
-var io = require('socket.io')(http);
+var io = require('socket.io')(https);
 
 //THIS ALLOWS ME TO include static files like .css
 app.use(express.static(__dirname));
 
 //GET PORT TO USE
 if(process.argv.length < 3){
-    console.log("USAGE (e.g. to listen on port 2000: node index.js 3000");
+    console.log("USAGE (e.g. to listen on port 3000: node index.js 3000");
 }
 var listenPort = process.argv[2];
 
