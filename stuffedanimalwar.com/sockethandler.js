@@ -32,12 +32,20 @@ function initializeChatSocketHandler(socket){
 //SETUP SOCKET HANDLER - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET ITS UNIQUE TAPSOCKETEVENT STRING
 function initializeTapSocketHandler(socket){
     socket.on(tapSocketEvent, function(msg){
-        onBaseTapSocketEvent(msg);
+        if($('#stuffedanimalwardots').is(':checked')){
+            onBaseTapSocketEventDots(msg);
+        }
+        else if(
+        $('#stuffedanimalwarlines').is(':checked')){
+            onBaseTapSocketEvent(msg);
+        }
+        else{
+            console.log("CANT TELL IF DOTS OR LINES ARE CHECKED");
+        }  
     });
     
     baseSocket=socket;
 }
-
 
 
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
@@ -154,6 +162,7 @@ function emitChatMessage(message){
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
 
+//STUFFED ANIMAL WAR GAME TAP SOCKET EVENT FUNCTIONS
 function onBaseTapSocketEvent(msg){
     //width of the line to draw
     var lineWidth = 7;
@@ -182,9 +191,36 @@ function onBaseTapSocketEvent(msg){
 
     $("#stuffedanimalwarsvg").append(newLine);
 
-    //move the rectangle to where the click was made
+    //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY-stuffedanimalwardivTop); 
+}
+
+function onBaseTapSocketEventDots(msg){
+    //width of the line to draw
+    var radius = 7;
+
+    //convert json string to an object
+    var msgObject = jQuery.parseJSON(msg);
+
+    //get the coordinates emitted
+    var pointX = msgObject.x;
+    var pointY = msgObject.y;
+
+    //draw a circle from the new to the old location
+    var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+
+    newCircle.setAttribute('id','circle'+$.now());
+    newCircle.setAttribute('cx',pointX);
+    newCircle.setAttribute('cy',pointY);
+    newCircle.setAttribute('r',radius);
+    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:2;fill:black;'); //RANDOM COLOR
+
+    $("#stuffedanimalwarsvg").append(newCircle);
+    
+    //move the state rectangle to where the click was made
+    $("#stuffedanimalwarsvgrect").attr("x",pointX);
+    $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
 
 function onBaseChatSocketEvent(msgObject){
