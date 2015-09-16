@@ -227,7 +227,7 @@ function onBaseTapSocketEventDots(msg){
 //draw cat
 
 function onBaseTapSocketEventCats(msg){
-    var imagePath="http://seattlerules.com/media/cat.jpg";
+    var imagePath="http://seattlerules.com/media/cat.svg";
     var width="20px";
     var height="20px";
 
