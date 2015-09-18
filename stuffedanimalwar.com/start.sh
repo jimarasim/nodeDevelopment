@@ -1,1 +1,1 @@
-sudo nohup node . 3000 > /dev/null 2>&1 &
+nohup node . 3000 > /dev/null 2>&1 &
