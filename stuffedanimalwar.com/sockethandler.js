@@ -228,8 +228,8 @@ function onBaseTapSocketEventDots(msg){
 
 function onBaseTapSocketEventCats(msg){
     var imagePath="http://seattlerules.com/media/cat.jpg";
-    var width="20px";
-    var height="20px";
+    var width="200px";
+    var height="200px";
 
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
