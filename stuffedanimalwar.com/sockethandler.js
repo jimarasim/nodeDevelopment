@@ -227,7 +227,7 @@ function onBaseTapSocketEventDots(msg){
 //draw cat
 
 function onBaseTapSocketEventCats(msg){
-    var imagePath="http://seattlerules.com/media/cat.svg";
+    var imagePath="http://seattlerules.com/media/cat.jpg";
     var width="20px";
     var height="20px";
 
@@ -235,8 +235,8 @@ function onBaseTapSocketEventCats(msg){
     var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
-    var pointX = msgObject.x-10;
-    var pointY = msgObject.y-10;
+    var pointX = msgObject.x;
+    var pointY = msgObject.y;
 
     //draw a circle (image) from the new to the old location
     var newImage = document.createElementNS('http://www.w3.org/2000/svg','image');
