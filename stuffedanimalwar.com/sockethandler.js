@@ -196,7 +196,6 @@ function onBaseTapSocketEvent(msg){
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY-stuffedanimalwardivTop); 
 }
-
 function onBaseTapSocketEventDots(msg){
     //width of the line to draw
     var radius = 6;
@@ -223,9 +222,6 @@ function onBaseTapSocketEventDots(msg){
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
-
-//draw cat
-
 function onBaseTapSocketEventCats(msg){
     var imagePath="http://seattlerules.com/media/cat.jpg";
     var width="200px";
@@ -254,7 +250,6 @@ function onBaseTapSocketEventCats(msg){
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
 }
-
 function onBaseChatSocketEvent(msgObject){
     var remoteChatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;

@@ -28,16 +28,12 @@ http.listen(listenPort, function(){
 });
         
 app.get('/', function(req, res){
+    console.log(req);
         //send a file back as the response
         res.sendFile(__dirname + '/index.html');
 });
 
 //handler for incoming get requests
-app.get('http://stuffedanimalwar.com', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
-        });
-        
 app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
