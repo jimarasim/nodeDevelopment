@@ -19,7 +19,6 @@ function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseUnspecifiedAlias = unspecifiedAlias;
 }
 
-
 //SETUP SOCKET HANDLER - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET ITS UNIQUE CHATSOCKETEVENT STRING
 function initializeChatSocketHandler(socket){
     socket.on(chatSocketEvent, function(msgObject){
@@ -224,8 +223,8 @@ function onBaseTapSocketEventDots(msg){
 }
 function onBaseTapSocketEventCats(msg){
     var imagePath="http://seattlerules.com/media/cat.jpg";
-    var width="200px";
-    var height="200px";
+    var width="50";
+    var height="50";
 
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
@@ -233,18 +232,35 @@ function onBaseTapSocketEventCats(msg){
     //get the coordinates emitted
     var pointX = msgObject.x;
     var pointY = msgObject.y;
+    
+    var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
+    svgimg.setAttributeNS(null,'height',height);
+    svgimg.setAttributeNS(null,'width',width);
+    svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', imagePath);
+    svgimg.setAttributeNS(null,'x',pointX);
+    svgimg.setAttributeNS(null,'y',pointY);
+    svgimg.setAttributeNS(null, 'visibility', 'visible');
+    $('#stuffedanimalwarsvg').append(svgimg);
 
     //draw a circle (image) from the new to the old location
-    var newImage = document.createElementNS('http://www.w3.org/2000/svg','image');
+//    var newImage = document.createElementNS('http://www.w3.org/2000/svg','image');
+//
+//    newImage.setAttribute('id','image'+$.now());
+//    newImage.setAttribute('x',pointX);
+//    newImage.setAttribute('y',pointY);
+//    newImage.setAttribute('width',width);
+//    newImage.setAttribute('height',height);
+//    newImage.setAttribute('xlink:href',imagePath);
 
-    newImage.setAttribute('id','image'+$.now());
-    newImage.setAttribute('x',pointX);
-    newImage.setAttribute('y',pointY);
-    newImage.setAttribute('width',width);
-    newImage.setAttribute('height',height);
-    newImage.setAttribute('xlink:href',imagePath);
-
-    $("#stuffedanimalwarsvg").append(newImage);
+//    $("<img/>").prependTo("#stuffedanimalwarsvg").attr({
+//                    id: 'image'+$.now(),
+//                    x: pointX,
+//                    y: pointY,
+//                    width: width,
+//                    height: height,
+//                    'xlink:href': imagePath
+//                 });
+//    $("#stuffedanimalwarsvg").append("<image x='"+pointX+"' y='"+pointY+"' width='"+width+"' height='"+height+"' xlink:href='"+imagePath+"' />");
     
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);

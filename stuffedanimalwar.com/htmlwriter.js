@@ -466,7 +466,7 @@ function writeVideoPlayerWithChat(){
     document.write("<table>");
     document.write("<tr>");
     document.write("<td>");
-    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"1024\" height=\"768\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/media/cat.jpg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
     document.write(" browser doesn't support mp4 video. use chrome.");
     document.write("<source src=\"https://seattlerules.com/media/marginal/jim-marginal-overthelight-march2015.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
     document.write("</video>");
