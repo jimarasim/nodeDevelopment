@@ -28,8 +28,10 @@ function writeStuffedAnimalWarChoices(){
     document.write("<input type=\"radio\" id=\"stuffedanimalwardots\" name=\"sawstyle\" value=\"dots\" checked >Dots");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarlines\" name=\"sawstyle\" value=\"lines\" >Lines");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarcats\" name=\"sawstyle\" value=\"cats\" >Cats");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwardogs\" name=\"sawstyle\" value=\"dogs\" >Dogs");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarcustom\" name=\"sawstyle\" value=\"custom\" >Custom Image URL:");
+    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"type message\" />");
     document.write("</form>"); 
-    
 }
 
 //CHAT

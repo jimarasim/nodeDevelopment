@@ -35,11 +35,18 @@ function initializeTapSocketHandler(socket){
         }
         else if(
         $('#stuffedanimalwarlines').is(':checked')){
-            onBaseTapSocketEvent(msg);
+            onBaseTapSocketEventLines(msg);
         }
         else if(
         $('#stuffedanimalwarcats').is(':checked')){
             onBaseTapSocketEventCats(msg);
+        }
+        else if(
+        $('#stuffedanimalwardogs').is(':checked')){
+            onBaseTapSocketEventDogs(msg);
+        }else if(
+        $('#stuffedanimalwarcustom').is(':checked')){
+            onBaseTapSocketEventCustom(msg);
         }
         else{
             console.log("CANT TELL IF DOTS OR LINES ARE CHECKED");
@@ -162,7 +169,7 @@ function emitChatMessage(message){
 }
 
 //STUFFED ANIMAL WAR GAME TAP SOCKET EVENT FUNCTIONS
-function onBaseTapSocketEvent(msg){
+function onBaseTapSocketEventLines(msg){
     //width of the line to draw
     var lineWidth = 3;
 
@@ -221,7 +228,32 @@ function onBaseTapSocketEventDots(msg){
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
 function onBaseTapSocketEventCats(msg){
-    var imagePath="http://seattlerules.com/media/cat.jpg";
+    onBaseTapSocketEventImages(msg,"http://seattlerules.com/media/stuffedanimalwar/grumpycatstuffedanimal.png");
+}
+function onBaseTapSocketEventDogs(msg){
+    onBaseTapSocketEventImages(msg,"http://seattlerules.com/media/stuffedanimalwar/dogstuffedanimal.png");
+}
+function onBaseTapSocketEventCustom(msg){
+                    console.log("IMAGEPATHTEXTBOX:"+$('#imagepathtextbox').val());
+
+    if (
+        $('#imagepathtextbox').val().indexOf("http://")===0||
+        $('#imagepathtextbox').val().indexOf("https://")===0
+       ){ 
+            if( $('#imagepathtextbox').val().indexOf(".jpg")   >   0 ||
+                $('#imagepathtextbox').val().indexOf(".jpeg")  >   0 ||
+                $('#imagepathtextbox').val().indexOf(".gif")   >   0 ||
+                $('#imagepathtextbox').val().indexOf(".png")   >   0)
+            {
+                onBaseTapSocketEventImages(msg,$('#imagepathtextbox').val());
+            }
+            else{
+                console.log('IMAGEPATHTEXTBOX DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+$('#imagepathtextbox').val());
+            }
+        }
+}
+function onBaseTapSocketEventImages(msg,image){
+    var imagePath=image;
     var width="50";
     var height="50";
 
@@ -229,8 +261,8 @@ function onBaseTapSocketEventCats(msg){
     var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
-    var pointX = msgObject.x;
-    var pointY = msgObject.y;
+    var pointX = msgObject.x-(width);
+    var pointY = msgObject.y-(height);
     
     var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
     svgimg.setAttributeNS(null,'height',height);
