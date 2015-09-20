@@ -8,7 +8,6 @@ var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
 
-var stuffedanimalwardivTop = 0; 
 
 //CONTAINS METHOD
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
@@ -165,7 +164,7 @@ function emitChatMessage(message){
 //STUFFED ANIMAL WAR GAME TAP SOCKET EVENT FUNCTIONS
 function onBaseTapSocketEvent(msg){
     //width of the line to draw
-    var lineWidth = 5;
+    var lineWidth = 3;
 
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
@@ -183,7 +182,7 @@ function onBaseTapSocketEvent(msg){
 
     newLine.setAttribute('id','line'+$.now());
     newLine.setAttribute('x1',newPointX);
-    newLine.setAttribute('y1',newPointY-stuffedanimalwardivTop); //NOTE: TOP OF .stuffedanimalwardivTop IS defined above
+    newLine.setAttribute('y1',newPointY); 
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
@@ -193,7 +192,7 @@ function onBaseTapSocketEvent(msg){
 
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
-    $("#stuffedanimalwarsvgrect").attr("y",newPointY-stuffedanimalwardivTop); 
+    $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
 }
 function onBaseTapSocketEventDots(msg){
     //width of the line to draw
@@ -203,8 +202,8 @@ function onBaseTapSocketEventDots(msg){
     var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
-    var pointX = msgObject.x-(radius/2);
-    var pointY = msgObject.y-(radius/2);
+    var pointX = msgObject.x-radius*2;
+    var pointY = msgObject.y-radius*2;
 
     //draw a circle from the new to the old location
     var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
@@ -242,27 +241,6 @@ function onBaseTapSocketEventCats(msg){
     svgimg.setAttributeNS(null, 'visibility', 'visible');
     $('#stuffedanimalwarsvg').append(svgimg);
 
-    //draw a circle (image) from the new to the old location
-//    var newImage = document.createElementNS('http://www.w3.org/2000/svg','image');
-//
-//    newImage.setAttribute('id','image'+$.now());
-//    newImage.setAttribute('x',pointX);
-//    newImage.setAttribute('y',pointY);
-//    newImage.setAttribute('width',width);
-//    newImage.setAttribute('height',height);
-//    newImage.setAttribute('xlink:href',imagePath);
-
-//    $("<img/>").prependTo("#stuffedanimalwarsvg").attr({
-//                    id: 'image'+$.now(),
-//                    x: pointX,
-//                    y: pointY,
-//                    width: width,
-//                    height: height,
-//                    'xlink:href': imagePath
-//                 });
-//    $("#stuffedanimalwarsvg").append("<image x='"+pointX+"' y='"+pointY+"' width='"+width+"' height='"+height+"' xlink:href='"+imagePath+"' />");
-    
-    //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
 }
