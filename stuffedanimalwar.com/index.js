@@ -117,6 +117,9 @@ io.on('connection', function(socket){
         sendChatMessage('melvinschatmessage',chatMessageObject);
     });
     
+    socket.on('cracksabbathchatmessage', function(chatMessageObject){
+        sendChatMessage('cracksabbathchatmessage',chatMessageObject);
+    });
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
     socket.on('tapmsg', function(tapMsgObject){
