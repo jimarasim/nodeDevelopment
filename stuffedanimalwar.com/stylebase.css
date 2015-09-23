@@ -5,7 +5,12 @@ body {
     font-weight:normal;
     font-family:sans-serif;
     font-size:xx-small;
-    
+    margin: 0px;
+}
+
+
+table{
+    border-spacing:0px; /*need to specify so it doesn't get defaulted by user agent stylesheet'*/
 }
 
 audio {
@@ -51,8 +56,7 @@ span.chatclientmessage{
 //STUFFED ANIMAL WAR
 div.divstuffedanimalwar
 {
-/*    width:45%; 
-    height:15%;*/
+
     background-color: pink;
     background-position:left;
     vertical-align: top;
@@ -84,15 +88,6 @@ svg.svgstuffedanimalwar
     text-align: left;
     height:100%; 
     width:100%; 
-}
-
-/*affects djnachosstuffedanimalwar significantly*/
-table{
-}  
-
-
-div{
-    border-radius: 1%;
 }
 
 ul{

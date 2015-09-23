@@ -18,7 +18,7 @@ function writeStuffedAnimalWarWithChat(){
 function writeStuffedAnimalWar(){
     document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
     document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
-    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
+    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"3\" height=\"3\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
     document.write("</svg>"); 
     document.write("</div>");
 }

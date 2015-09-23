@@ -192,8 +192,8 @@ function onBaseTapSocketEventLines(msg){
     newLine.setAttribute('y1',newPointY); 
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
-    //    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth); //BLACK LINE
+//    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
+   newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth); //BLACK LINE
 
     $("#stuffedanimalwarsvg").append(newLine);
 
@@ -203,14 +203,14 @@ function onBaseTapSocketEventLines(msg){
 }
 function onBaseTapSocketEventDots(msg){
     //width of the line to draw
-    var radius = 6;
+    var radius = 4;
 
     //convert json string to an object
     var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
-    var pointX = msgObject.x-radius*2;
-    var pointY = msgObject.y-radius*2;
+    var pointX = msgObject.x;
+    var pointY = msgObject.y;
 
     //draw a circle from the new to the old location
     var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
@@ -219,7 +219,9 @@ function onBaseTapSocketEventDots(msg){
     newCircle.setAttribute('cx',pointX);
     newCircle.setAttribute('cy',pointY);
     newCircle.setAttribute('r',radius);
-    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:2;fill:black;'); //RANDOM COLOR
+//    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
+    newCircle.setAttribute('style','stroke:rgb(0,0,0);stroke-width:1;fill:black;'); //BLACK STROKE (OUTER CIRCLE)
+
 
     $("#stuffedanimalwarsvg").append(newCircle);
     
@@ -234,8 +236,6 @@ function onBaseTapSocketEventDogs(msg){
     onBaseTapSocketEventImages(msg,"http://seattlerules.com/media/stuffedanimalwar/dogstuffedanimal.png");
 }
 function onBaseTapSocketEventCustom(msg){
-                    console.log("IMAGEPATHTEXTBOX:"+$('#imagepathtextbox').val());
-
     if (
         $('#imagepathtextbox').val().indexOf("http://")===0||
         $('#imagepathtextbox').val().indexOf("https://")===0
@@ -261,8 +261,8 @@ function onBaseTapSocketEventImages(msg,image){
     var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
-    var pointX = msgObject.x-(width);
-    var pointY = msgObject.y-(height);
+    var pointX = msgObject.x-(width/2);
+    var pointY = msgObject.y-(height/2);
     
     var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
     svgimg.setAttributeNS(null,'height',height);
