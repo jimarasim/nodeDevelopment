@@ -450,7 +450,7 @@ function writeBuiltToSpillAudioPlayer(){
     document.write("<tr>");
         document.write("<td>");
             document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
-                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/1%20Hazy2013-02-03-15-02-09-0679196-BuiltToSpill-Bellingham-20130202.mp3\" type=\"audio/mpeg\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/01%20Hazy2013-02-03-15-02-09-0679196-BuiltToSpill-Bellingham-20130202.mp3\" type=\"audio/mpeg\">");
                 document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
             document.write("</audio>");
         document.write("</td>");
@@ -465,20 +465,21 @@ function writeBuiltToSpillAudioPlayer(){
     document.write("</table>"); 
 }
 function writeBuiltToSpillAudioPlayerOptions(){
-document.write("<option value=\"http://analogarchive.com/live/1%20Hazy2013-02-03-15-02-09-0679196-BuiltToSpill-Bellingham-20130202.mp3\" selected>01Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/10%20Goin%20Against%20Your%20Mind2013-02-03-15-17-25-1663528-BuiltToSpill-Bellingham-20130202.mp3\">10Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/11%20Kicked%20It%20In%20The%20Sun2013-02-03-15-17-25-9151816-BuiltToSpill-Bellingham-20130202.mp3\">11Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/12%20Center%20Of%20The%20Universe2013-02-03-15-17-27-2100314-BuiltToSpill-Bellingham-20130202.mp3\">12Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/13%20Heart2013-02-03-15-17-27-3192356-BuiltToSpill-Bellingham-20130202.mp3\">13Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/14%20Pat2013-02-03-15-17-28-4736800-BuiltToSpill-Bellingham-20130202.mp3\">14Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/15%20How%20Soon%20Is%20Now%20-%20Unknown2013-02-03-15-17-29-5657220-BuiltToSpill-Bellingham-20130202.mp3\">15Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/2%20The%20Source2013-02-03-15-02-10-4095712-BuiltToSpill-Bellingham-20130202.mp3\">02Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/3%20Reasons2013-02-03-15-02-11-6108174-BuiltToSpill-Bellingham-20130202.mp3\">03Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/5%20Stab2013-02-03-15-02-13-9977092-BuiltToSpill-Bellingham-20130202.mp3\">04Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/6%20Strange2013-02-03-15-02-15-2301566-BuiltToSpill-Bellingham-20130202.mp3\">05Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/7%20Get%20a%20Life2013-02-03-15-02-15-5421686-BuiltToSpill-Bellingham-20130202.mp3\">06Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/8%20Made%20Up%20Dreams2013-02-03-15-02-16-8214178-BuiltToSpill-Bellingham-20130202.mp3\">07Built to Spill - Bellingham - February 2nd, 2013</option>");
-document.write("<option value=\"http://analogarchive.com/live/9%20Dont%20Fear%20the%20Reaper2013-02-03-15-17-23-8247012-BuiltToSpill-Bellingham-20130202.mp3\">08Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/01%20Hazy2013-02-03-15-02-09-0679196-BuiltToSpill-Bellingham-20130202.mp3\" selected>01 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/09%20Dont%20Fear%20the%20Reaper2013-02-03-15-17-23-8247012-BuiltToSpill-Bellingham-20130202.mp3\">02 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/10%20Goin%20Against%20Your%20Mind2013-02-03-15-17-25-1663528-BuiltToSpill-Bellingham-20130202.mp3\">03 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/11%20Kicked%20It%20In%20The%20Sun2013-02-03-15-17-25-9151816-BuiltToSpill-Bellingham-20130202.mp3\">04 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/12%20Center%20Of%20The%20Universe2013-02-03-15-17-27-2100314-BuiltToSpill-Bellingham-20130202.mp3\">05 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/13%20Heart2013-02-03-15-17-27-3192356-BuiltToSpill-Bellingham-20130202.mp3\">06 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/14%20Pat2013-02-03-15-17-28-4736800-BuiltToSpill-Bellingham-20130202.mp3\">07 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/15%20How%20Soon%20Is%20Now%20-%20Unknown2013-02-03-15-17-29-5657220-BuiltToSpill-Bellingham-20130202.mp3\">08 Built to Spill - Bellingham - February 2nd, 2013</option>");
+
+document.write("<option value=\"http://analogarchive.com/live/02%20The%20Source2013-02-03-15-02-10-4095712-BuiltToSpill-Bellingham-20130202.mp3\">10 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/03%20Reasons2013-02-03-15-02-11-6108174-BuiltToSpill-Bellingham-20130202.mp3\">11 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/05%20Stab2013-02-03-15-02-13-9977092-BuiltToSpill-Bellingham-20130202.mp3\">12 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/06%20Strange2013-02-03-15-02-15-2301566-BuiltToSpill-Bellingham-20130202.mp3\">13 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/07%20Get%20a%20Life2013-02-03-15-02-15-5421686-BuiltToSpill-Bellingham-20130202.mp3\">14 Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/08%20Made%20Up%20Dreams2013-02-03-15-02-16-8214178-BuiltToSpill-Bellingham-20130202.mp3\">15 Built to Spill - Bellingham - February 2nd, 2013</option>");
 document.write("<option value=\"http://analogarchive.com/live/01goingagainstyourmind-BuiltToSpill-Freemont-20140620.mp3\">01 Built to Spill - Fremont - June 20th, 2014</option>");
 document.write("<option value=\"http://analogarchive.com/live/02inthemorning-BuiltToSpill-Freemont-20140620.mp3\">02 Built to Spill - Fremont - June 20th, 2014</option>");
 document.write("<option value=\"http://analogarchive.com/live/03theplan-BuiltToSpill-Freemont-20140620.mp3\">03 Built to Spill - Fremont - June 20th, 2014</option>");
