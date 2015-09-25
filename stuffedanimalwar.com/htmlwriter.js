@@ -188,7 +188,7 @@ function writeRoxhillAudioPlayer(){
     document.write("<tr>");
         document.write("<td>");
             document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
-                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/ZOOM0001roxhillsessions20150827.mp3\" type=\"audio/mpeg\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/ZOOM0003roxhillsessions20150827.mp3\" type=\"audio/mpeg\">");
                 document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
             document.write("</audio>");
         document.write("</td>");
@@ -203,7 +203,7 @@ function writeRoxhillAudioPlayer(){
     document.write("</table>"); 
 }
 function writeRoxhillSessionsAudioPlayerOptions(){
-        document.write("<option value=\"http://analogarchive.com/live/ZOOM0003roxhillsessions20150827.mp3\">03 Acting Like a Bee</option>");
+        document.write("<option value=\"http://analogarchive.com/live/ZOOM0003roxhillsessions20150827.mp3\" selected>03 Acting Like a Bee</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0007roxhillsessions20150827.mp3\">07 Beau</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0008roxhillsessions20150827.mp3\">08 Spicy Divine Intervention with Ex Stacy</option>");
         document.write("<option value=\"http://analogarchive.com/live/ZOOM0010roxhillsessions20150827.mp3\">10 Redbox</option>");
@@ -363,7 +363,7 @@ function writeCrackSabbathAudioPlayer(){
     document.write("</table>"); 
 }
 function writeCrackSabbathAudioPlayerOptions(){
-    document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-CrackSabbath-RoyalRoom-20130622.mp3\">01 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
+    document.write("<option value=\"http://analogarchive.com/live/ZOOM0001-CrackSabbath-RoyalRoom-20130622.mp3\" selected>01 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0002-CrackSabbath-RoyalRoom-20130622.mp3\">02 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0003-CrackSabbath-RoyalRoom-20130622.mp3\">03 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0004-CrackSabbath-RoyalRoom-20130622.mp3\">04 Crack Sabbath - Royal Room - June 22nd, 2013</option>");
@@ -443,6 +443,86 @@ function writeCrackSabbathAudioPlayerOptions(){
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0021-cracksabbath-owlandthistle-20140917.mp3\">15Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0022-cracksabbath-owlandthistle-20140917.mp3\">16Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
     document.write("<option value=\"http://analogarchive.com/live/ZOOM0023-cracksabbath-owlandthistle-20140917.mp3\">17Crack Sabbath - Owl 'n Thistle - September 17th, 2014</option>");
+}
+
+function writeBuiltToSpillAudioPlayer(){
+    document.write("<table>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+                document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\"http://analogarchive.com/live/1%20Hazy2013-02-03-15-02-09-0679196-BuiltToSpill-Bellingham-20130202.mp3\" type=\"audio/mpeg\">");
+                document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+            document.write("</audio>");
+        document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<select id=\"selectsongs\">");
+            writeBuiltToSpillAudioPlayerOptions();
+            document.write("</select>");
+        document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>"); 
+}
+function writeBuiltToSpillAudioPlayerOptions(){
+document.write("<option value=\"http://analogarchive.com/live/1%20Hazy2013-02-03-15-02-09-0679196-BuiltToSpill-Bellingham-20130202.mp3\" selected>01Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/10%20Goin%20Against%20Your%20Mind2013-02-03-15-17-25-1663528-BuiltToSpill-Bellingham-20130202.mp3\">10Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/11%20Kicked%20It%20In%20The%20Sun2013-02-03-15-17-25-9151816-BuiltToSpill-Bellingham-20130202.mp3\">11Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/12%20Center%20Of%20The%20Universe2013-02-03-15-17-27-2100314-BuiltToSpill-Bellingham-20130202.mp3\">12Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/13%20Heart2013-02-03-15-17-27-3192356-BuiltToSpill-Bellingham-20130202.mp3\">13Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/14%20Pat2013-02-03-15-17-28-4736800-BuiltToSpill-Bellingham-20130202.mp3\">14Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/15%20How%20Soon%20Is%20Now%20-%20Unknown2013-02-03-15-17-29-5657220-BuiltToSpill-Bellingham-20130202.mp3\">15Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/2%20The%20Source2013-02-03-15-02-10-4095712-BuiltToSpill-Bellingham-20130202.mp3\">02Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/3%20Reasons2013-02-03-15-02-11-6108174-BuiltToSpill-Bellingham-20130202.mp3\">03Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/5%20Stab2013-02-03-15-02-13-9977092-BuiltToSpill-Bellingham-20130202.mp3\">04Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/6%20Strange2013-02-03-15-02-15-2301566-BuiltToSpill-Bellingham-20130202.mp3\">05Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/7%20Get%20a%20Life2013-02-03-15-02-15-5421686-BuiltToSpill-Bellingham-20130202.mp3\">06Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/8%20Made%20Up%20Dreams2013-02-03-15-02-16-8214178-BuiltToSpill-Bellingham-20130202.mp3\">07Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/9%20Dont%20Fear%20the%20Reaper2013-02-03-15-17-23-8247012-BuiltToSpill-Bellingham-20130202.mp3\">08Built to Spill - Bellingham - February 2nd, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/01goingagainstyourmind-BuiltToSpill-Freemont-20140620.mp3\">01 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/02inthemorning-BuiltToSpill-Freemont-20140620.mp3\">02 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/03theplan-BuiltToSpill-Freemont-20140620.mp3\">03 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/04strange-BuiltToSpill-Freemont-20140620.mp3\">04 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/05untrustable-BuiltToSpill-Freemont-20140620.mp3\">05 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/06else-BuiltToSpill-Freemont-20140620.mp3\">01 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/07messwithtime-BuiltToSpill-Freemont-20140620.mp3\">02 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/08iwouldhurtafly-BuiltToSpill-Freemont-20140620.mp3\">03 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/09getalife-BuiltToSpill-Freemont-20140620.mp3\">04 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/10joyride-BuiltToSpill-Freemont-20140620.mp3\">05 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/11stab-BuiltToSpill-Freemont-20140620.mp3\">06 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/12carrythezero-BuiltToSpill-Freemont-20140620.mp3\">07 Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/13youwereright-BuiltToSpill-Freemont-20140620.mp3\">01Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/14bigdipper-BuiltToSpill-Freemont-20140620.mp3\">10Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/15dontfearthereaper-BuiltToSpill-Freemont-20140620.mp3\">11Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/16conventionalwisdom-BuiltToSpill-Freemont-20140620.mp3\">12Built to Spill - Fremont - June 20th, 2014</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-center-BuiltToSpill-Geogetown-20130713.mp3\">01Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-fly-BuiltToSpill-Geogetown-20130713.mp3\">02Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-goingagainst-BuiltToSpill-Geogetown-20130713.mp3\">03Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-inthemorning-BuiltToSpill-Geogetown-20130713.mp3\">04Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-madeupdreams-BuiltToSpill-Geogetown-20130713.mp3\">05Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-sidewalk-BuiltToSpill-Geogetown-20130713.mp3\">06Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-soundcheck-BuiltToSpill-Geogetown-20130713.mp3\">07Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-theplan-BuiltToSpill-Geogetown-20130713.mp3\">08Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-untitled-BuiltToSpill-Geogetown-20130713.mp3\">09Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/bts-youwereright-BuiltToSpill-Geogetown-20130713.mp3\">10Built to Spill - Sub Pop 25th, Georgetown - July 13th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/1%20Going%20Against%20Your%20Mind-BuiltToSpill-LiveatNeumos20131227.mp3\">01Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/10%20You%20were%20right-BuiltToSpill-LiveatNeumos20131227.mp3\">02Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/11%20Conventional%20Wisdom-BuiltToSpill-LiveatNeumos20131227.mp3\">03Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/12%20Heart%20-%20Doug%20Martsch-BuiltToSpill-LiveatNeumos20131227.mp3\">04Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/13%20Carry%20the%20Zero-BuiltToSpill-LiveatNeumos20131227.mp3\">05Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/14%20Instrumental%20-%20dont%20know-BuiltToSpill-LiveatNeumos20131227.mp3\">06Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/15%20I%20would%20hurt%20a%20fly-BuiltToSpill-LiveatNeumos20131227.mp3\">07Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/16%20Age%20of%20Consent%20-%20New%20Order-BuiltToSpill-LiveatNeumos20131227.mp3\">08Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/17%20How%20Soon%20is%20Now%20-%20The%20Smiths-BuiltToSpill-LiveatNeumos20131227.mp3\">09Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/18%20Car-BuiltToSpill-LiveatNeumos20131227.mp3\">10Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/2%20In%20The%20Morning-BuiltToSpill-LiveatNeumos20131227.mp3\">11Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/3%20Center%20of%20the%20Universe-BuiltToSpill-LiveatNeumos20131227.mp3\">12Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/4%20The%20Plan-BuiltToSpill-LiveatNeumos20131227.mp3\">13Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/5%20Planting%20Seeds-BuiltToSpill-LiveatNeumos20131227.mp3\">14Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/6%20Kicked%20It%20In%20the%20Sun-BuiltToSpill-LiveatNeumos20131227.mp3\">15Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/7%20Get%20a%20Life-BuiltToSpill-LiveatNeumos20131227.mp3\">16Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/8%20Sidewalk-BuiltToSpill-LiveatNeumos20131227.mp3\">17Built to Spill - Neumos, Seattle - December 27th, 2013</option>");
+document.write("<option value=\"http://analogarchive.com/live/9%20Here%20-%20Pavement-BuiltToSpill-LiveatNeumos20131227.mp3\">18Built to Spill - Neumos, Seattle - December 27th, 2013</option>");    
 }
 
 //VIDEO 

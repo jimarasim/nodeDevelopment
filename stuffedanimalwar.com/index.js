@@ -78,6 +78,12 @@ app.get('/cracksabbath', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/cracksabbath.html');
         });
+        
+app.get('/builttospill', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/builttospill.html');
+        });
+
 
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
