@@ -27,6 +27,8 @@ http.listen(listenPort, function(){
     console.log('LISTENING TO PORT:'+listenPort);
 });
         
+//PAGE MAPPINGS
+//IF PUTTING  A NEW PAGE, AND THAT PAGE SUPPORTS CHAT OR STUFFEDANIMAL WAR, DONT FORGET TO ADD THE SOCKET EVENT HANLDER FOR THE PAGE BELOW
 app.get('/', function(req, res){
     console.log(req);
         //send a file back as the response
@@ -125,6 +127,10 @@ io.on('connection', function(socket){
     
     socket.on('cracksabbathchatmessage', function(chatMessageObject){
         sendChatMessage('cracksabbathchatmessage',chatMessageObject);
+    });
+    
+    socket.on('builttospillchatmessage', function(chatMessageObject){
+        sendChatMessage('builttospillchatmessage',chatMessageObject);
     });
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
