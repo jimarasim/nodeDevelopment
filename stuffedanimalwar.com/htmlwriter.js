@@ -31,7 +31,7 @@ function writeStuffedAnimalWarChoices(){
     document.write("<input type=\"radio\" id=\"stuffedanimalwarcats\" name=\"sawstyle\" value=\"cats\" >Cats");
     document.write("<input type=\"radio\" id=\"stuffedanimalwardogs\" name=\"sawstyle\" value=\"dogs\" >Dogs");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarcustom\" name=\"sawstyle\" value=\"custom\" >Custom Image URL:");
-    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"type message\" />");
+    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"e.g. http://www.customurl.com/myimage.jpg\" />");
     document.write("</form>"); 
 }
 
