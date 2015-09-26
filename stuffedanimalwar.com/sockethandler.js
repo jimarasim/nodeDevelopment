@@ -3,11 +3,10 @@
 //MEANT TO BE OVERRIDDEN - USE djnachossockethandler.js FOR AN EXAMPLE
 var baseMasterAlias = null;
 var baseUnspecifiedAlias = null;
-
+var endpoint = null;
 var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
-
 
 //CONTAINS METHOD
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
@@ -23,7 +22,6 @@ function initializeChatSocketHandler(socket){
     socket.on(chatSocketEvent, function(msgObject){
         onBaseChatSocketEvent(msgObject);
     });
-    
     baseSocket=socket;
 }
 
@@ -193,7 +191,7 @@ function onBaseTapSocketEventLines(msg){
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
 //    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
-   newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth); //BLACK LINE
+    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth); //BLACK LINE
 
     $("#stuffedanimalwarsvg").append(newLine);
 

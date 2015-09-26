@@ -3,11 +3,12 @@
 //REQUIRE BASE SOCKET HANDLER JAVASCRIPT
 $.getScript('sockethandler.js', function()
 {
-    //SET AND INITIALIZE HANDLER SPECIFIC VARIABLES FOR THIS OVERRIDDEN HANDLER
+    endpoint = "djnachos";
     masterAlias = "DJ";
-    chatSocketEvent = 'djnachoschatmessage';
-    tapSocketEvent = 'djnachostapmessage';
     unspecifiedAlias = 'NOBODY SPECIAL';
+    chatSocketEvent = endpoint+'chatmessage';
+    tapSocketEvent = endpoint+'tapmessage';
+    var baseMediaPath = "http://analogarchive.com/live/";
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);

@@ -3,16 +3,17 @@
 //REQUIRE BASE SOCKET HANDLER JAVASCRIPT
 $.getScript('sockethandler.js', function()
 {
-    var endpoint = "builttospill";
-    
-    //SET AND INITIALIZE HANDLER SPECIFIC VARIABLES FOR THIS OVERRIDDEN HANDLER
+    endpoint = "builttospill";
     masterAlias = "DJ";
-    unspecifiedAlias="NOWHERE NOTHING FUCKUP";
+    unspecifiedAlias="NOTHING FUCKUP";
     chatSocketEvent = endpoint+'chatmessage';
+    tapSocketEvent = endpoint+'tapmessage';
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
+    initializeTapSocketHandler(socket,tapSocketEvent);
+
 });
 
 

@@ -3,16 +3,17 @@
 //REQUIRE BASE SOCKET HANDLER JAVASCRIPT
 $.getScript('sockethandler.js', function()
 {
-    var endpoint = "cracksabbath";
-    
-    //SET AND INITIALIZE HANDLER SPECIFIC VARIABLES FOR THIS OVERRIDDEN HANDLER
+    endpoint = "cracksabbath";
     masterAlias = "DJ";
-    unspecifiedAlias="RANDOM DRIFTER";
+    unspecifiedAlias="TWEEKER";
     chatSocketEvent = endpoint+'chatmessage';
+    tapSocketEvent = endpoint+'tapmessage';
+    var baseMediaPath = "http://analogarchive.com/live/";
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
+    initializeTapSocketHandler(socket,tapSocketEvent);
 });
 
 

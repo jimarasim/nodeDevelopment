@@ -142,6 +142,26 @@ io.on('connection', function(socket){
         sendTapMessage('djnachostapmessage',tapMsgObject);
     });  
     
+    socket.on('roxhillsessionstapmessage', function(tapMessageObject){
+        sendChatMessage('roxhillsessionstapmessage',tapMessageObject);
+    });
+    
+    socket.on('sufferingfuckheadstapmessage', function(tapMessageObject){
+        sendChatMessage('sufferingfuckheadstapmessage',tapMessageObject);
+    });
+    
+    socket.on('melvinstapmessage', function(tapMessageObject){
+        sendChatMessage('melvinstapmessage',tapMessageObject);
+    });
+    
+    socket.on('cracksabbathtapmessage', function(tapMessageObject){
+        sendChatMessage('cracksabbathtapmessage',tapMessageObject);
+    });
+    
+    socket.on('builttospilltapmessage', function(tapMessageObject){
+        sendChatMessage('builttospilltapmessage',tapMessageObject);
+    });
+    
     
     //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
     function sendChatMessage(socketEvent,chatMessageObject){
