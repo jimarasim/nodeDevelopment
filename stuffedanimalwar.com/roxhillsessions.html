@@ -11,9 +11,40 @@
     </head>
 <body>
 <script type="text/javascript">
+    var mediaObject = {
+        "songspath":"http://analogarchive.com/live/",
+        "photospath":"http://analogarchive.com/live/",
+        "photos":[
+            {"file":"roxhill.JPG","title":"The Other Bridge Studios"}
+            ],
+        "songs":[   
+            {"file":"ZOOM0003roxhillsessions20150827.mp3","title":"03 Acting Like a Bee"},
+            {"file":"ZOOM0007roxhillsessions20150827.mp3","title":"07 Beau"},
+            {"file":"ZOOM0008roxhillsessions20150827.mp3","title":"08 Spicy Divine Intervention with Ex Stacy"},
+            {"file":"ZOOM0010roxhillsessions20150827.mp3","title":"10 Redbox"},
+            {"file":"ZOOM0011roxhillsessions20150827.mp3","title":"11 Uber Super"},
+            {"file":"ZOOM0012roxhillsessions20150827.mp3","title":"12 Jordan"},
+            {"file":"ZOOM0013roxhillsessions20150827.mp3","title":"13 Black Humor"},
+            {"file":"ZOOM0016roxhillsessions20150827.mp3","title":"16 Hungry as a Skeleton"},
+            {"file":"ZOOM0019roxhillsessions20150827.mp3","title":"19 Grabbed Their Pie"},
+            {"file":"ZOOM0020roxhillsessions20150827.mp3","title":"20 Take the Beat Back"},
+            {"file":"ZOOM0022roxhillsessions20150827.mp3","title":"22 Pot Farm"},
+            {"file":"ZOOM0023roxhillsessions20150827.mp3","title":"23 Grinch"},
+            {"file":"ZOOM0024roxhillsessions20150827.mp3","title":"24 Dont Speak Spanish"},
+            {"file":"ZOOM0025roxhillsessions20150827.mp3","title":"25 Get Up On Aurora"},
+            {"file":"ZOOM0027roxhillsessions20150827.mp3","title":"27 Too Murderous"},
+            {"file":"ZOOM0028roxhillsessions20150827.mp3","title":"28 Driving Your Mom's Car"},
+            {"file":"ZOOM0029roxhillsessions20150827.mp3","title":"29 Skate Beats"},
+            {"file":"ZOOM0033roxhillsessions20150827.mp3","title":"33 Pill Press"},
+            {"file":"ZOOM0035roxhillsessions20150827.mp3","title":"35 Pop You in the Brain"},
+            {"file":"ZOOM0037roxhillsessions20150827.mp3","title":"37 Laxative"}
+        ]
+    };
+    
     writeStuffedAnimalWarWithChat();
-    writeRoxhillAudioPlayer();
+    writeAudioPlayerFromJson(mediaObject);
 </script>
+
 <script type="text/javascript" src="roxhillsessionssockethandler.js"></script>
 </body>
 </html> 

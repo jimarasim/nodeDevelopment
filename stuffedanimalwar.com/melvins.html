@@ -11,9 +11,43 @@
     </head>
 <body>
 <script type="text/javascript">
+    var mediaObject = {
+        "songspath":"http://analogarchive.com/live/",
+        "photospath":"http://analogarchive.com/live/",
+        "photos":[
+            {"file":"melvins.jpeg","title":"Melvins"}
+            ],
+        "songs":[   
+            {'file':'ZOOM0006melvinsportlandwonderballroom20150907.mp3','title':'01  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0007melvinsportlandwonderballroom20150907.mp3','title':'02  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0008melvinsportlandwonderballroom20150907.mp3','title':'03  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0009melvinsportlandwonderballroom20150907.mp3','title':'04  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0010melvinsportlandwonderballroom20150907.mp3','title':'05  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0011melvinsportlandwonderballroom20150907.mp3','title':'06  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0012melvinsportlandwonderballroom20150907.mp3','title':'07  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0013melvinsportlandwonderballroom20150907.mp3','title':'08  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0014melvinsportlandwonderballroom20150907.mp3','title':'09  Melvins - Wonder Ballroom - Portland - September 7th, 2015'},
+            {'file':'ZOOM0001-melvins-showboxmarket-20141018.mp3','title':'01  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0002-melvins-showboxmarket-20141018.mp3','title':'02  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0003-melvins-showboxmarket-20141018.mp3','title':'03  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0004-melvins-showboxmarket-20141018.mp3','title':'04  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0005-melvins-showboxmarket-20141018.mp3','title':'05  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0006-melvins-showboxmarket-20141018.mp3','title':'01  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0007-melvins-showboxmarket-20141018.mp3','title':'02  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0008-melvins-showboxmarket-20141018.mp3','title':'03  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0009-melvins-showboxmarket-20141018.mp3','title':'04  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0010-melvins-showboxmarket-20141018.mp3','title':'05  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0011-melvins-showboxmarket-20141018.mp3','title':'06  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0012-melvins-showboxmarket-20141018.mp3','title':'07  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0013-melvins-showboxmarket-20141018.mp3','title':'08  Melvins - Showbox Market - October 18th, 2014'},
+            {'file':'ZOOM0014-melvins-showboxmarket-20141018.mp3','title':'09  Melvins - Showbox Market - October 18th, 2014'}
+        ]
+    };
+    
     writeStuffedAnimalWarWithChat();
-    writeMelvinsAudioPlayer();
+    writeAudioPlayerFromJson(mediaObject);
 </script>
+
 <script type="text/javascript" src="melvinssockethandler.js"></script>
 </body>
 </html> 
