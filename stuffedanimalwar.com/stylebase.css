@@ -67,12 +67,11 @@ div.divstuffedanimalwar
 
 div.divstuffedanimalwaronly
 {
-    
+    border-width:thick;
+    border-style:outset;
     float:left;
-    height:500px;
-    width:500px;
-
-    background-color: pink;
+    height:700px;
+    width:700px;
     background-position:left;
     vertical-align: top;
     text-align: left;
@@ -82,7 +81,6 @@ div.divstuffedanimalwaronly
 
 svg.svgstuffedanimalwar
 {
-    background-image: url("https://seattlerules.com/whale.jpg");
     background-color: lightgoldenrodyellow;
     background-position:left;
     vertical-align: top;
