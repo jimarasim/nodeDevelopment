@@ -8,12 +8,12 @@ $.getScript('sockethandler.js', function()
     unspecifiedAlias = 'NOBODY SPECIAL';
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
-    var baseMediaPath = "http://analogarchive.com/live/";
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
+    
 });
 
 

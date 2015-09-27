@@ -1,6 +1,45 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 var baseMediaPath = "http://analogarchive.com/live/";
 
+function writeAudioPlayerFromJson(mediaObject){
+    document.write("<table>");
+    //paint the audio player
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\" width=\"640\">");
+    document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
+    document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+    document.write("</audio>");
+    document.write("</td>");
+    document.write("</tr>");
+    //paint the song selection dropdown 
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<select id=\"selectsongs\">");
+    //paint song selection dropdown options (songs)
+    for (var i=0;i<mediaObject.songs.length;i++){
+        document.write("<option value=\""+mediaObject.songspath+mediaObject.songs[i].file+"\">"+mediaObject.songs[i].title+"</option>");
+    }
+    document.write("</select>");
+    document.write("</td>");
+    document.write("</tr>");
+    //paint the photos 
+    for (var i=0;i<mediaObject.photos.length;i++){
+        document.write("<tr>");
+        document.write("<td>");
+        document.write(mediaObject.photos[i].title);
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("<tr>");
+        document.write("<td>");
+        document.write("<img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" />");
+        document.write("</td>");
+        document.write("</tr>");
+    }
+    document.write("</table>");   
+}
+
+
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWarWithChat(){
     document.write("<table>");
