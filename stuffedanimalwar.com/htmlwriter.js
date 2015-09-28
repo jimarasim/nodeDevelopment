@@ -47,6 +47,8 @@ function writeStuffedAnimalWarWithChat(){
     writeStuffedAnimalWar();
     writeStuffedAnimalWarChoices();
     document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
     document.write("<td>");
     writeChatControls();
     writeChatMessagesDiv();
