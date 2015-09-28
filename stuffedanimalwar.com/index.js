@@ -85,7 +85,26 @@ app.get('/builttospill', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/builttospill.html');
         });
-
+  
+app.get('/zeke', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/zeke.html');
+        });
+          
+app.get('/lastgasp', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/lastgasp.html');
+        });
+        
+app.get('/marklanegan', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/marklanegan.html');
+        });
+          
+app.get('/bigbusiness', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/bigbusiness.html');
+        });
 
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
@@ -133,6 +152,22 @@ io.on('connection', function(socket){
         sendChatMessage('builttospillchatmessage',chatMessageObject);
     });
     
+    socket.on('zekechatmessage', function(chatMessageObject){
+        sendChatMessage('zekechatmessage',chatMessageObject);
+    });
+    
+    socket.on('lastgaspchatmessage', function(chatMessageObject){
+        sendChatMessage('lastgaspchatmessage',chatMessageObject);
+    });
+    
+    socket.on('marklaneganchatmessage', function(chatMessageObject){
+        sendChatMessage('marklaneganchatmessage',chatMessageObject);
+    });
+    
+    socket.on('bigbusinesschatmessage', function(chatMessageObject){
+        sendChatMessage('bigbusinesschatmessage',chatMessageObject);
+    });
+    
     //TAPMESSAGES--------------------------------------------------------------------------------------
     socket.on('tapmsg', function(tapMsgObject){
         sendTapMessage('tapmsg',tapMsgObject);
@@ -160,6 +195,22 @@ io.on('connection', function(socket){
     
     socket.on('builttospilltapmessage', function(tapMessageObject){
         sendChatMessage('builttospilltapmessage',tapMessageObject);
+    });
+    
+    socket.on('zeketapmessage', function(tapMessageObject){
+        sendChatMessage('zeketapmessage',tapMessageObject);
+    });
+    
+    socket.on('lastgasptapmessage', function(tapMessageObject){
+        sendChatMessage('lastgasptapmessage',tapMessageObject);
+    });
+    
+    socket.on('marklanegantapmessage', function(tapMessageObject){
+        sendChatMessage('marklanegantapmessage',tapMessageObject);
+    });
+    
+    socket.on('bigbusinesstapmessage', function(tapMessageObject){
+        sendChatMessage('bigbusinesstapmessage',tapMessageObject);
     });
     
     

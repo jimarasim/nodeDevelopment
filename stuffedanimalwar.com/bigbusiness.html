@@ -1,0 +1,38 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org  20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Big Business</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <link rel="Stylesheet" href="bigbusinessstylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.3.4.js"></script>
+    </head>
+<body>
+<script type="text/javascript">
+    var mediaObject = {
+        "songspath":"http://analogarchive.com/live/",
+        "photospath":"https://seattlerules.com/wp-content/uploads/2014/06/",
+        "photos":[
+            {"file":"IMG_0754-copy.jpg","title":"Big Business 1"},
+            {"file":"IMG_0758-copy.jpg","title":"Big Business 2"},
+            {"file":"IMG_0760-copy.jpg","title":"Big Business 3"},
+            {"file":"IMG_0765-copy.jpg","title":"Big Business 4"},
+            {"file":"IMG_0768-copy.jpg","title":"Big Business 5"}
+            ],
+        "songs":[   
+            {"file":"ZOOM0001bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 1"},
+            {"file":"ZOOM0002bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 2"},
+            {"file":"ZOOM0003bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 3"},
+            {"file":"ZOOM0004bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 4"},
+            {"file":"ZOOM0005bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 5"}
+        ]
+    };
+    
+    writeStuffedAnimalWarWithChat();
+    writeAudioPlayerFromJson(mediaObject);
+</script>
+<script type="text/javascript" src="bigbusinesssockethandler.js"></script>
+</body>
+</html> 
