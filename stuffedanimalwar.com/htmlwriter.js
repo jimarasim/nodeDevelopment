@@ -80,7 +80,7 @@ function writeStuffedAnimalWarChoices(){
     document.write("<br />");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarbirds\" name=\"sawstyle\" value=\"birds\" >Birds");
     document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarlamb\" name=\"sawstyle\" value=\"lamblambs\" >Lamb Lambs");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarlamblambs\" name=\"sawstyle\" value=\"lamblambs\" >Lamb Lambs");
     document.write("<br />");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarchickens\" name=\"sawstyle\" value=\"chickens\" >Chickens");
     document.write("<br />");

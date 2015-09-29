@@ -42,29 +42,19 @@ $('#stuffedanimalwarsvg').click(function(event){
 function initializeTapSocketHandler(socket){
     socket.on(tapSocketEvent, function(msgObject){
         switch(msgObject.animal){
+            case "cats":
+            case "lions":
+            case "crocodiles":
+            case "chickens":
+            case "birds":
+            case "lamblambs":
+                onBaseTapSocketEventImages(msg,"media/"+msgObject.animal+".jpg");
+                break;
             case "dots":
                 onBaseTapSocketEventDots(msgObject);
                 break;
             case "lines":
                 onBaseTapSocketEventLines(msgObject);
-                break;
-            case "cats":
-                onBaseTapSocketEventCats(msgObject);
-                break;
-            case "dogs":
-                onBaseTapSocketEventDogs(msgObject);
-                break;
-            case "crocodiles":
-                onBaseTapSocketEventCrocodiles(msgObject);
-                break;
-            case "chickens":
-                onBaseTapSocketEventChickens(msgObject);
-                break;
-            case "birds":
-                onBaseTapSocketEventBirds(msgObject);
-                break;
-            case "lamblambs":
-                onBaseTapSocketEventLamblambs(msgObject);
                 break;
             case "custom":
                 onBaseTapSocketEventCustom(msgObject);
@@ -137,24 +127,6 @@ function onBaseTapSocketEventLines(msg){
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
-}
-function onBaseTapSocketEventCats(msg){
-    onBaseTapSocketEventImages(msg,"media/cats.jpg");
-}
-function onBaseTapSocketEventDogs(msg){
-    onBaseTapSocketEventImages(msg,"media/dogs.jpg");
-}
-function onBaseTapSocketEventCrocodiles(msg){
-    onBaseTapSocketEventImages(msg,"media/crocodiles.jpg");
-}
-function onBaseTapSocketEventChickens(msg){
-    onBaseTapSocketEventImages(msg,"media/chickens.jpg");
-}
-function onBaseTapSocketEventBirds(msg){
-    onBaseTapSocketEventImages(msg,"media/birds.jpg");
-}
-function onBaseTapSocketEventLamblambs(msg){
-    onBaseTapSocketEventImages(msg,"media/lamblambs.jpg");
 }
 
 function onBaseTapSocketEventCustom(msg){
