@@ -7,34 +7,13 @@ var endpoint = null;
 var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
-
+  
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
 }
-
-//SVG - WHEN THE STUFFED ANIMAL WAR GAME PAD IS CLICKED, 
-//      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
-$('#stuffedanimalwarsvg').click(function(event){
-    
-    console.log('EMITTING:'+tapSocketEvent+
-    '{\n\
-        "x":"'+event.pageX+'", \n\
-        "y":"'+event.pageY+'",\n\
-        "animal":"'+$(input:checked).val()+
-        '"\n\
-    }';
-    
-    baseSocket.emit(tapSocketEvent, 
-    '{\n\
-        "x":"'+event.pageX+'", \n\
-        "y":"'+event.pageY+'",\n\
-        "animal":"'+$(input:checked).val()+
-        '"\n\
-    }';
-});
-
+//CONSTRUCTION - 
 //SVG - WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
 //  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
 //  DEPENDING ON THE TYPE OF ANIMAL SENT.
@@ -65,7 +44,72 @@ function initializeTapSocketHandler(socket){
         } 
     });
     baseSocket=socket;
+//CONSTRUCTION - 
+//CHAT - WHEN A CHAT MESSAGE IS RECEIVED FROM THE SERVER,
+//  SEND THE OBJECT RECEIVED TO THE FUNCTION THAT HANDLES IT
+function initializeChatSocketHandler(socket){
+    socket.on(chatSocketEvent, function(msgObject){
+        onBaseChatSocketEvent(msgObject);
+    });
+    baseSocket=socket;
 }
+
+//CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
+$('form').submit(function(){
+
+    //GET THE MESSAGE IN THE MESSAGE BOX
+    var chatMessage = $('#chatClientMessage').val();
+
+    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
+    $('#chatClientMessage').val('');
+
+    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
+    emitChatMessage(chatMessage);
+
+    return false;
+});
+
+//SVG - WHEN THE STUFFED ANIMAL WAR GAME PAD IS CLICKED, 
+//      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
+$('#stuffedanimalwarsvg').click(function(event){
+    console.log('EMITTING:'+tapSocketEvent+'{"x":"'+event.pageX+'","y":"'+event.pageY+'","animal":"'+$(input:checked).val()+'"}';
+    baseSocket.emit(tapSocketEvent, '{"x":"'+event.pageX+'", "y":"'+event.pageY+'","animal":"'+$(input:checked).val()+'"}';
+});
+
+//AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
+$('#chatClientAutoResponder').change(function(){
+
+    //GET THE MESSAGE FROM THE AUTORESPONDER
+    var chatMessage = $('#chatClientAutoResponder option:selected').text();
+
+    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
+    emitChatMessage(chatMessage);
+
+    //set the autoresponder back to blanck
+    $('#chatClientAutoResponder').val('blank');
+});
+
+//AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
+$('#selectsongs').change(function(){
+    var songToPlay = $('#selectsongs option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
+    
+    if(chatClientUser===baseMasterAlias){
+        emitChatMessage(songToPlay);
+    }
+    else{
+        changeMp3(songToPlay);
+    }
+});
+
+//AUDIO - WHEN THE PLAYER'S SONG HAS ENDED
+//  GO TO THE FIRST SONG IN THE DROPDOWN
+$('#jaemzwaredynamicaudioplayer').bind("ended", function(){
+    var currentFile = $(this).children(":first").attr('src');
+    PlayNextTrack(currentFile);
+});
+
+
 
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
 function onBaseTapSocketEventDots(msg){
@@ -173,31 +217,8 @@ function onBaseTapSocketEventImages(msg,image){
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
 }
 
-    
 
-//CHAT - WHEN A CHAT MESSAGE IS RECEIVED FROM THE SERVER,
-//  SEND THE OBJECT RECEIVED TO THE FUNCTION THAT HANDLES IT
-function initializeChatSocketHandler(socket){
-    socket.on(chatSocketEvent, function(msgObject){
-        onBaseChatSocketEvent(msgObject);
-    });
-    baseSocket=socket;
-}
 
-//CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
-$('form').submit(function(){
-
-    //GET THE MESSAGE IN THE MESSAGE BOX
-    var chatMessage = $('#chatClientMessage').val();
-
-    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
-    $('#chatClientMessage').val('');
-
-    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
-    emitChatMessage(chatMessage);
-
-    return false;
-});
 
 //CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
 function emitChatMessage(message){
@@ -308,38 +329,7 @@ function onBaseChatSocketEvent(msgObject){
         }
 }
 
-//AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
-$('#chatClientAutoResponder').change(function(){
 
-    //GET THE MESSAGE FROM THE AUTORESPONDER
-    var chatMessage = $('#chatClientAutoResponder option:selected').text();
-
-    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
-    emitChatMessage(chatMessage);
-
-    //set the autoresponder back to blanck
-    $('#chatClientAutoResponder').val('blank');
-});
-
-//AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
-$('#selectsongs').change(function(){
-    var songToPlay = $('#selectsongs option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-    
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(songToPlay);
-    }
-    else{
-        changeMp3(songToPlay);
-    }
-});
-
-//AUDIO - WHEN THE PLAYER'S SONG HAS ENDED
-//  GO TO THE FIRST SONG IN THE DROPDOWN
-$('#jaemzwaredynamicaudioplayer').bind("ended", function(){
-    var currentFile = $(this).children(":first").attr('src');
-    PlayNextTrack(currentFile);
-});
 
 //AUDIO - USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
 function PlayNextTrack(currentFile)

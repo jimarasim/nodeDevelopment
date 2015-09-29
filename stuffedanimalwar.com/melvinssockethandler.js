@@ -4,17 +4,15 @@
 $.getScript('sockethandler.js', function()
 {
     endpoint = "melvins";
-    masterAlias = "DJ";
+    masterAlias = "BUZZ";
     unspecifiedAlias="BORIS";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = 'djnachostapmessage';
-    var baseMediaPath = "http://analogarchive.com/live/";
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
-
 });
 
 

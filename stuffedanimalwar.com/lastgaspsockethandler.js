@@ -4,7 +4,7 @@
 $.getScript('sockethandler.js', function()
 {
     endpoint = "lastgasp";
-    masterAlias = "DJ";
+    masterAlias = "AJAX";
     unspecifiedAlias="HILL TRIPPER";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
@@ -13,7 +13,6 @@ $.getScript('sockethandler.js', function()
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
-
 });
 
 

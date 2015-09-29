@@ -8,7 +8,6 @@ $.getScript('sockethandler.js', function()
     unspecifiedAlias="PUSSY ROOM";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
-    var baseMediaPath = "http://analogarchive.com/live/";
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);
