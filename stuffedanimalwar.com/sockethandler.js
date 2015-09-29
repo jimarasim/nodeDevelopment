@@ -8,9 +8,6 @@ var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
 
-//UTILITY - CONTAINS METHOD (MUST BE ABOVE FUNCTIONS THAT USE IT)
-String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
-
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
@@ -44,7 +41,7 @@ $('#stuffedanimalwarsvg').click(function(event){
 //  THE TYPE OF ANIMAL SENT IS SENT BY $('#stuffedanimalwarsvg').click 
 function initializeTapSocketHandler(socket){
     socket.on(tapSocketEvent, function(msgObject){
-        switch(msg.animal){
+        switch(msgObject.animal){
             case "dots":
                 onBaseTapSocketEventDots(msgObject);
                 break;
@@ -142,11 +139,24 @@ function onBaseTapSocketEventLines(msg){
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
 }
 function onBaseTapSocketEventCats(msg){
-    onBaseTapSocketEventImages(msg,"http://seattlerules.com/media/stuffedanimalwar/grumpycatstuffedanimal.png");
+    onBaseTapSocketEventImages(msg,"media/cats.jpg");
 }
 function onBaseTapSocketEventDogs(msg){
-    onBaseTapSocketEventImages(msg,"http://seattlerules.com/media/stuffedanimalwar/dogstuffedanimal.png");
+    onBaseTapSocketEventImages(msg,"media/dogs.jpg");
 }
+function onBaseTapSocketEventCrocodiles(msg){
+    onBaseTapSocketEventImages(msg,"media/crocodiles.jpg");
+}
+function onBaseTapSocketEventChickens(msg){
+    onBaseTapSocketEventImages(msg,"media/chickens.jpg");
+}
+function onBaseTapSocketEventBirds(msg){
+    onBaseTapSocketEventImages(msg,"media/birds.jpg");
+}
+function onBaseTapSocketEventLamblambs(msg){
+    onBaseTapSocketEventImages(msg,"media/lamblambs.jpg");
+}
+
 function onBaseTapSocketEventCustom(msg){
     if (
         $('#imagepathtextbox').val().indexOf("http://")===0||
@@ -164,6 +174,8 @@ function onBaseTapSocketEventCustom(msg){
             }
         }
 }
+
+//SVG - HELPER FUNCTION FOR HELPER FUNCTION FOR CUSTOM
 function onBaseTapSocketEventImages(msg,image){
     var imagePath=image;
     var width="50";
@@ -188,6 +200,8 @@ function onBaseTapSocketEventImages(msg,image){
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
 }
+
+    
 
 //CHAT - WHEN A CHAT MESSAGE IS RECEIVED FROM THE SERVER,
 //  SEND THE OBJECT RECEIVED TO THE FUNCTION THAT HANDLES IT
@@ -322,8 +336,6 @@ function onBaseChatSocketEvent(msgObject){
         }
 }
 
-
-
 //AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
 $('#chatClientAutoResponder').change(function(){
 
@@ -336,8 +348,6 @@ $('#chatClientAutoResponder').change(function(){
     //set the autoresponder back to blanck
     $('#chatClientAutoResponder').val('blank');
 });
-
-
 
 //AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
 $('#selectsongs').change(function(){
