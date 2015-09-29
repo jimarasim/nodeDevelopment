@@ -47,11 +47,9 @@ function writeStuffedAnimalWarWithChat(){
     writeStuffedAnimalWar();
     writeStuffedAnimalWarChoices();
     document.write("</td>");
-    document.write("</tr>");
-    document.write("<tr>");
     document.write("<td>");
-    writeChatControls();
     writeChatMessagesDiv();
+    writeChatControls();
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");
@@ -67,25 +65,30 @@ function writeStuffedAnimalWarChoices(){
     
     document.write("<br />");
     document.write("<form>");
+    
     document.write("<input type=\"radio\" id=\"stuffedanimalwardots\" name=\"sawstyle\" value=\"dots\" checked >Dots");
-        document.write("<br />");
-
+    document.write("<br />");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarlines\" name=\"sawstyle\" value=\"lines\" >Lines");
-        document.write("<br />");
-
+    document.write("<br />");
     document.write("<input type=\"radio\" id=\"stuffedanimalwarcats\" name=\"sawstyle\" value=\"cats\" >Cats");
-        document.write("<br />");
-
+    document.write("<br />");
     document.write("<input type=\"radio\" id=\"stuffedanimalwardogs\" name=\"sawstyle\" value=\"dogs\" >Dogs");
-        document.write("<br />");
-
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarcustom\" name=\"sawstyle\" value=\"custom\" >Custom Image URL:");
-    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"e.g. http://www.customurl.com/myimage.jpg\" />");
-        document.write("<br />");
-
+    document.write("<br />");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarlions\" name=\"sawstyle\" value=\"lions\" >Lions");
+    document.write("<br />");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarcrocodiles\" name=\"sawstyle\" value=\"crocodiles\" >Crocodiles");
+    document.write("<br />");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarbirds\" name=\"sawstyle\" value=\"birds\" >Birds");
+    document.write("<br />");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarlamb\" name=\"sawstyle\" value=\"lamblambs\" >Lamb Lambs");
+    document.write("<br />");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarchickens\" name=\"sawstyle\" value=\"chickens\" >Chickens");
+    document.write("<br />");
+    document.write("<input type=\"radio\" id=\"stuffedanimalwarcustom\" name=\"sawstyle\" value=\"custom\" >SPECIFY IMAGE LINK (e.g.:http://website.com/image.jpg (also any .jpeg, .png, .gif)");
+    
+    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"http://www.customurl.com/myimage.jpg\" />");
+    document.write("<br />");
     document.write("</form>"); 
-        document.write("<br />");
-
 }
 
 //CHAT
@@ -162,7 +165,6 @@ function writeDefaultAutoResponderOptions(){
 function writeChatMessagesDiv(){
     document.write("<div id=\"messagesdiv\"></div>");
 }
-
 
 //VIDEO 
 function writeVideoPlayer(){

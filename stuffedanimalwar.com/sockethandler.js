@@ -8,165 +8,107 @@ var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
 
-//CONTAINS METHOD
+//UTILITY - CONTAINS METHOD (MUST BE ABOVE FUNCTIONS THAT USE IT)
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
 
-//SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
+//CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
 }
 
-//SETUP SOCKET HANDLER - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET ITS UNIQUE CHATSOCKETEVENT STRING
-function initializeChatSocketHandler(socket){
-    socket.on(chatSocketEvent, function(msgObject){
-        onBaseChatSocketEvent(msgObject);
-    });
-    baseSocket=socket;
-}
-
-//SETUP SOCKET HANDLER - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET ITS UNIQUE TAPSOCKETEVENT STRING
-function initializeTapSocketHandler(socket){
-    socket.on(tapSocketEvent, function(msg){
-        if($('#stuffedanimalwardots').is(':checked')){
-            onBaseTapSocketEventDots(msg);
-        }
-        else if(
-        $('#stuffedanimalwarlines').is(':checked')){
-            onBaseTapSocketEventLines(msg);
-        }
-        else if(
-        $('#stuffedanimalwarcats').is(':checked')){
-            onBaseTapSocketEventCats(msg);
-        }
-        else if(
-        $('#stuffedanimalwardogs').is(':checked')){
-            onBaseTapSocketEventDogs(msg);
-        }else if(
-        $('#stuffedanimalwarcustom').is(':checked')){
-            onBaseTapSocketEventCustom(msg);
-        }
-        else{
-            console.log("CANT TELL IF DOTS OR LINES ARE CHECKED");
-        }  
-    });
-    
-    baseSocket=socket;
-}
-
-
-//CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
-$('form').submit(function(){
-
-    //GET THE MESSAGE IN THE MESSAGE BOX
-    var chatMessage = $('#chatClientMessage').val();
-
-    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
-    $('#chatClientMessage').val('');
-
-    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
-    emitChatMessage(chatMessage);
-
-    return false;
-});
-
-//AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
-$('#chatClientAutoResponder').change(function(){
-
-    //GET THE MESSAGE FROM THE AUTORESPONDER
-    var chatMessage = $('#chatClientAutoResponder option:selected').text();
-
-    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
-    emitChatMessage(chatMessage);
-
-    //set the autoresponder back to blanck
-    $('#chatClientAutoResponder').val('blank');
-});
-
-//AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
-$('#selectsongs').change(function(){
-    var songToPlay = $('#selectsongs option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-    
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(songToPlay);
-    }
-    else{
-        changeMp3(songToPlay);
-    }
-});
-
-//AUDIO PLAYER SONG ENDED
-$('#jaemzwaredynamicaudioplayer').bind("ended", function(){
-    var currentFile = $(this).children(":first").attr('src');
-    PlayNextTrack(currentFile);
-});
-
-//VIDEO DROPDOWN HANDLER - CHANGE VIDEO (COMMON)
-$('#selectvideos').change(function(){
-    var videoToPlay = $('#selectvideos option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(videoToPlay);
-    }
-    else{
-        changeMp4(videoToPlay);
-    }
-});
-
+//SVG - WHEN THE STUFFED ANIMAL WAR GAME PAD IS CLICKED, 
+//      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
 $('#stuffedanimalwarsvg').click(function(event){
-    console.log('EMITTING:'+tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
-    baseSocket.emit(tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
+    
+    console.log('EMITTING:'+tapSocketEvent+
+    '{\n\
+        "x":"'+event.pageX+'", \n\
+        "y":"'+event.pageY+'",\n\
+        "animal":"'+$(input:checked).val()+
+        '"\n\
+    }';
+    
+    baseSocket.emit(tapSocketEvent, 
+    '{\n\
+        "x":"'+event.pageX+'", \n\
+        "y":"'+event.pageY+'",\n\
+        "animal":"'+$(input:checked).val()+
+        '"\n\
+    }';
 });
 
-//USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
-function PlayNextTrack(currentFile)
-{
-    //don't do anything if there are no tracks
-    if($('#selectsongs option').length===0)
-    {
-        return;
-    }
-
-    //get the next track, if there isn't one, use the first one
-    if($('#selectsongs option[value="'+currentFile+'"]').next().text().length!==0)
-    {
-        changeMp3($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
-    }
-    else if($('#selectsongs option[value="'+currentFile+'"]').first().text().length!==0)
-    {
-        changeMp3($('#selectsongs option[value="'+currentFile+'"]').first().attr('value'));
-    }
-    else{
-        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
-    }
+//SVG - WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
+//  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
+//  DEPENDING ON THE TYPE OF ANIMAL SENT.
+//  THE TYPE OF ANIMAL SENT IS SENT BY $('#stuffedanimalwarsvg').click 
+function initializeTapSocketHandler(socket){
+    socket.on(tapSocketEvent, function(msgObject){
+        switch(msg.animal){
+            case "dots":
+                onBaseTapSocketEventDots(msgObject);
+                break;
+            case "lines":
+                onBaseTapSocketEventLines(msgObject);
+                break;
+            case "cats":
+                onBaseTapSocketEventCats(msgObject);
+                break;
+            case "dogs":
+                onBaseTapSocketEventDogs(msgObject);
+                break;
+            case "crocodiles":
+                onBaseTapSocketEventCrocodiles(msgObject);
+                break;
+            case "chickens":
+                onBaseTapSocketEventChickens(msgObject);
+                break;
+            case "birds":
+                onBaseTapSocketEventBirds(msgObject);
+                break;
+            case "lamblambs":
+                onBaseTapSocketEventLamblambs(msgObject);
+                break;
+            case "custom":
+                onBaseTapSocketEventCustom(msgObject);
+                break;
+            default:
+                console.log("unknown stuffed animal or drawing object:"+msg.animal);
+                break;
+        } 
+    });
+    baseSocket=socket;
 }
 
-//EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
-function emitChatMessage(message){
-    //get the user alias
-    var chatClientUser = $("#chatClientUser").val();
+//SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
+function onBaseTapSocketEventDots(msg){
+    //width of the line to draw
+    var radius = 4;
 
-    //SET THE DEFAULT ALIAS IF IT'S EMPTY
-    if(chatClientUser.length===0){
-        chatClientUser = unspecifiedAlias;
-    }
+    //convert json string to an object
+    var msgObject = jQuery.parseJSON(msg);
 
-    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    var chatMessageObject = {
-              CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'',
-              CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:''
-          }  
+    //get the coordinates emitted
+    var pointX = msgObject.x;
+    var pointY = msgObject.y;
 
-    console.log("EMITTING:"+JSON.stringify(chatMessageObject)+" TO CHATSOCKETEVENT:"+chatSocketEvent);
-    //send the message
-    baseSocket.emit(chatSocketEvent,chatMessageObject); 
+    //draw a circle from the new to the old location
+    var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+
+    newCircle.setAttribute('id','circle'+$.now());
+    newCircle.setAttribute('cx',pointX);
+    newCircle.setAttribute('cy',pointY);
+    newCircle.setAttribute('r',radius);
+//    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
+    newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:1;fill:black;'); //BLACK STROKE (OUTER CIRCLE)
+
+
+    $("#stuffedanimalwarsvg").append(newCircle);
+    
+    //move the state rectangle to where the click was made
+    $("#stuffedanimalwarsvgrect").attr("x",pointX);
+    $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
-
-//STUFFED ANIMAL WAR GAME TAP SOCKET EVENT FUNCTIONS
 function onBaseTapSocketEventLines(msg){
     //width of the line to draw
     var lineWidth = 3;
@@ -191,41 +133,13 @@ function onBaseTapSocketEventLines(msg){
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
 //    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
-    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth); //BLACK LINE
+    newLine.setAttribute('style','stroke:rgb(0,0,0);strokewidth:'+lineWidth); //BLACK LINE
 
     $("#stuffedanimalwarsvg").append(newLine);
 
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
-}
-function onBaseTapSocketEventDots(msg){
-    //width of the line to draw
-    var radius = 4;
-
-    //convert json string to an object
-    var msgObject = jQuery.parseJSON(msg);
-
-    //get the coordinates emitted
-    var pointX = msgObject.x;
-    var pointY = msgObject.y;
-
-    //draw a circle from the new to the old location
-    var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
-
-    newCircle.setAttribute('id','circle'+$.now());
-    newCircle.setAttribute('cx',pointX);
-    newCircle.setAttribute('cy',pointY);
-    newCircle.setAttribute('r',radius);
-//    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
-    newCircle.setAttribute('style','stroke:rgb(0,0,0);stroke-width:1;fill:black;'); //BLACK STROKE (OUTER CIRCLE)
-
-
-    $("#stuffedanimalwarsvg").append(newCircle);
-    
-    //move the state rectangle to where the click was made
-    $("#stuffedanimalwarsvgrect").attr("x",pointX);
-    $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
 function onBaseTapSocketEventCats(msg){
     onBaseTapSocketEventImages(msg,"http://seattlerules.com/media/stuffedanimalwar/grumpycatstuffedanimal.png");
@@ -274,6 +188,55 @@ function onBaseTapSocketEventImages(msg,image){
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
 }
+
+//CHAT - WHEN A CHAT MESSAGE IS RECEIVED FROM THE SERVER,
+//  SEND THE OBJECT RECEIVED TO THE FUNCTION THAT HANDLES IT
+function initializeChatSocketHandler(socket){
+    socket.on(chatSocketEvent, function(msgObject){
+        onBaseChatSocketEvent(msgObject);
+    });
+    baseSocket=socket;
+}
+
+//CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
+$('form').submit(function(){
+
+    //GET THE MESSAGE IN THE MESSAGE BOX
+    var chatMessage = $('#chatClientMessage').val();
+
+    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
+    $('#chatClientMessage').val('');
+
+    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
+    emitChatMessage(chatMessage);
+
+    return false;
+});
+
+//CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
+function emitChatMessage(message){
+    //get the user alias
+    var chatClientUser = $("#chatClientUser").val();
+
+    //SET THE DEFAULT ALIAS IF IT'S EMPTY
+    if(chatClientUser.length===0){
+        chatClientUser = unspecifiedAlias;
+    }
+
+    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
+    var chatMessageObject = {
+              CHATCLIENTUSER: chatClientUser,
+              CHATSERVERUSER:'',
+              CHATCLIENTMESSAGE:message,
+              CHATSERVERDATE:''
+          }  
+
+    console.log("EMITTING:"+JSON.stringify(chatMessageObject)+" TO CHATSOCKETEVENT:"+chatSocketEvent);
+    //send the message
+    baseSocket.emit(chatSocketEvent,chatMessageObject); 
+}
+
+//CHAT - 
 function onBaseChatSocketEvent(msgObject){
     var remoteChatClientUser = msgObject.CHATCLIENTUSER;
     var chatServerUser = msgObject.CHATSERVERUSER;
@@ -359,16 +322,92 @@ function onBaseChatSocketEvent(msgObject){
         }
 }
 
-/* GETRANDOMCOLORVALUE (COMMON)
+
+
+//AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
+$('#chatClientAutoResponder').change(function(){
+
+    //GET THE MESSAGE FROM THE AUTORESPONDER
+    var chatMessage = $('#chatClientAutoResponder option:selected').text();
+
+    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
+    emitChatMessage(chatMessage);
+
+    //set the autoresponder back to blanck
+    $('#chatClientAutoResponder').val('blank');
+});
+
+
+
+//AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
+$('#selectsongs').change(function(){
+    var songToPlay = $('#selectsongs option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
+    
+    if(chatClientUser===baseMasterAlias){
+        emitChatMessage(songToPlay);
+    }
+    else{
+        changeMp3(songToPlay);
+    }
+});
+
+//AUDIO - WHEN THE PLAYER'S SONG HAS ENDED
+//  GO TO THE FIRST SONG IN THE DROPDOWN
+$('#jaemzwaredynamicaudioplayer').bind("ended", function(){
+    var currentFile = $(this).children(":first").attr('src');
+    PlayNextTrack(currentFile);
+});
+
+//AUDIO - USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
+function PlayNextTrack(currentFile)
+{
+    //don't do anything if there are no tracks
+    if($('#selectsongs option').length===0)
+    {
+        return;
+    }
+
+    //get the next track, if there isn't one, use the first one
+    if($('#selectsongs option[value="'+currentFile+'"]').next().text().length!==0)
+    {
+        changeMp3($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
+    }
+    else if($('#selectsongs option[value="'+currentFile+'"]').first().text().length!==0)
+    {
+        changeMp3($('#selectsongs option[value="'+currentFile+'"]').first().attr('value'));
+    }
+    else{
+        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
+    }
+}
+
+
+
+//VIDEO - WHEN VIDEO DROPDOWN BOX IS CHANGED, 
+//  SEND A MESSAGE TO THE SERVER WITH THE SELECTED VALUE
+$('#selectvideos').change(function(){
+    var videoToPlay = $('#selectvideos option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
+
+    if(chatClientUser===baseMasterAlias){
+        emitChatMessage(videoToPlay);
+    }
+    else{
+        changeMp4(videoToPlay);
+    }
+});
+
+
+
+/* UTILITY - GETRANDOMCOLORVALUE (COMMON)
  * this function returns a random color value, used by drawing new things
  */
 function getRandomColorValue(){
     return Math.floor((Math.random() * 255) + 1);
 }
 
-/*
- * CHANGEMP3 (COMMON)
- */
+/* UTILITY - CHANGEMP3 (COMMON)*/
 function changeMp3(mp3Url)
 {
     //change the source of the AUDIO player
@@ -378,9 +417,7 @@ function changeMp3(mp3Url)
     $('#selectsongs').val(mp3Url);
 }
 
-/*
- * CHANGEMP4 (COMMON)
- */
+/*UTILITY CHANGEMP4 (COMMON)*/
 function changeMp4(mp4Url){
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
     document.getElementById("jaemzwaredynamicvideoplayer").load();
