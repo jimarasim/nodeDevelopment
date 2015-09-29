@@ -5,7 +5,7 @@ $.getScript('sockethandler.js', function()
 {
     endpoint = "roxhillsessions";
     masterAlias = "MC";
-    unspecifiedAlias="LURKING POSER";
+    unspecifiedAlias="LURKER";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
 

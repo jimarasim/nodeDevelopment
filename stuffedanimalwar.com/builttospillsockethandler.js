@@ -5,7 +5,7 @@ $.getScript('sockethandler.js', function()
 {
     endpoint = "builttospill";
     masterAlias = "BRETT";
-    unspecifiedAlias="NOTHING FUCKUP";
+    unspecifiedAlias="NOWHERENOTHINGFUCKUP";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
 

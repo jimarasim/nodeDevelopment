@@ -1,6 +1,9 @@
 /* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
 
 //MEANT TO BE OVERRIDDEN - USE djnachossockethandler.js FOR AN EXAMPLE
+//var baseUrl = "http://seattlenative.org/";
+var baseUrl = "http://localhost:3000/";
+
 var baseMasterAlias = null;
 var baseUnspecifiedAlias = null;
 var endpoint = null;
@@ -24,22 +27,22 @@ function initializeTapSocketHandler(socket){
         console.log("RECEIVED TAPSOCKETEVENT:"+JSON.stringify(msgObject)+" ANIMAL:"+animal);
         switch(animal){
             case "cats":
-                onBaseTapSocketEventImages(msgObject,"media/cats.jpg");
+                onBaseTapSocketEventImages(msgObject,baseUrl+"media/cats.jpg");
                 break;
             case "lions":
-                onBaseTapSocketEventImages(msgObject,"media/lions.jpg");
+                onBaseTapSocketEventImages(msgObject,baseUrl+"media/lions.jpg");
                 break;
             case "crocodiles":
-                onBaseTapSocketEventImages(msgObject,"media/crocodiles.jpg");
+                onBaseTapSocketEventImages(msgObject,baseUrl+"media/crocodiles.jpg");
                 break;
             case "chickens":
-                onBaseTapSocketEventImages(msgObject,"media/chickens.jpg");
+                onBaseTapSocketEventImages(msgObject,baseUrl+"media/chickens.jpg");
                 break;
             case "birds":
-                onBaseTapSocketEventImages(msgObject,"media/birds.jpg");
+                onBaseTapSocketEventImages(msgObject,baseUrl+"media/birds.jpg");
                 break;
             case "lamblambs":
-                onBaseTapSocketEventImages(msgObject,"media/lamblambs.jpg");
+                onBaseTapSocketEventImages(msgObject,baseUrl+"media/lamblambs.jpg");
                 break;
             case "dots":
                 onBaseTapSocketEventDots(msgObject);
@@ -144,9 +147,6 @@ function onBaseTapSocketEventDots(msgObject){
     //width of the line to draw
     var radius = 4;
 
-    //convert json string to an object
-    var msgObject = jQuery.parseJSON(msgObject);
-
     //get the coordinates emitted
     var pointX = msgObject.x;
     var pointY = msgObject.y;
@@ -158,9 +158,7 @@ function onBaseTapSocketEventDots(msgObject){
     newCircle.setAttribute('cx',pointX);
     newCircle.setAttribute('cy',pointY);
     newCircle.setAttribute('r',radius);
-//    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
-    newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:1;fill:black;'); //BLACK STROKE (OUTER CIRCLE)
-
+    newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:3;fill:black;'); //BLACK STROKE (OUTER CIRCLE) RANDOM STROKE => newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
 
     $("#stuffedanimalwarsvg").append(newCircle);
     
@@ -168,12 +166,9 @@ function onBaseTapSocketEventDots(msgObject){
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
-function onBaseTapSocketEventLines(msg){
+function onBaseTapSocketEventLines(msgObject){
     //width of the line to draw
     var lineWidth = 3;
-
-    //convert json string to an object
-    var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
     var newPointX = msgObject.x;

@@ -5,7 +5,7 @@ $.getScript('sockethandler.js', function()
 {
     endpoint = "lastgasp";
     masterAlias = "AJAX";
-    unspecifiedAlias="HILL TRIPPER";
+    unspecifiedAlias="LURKER";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
 

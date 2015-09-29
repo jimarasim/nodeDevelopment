@@ -5,7 +5,7 @@ $.getScript('sockethandler.js', function()
 {
     endpoint = "sufferingfuckheads";
     masterAlias = "DJ";
-    unspecifiedAlias="PUSSY ROOM";
+    unspecifiedAlias="PUSSY";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
 
