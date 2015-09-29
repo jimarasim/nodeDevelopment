@@ -1,6 +1,6 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 body {
-    background-image:url("media/stuffedanimalwarfinal.jpg");
+    background-image:url("gamemedia/streetdome.jpg");
     background-color:darkslategrey; /*background behind any elements on the body of the page*/
     color:white; /*text color*/
     font-weight:normal;
@@ -65,7 +65,7 @@ div.divstuffedanimalwaronly
 {
     border-width:thick;
     border-style:outset;
-    float:left;
+    /*float:left;*/
     height:400px;
     width:400px;
     background-position:left;
