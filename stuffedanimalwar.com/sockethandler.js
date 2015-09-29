@@ -28,6 +28,9 @@ function initializeTapSocketHandler(socket){
             case "cats":
                 onBaseTapSocketEventImages(msgObject,"gamemedia/cats.jpg");
                 break;
+            case "dogs":
+                onBaseTapSocketEventImages(msgObject,"gamemedia/dogs.jpg");
+                break;
             case "lions":
                 onBaseTapSocketEventImages(msgObject,"gamemedia/lions.jpg");
                 break;
@@ -231,10 +234,6 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
 }
-
-
-
-
 //CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
 function emitChatMessage(message){
     //get the user alias
@@ -242,7 +241,7 @@ function emitChatMessage(message){
 
     //SET THE DEFAULT ALIAS IF IT'S EMPTY
     if(chatClientUser.length===0){
-        chatClientUser = unspecifiedAlias;
+        chatClientUser = baseUnspecifiedAlias;
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
@@ -251,7 +250,7 @@ function emitChatMessage(message){
               CHATSERVERUSER:'',
               CHATCLIENTMESSAGE:message,
               CHATSERVERDATE:''
-          }  
+          };  
 
     console.log("EMITTING:"+JSON.stringify(chatMessageObject)+" TO CHATSOCKETEVENT:"+chatSocketEvent);
     //send the message
@@ -284,7 +283,7 @@ function onBaseChatSocketEvent(msgObject){
                 $('#messagesdiv').prepend($('<br />'));
                 $("<img/>").prependTo("#messagesdiv").attr({
                     src: chatClientMessage,
-                    alt: remoteChatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate,
+                    alt: remoteChatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate
                  });
             }
           else if(chatClientMessage.indexOf(".mp3") && remoteChatClientUser===baseMasterAlias)
@@ -343,8 +342,6 @@ function onBaseChatSocketEvent(msgObject){
             }).text(chatClientMessage);
         }
 }
-
-
 
 //AUDIO - USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
 function PlayNextTrack(currentFile)
