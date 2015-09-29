@@ -7,7 +7,7 @@ $.getScript('sockethandler.js', function()
     masterAlias = "BUZZ";
     unspecifiedAlias="BORIS";
     chatSocketEvent = endpoint+'chatmessage';
-    tapSocketEvent = 'djnachostapmessage';
+    tapSocketEvent = endpoint+'tapmessage';
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);

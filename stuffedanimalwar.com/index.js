@@ -110,134 +110,132 @@ app.get('/bigbusiness', function(req, res){
 //handler for incoming socket connections
 io.on('connection', function(socket){
     var chatClientAddress = socket.handshake.address;
-    console.log('CONNECT:'+chatClientAddress);
+    var chatServerDate = new Date();
+    console.log('CONNECT:'+chatClientAddress+chatServerDate);
     
     //COMMON--------------------------------------------------------------------------------------
     socket.on('disconnect', function(){
         var chatClientAddress = socket.handshake.address;
-              console.log('DISCONNECT:'+chatClientAddress);
-              });
+        var chatServerDate = new Date();
+        console.log('DISCONNECT:'+chatClientAddress+chatServerDate);
+    });
          
     //ON ERROR
-    socket.on('error', function(msg){
-              console.log('error: ' + msg  );
+    socket.on('error', function(msgObject){
+              console.log('ERROR: ' + msgObject  );
     }); 
     
     //CHATMESSAGES--------------------------------------------------------------------------------------
-    socket.on('chatmessage', function(chatMessageObject){
-        sendChatMessage('chatmessage',chatMessageObject);
+    socket.on('chatmessage', function(msgObject){
+        sendChatMessage('chatmessage',msgObject);
     });
     
-    socket.on('djnachoschatmessage', function(chatMessageObject){
-        sendChatMessage('djnachoschatmessage',chatMessageObject);
+    socket.on('djnachoschatmessage', function(msgObject){
+        sendChatMessage('djnachoschatmessage',msgObject);
     });
     
-    socket.on('roxhillsessionschatmessage', function(chatMessageObject){
-        sendChatMessage('roxhillsessionschatmessage',chatMessageObject);
+    socket.on('roxhillsessionschatmessage', function(msgObject){
+        sendChatMessage('roxhillsessionschatmessage',msgObject);
     });
     
-    socket.on('sufferingfuckheadschatmessage', function(chatMessageObject){
-        sendChatMessage('sufferingfuckheadschatmessage',chatMessageObject);
+    socket.on('sufferingfuckheadschatmessage', function(msgObject){
+        sendChatMessage('sufferingfuckheadschatmessage',msgObject);
     });
     
-    socket.on('melvinschatmessage', function(chatMessageObject){
-        sendChatMessage('melvinschatmessage',chatMessageObject);
+    socket.on('melvinschatmessage', function(msgObject){
+        sendChatMessage('melvinschatmessage',msgObject);
     });
     
-    socket.on('cracksabbathchatmessage', function(chatMessageObject){
-        sendChatMessage('cracksabbathchatmessage',chatMessageObject);
+    socket.on('cracksabbathchatmessage', function(msgObject){
+        sendChatMessage('cracksabbathchatmessage',msgObject);
     });
     
-    socket.on('builttospillchatmessage', function(chatMessageObject){
-        sendChatMessage('builttospillchatmessage',chatMessageObject);
+    socket.on('builttospillchatmessage', function(msgObject){
+        sendChatMessage('builttospillchatmessage',msgObject);
     });
     
-    socket.on('zekechatmessage', function(chatMessageObject){
-        sendChatMessage('zekechatmessage',chatMessageObject);
+    socket.on('zekechatmessage', function(msgObject){
+        sendChatMessage('zekechatmessage',msgObject);
     });
     
-    socket.on('lastgaspchatmessage', function(chatMessageObject){
-        sendChatMessage('lastgaspchatmessage',chatMessageObject);
+    socket.on('lastgaspchatmessage', function(msgObject){
+        sendChatMessage('lastgaspchatmessage',msgObject);
     });
     
-    socket.on('marklaneganchatmessage', function(chatMessageObject){
-        sendChatMessage('marklaneganchatmessage',chatMessageObject);
+    socket.on('marklaneganchatmessage', function(msgObject){
+        sendChatMessage('marklaneganchatmessage',msgObject);
     });
     
-    socket.on('bigbusinesschatmessage', function(chatMessageObject){
-        sendChatMessage('bigbusinesschatmessage',chatMessageObject);
+    socket.on('bigbusinesschatmessage', function(msgObject){
+        sendChatMessage('bigbusinesschatmessage',msgObject);
     });
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
-    socket.on('tapmsg', function(tapMsgObject){
-        sendTapMessage('tapmsg',tapMsgObject);
-    }); 
-    
-    socket.on('djnachostapmessage', function(tapMsgObject){
-        sendTapMessage('djnachostapmessage',tapMsgObject);
+    socket.on('djnachostapmessage', function(msgObject){
+        sendTapMessage('djnachostapmessage',msgObject);
     });  
     
-    socket.on('roxhillsessionstapmessage', function(tapMessageObject){
-        sendChatMessage('roxhillsessionstapmessage',tapMessageObject);
+    socket.on('roxhillsessionstapmessage', function(msgObject){
+        sendTapMessage('roxhillsessionstapmessage',msgObject);
     });
     
-    socket.on('sufferingfuckheadstapmessage', function(tapMessageObject){
-        sendChatMessage('sufferingfuckheadstapmessage',tapMessageObject);
+    socket.on('sufferingfuckheadstapmessage', function(msgObject){
+        sendTapMessage('sufferingfuckheadstapmessage',msgObject);
     });
     
-    socket.on('melvinstapmessage', function(tapMessageObject){
-        sendChatMessage('melvinstapmessage',tapMessageObject);
+    socket.on('melvinstapmessage', function(msgObject){
+        sendTapMessage('melvinstapmessage',msgObject);
     });
     
-    socket.on('cracksabbathtapmessage', function(tapMessageObject){
-        sendChatMessage('cracksabbathtapmessage',tapMessageObject);
+    socket.on('cracksabbathtapmessage', function(msgObject){
+        sendTapMessage('cracksabbathtapmessage',msgObject);
     });
     
-    socket.on('builttospilltapmessage', function(tapMessageObject){
-        sendChatMessage('builttospilltapmessage',tapMessageObject);
+    socket.on('builttospilltapmessage', function(msgObject){
+        sendTapMessage('builttospilltapmessage',msgObject);
     });
     
-    socket.on('zeketapmessage', function(tapMessageObject){
-        sendChatMessage('zeketapmessage',tapMessageObject);
+    socket.on('zeketapmessage', function(msgObject){
+        sendTapMessage('zeketapmessage',msgObject);
     });
     
-    socket.on('lastgasptapmessage', function(tapMessageObject){
-        sendChatMessage('lastgasptapmessage',tapMessageObject);
+    socket.on('lastgasptapmessage', function(msgObject){
+        sendTapMessage('lastgasptapmessage',msgObject);
     });
     
-    socket.on('marklanegantapmessage', function(tapMessageObject){
-        sendChatMessage('marklanegantapmessage',tapMessageObject);
+    socket.on('marklanegantapmessage', function(msgObject){
+        sendTapMessage('marklanegantapmessage',msgObject);
     });
     
-    socket.on('bigbusinesstapmessage', function(tapMessageObject){
-        sendChatMessage('bigbusinesstapmessage',tapMessageObject);
+    socket.on('bigbusinesstapmessage', function(msgObject){
+        sendTapMessage('bigbusinesstapmessage',msgObject);
     });
     
     
     //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
-    function sendChatMessage(socketEvent,chatMessageObject){
+    function sendChatMessage(socketEvent,msgObject){
           //GET THE ADDRESS AND DATE
           var chatClientAddress = socket.handshake.address;
           var chatServerDate = new Date();
 
           //update the emitted json object with server information
-          chatMessageObject.CHATSERVERUSER = chatClientAddress;
-          chatMessageObject.CHATSERVERDATE = chatServerDate;
+          msgObject.CHATSERVERUSER = chatClientAddress;
+          msgObject.CHATSERVERDATE = chatServerDate;
 
-          console.log("BROADCAST SOCKETEVENT:"+socketEvent+" CHATMESSAGEOBJECT:" + JSON.stringify(chatMessageObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
+          console.log("BROADCAST SOCKETEVENT CHAT:"+socketEvent+" CHATMESSAGEOBJECT:" + JSON.stringify(msgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
 
           //broadcast
-          io.emit(socketEvent,chatMessageObject);
+          io.emit(socketEvent,msgObject);
     }
 
-    function sendTapMessage(socketEvent,tapMsgObject){
+    function sendTapMessage(socketEvent,msgObject){
             //GET THE ADDRESS AND DATE
             var chatClientAddress = socket.handshake.address;
             var chatServerDate = new Date();
-            console.log("BROADCAST SOCKETEVENT:"+socketEvent+" TAPMSGOBJECT:" + JSON.stringify(tapMsgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
+            console.log("BROADCAST SOCKETEVENT TAP:"+socketEvent+" TAPMSGOBJECT:" + JSON.stringify(msgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
 
             //broadcast chat message (client page needs to have  a socket.on handler for this)
-            io.emit(socketEvent,tapMsgObject);
+            io.emit(socketEvent,msgObject);
     } 
 });
 

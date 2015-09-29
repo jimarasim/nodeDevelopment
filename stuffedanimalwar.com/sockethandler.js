@@ -20,14 +20,26 @@ function initializeCommonVars(masterAlias,unspecifiedAlias){
 //  THE TYPE OF ANIMAL SENT IS SENT BY $('#stuffedanimalwarsvg').click 
 function initializeTapSocketHandler(socket){
     socket.on(tapSocketEvent, function(msgObject){
-        switch(msgObject.animal){
+        var animal = msgObject.animal;
+        console.log("RECEIVED TAPSOCKETEVENT:"+JSON.stringify(msgObject)+" ANIMAL:"+animal);
+        switch(animal){
             case "cats":
+                onBaseTapSocketEventImages(msgObject,"media/cats.jpg");
+                break;
             case "lions":
+                onBaseTapSocketEventImages(msgObject,"media/lions.jpg");
+                break;
             case "crocodiles":
+                onBaseTapSocketEventImages(msgObject,"media/crocodiles.jpg");
+                break;
             case "chickens":
+                onBaseTapSocketEventImages(msgObject,"media/chickens.jpg");
+                break;
             case "birds":
+                onBaseTapSocketEventImages(msgObject,"media/birds.jpg");
+                break;
             case "lamblambs":
-                onBaseTapSocketEventImages(msgObject    ,"media/"+msgObject.animal+".jpg");
+                onBaseTapSocketEventImages(msgObject,"media/lamblambs.jpg");
                 break;
             case "dots":
                 onBaseTapSocketEventDots(msgObject);
@@ -72,13 +84,12 @@ $('form').submit(function(){
 
 //SVG - WHEN THE STUFFED ANIMAL WAR GAME PAD IS CLICKED, 
 //      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
-
-
 $('#stuffedanimalwarsvg').click(function(event){
     
-    var animal = $("input[name='sawstyle']").attr("value");
-    console.log('EMITTING:'+tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+animal+'"}');
-    baseSocket.emit(tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
+    var msgObject = JSON.parse('{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+$( 'input:radio[name=sawstyle]:checked' ).val()+'"}');
+    
+    console.log('EMITTING:'+tapSocketEvent+' WITH:'+msgObject);
+    baseSocket.emit(tapSocketEvent,msgObject);
 });
 
 //AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
@@ -114,15 +125,27 @@ $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
     PlayNextTrack(currentFile);
 });
 
+//VIDEO - WHEN VIDEO DROPDOWN BOX IS CHANGED, 
+//  SEND A MESSAGE TO THE SERVER WITH THE SELECTED VALUE
+$('#selectvideos').change(function(){
+    var videoToPlay = $('#selectvideos option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
 
+    if(chatClientUser===baseMasterAlias){
+        emitChatMessage(videoToPlay);
+    }
+    else{
+        changeMp4(videoToPlay);
+    }
+});
 
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
-function onBaseTapSocketEventDots(msg){
+function onBaseTapSocketEventDots(msgObject){
     //width of the line to draw
     var radius = 4;
 
     //convert json string to an object
-    var msgObject = jQuery.parseJSON(msg);
+    var msgObject = jQuery.parseJSON(msgObject);
 
     //get the coordinates emitted
     var pointX = msgObject.x;
@@ -177,8 +200,7 @@ function onBaseTapSocketEventLines(msg){
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
 }
-
-function onBaseTapSocketEventCustom(msg){
+function onBaseTapSocketEventCustom(msgObject){
     if (
         $('#imagepathtextbox').val().indexOf("http://")===0||
         $('#imagepathtextbox').val().indexOf("https://")===0
@@ -186,24 +208,18 @@ function onBaseTapSocketEventCustom(msg){
             if( $('#imagepathtextbox').val().indexOf(".jpg")   >   0 ||
                 $('#imagepathtextbox').val().indexOf(".jpeg")  >   0 ||
                 $('#imagepathtextbox').val().indexOf(".gif")   >   0 ||
-                $('#imagepathtextbox').val().indexOf(".png")   >   0)
-            {
-                onBaseTapSocketEventImages(msg,$('#imagepathtextbox').val());
+                $('#imagepathtextbox').val().indexOf(".png")   >   0){
+                onBaseTapSocketEventImages(msgObject,$('#imagepathtextbox').val());
             }
             else{
                 console.log('IMAGEPATHTEXTBOX DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+$('#imagepathtextbox').val());
             }
         }
 }
-
-//SVG - HELPER FUNCTION FOR HELPER FUNCTION FOR CUSTOM
-function onBaseTapSocketEventImages(msg,image){
-    var imagePath=image;
+//SVG - HELPER FUNCTION FOR HELPER FUNCTION FOR ANIMAL IMAGES AND CUSTOM
+function onBaseTapSocketEventImages(msgObject,imagePath){
     var width="50";
     var height="50";
-
-    //convert json string to an object
-    var msgObject = jQuery.parseJSON(msg);
 
     //get the coordinates emitted
     var pointX = msgObject.x-(width/2);
@@ -358,24 +374,6 @@ function PlayNextTrack(currentFile)
         console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
     }
 }
-
-
-
-//VIDEO - WHEN VIDEO DROPDOWN BOX IS CHANGED, 
-//  SEND A MESSAGE TO THE SERVER WITH THE SELECTED VALUE
-$('#selectvideos').change(function(){
-    var videoToPlay = $('#selectvideos option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(videoToPlay);
-    }
-    else{
-        changeMp4(videoToPlay);
-    }
-});
-
-
 
 /* UTILITY - GETRANDOMCOLORVALUE (COMMON)
  * this function returns a random color value, used by drawing new things
