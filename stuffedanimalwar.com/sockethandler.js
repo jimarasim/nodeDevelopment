@@ -1,8 +1,7 @@
 /* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
 
 //MEANT TO BE OVERRIDDEN - USE djnachossockethandler.js FOR AN EXAMPLE
-//var baseUrl = "http://seattlenative.org/";
-var baseUrl = "http://localhost:3000/";
+var gameMediaUrl = "http://seattlenative.org/gamemedia";
 
 var baseMasterAlias = null;
 var baseUnspecifiedAlias = null;
@@ -27,22 +26,22 @@ function initializeTapSocketHandler(socket){
         console.log("RECEIVED TAPSOCKETEVENT:"+JSON.stringify(msgObject)+" ANIMAL:"+animal);
         switch(animal){
             case "cats":
-                onBaseTapSocketEventImages(msgObject,baseUrl+"media/cats.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/cats.jpg");
                 break;
             case "lions":
-                onBaseTapSocketEventImages(msgObject,baseUrl+"media/lions.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/lions.jpg");
                 break;
             case "crocodiles":
-                onBaseTapSocketEventImages(msgObject,baseUrl+"media/crocodiles.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/crocodiles.jpg");
                 break;
             case "chickens":
-                onBaseTapSocketEventImages(msgObject,baseUrl+"media/chickens.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/chickens.jpg");
                 break;
             case "birds":
-                onBaseTapSocketEventImages(msgObject,baseUrl+"media/birds.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/birds.jpg");
                 break;
             case "lamblambs":
-                onBaseTapSocketEventImages(msgObject,baseUrl+"media/lamblambs.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/lamblambs.jpg");
                 break;
             case "dots":
                 onBaseTapSocketEventDots(msgObject);
