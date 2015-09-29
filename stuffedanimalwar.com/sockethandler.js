@@ -27,7 +27,7 @@ function initializeTapSocketHandler(socket){
             case "chickens":
             case "birds":
             case "lamblambs":
-                onBaseTapSocketEventImages(msg,"media/"+msgObject.animal+".jpg");
+                onBaseTapSocketEventImages(msgObject    ,"media/"+msgObject.animal+".jpg");
                 break;
             case "dots":
                 onBaseTapSocketEventDots(msgObject);
@@ -39,11 +39,12 @@ function initializeTapSocketHandler(socket){
                 onBaseTapSocketEventCustom(msgObject);
                 break;
             default:
-                console.log("unknown stuffed animal or drawing object:"+msg.animal);
+                console.log("unknown stuffed animal or drawing object:"+msgObject.animal);
                 break;
         } 
     });
     baseSocket=socket;
+}
 //CONSTRUCTION - 
 //CHAT - WHEN A CHAT MESSAGE IS RECEIVED FROM THE SERVER,
 //  SEND THE OBJECT RECEIVED TO THE FUNCTION THAT HANDLES IT
@@ -71,9 +72,13 @@ $('form').submit(function(){
 
 //SVG - WHEN THE STUFFED ANIMAL WAR GAME PAD IS CLICKED, 
 //      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
+
+
 $('#stuffedanimalwarsvg').click(function(event){
-    console.log('EMITTING:'+tapSocketEvent+'{"x":"'+event.pageX+'","y":"'+event.pageY+'","animal":"'+$(input:checked).val()+'"}';
-    baseSocket.emit(tapSocketEvent, '{"x":"'+event.pageX+'", "y":"'+event.pageY+'","animal":"'+$(input:checked).val()+'"}';
+    
+    var animal = $("input[name='sawstyle']").attr("value");
+    console.log('EMITTING:'+tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+animal+'"}');
+    baseSocket.emit(tapSocketEvent,'{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 });
 
 //AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
@@ -380,8 +385,7 @@ function getRandomColorValue(){
 }
 
 /* UTILITY - CHANGEMP3 (COMMON)*/
-function changeMp3(mp3Url)
-{
+function changeMp3(mp3Url){
     //change the source of the AUDIO player
     $('#jaemzwaredynamicaudiosource').attr("src",mp3Url);
     document.getElementById("jaemzwaredynamicaudioplayer").load();
