@@ -1,7 +1,7 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 body {
-    background-image:url("gamemedia/streetdome.jpg");
-    background-color:darkslategrey; /*background behind any elements on the body of the page*/
+    /*background-image:url("gamemedia/streetdome.jpg");*/
+    background-color:#000066; /*background behind any elements on the body of the page*/
     color:white; /*text color*/
     font-weight:normal;
     font-family:sans-serif;
@@ -25,14 +25,13 @@ audio {
     background-color:green;
     background-position:left;
     border: 2px solid;
-    border-radius: 3%;
     border-width:thick;
     border-style:outset;
     overflow-x: scroll;
     overflow-y: scroll;
-    width: 400px;
-    height: 400px;
-    margin: 3%;
+    width: 300px;
+    height: 300px;
+    margin: 0%;
     border: 0%;
     padding: 0%;
     text-align: left;
@@ -46,29 +45,27 @@ audio {
 }
 
 span.serverdate{
-    color:black;
-    font-size: small;
-
+    color:green;
+    font-size:xx-small
 }
 
-span.chatclientuser{
-    color:blue;
-    font-size: small;
+span.remoteChatClientUser{
+    color:pink;
+    font-size:xx-small
 
 }
 span.chatclientmessage{
     color:yellow;
-    font-size:medium;
+    font-size:xx-small
 }
 
 div.divstuffedanimalwaronly
 {
     border-width:thick;
     border-style:outset;
-    /*float:left;*/
-    height:400px;
-    width:400px;
-    background-position:left;
+    height:300px;
+    width:300px;
+    /*background-position:left;*/
     vertical-align: top;
     text-align: left;
     overflow-x: scroll;
@@ -96,17 +93,6 @@ ul{
 td{
     vertical-align: top;
     text-align: left;
-}
-
-td.divgamesectiontitle{
-    width:15%;
-    font-size:large;
-}
-
-td.divgamesectioncontent{
-    overflow-x: scroll;
-    overflow-y: scroll;
-    width:20%;
 }
 
 img.videolink{

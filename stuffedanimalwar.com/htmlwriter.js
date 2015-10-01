@@ -6,7 +6,9 @@ function writeAudioPlayerFromJson(mediaObject){
     //paint the audio player
     document.write("<tr>");
     document.write("<td>");
-    document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\" width=\"640\">");
+    document.write("<hr />");
+    document.write("<h2>PLAYER</h2>");
+    document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\" width=\"300\">");
     document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
     document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
     document.write("</audio>");
@@ -23,6 +25,8 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
+    document.write("</table>");   
+    document.write("<table>");   
     //paint the photos 
     for (var i=0;i<mediaObject.photos.length;i++){
         document.write("<tr>");
@@ -36,7 +40,7 @@ function writeAudioPlayerFromJson(mediaObject){
         document.write("</td>");
         document.write("</tr>");
     }
-    document.write("</table>");   
+    document.write("</table>");  
 }
 
 //STUFFEDANIMALWAR
@@ -46,12 +50,19 @@ function writeStuffedAnimalWarWithChat(){
     document.write("<td>");
     writeStuffedAnimalWar();
     document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
     document.write("<td>");
+    document.write("<H2>TAP CHAT</H2>");
     writeStuffedAnimalWarChoices();
+    document.write("<hr />");
     document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
     document.write("<td>");
-    writeChatMessagesDiv();
+    document.write("<H2>TEXT CHAT</H2>");
     writeChatControls();
+    writeChatMessagesDiv();
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");
@@ -64,34 +75,26 @@ function writeStuffedAnimalWar(){
     document.write("</div>");
 }
 function writeStuffedAnimalWarChoices(){
-    
     document.write("<br />");
     document.write("<form>");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwardots\" name=\"sawstyle\" value=\"dots\" checked >Dots");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarlines\" name=\"sawstyle\" value=\"lines\" >Lines");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarcats\" name=\"sawstyle\" value=\"cats\" >Cats");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwardogs\" name=\"sawstyle\" value=\"dogs\" >Dogs");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarlions\" name=\"sawstyle\" value=\"lions\" >Lions");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarcrocodiles\" name=\"sawstyle\" value=\"crocodiles\" >Crocodiles");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarbirds\" name=\"sawstyle\" value=\"birds\" >Birds");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarlamblambs\" name=\"sawstyle\" value=\"lamblambs\" >Lamb Lambs");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarchickens\" name=\"sawstyle\" value=\"chickens\" >Chickens");
-    document.write("<br />");
-    document.write("<input type=\"radio\" id=\"stuffedanimalwarcustom\" name=\"sawstyle\" value=\"custom\" >Custom");
-    document.write("<br />");
-    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"http://www.customurl.com/myimage.jpg\" />");
-    document.write("<br />");
+    document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
+    writeDefaultAnimalWarOptions();
+    document.write("</select>");
+    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
     document.write("</form>"); 
 }
-
+function writeDefaultAnimalWarOptions(){
+    document.write("<option value=\"dots\" selected>Dots</option>");
+    document.write("<option value=\"lines\">Lines</option>");
+    document.write("<option value=\"cats\">Cats</option>");
+    document.write("<option value=\"dogs\">Dogs</option>");
+    document.write("<option value=\"lions\">Lions</option>");
+    document.write("<option value=\"crocodiles\">Crocodiles</option>");
+    document.write("<option value=\"birds\">Birds</option>");
+    document.write("<option value=\"lamblambs\">Lamb</option>");
+    document.write("<option value=\"chickens\">Chickens</option>");
+    document.write("<option value=\"custom\">CUSTOM URL</option>");
+}
 //CHAT
 function writeChat(){
     document.write("<table class='roxhillsession'>");

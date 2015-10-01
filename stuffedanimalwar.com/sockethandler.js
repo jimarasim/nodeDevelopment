@@ -91,7 +91,7 @@ $('form').submit(function(){
 //      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
 $('#stuffedanimalwarsvg').click(function(event){
     
-    var msgObject = JSON.parse('{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+$( 'input:radio[name=sawstyle]:checked' ).val()+'"}');
+    var msgObject = JSON.parse('{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+$( '#animals option:selected' ).val()+'"}');
     
     console.log('EMITTING:'+tapSocketEvent+' WITH:'+msgObject);
     baseSocket.emit(tapSocketEvent,msgObject);
