@@ -26,25 +26,25 @@ function initializeTapSocketHandler(socket){
         console.log("RECEIVED TAPSOCKETEVENT:"+JSON.stringify(msgObject)+" ANIMAL:"+animal);
         switch(animal){
             case "cats":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/cats.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/cats.png");
                 break;
             case "dogs":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/dogs.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/dogs.png");
                 break;
             case "lions":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/lions.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/lions.png");
                 break;
             case "crocodiles":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/crocodiles.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/crocodiles.png");
                 break;
             case "chickens":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/chickens.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/chickens.png");
                 break;
             case "birds":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/birds.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/birds.png");
                 break;
             case "lamblambs":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/lamblambs.jpg");
+                onBaseTapSocketEventImages(msgObject,"gamemedia/lamblambs.png");
                 break;
             case "dots":
                 onBaseTapSocketEventDots(msgObject);
@@ -91,7 +91,7 @@ $('form').submit(function(){
 //      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
 $('#stuffedanimalwarsvg').click(function(event){
     
-    var msgObject = JSON.parse('{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+$( '#animals option:selected' ).val()+'"}');
+    var msgObject = JSON.parse('{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+$( '#animals option:selected' ).val()+'","customimage":"'+$('#imagepathtextbox').val()+'"}');
     
     console.log('EMITTING:'+tapSocketEvent+' WITH:'+msgObject);
     baseSocket.emit(tapSocketEvent,msgObject);
@@ -199,17 +199,17 @@ function onBaseTapSocketEventLines(msgObject){
 }
 function onBaseTapSocketEventCustom(msgObject){
     if (
-        $('#imagepathtextbox').val().indexOf("http://")===0||
-        $('#imagepathtextbox').val().indexOf("https://")===0
+        msgObject.customimage.indexOf("http://")===0||
+        msgObject.customimage.indexOf("https://")===0
        ){ 
-            if( $('#imagepathtextbox').val().indexOf(".jpg")   >   0 ||
-                $('#imagepathtextbox').val().indexOf(".jpeg")  >   0 ||
-                $('#imagepathtextbox').val().indexOf(".gif")   >   0 ||
-                $('#imagepathtextbox').val().indexOf(".png")   >   0){
-                onBaseTapSocketEventImages(msgObject,$('#imagepathtextbox').val());
+            if( msgObject.customimage.indexOf(".jpg")   >   0 ||
+                msgObject.customimage.indexOf(".jpeg")  >   0 ||
+                msgObject.customimage.indexOf(".gif")   >   0 ||
+                msgObject.customimage.indexOf(".png")   >   0){
+                onBaseTapSocketEventImages(msgObject,msgObject.customimage);
             }
             else{
-                console.log('IMAGEPATHTEXTBOX DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+$('#imagepathtextbox').val());
+                console.log('MESSAGE SENT DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+msgObject.customimage);
             }
         }
 }
