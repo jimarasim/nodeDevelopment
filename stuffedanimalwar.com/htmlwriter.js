@@ -25,9 +25,10 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
-    document.write("</table>");   
+    document.write("</table>");  
+    
+    //paint the photos
     document.write("<table>");   
-    //paint the photos 
     for (var i=0;i<mediaObject.photos.length;i++){
         document.write("<tr>");
         document.write("<td>");
@@ -37,6 +38,18 @@ function writeAudioPlayerFromJson(mediaObject){
         document.write("<tr>");
         document.write("<td>");
         document.write("<img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" />");
+        document.write("</td>");
+        document.write("</tr>");
+    }
+    document.write("</table>");   
+    
+    //paint links to the songs
+    document.write("<table>");  
+    document.write("<tr><th>Download</th></tr>");
+    for (var i=0;i<mediaObject.songs.length;i++){
+        document.write("<tr>");
+        document.write("<td>");
+        document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
         document.write("</td>");
         document.write("</tr>");
     }
