@@ -27,6 +27,15 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</tr>");
     document.write("</table>");  
     
+    
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<H2>TEXT CHAT</H2>");
+    writeChatControls();
+    writeChatMessagesDiv();
+    document.write("</td>");
+    document.write("</tr>");
+    
     //paint the photos
     document.write("<table>");   
     for (var i=0;i<mediaObject.photos.length;i++){
@@ -69,13 +78,6 @@ function writeStuffedAnimalWarWithChat(){
     document.write("<H2>TAP CHAT</H2>");
     writeStuffedAnimalWarChoices();
     document.write("<hr />");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<H2>TEXT CHAT</H2>");
-    writeChatControls();
-    writeChatMessagesDiv();
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");
