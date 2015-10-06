@@ -10,6 +10,8 @@ var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
 
+var dotTimer=null;
+
   
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
@@ -61,6 +63,10 @@ function initializeTapSocketHandler(socket){
                 break;
         } 
         
+        
+        //kick off the circle timer
+        dotTimer = window.setInterval(moveDots, 500);
+        
     });
     baseSocket=socket;
 }
@@ -74,6 +80,21 @@ function initializeChatSocketHandler(socket){
     baseSocket=socket;
 }
 
+//SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
+function moveDots()
+{
+    $( 'circle' ).each(function( i,val ) {
+        //get the current location
+        var yCirclePosition = $('#'+val).attr('cy');
+        //update the coordinates
+        yCirclePosition = yCirclePosition - 1;
+        if(yCirclePosition>0){
+            $('#'+val).attr('cy',yCirclePosition);
+        }
+    
+    } );
+    
+}
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
 
@@ -146,18 +167,6 @@ $('#selectvideos').change(function(){
     }
 });
 
-//SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
-function moveDot(circleId)
-{
-    //get the current location
-    var yCirclePosition = $('#'+circleId).attr('cy');
-    console.log(yCirclePosition);
-    //update the coordinates
-    yCirclePosition = yCirclePosition - 100;
-    console.log(yCirclePosition);
-    //paint it at the new position
-    $('#'+circleId).attr('cy',yCirclePosition);
-}
 function onBaseTapSocketEventDots(msgObject){
     //width of the line to draw
     var radius = 4;
@@ -181,10 +190,6 @@ function onBaseTapSocketEventDots(msgObject){
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
-    
-    //kick off the circle timer
-    window.setTimeout(moveDot(circleId), 10000);
-
 }
 function onBaseTapSocketEventLines(msgObject){
     //width of the line to draw
