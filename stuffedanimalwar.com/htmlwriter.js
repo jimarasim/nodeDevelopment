@@ -1,10 +1,9 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 var baseMediaPath = "http://analogarchive.com/live/";
 
-
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWarTable(){
-    document.write("<table style='"+"width:"+screen.availWidth+"px;height:"+screen.availHeight+"px;'>");
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     writeStuffedAnimalWar();
     writeStuffedAnimalWarChoices();
     document.write("</table>");
@@ -42,12 +41,11 @@ function writeStuffedAnimalWarChoices(){
     document.write("</tr>");
 }
 function writeAudioPlayerFromJson(mediaObject){
-    document.write("<table>");
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     //paint the audio player
     document.write("<tr>");
     document.write("<td>");
-    document.write("<hr />");
-    document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\" width=\"300\">");
+    document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
     document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
     document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
     document.write("</audio>");
@@ -65,12 +63,12 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");  
-    document.write("<table>");
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
     document.write("</table>");  
     //paint the photos
-    document.write("<table>");   
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     for (var i=0;i<mediaObject.photos.length;i++){
         document.write("<tr>");
         document.write("<td>");
@@ -85,7 +83,7 @@ function writeAudioPlayerFromJson(mediaObject){
     }
     document.write("</table>");   
     //paint links to the songs
-    document.write("<table>");  
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     document.write("<tr><th>Download</th></tr>");
     for (var i=0;i<mediaObject.songs.length;i++){
         document.write("<tr>");
@@ -96,10 +94,9 @@ function writeAudioPlayerFromJson(mediaObject){
     }
     document.write("</table>");  
 }
-
 //CHAT
 function writeChat(){
-    document.write("<table>");
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
     document.write("</table>");
@@ -111,7 +108,7 @@ function writeDefaultAutoResponderOptions(){
     document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
     document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
     document.write("<select id=\"chatClientAutoResponder\" size=1 >");
-    document.write("<option value=\"blank\" selected>--autoresponse--</option>");
+    document.write("<option value=\"alllowercaseoneword\" selected>alllowercaseoneword</option>");
     document.write("<option value=\"wink\">;)</option>");
     document.write("<option value=\"smiley\">:)</option>");
     document.write("<option value=\"bigsmiley\">:D</option>");
@@ -170,13 +167,13 @@ function writeChatMessagesDiv(){
 }
 //VIDEO 
 function writeVideoPlayer(){
-    document.write("<table>");
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     writeVideoPlayer();
     writeDefaultVideoPlayerOptions();
     document.write("</table>");
 }
 function writeVideoPlayerWithChat(){
-    document.write("<table>");
+    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
     writeVideoPlayer();
     writeDefaultVideoPlayerOptions();
     writeDefaultAutoResponderOptions();
