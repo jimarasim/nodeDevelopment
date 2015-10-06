@@ -65,13 +65,10 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");  
-    
     document.write("<table>");
-
     writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
     document.write("</table>");  
-
     //paint the photos
     document.write("<table>");   
     for (var i=0;i<mediaObject.photos.length;i++){
@@ -87,7 +84,6 @@ function writeAudioPlayerFromJson(mediaObject){
         document.write("</tr>");
     }
     document.write("</table>");   
-    
     //paint links to the songs
     document.write("<table>");  
     document.write("<tr><th>Download</th></tr>");
