@@ -9,6 +9,7 @@ var endpoint = null;
 var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
+
   
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
@@ -167,6 +168,10 @@ function onBaseTapSocketEventDots(msgObject){
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
+    
+    //kick off the circle timer
+//    setTimeout(circleTimer, 1000);
+
 }
 function onBaseTapSocketEventLines(msgObject){
     //width of the line to draw
@@ -387,5 +392,19 @@ function changeMp4(mp4Url){
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
     document.getElementById("jaemzwaredynamicvideoplayer").load();
     document.getElementById("jaemzwaredynamicvideoplayer").play();
+}
+
+function circleTimer(){
+    var circleXPosition = $('circle').attr('cx');
+//    var circleYPosition = $('circle').attr('cy');
+//    var circleZPosition = $('circle').attr('r');
+    
+    circleXPosition += 3;
+//    circleYPosition += 3;
+//    circleZPosition += 3;
+    
+    $('circle').attr('cx',circleXPosition);
+//    $('circle').attr('cy',circleYPosition);
+//    $('circle').attr('r',circleZPosition);
 }
 
