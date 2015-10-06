@@ -60,6 +60,7 @@ function initializeTapSocketHandler(socket){
                 console.log("unknown stuffed animal or drawing object:"+msgObject.animal);
                 break;
         } 
+        
     });
     baseSocket=socket;
 }
@@ -146,6 +147,17 @@ $('#selectvideos').change(function(){
 });
 
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
+function moveDot(circleId)
+{
+    //get the current location
+    var yCirclePosition = $('#'+circleId).attr('cy');
+    console.log(yCirclePosition);
+    //update the coordinates
+    yCirclePosition = yCirclePosition - 100;
+    console.log(yCirclePosition);
+    //paint it at the new position
+    $('#'+circleId).attr('cy',yCirclePosition);
+}
 function onBaseTapSocketEventDots(msgObject){
     //width of the line to draw
     var radius = 4;
@@ -156,8 +168,9 @@ function onBaseTapSocketEventDots(msgObject){
 
     //draw a circle from the new to the old location
     var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    var circleId = 'circle'+$.now();
 
-    newCircle.setAttribute('id','circle'+$.now());
+    newCircle.setAttribute('id',circleId);
     newCircle.setAttribute('cx',pointX);
     newCircle.setAttribute('cy',pointY);
     newCircle.setAttribute('r',radius);
@@ -170,7 +183,7 @@ function onBaseTapSocketEventDots(msgObject){
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
     
     //kick off the circle timer
-//    setTimeout(circleTimer, 1000);
+    window.setTimeout(moveDot(circleId), 10000);
 
 }
 function onBaseTapSocketEventLines(msgObject){
@@ -407,4 +420,5 @@ function circleTimer(){
 //    $('circle').attr('cy',circleYPosition);
 //    $('circle').attr('r',circleZPosition);
 }
+
 
