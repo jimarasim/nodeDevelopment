@@ -3,7 +3,7 @@ var baseMediaPath = "http://analogarchive.com/live/";
 
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWarTable(){
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     writeStuffedAnimalWar();
     writeStuffedAnimalWarChoices();
     document.write("</table>");
@@ -41,7 +41,7 @@ function writeStuffedAnimalWarChoices(){
     document.write("</tr>");
 }
 function writeAudioPlayerFromJson(mediaObject){
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     //paint the audio player
     document.write("<tr>");
     document.write("<td>");
@@ -63,12 +63,12 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");  
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
     document.write("</table>");  
     //paint the photos
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     for (var i=0;i<mediaObject.photos.length;i++){
         document.write("<tr>");
         document.write("<td>");
@@ -83,7 +83,7 @@ function writeAudioPlayerFromJson(mediaObject){
     }
     document.write("</table>");   
     //paint links to the songs
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     document.write("<tr><th>Download</th></tr>");
     for (var i=0;i<mediaObject.songs.length;i++){
         document.write("<tr>");
@@ -96,7 +96,7 @@ function writeAudioPlayerFromJson(mediaObject){
 }
 //CHAT
 function writeChat(){
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
     document.write("</table>");
@@ -167,13 +167,13 @@ function writeChatMessagesDiv(){
 }
 //VIDEO 
 function writeVideoPlayer(){
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     writeVideoPlayer();
     writeDefaultVideoPlayerOptions();
     document.write("</table>");
 }
 function writeVideoPlayerWithChat(){
-    document.write("<table style='"+"width:"+window.innerWidth+"px;'>");
+    document.write("<table style='"+"width:"+screen.width+"px;'>");
     writeVideoPlayer();
     writeDefaultVideoPlayerOptions();
     writeDefaultAutoResponderOptions();
