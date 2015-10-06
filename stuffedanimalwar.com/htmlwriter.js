@@ -1,13 +1,52 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 var baseMediaPath = "http://analogarchive.com/live/";
 
+
+//STUFFEDANIMALWAR
+function writeStuffedAnimalWarTable(){
+    document.write("<table style='"+"width:"+screen.availWidth+"px;height:"+screen.availHeight+"px;'>");
+    writeStuffedAnimalWar();
+    writeStuffedAnimalWarChoices();
+    document.write("</table>");
+}   
+function writeStuffedAnimalWar(){
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
+    document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
+    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
+    document.write("</svg>"); 
+    document.write("</div>");
+    document.write("</td>");
+    document.write("</tr>");
+}
+function writeStuffedAnimalWarChoices(){
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<form>");
+    document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
+    document.write("<option value=\"dots\" selected>Dots</option>");
+    document.write("<option value=\"lines\">Lines</option>");
+    document.write("<option value=\"cats\">Cats</option>");
+    document.write("<option value=\"dogs\">Dogs</option>");
+    document.write("<option value=\"lions\">Lions</option>");
+    document.write("<option value=\"crocodiles\">Crocodiles</option>");
+    document.write("<option value=\"birds\">Birds</option>");
+    document.write("<option value=\"lamblambs\">Lamb</option>");
+    document.write("<option value=\"chickens\">Chickens</option>");
+    document.write("<option value=\"custom\">CUSTOM URL</option>");    
+    document.write("</select>");
+    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
+    document.write("</form>"); 
+    document.write("</td>");
+    document.write("</tr>");
+}
 function writeAudioPlayerFromJson(mediaObject){
     document.write("<table>");
     //paint the audio player
     document.write("<tr>");
     document.write("<td>");
     document.write("<hr />");
-    document.write("<h2>PLAYER</h2>");
     document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\" width=\"300\">");
     document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
     document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
@@ -27,15 +66,12 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</tr>");
     document.write("</table>");  
     
-    
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<H2>TEXT CHAT</H2>");
-    writeChatControls();
+    document.write("<table>");
+
+    writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
-    document.write("</td>");
-    document.write("</tr>");
-    
+    document.write("</table>");  
+
     //paint the photos
     document.write("<table>");   
     for (var i=0;i<mediaObject.photos.length;i++){
@@ -65,78 +101,20 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</table>");  
 }
 
-//STUFFEDANIMALWAR
-function writeStuffedAnimalWarWithChat(){
-    document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    writeStuffedAnimalWar();
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<H2>TAP CHAT</H2>");
-    writeStuffedAnimalWarChoices();
-    document.write("<hr />");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
-}   
-function writeStuffedAnimalWar(){
-    document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
-    document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
-    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
-    document.write("</svg>"); 
-    document.write("</div>");
-}
-function writeStuffedAnimalWarChoices(){
-    document.write("<br />");
-    document.write("<form>");
-    document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
-    writeDefaultAnimalWarOptions();
-    document.write("</select>");
-    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
-    document.write("</form>"); 
-}
-function writeDefaultAnimalWarOptions(){
-    document.write("<option value=\"dots\" selected>Dots</option>");
-    document.write("<option value=\"lines\">Lines</option>");
-    document.write("<option value=\"cats\">Cats</option>");
-    document.write("<option value=\"dogs\">Dogs</option>");
-    document.write("<option value=\"lions\">Lions</option>");
-    document.write("<option value=\"crocodiles\">Crocodiles</option>");
-    document.write("<option value=\"birds\">Birds</option>");
-    document.write("<option value=\"lamblambs\">Lamb</option>");
-    document.write("<option value=\"chickens\">Chickens</option>");
-    document.write("<option value=\"custom\">CUSTOM URL</option>");
-}
 //CHAT
 function writeChat(){
-    document.write("<table class='roxhillsession'>");
-    document.write("<tr>");
-    document.write("<td>");
-    writeChatControls();
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<tr>");
-    document.write("<td>");
+    document.write("<table>");
+    writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
-    document.write("</td>");
-    document.write("</tr>");
     document.write("</table>");
 }
-function writeChatControls(){
+function writeDefaultAutoResponderOptions(){
+    document.write("<tr>");
+    document.write("<td>");
     document.write("<form action=\"\">");
     document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
     document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
-    document.write("<br />");
     document.write("<select id=\"chatClientAutoResponder\" size=1 >");
-    writeDefaultAutoResponderOptions();
-    document.write("</select>");
-    document.write("<button>SEND</button>");
-    document.write("</form>");
-}
-function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"blank\" selected>--autoresponse--</option>");
     document.write("<option value=\"wink\">;)</option>");
     document.write("<option value=\"smiley\">:)</option>");
@@ -180,32 +158,36 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"youremybestfriend\">youre my best friend</option>");
     document.write("<option value=\"youreworkingthatoutfitgirl\">youre working that outfit girl</option>");
     document.write("<option value=\"yourewrong\">youre wrong</option>");
+    document.write("</select>");
+    document.write("<button>SEND</button>");
+    document.write("</form>");
+    document.write("</td>");
+    document.write("</tr>");
+
 }
 function writeChatMessagesDiv(){
+    document.write("<tr>");
+    document.write("<td>");
     document.write("<div id=\"messagesdiv\"></div>");
+    document.write("</td>");
+    document.write("</tr>");
 }
-
 //VIDEO 
 function writeVideoPlayer(){
     document.write("<table>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://jaemzware.org/media/randompng/tv.png\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-    document.write(" browser doesn't support mp4 video. use chrome.");
-    document.write("<source src=\"http://jaemzware.org/media/skate/roxhillbacksideollieline201508.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-    document.write("</video>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<td>");
-    document.write("<select id=\"selectvideos\">");
+    writeVideoPlayer();
     writeDefaultVideoPlayerOptions();
-    document.write("</select>");
-    document.write("</td>");
-    document.write("</tr>");
     document.write("</table>");
 }
 function writeVideoPlayerWithChat(){
     document.write("<table>");
+    writeVideoPlayer();
+    writeDefaultVideoPlayerOptions();
+    writeDefaultAutoResponderOptions();
+    writeChatMessagesDiv();
+    document.write("</table>");
+}
+function writeVideoPlayer(){
     document.write("<tr>");
     document.write("<td>");
     document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/media/cat.jpg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
@@ -214,44 +196,36 @@ function writeVideoPlayerWithChat(){
     document.write("</video>");
     document.write("</td>");
     document.write("</tr>");
+}
+function writeDefaultVideoPlayerOptions(){
     document.write("<tr>");
     document.write("<td>");
     document.write("<select id=\"selectvideos\">");
-    writeDefaultVideoPlayerOptions();
+    document.write("<option value=\"http://seattlerules.com/media/marginal/jim-marginal-overthelight-march2015.mp4\" selected>Sk8creteordie over the light at Marginal</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0098.mp4\">01 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0101.mp4\">02 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0103.mp4\">03 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0106.mp4\">04 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0109.mp4\">05 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0113.mp4\">01 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0116.mp4\">02 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0117.mp4\">03 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0119.mp4\">04 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0120.mp4\">05 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0127.mp4\">06 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/wxpfl/wxpfl-greenwood-201411.mp4\">07 WXPFL</option>");
+    document.write("<option value=\"http://seattlerules.com/media/kaylacheering/kayla_cheerleading_20150215.mp4\">01 Kayla Cheering</option>");
+    document.write("<option value=\"http://seattlerules.com/media/kaylacheering/kayla_cheerleading_20150215b.mp4\"> 02Kayla Cheering</option>");
+    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131923451.mp4\">01 Sk8creteordie cellphoto</option>");
+    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131950341.mp4\">02 Sk8creteordie cellphoto</option>");
+    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131952541.mp4\">03 Sk8creteordie cellphoto</option>");
+    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131956261.mp4\">04 Sk8creteordie cellphoto</option>");
+    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408132002401.mp4\">05 Sk8creteordie cellphoto</option>");
+    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408132012071.mp4\">06  Sk8creteordie cellphoto</option>");
+    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408142156021.mp4\">07 Sk8creteordie cellphoto</option>");
     document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
-    document.write("<tr>");
-    document.write("<td>");
-    writeChatControls();
-    writeChatMessagesDiv();
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");
-}
-function writeDefaultVideoPlayerOptions(){
-document.write("<option value=\"http://seattlerules.com/media/marginal/jim-marginal-overthelight-march2015.mp4\" selected>Sk8creteordie over the light at Marginal</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0098.mp4\">01 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0101.mp4\">02 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0103.mp4\">03 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0106.mp4\">04 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0109.mp4\">05 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0113.mp4\">01 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0116.mp4\">02 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0117.mp4\">03 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0119.mp4\">04 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0120.mp4\">05 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0127.mp4\">06 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/wxpfl/wxpfl-greenwood-201411.mp4\">07 WXPFL</option>");
-document.write("<option value=\"http://seattlerules.com/media/kaylacheering/kayla_cheerleading_20150215.mp4\">01 Kayla Cheering</option>");
-document.write("<option value=\"http://seattlerules.com/media/kaylacheering/kayla_cheerleading_20150215b.mp4\"> 02Kayla Cheering</option>");
-document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131923451.mp4\">01 Sk8creteordie cellphoto</option>");
-document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131950341.mp4\">02 Sk8creteordie cellphoto</option>");
-document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131952541.mp4\">03 Sk8creteordie cellphoto</option>");
-document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131956261.mp4\">04 Sk8creteordie cellphoto</option>");
-document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408132002401.mp4\">05 Sk8creteordie cellphoto</option>");
-document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408132012071.mp4\">06  Sk8creteordie cellphoto</option>");
-document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408142156021.mp4\">07 Sk8creteordie cellphoto</option>");
 }
 
 

@@ -11,13 +11,13 @@ body {
     background-position:top right;
 }
 
-
 table{
     border-spacing:0px; /*need to specify so it doesn't get defaulted by user agent stylesheet'*/
 }
 
-audio {
-    width: 400px; /*iphone 6 is 750 pixels wide. didn't have much luck using a percentage here, in chrome'*/
+td{
+    vertical-align: top;
+    text-align: left;
 }
 
 #messagesdiv
@@ -29,8 +29,8 @@ audio {
     border-style:outset;
     overflow-x: scroll;
     overflow-y: scroll;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     margin: 0%;
     border: 0%;
     padding: 0%;
@@ -41,31 +41,14 @@ audio {
     font-weight:bold;
     font-family:sans-serif;
     font-size:x-small;
-
-}
-
-span.serverdate{
-    color:green;
-    font-size:xx-small
-}
-
-span.remoteChatClientUser{
-    color:pink;
-    font-size:xx-small
-
-}
-span.chatclientmessage{
-    color:yellow;
-    font-size:xx-small
 }
 
 div.divstuffedanimalwaronly
 {
     border-width:thick;
     border-style:outset;
-    height:300px;
-    width:300px;
-    /*background-position:left;*/
+    height:100%;
+    width:100%;
     vertical-align: top;
     text-align: left;
     overflow-x: scroll;
@@ -83,32 +66,29 @@ svg.svgstuffedanimalwar
     width:100%; 
 }
 
+span.serverdate{
+    color:green;
+    font-size:xx-small
+}
+
+span.remoteChatClientUser{
+    color:pink;
+    font-size:xx-small
+
+}
+span.chatclientmessage{
+    color:yellow;
+    font-size:xx-small
+}
+
 ul{
     margin: 0%;
     border: 0%;
     padding: 0%;
 }
 
-
-td{
-    vertical-align: top;
-    text-align: left;
-}
-
 img.videolink{
     height:10%;
-}
-
-.fulldisclosurediv{
-    overflow-x: scroll;
-    overflow-y: scroll;
-    
-    font-size:small;
-    
-    margin: 0%;
-    border: 0%;
-    padding: 0%;
-   
 }
 
 a.jaemzwarelogo:link {
