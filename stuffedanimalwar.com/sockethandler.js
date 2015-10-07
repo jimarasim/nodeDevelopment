@@ -2,20 +2,25 @@
 
 //MEANT TO BE OVERRIDDEN - USE djnachossockethandler.js FOR AN EXAMPLE
 var gameMediaUrl = "http://seattlenative.org/gamemedia";
-
 var baseMasterAlias = null;
 var baseUnspecifiedAlias = null;
 var endpoint = null;
 var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
+var rectTimer = null;
+var objectTimerIds = [];
+var stepInterval = 5;
+var objectAnimalInterval = 500;
+var objectRectInterval = 100;
 
-
-  
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
+    
+    rectTimer = startObjectTimer("stuffedanimalwarsvgrect","y",objectRectInterval);
+
 }
 //CONSTRUCTION - 
 //SVG - WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
@@ -60,8 +65,7 @@ function initializeTapSocketHandler(socket){
             default:
                 console.log("unknown stuffed animal or drawing object:"+msgObject.animal);
                 break;
-        } 
-        
+        }        
     });
     baseSocket=socket;
 }
@@ -74,26 +78,22 @@ function initializeChatSocketHandler(socket){
     });
     baseSocket=socket;
 }
-
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
-function startRectTimer(objectId){
-    var dotTimer = window.setInterval(moveObject,100,objectId);
-    return dotTimer;
+function startObjectTimer(objectId,axis,interval){
+    var objectTimer = window.setInterval(moveObject,interval,objectId,axis);
+    objectTimerIds.push(objectTimer);
 }
-
-function moveObject(objectId) {
+function moveObject(objectId,axis) {
     //get the current location
-    var yPosition = $('#'+objectId).attr('y');
+    var yPosition = $('#'+objectId).attr(axis);
     if(yPosition>0){
         //update the coordinates
-        var yNewPosition = yPosition - 3;
-        $('#'+objectId).attr('y',yNewPosition);
+        var yNewPosition = yPosition - stepInterval;
+        $('#'+objectId).attr(axis,yNewPosition);
     }
     else{
-        $('#'+objectId).attr('y',$('#stuffedanimalwarsvg').height());
+        $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
     }
-    
-    
 }
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
@@ -109,7 +109,6 @@ $('form').submit(function(){
 
     return false;
 });
-
 //SVG - WHEN THE STUFFED ANIMAL WAR GAME PAD IS CLICKED, 
 //      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
 $('#stuffedanimalwarsvg').click(function(event){
@@ -119,7 +118,6 @@ $('#stuffedanimalwarsvg').click(function(event){
     console.log('EMITTING:'+tapSocketEvent+' WITH:'+msgObject);
     baseSocket.emit(tapSocketEvent,msgObject);
 });
-
 //AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
 $('#chatClientAutoResponder').change(function(){
 
@@ -132,7 +130,6 @@ $('#chatClientAutoResponder').change(function(){
     //set the autoresponder back to blanck
     $('#chatClientAutoResponder').val('blank');
 });
-
 //AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
 $('#selectsongs').change(function(){
     var songToPlay = $('#selectsongs option:selected').attr("value");
@@ -145,14 +142,12 @@ $('#selectsongs').change(function(){
         changeMp3(songToPlay);
     }
 });
-
 //AUDIO - WHEN THE PLAYER'S SONG HAS ENDED
 //  GO TO THE FIRST SONG IN THE DROPDOWN
 $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
     var currentFile = $(this).children(":first").attr('src');
     PlayNextTrack(currentFile);
 });
-
 //VIDEO - WHEN VIDEO DROPDOWN BOX IS CHANGED, 
 //  SEND A MESSAGE TO THE SERVER WITH THE SELECTED VALUE
 $('#selectvideos').change(function(){
@@ -166,7 +161,6 @@ $('#selectvideos').change(function(){
         changeMp4(videoToPlay);
     }
 });
-
 function onBaseTapSocketEventDots(msgObject){
     //width of the line to draw
     var radius = 4;
@@ -183,13 +177,19 @@ function onBaseTapSocketEventDots(msgObject){
     newCircle.setAttribute('cx',pointX);
     newCircle.setAttribute('cy',pointY);
     newCircle.setAttribute('r',radius);
-    newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:3;fill:black;'); //BLACK STROKE (OUTER CIRCLE) RANDOM STROKE => newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
+//    newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:3;fill:black;'); //BLACK STROKE (OUTER CIRCLE) 
+    //RANDOM STROKE => 
+    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
 
     $("#stuffedanimalwarsvg").append(newCircle);
-    
+
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
+    
+    //start a timer for the dot
+    var objectTimerId = startObjectTimer(circleId,"cy",objectRectInterval);
+    objectTimerIds.push(objectTimerId);
 }
 function onBaseTapSocketEventLines(msgObject){
     //width of the line to draw
@@ -205,8 +205,9 @@ function onBaseTapSocketEventLines(msgObject){
 
     //draw a line from the new to the old location
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
+    var lineId='line'+$.now();
 
-    newLine.setAttribute('id','line'+$.now());
+    newLine.setAttribute('id',lineId);
     newLine.setAttribute('x1',newPointX);
     newLine.setAttribute('y1',newPointY); 
     newLine.setAttribute('x2',oldPointX);
@@ -219,6 +220,10 @@ function onBaseTapSocketEventLines(msgObject){
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
+    
+    //start a timer for the line
+    var objectTimerId = startObjectTimer(lineId,"y1",objectRectInterval);
+    objectTimerIds.push(objectTimerId);
 }
 function onBaseTapSocketEventCustom(msgObject){
     if (
@@ -240,12 +245,15 @@ function onBaseTapSocketEventCustom(msgObject){
 function onBaseTapSocketEventImages(msgObject,imagePath){
     var width="50";
     var height="50";
+    var animalId='animal'+$.now();
+
 
     //get the coordinates emitted
     var pointX = msgObject.x-(width/2);
     var pointY = msgObject.y-(height/2);
     
     var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
+    svgimg.setAttributeNS(null,'id',animalId);
     svgimg.setAttributeNS(null,'height',height);
     svgimg.setAttributeNS(null,'width',width);
     svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', imagePath);
@@ -256,6 +264,10 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
 
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
+    
+    //start a timer for the line
+    var objectTimerId = startObjectTimer(animalId,"y",objectAnimalInterval);
+    objectTimerIds.push(objectTimerId);
 }
 //CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
 function emitChatMessage(message){
@@ -279,7 +291,6 @@ function emitChatMessage(message){
     //send the message
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
-
 //CHAT - 
 function onBaseChatSocketEvent(msgObject){
     var remoteChatClientUser = msgObject.CHATCLIENTUSER;
@@ -365,7 +376,6 @@ function onBaseChatSocketEvent(msgObject){
             }).text(chatClientMessage);
         }
 }
-
 //AUDIO - USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
 function PlayNextTrack(currentFile)
 {
@@ -388,14 +398,12 @@ function PlayNextTrack(currentFile)
         console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
     }
 }
-
 /* UTILITY - GETRANDOMCOLORVALUE (COMMON)
  * this function returns a random color value, used by drawing new things
  */
 function getRandomColorValue(){
     return Math.floor((Math.random() * 255) + 1);
 }
-
 /* UTILITY - CHANGEMP3 (COMMON)*/
 function changeMp3(mp3Url){
     //change the source of the AUDIO player
@@ -404,26 +412,9 @@ function changeMp3(mp3Url){
     document.getElementById("jaemzwaredynamicaudioplayer").play();
     $('#selectsongs').val(mp3Url);
 }
-
 /*UTILITY CHANGEMP4 (COMMON)*/
 function changeMp4(mp4Url){
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
     document.getElementById("jaemzwaredynamicvideoplayer").load();
     document.getElementById("jaemzwaredynamicvideoplayer").play();
 }
-
-function circleTimer(){
-    var circleXPosition = $('circle').attr('cx');
-//    var circleYPosition = $('circle').attr('cy');
-//    var circleZPosition = $('circle').attr('r');
-    
-    circleXPosition += 3;
-//    circleYPosition += 3;
-//    circleZPosition += 3;
-    
-    $('circle').attr('cx',circleXPosition);
-//    $('circle').attr('cy',circleYPosition);
-//    $('circle').attr('r',circleZPosition);
-}
-
-
