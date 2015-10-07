@@ -19,7 +19,7 @@ function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
     
-    rectTimer = startObjectTimer("stuffedanimalwarsvgrect","y",objectRectInterval);
+//    rectTimer = startObjectTimer("stuffedanimalwarsvgrect","y",objectRectInterval);
 
 }
 //CONSTRUCTION - 
@@ -81,6 +81,7 @@ function initializeChatSocketHandler(socket){
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
 function startObjectTimer(objectId,axis,interval){
     var objectTimer = window.setInterval(moveObject,interval,objectId,axis);
+    var objectData = {"id":objectId,"timer":objectTimer};
     objectTimerIds.push(objectTimer);
 }
 function moveObject(objectId,axis) {
@@ -94,6 +95,9 @@ function moveObject(objectId,axis) {
     else{
         $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
     }
+}
+function collision(objectId){
+    
 }
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
