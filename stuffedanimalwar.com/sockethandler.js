@@ -10,9 +10,9 @@ var tapSocketEvent = null;
 var baseSocket = null;
 var rectTimer = null;
 var objectTimerIds = [];
-var stepInterval = 5;
-var objectAnimalInterval = 500;
-var objectRectInterval = 100;
+var stepInterval = 3;
+var objectAnimalInterval = 100;
+var objectRectInterval = 50;
 
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
