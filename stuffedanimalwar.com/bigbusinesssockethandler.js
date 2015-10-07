@@ -13,4 +13,5 @@ $.getScript('sockethandler.js', function()
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
+    startRectTimer("stuffedanimalwarsvgrect");
 });

@@ -10,7 +10,6 @@ var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
 
-var dotTimer=null;
 
   
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
@@ -63,10 +62,6 @@ function initializeTapSocketHandler(socket){
                 break;
         } 
         
-        
-        //kick off the circle timer
-        dotTimer = window.setInterval(moveDots, 500);
-        
     });
     baseSocket=socket;
 }
@@ -81,18 +76,23 @@ function initializeChatSocketHandler(socket){
 }
 
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
-function moveDots()
-{
-    $( 'circle' ).each(function( i,val ) {
-        //get the current location
-        var yCirclePosition = $('#'+val).attr('cy');
+function startRectTimer(objectId){
+    var dotTimer = window.setInterval(moveObject,100,objectId);
+    return dotTimer;
+}
+
+function moveObject(objectId) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr('y');
+    if(yPosition>0){
         //update the coordinates
-        yCirclePosition = yCirclePosition - 1;
-        if(yCirclePosition>0){
-            $('#'+val).attr('cy',yCirclePosition);
-        }
+        var yNewPosition = yPosition - 3;
+        $('#'+objectId).attr('y',yNewPosition);
+    }
+    else{
+        $('#'+objectId).attr('y',$('#stuffedanimalwarsvg').height());
+    }
     
-    } );
     
 }
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
