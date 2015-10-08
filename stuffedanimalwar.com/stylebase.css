@@ -94,6 +94,10 @@ img.videolink{
     height:10%;
 }
 
+p.jaemzwarelogo{
+    color: white;
+    font-size:medium;
+}
 a.jaemzwarelogo:link {
     color: white;
     text-decoration:underline;
