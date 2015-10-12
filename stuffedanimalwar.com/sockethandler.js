@@ -10,9 +10,11 @@ var tapSocketEvent = null;
 var baseSocket = null;
 var rectTimer = null;
 var objectTimerIds = [];
-var animalPositionIncrement = 5;
-var objectAnimalInterval = 100;
-var objectShapeInterval = 50;
+
+var animalPositionIncrement = 5; //distance animal moves each reposition 
+var shapePositionIncrement = 10; //distance shape moves each reposition
+var animalInterval = 100; //milliseconds between animal repositions
+var shapeInterval = 50; //milliseconds between shape repositions
 
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
@@ -80,12 +82,28 @@ function startAnimalObjectTimer(objectId,axis,interval){
     var objectTimer = window.setInterval(moveAnimalObject,interval,objectId,axis);
     objectTimerIds.push(objectTimer);
 }
+function startShapeObjectTimer(objectId,axis,interval){
+    var objectTimer = window.setInterval(moveShapeObject,interval,objectId,axis);
+    objectTimerIds.push(objectTimer);
+}
 function moveAnimalObject(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
     if(yPosition>0){
         //update the coordinates
         var yNewPosition = yPosition - animalPositionIncrement;
+        $('#'+objectId).attr(axis,yNewPosition);
+    }
+    else{
+        $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
+    }
+}
+function moveShapeObject(objectId,axis) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(axis);
+    if(yPosition>0){
+        //update the coordinates
+        var yNewPosition = yPosition - shapePositionIncrement;
         $('#'+objectId).attr(axis,yNewPosition);
     }
     else{
@@ -192,7 +210,7 @@ function onBaseTapSocketEventDots(msgObject){
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
     
     //start a timer for the dot
-    var objectTimerId = startAnimalObjectTimer(circleId,"cy",objectShapeInterval);
+    var objectTimerId = startShapeObjectTimer(circleId,"cy",shapeInterval);
     objectTimerIds.push(objectTimerId);
 }
 function onBaseTapSocketEventLines(msgObject){
@@ -231,7 +249,7 @@ function onBaseTapSocketEventLines(msgObject){
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
     
     //start a timer for the line
-    var objectTimerId = startAnimalObjectTimer(lineId,"y1",objectShapeInterval);
+    var objectTimerId = startShapeObjectTimer(lineId,"y1",shapeInterval);
     objectTimerIds.push(objectTimerId);
 }
 function onBaseTapSocketEventCustom(msgObject){
@@ -275,7 +293,7 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
     
     //start a timer for the line
-    var objectTimerId = startAnimalObjectTimer(animalId,"y",objectAnimalInterval);
+    var objectTimerId = startAnimalObjectTimer(animalId,"y",animalInterval);
     objectTimerIds.push(objectTimerId);
 }
 //CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
