@@ -48,8 +48,8 @@ div{
 
 div.divstuffedanimalwaronly
 {
-    width:100%;
-    height:100%;
+    width:99%;
+    height:500px;
     border-width:thick;
     border-style:outset;
     vertical-align: top;
@@ -61,7 +61,7 @@ div.divstuffedanimalwaronly
 svg.svgstuffedanimalwar
 {
     /*background-image: url("media/streetdome.jpg");*/
-    background-color: lightgoldenrodyellow;
+    background-color:darkmagenta;
     background-position:left;
     vertical-align: top;
     text-align: left;

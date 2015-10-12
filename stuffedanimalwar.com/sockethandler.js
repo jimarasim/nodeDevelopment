@@ -18,9 +18,6 @@ var objectRectInterval = 50;
 function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
-    
-//    rectTimer = startObjectTimer("stuffedanimalwarsvgrect","y",objectRectInterval);
-
 }
 //CONSTRUCTION - 
 //SVG - WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
@@ -167,7 +164,7 @@ $('#selectvideos').change(function(){
 });
 function onBaseTapSocketEventDots(msgObject){
     //width of the line to draw
-    var radius = 4;
+    var radius = 5;
 
     //get the coordinates emitted
     var pointX = msgObject.x;
@@ -181,9 +178,13 @@ function onBaseTapSocketEventDots(msgObject){
     newCircle.setAttribute('cx',pointX);
     newCircle.setAttribute('cy',pointY);
     newCircle.setAttribute('r',radius);
-//    newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:3;fill:black;'); //BLACK STROKE (OUTER CIRCLE) 
-    //RANDOM STROKE => 
-    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
+    
+    //WHITE
+    newCircle.setAttribute('style','stroke:rgb(255,255,255);strokewidth:1;fill:white;'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
+    //BLACK
+    //newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:3;fill:black;'); //BLACK FILL / BLACK STROKE (OUTER CIRCLE) 
+    //RANDOM 
+    //newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
 
     $("#stuffedanimalwarsvg").append(newCircle);
 
@@ -197,7 +198,7 @@ function onBaseTapSocketEventDots(msgObject){
 }
 function onBaseTapSocketEventLines(msgObject){
     //width of the line to draw
-    var lineWidth = 3;
+    var lineWidth = 5;
 
     //get the coordinates emitted
     var newPointX = msgObject.x;
@@ -216,8 +217,13 @@ function onBaseTapSocketEventLines(msgObject){
     newLine.setAttribute('y1',newPointY); 
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
-//    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
-    newLine.setAttribute('style','stroke:rgb(0,0,0);strokewidth:'+lineWidth); //BLACK LINE
+    
+    //RANDOM
+    //newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth+';'); //RANDOM COLOR
+    //BLACK LINE
+    //newLine.setAttribute('style','stroke:rgb(0,0,0);strokewidth:'+lineWidth+';'); 
+    //WHITE LINE
+    newLine.setAttribute('style','stroke:rgb(255,255,255);stroke-width:'+lineWidth+';'); 
 
     $("#stuffedanimalwarsvg").append(newLine);
 
@@ -247,8 +253,8 @@ function onBaseTapSocketEventCustom(msgObject){
 }
 //SVG - HELPER FUNCTION FOR HELPER FUNCTION FOR ANIMAL IMAGES AND CUSTOM
 function onBaseTapSocketEventImages(msgObject,imagePath){
-    var width="50";
-    var height="50";
+    var width="100";
+    var height="100";
     var animalId='animal'+$.now();
 
 
