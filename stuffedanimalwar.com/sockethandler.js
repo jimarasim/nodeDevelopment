@@ -13,6 +13,8 @@ var objectTimerIds = [];
 
 var animalPositionIncrement = 5; //distance animal moves each reposition 
 var shapePositionIncrement = 10; //distance shape moves each reposition
+var stillInterval = 30000; //milliseconds between animal repositions
+
 var animalInterval = 100; //milliseconds between animal repositions
 var shapeInterval = 50; //milliseconds between shape repositions
 
@@ -106,6 +108,18 @@ function moveAnimalObjectUp(objectId,axis) {
         $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
     }
 }
+function moveAnimalObjectDown(objectId,axis) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(axis);
+    if(yPosition<$('#stuffedanimalwarsvg').height()){
+        //update the coordinates
+        var yNewPosition = yPosition + animalPositionIncrement;
+        $('#'+objectId).attr(axis,yNewPosition);
+    }
+    else{
+        $('#'+objectId).attr(axis,'10');
+    }
+}
 function moveShapeObjectUp(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
@@ -118,18 +132,6 @@ function moveShapeObjectUp(objectId,axis) {
         $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
     }
 }
-function moveAnimalObjectDown(objectId,axis) {
-    //get the current location
-    var yPosition = $('#'+objectId).attr(axis);
-    if(yPosition<$('#stuffedanimalwarsvg').height()){
-        //update the coordinates
-        var yNewPosition = yPosition + animalPositionIncrement;
-        $('#'+objectId).attr(axis,yNewPosition);
-    }
-    else{
-        $('#'+objectId).attr(axis,'0');
-    }
-}
 function moveShapeObjectDown(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
@@ -139,7 +141,7 @@ function moveShapeObjectDown(objectId,axis) {
         $('#'+objectId).attr(axis,yNewPosition);
     }
     else{
-        $('#'+objectId).attr(axis,'0');
+        $('#'+objectId).attr(axis,'10');
     }
 }
 function collision(objectId){
@@ -167,7 +169,7 @@ $('#stuffedanimalwarsvg').click(function(event){
             '", "y":"'+event.pageY+
             '", "animal":"'+$( '#animals option:selected' ).val()+
             '","customimage":"'+$('#imagepathtextbox option:selected').val()+
-            '","movement":"'+$('#movement').val()+'"}');
+            '","movement":"'+$('#movement option:selected').val()+'"}');
     
     console.log('EMITTING:'+tapSocketEvent+' WITH:'+msgObject);
     baseSocket.emit(tapSocketEvent,msgObject);
@@ -245,9 +247,25 @@ function onBaseTapSocketEventDots(msgObject){
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
     
-    //start a timer for the dot
-    var objectTimerId = startShapeObjectTimerUp(circleId,"cy",shapeInterval);
+    //start a timer for the line, depending on the direction
+    var direction = msgObject.movement;
+    var objectTimerId;
+    switch(direction){
+        case 'UP':
+            objectTimerId = startShapeObjectTimerUp(circleId,"y1",shapeInterval);
+            break;
+        case 'DOWN':
+            objectTimerId = startShapeObjectTimerDown(circleId,"y1",shapeInterval);
+            break;
+        case 'STILL':
+            objectTimerId = startShapeObjectTimerDown(circleId,"y1",stillInterval);
+            break;
+        default:
+            console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
+            break;
+    }
     objectTimerIds.push(objectTimerId);
+
 }
 function onBaseTapSocketEventLines(msgObject){
     //width of the line to draw
@@ -284,8 +302,23 @@ function onBaseTapSocketEventLines(msgObject){
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
     
-    //start a timer for the line
-    var objectTimerId = startShapeObjectTimerUp(lineId,"y1",shapeInterval);
+    //start a timer for the line, depending on the direction
+    var direction = msgObject.movement;
+    var objectTimerId;
+    switch(direction){
+        case 'UP':
+            objectTimerId = startShapeObjectTimerUp(lineId,"y1",shapeInterval);
+            break;
+        case 'DOWN':
+            objectTimerId = startShapeObjectTimerDown(lineId,"y1",shapeInterval);
+            break;
+        case 'STILL':
+            objectTimerId = startShapeObjectTimerDown(lineId,"y1",stillInterval);
+            break;
+        default:
+            console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
+            break;
+    }
     objectTimerIds.push(objectTimerId);
 }
 function onBaseTapSocketEventCustom(msgObject){
@@ -310,7 +343,6 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
     var height="100";
     var animalId='animal'+$.now();
 
-
     //get the coordinates emitted
     var pointX = msgObject.x-(width/2);
     var pointY = msgObject.y-(height/2);
@@ -328,8 +360,24 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
     $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
     
-    //start a timer for the line
-    var objectTimerId = startAnimalObjectTimerUp(animalId,"y",animalInterval);
+    //start a timer for the line, depending on the direction
+    var direction = msgObject.movement;
+    var objectTimerId;
+    switch(direction){
+        case 'UP':
+            objectTimerId = startAnimalObjectTimerUp(animalId,"y",animalInterval);
+            break;
+        case 'DOWN':
+            objectTimerId = startAnimalObjectTimerDown(animalId,"y",animalInterval);
+            break;
+        case 'STILL':
+            objectTimerId = startAnimalObjectTimerDown(animalId,"y",stillInterval);
+            break;
+        default:
+            return;
+            console.log("UNKNOWN DIRECTION FOR ANIMAL:"+direction);
+            break;
+    }
     objectTimerIds.push(objectTimerId);
 }
 //CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
@@ -350,7 +398,7 @@ function emitChatMessage(message){
               CHATSERVERDATE:''
           };  
 
-    console.log("EMITTING:"+JSON.stringify(chatMessageObject)+" TO CHATSOCKETEVENT:"+chatSocketEvent);
+    console.log("EMIT:"+JSON.stringify(chatMessageObject)+" CHATSOCKETEVENT:"+chatSocketEvent);
     //send the message
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }

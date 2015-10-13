@@ -38,8 +38,8 @@ function writeStuffedAnimalWarChoices(){
     document.write("</select>");
     document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
     document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
-    document.write("<option value=\"UP\" selected>UP</option>");
-    document.write("<option value=\"DOWN\">DOWN</option>");
+    document.write("<option value=\"DOWN\" selected>DOWN</option>");
+    document.write("<option value=\"UP\">UP</option>");
     document.write("<option value=\"STILL\">STILL</option>");    
     document.write("</select>");
     document.write("</form>"); 
