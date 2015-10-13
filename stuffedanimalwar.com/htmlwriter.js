@@ -23,6 +23,7 @@ function writeStuffedAnimalWarChoices(){
     document.write("<tr>");
     document.write("<td>");
     document.write("<form>");
+    
     document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
     document.write("<option value=\"dots\" selected>Dots</option>");
     document.write("<option value=\"lines\">Lines</option>");
@@ -36,6 +37,11 @@ function writeStuffedAnimalWarChoices(){
     document.write("<option value=\"custom\">CUSTOM URL</option>");    
     document.write("</select>");
     document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
+    document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
+    document.write("<option value=\"UP\" selected>UP</option>");
+    document.write("<option value=\"DOWN\">DOWN</option>");
+    document.write("<option value=\"STILL\">STILL</option>");    
+    document.write("</select>");
     document.write("</form>"); 
     document.write("</td>");
     document.write("</tr>");

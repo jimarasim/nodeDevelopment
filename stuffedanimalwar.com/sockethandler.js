@@ -78,15 +78,23 @@ function initializeChatSocketHandler(socket){
     baseSocket=socket;
 }
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
-function startAnimalObjectTimer(objectId,axis,interval){
-    var objectTimer = window.setInterval(moveAnimalObject,interval,objectId,axis);
+function startAnimalObjectTimerUp(objectId,axis,interval){
+    var objectTimer = window.setInterval(moveAnimalObjectUp,interval,objectId,axis);
     objectTimerIds.push(objectTimer);
 }
-function startShapeObjectTimer(objectId,axis,interval){
-    var objectTimer = window.setInterval(moveShapeObject,interval,objectId,axis);
+function startShapeObjectTimerUp(objectId,axis,interval){
+    var objectTimer = window.setInterval(moveShapeObjectUp,interval,objectId,axis);
     objectTimerIds.push(objectTimer);
 }
-function moveAnimalObject(objectId,axis) {
+function startAnimalObjectTimerDown(objectId,axis,interval){
+    var objectTimer = window.setInterval(moveAnimalObjectDown,interval,objectId,axis);
+    objectTimerIds.push(objectTimer);
+}
+function startShapeObjectTimerDown(objectId,axis,interval){
+    var objectTimer = window.setInterval(moveShapeObjectDown,interval,objectId,axis);
+    objectTimerIds.push(objectTimer);
+}
+function moveAnimalObjectUp(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
     if(yPosition>0){
@@ -98,7 +106,7 @@ function moveAnimalObject(objectId,axis) {
         $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
     }
 }
-function moveShapeObject(objectId,axis) {
+function moveShapeObjectUp(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
     if(yPosition>0){
@@ -108,6 +116,30 @@ function moveShapeObject(objectId,axis) {
     }
     else{
         $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
+    }
+}
+function moveAnimalObjectDown(objectId,axis) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(axis);
+    if(yPosition<$('#stuffedanimalwarsvg').height()){
+        //update the coordinates
+        var yNewPosition = yPosition + animalPositionIncrement;
+        $('#'+objectId).attr(axis,yNewPosition);
+    }
+    else{
+        $('#'+objectId).attr(axis,'0');
+    }
+}
+function moveShapeObjectDown(objectId,axis) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(axis);
+    if(yPosition<$('#stuffedanimalwarsvg').height()){
+        //update the coordinates
+        var yNewPosition = yPosition + shapePositionIncrement;
+        $('#'+objectId).attr(axis,yNewPosition);
+    }
+    else{
+        $('#'+objectId).attr(axis,'0');
     }
 }
 function collision(objectId){
@@ -131,7 +163,11 @@ $('form').submit(function(){
 //      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
 $('#stuffedanimalwarsvg').click(function(event){
     
-    var msgObject = JSON.parse('{"x":"'+event.pageX+'", "y":"'+event.pageY+'", "animal":"'+$( '#animals option:selected' ).val()+'","customimage":"'+$('#imagepathtextbox').val()+'"}');
+    var msgObject = JSON.parse('{"x":"'+event.pageX+
+            '", "y":"'+event.pageY+
+            '", "animal":"'+$( '#animals option:selected' ).val()+
+            '","customimage":"'+$('#imagepathtextbox option:selected').val()+
+            '","movement":"'+$('#movement').val()+'"}');
     
     console.log('EMITTING:'+tapSocketEvent+' WITH:'+msgObject);
     baseSocket.emit(tapSocketEvent,msgObject);
@@ -210,7 +246,7 @@ function onBaseTapSocketEventDots(msgObject){
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
     
     //start a timer for the dot
-    var objectTimerId = startShapeObjectTimer(circleId,"cy",shapeInterval);
+    var objectTimerId = startShapeObjectTimerUp(circleId,"cy",shapeInterval);
     objectTimerIds.push(objectTimerId);
 }
 function onBaseTapSocketEventLines(msgObject){
@@ -249,7 +285,7 @@ function onBaseTapSocketEventLines(msgObject){
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
     
     //start a timer for the line
-    var objectTimerId = startShapeObjectTimer(lineId,"y1",shapeInterval);
+    var objectTimerId = startShapeObjectTimerUp(lineId,"y1",shapeInterval);
     objectTimerIds.push(objectTimerId);
 }
 function onBaseTapSocketEventCustom(msgObject){
@@ -293,7 +329,7 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
     $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
     
     //start a timer for the line
-    var objectTimerId = startAnimalObjectTimer(animalId,"y",animalInterval);
+    var objectTimerId = startAnimalObjectTimerUp(animalId,"y",animalInterval);
     objectTimerIds.push(objectTimerId);
 }
 //CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
