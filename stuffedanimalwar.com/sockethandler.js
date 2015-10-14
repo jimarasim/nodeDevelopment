@@ -11,12 +11,12 @@ var baseSocket = null;
 var rectTimer = null;
 var objectTimerIds = [];
 
-var animalPositionIncrement = 5; //distance animal moves each reposition 
-var shapePositionIncrement = 10; //distance shape moves each reposition
-var stillInterval = 30000; //milliseconds between animal repositions
+var animalPositionIncrement = 1; //distance animal moves each reposition 
+var shapePositionIncrement = 1; //distance shape moves each reposition
+var stillInterval = 1000; //milliseconds between animal repositions
 
-var animalInterval = 100; //milliseconds between animal repositions
-var shapeInterval = 50; //milliseconds between shape repositions
+var animalInterval = 1000; //milliseconds between animal repositions
+var shapeInterval = 1000; //milliseconds between shape repositions
 
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
@@ -101,8 +101,8 @@ function moveAnimalObjectUp(objectId,axis) {
     var yPosition = $('#'+objectId).attr(axis);
     if(yPosition>0){
         //update the coordinates
-        var yNewPosition = yPosition - animalPositionIncrement;
-        $('#'+objectId).attr(axis,yNewPosition);
+        yPosition -= shapePositionIncrement;
+        $('#'+objectId).attr(axis,yPosition);
     }
     else{
         $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
@@ -113,8 +113,8 @@ function moveAnimalObjectDown(objectId,axis) {
     var yPosition = $('#'+objectId).attr(axis);
     if(yPosition<$('#stuffedanimalwarsvg').height()){
         //update the coordinates
-        var yNewPosition = yPosition + animalPositionIncrement;
-        $('#'+objectId).attr(axis,yNewPosition);
+        yPosition += shapePositionIncrement;
+        $('#'+objectId).attr(axis,yPosition);
     }
     else{
         $('#'+objectId).attr(axis,'10');
@@ -125,8 +125,8 @@ function moveShapeObjectUp(objectId,axis) {
     var yPosition = $('#'+objectId).attr(axis);
     if(yPosition>0){
         //update the coordinates
-        var yNewPosition = yPosition - shapePositionIncrement;
-        $('#'+objectId).attr(axis,yNewPosition);
+        yPosition -= shapePositionIncrement;
+        $('#'+objectId).attr(axis,yPosition);
     }
     else{
         $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
@@ -135,17 +135,14 @@ function moveShapeObjectUp(objectId,axis) {
 function moveShapeObjectDown(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
-    if(yPosition<$('#stuffedanimalwarsvg').height()){
+    if(yPosition<=$('#stuffedanimalwarsvg').height()){
         //update the coordinates
-        var yNewPosition = yPosition + shapePositionIncrement;
-        $('#'+objectId).attr(axis,yNewPosition);
+        yPosition += shapePositionIncrement;
+        $('#'+objectId).attr(axis,yPosition);
     }
     else{
         $('#'+objectId).attr(axis,'10');
     }
-}
-function collision(objectId){
-    
 }
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
