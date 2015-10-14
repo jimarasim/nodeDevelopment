@@ -5,24 +5,22 @@ var unspecifiedAlias = "ANONYMOUS PERSON";
 var socket = io();
 var stuffedanimalwardivTop = 0; 
 
-//CONTAINS METHOD
+//UTILITIES - contains
 String.prototype.contains = function(it) { return this.indexOf(it) !== -1; };
+//UTILITIES - getRandomColorValue
+function getRandomColorValue(){
+    return Math.floor((Math.random() * 255) + 1);
+}
 
 //EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER (UNCOMMON, CALLS UNIQUE SOCKET.EMIT CALLBACK
 function emitChatMessage(message){
-    
-    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message);
-    
     //get the user alias
     var chatClientUser = $("#chatClientUser").val();
-    console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" FROM THE USER:"+chatClientUser);
-
     //SET THE DEFAULT ALIAS IF IT'S EMPTY
     if(chatClientUser.length===0){
         chatClientUser = unspecifiedAlias;
         console.log("EMITCHATMESSAGE RECEIVED THE MESSAGE:"+message+" AND SET THE USER TO:"+chatClientUser);
     }
-
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
     var chatMessageObject = {
               CHATCLIENTUSER: chatClientUser,
@@ -30,9 +28,7 @@ function emitChatMessage(message){
               CHATCLIENTMESSAGE:message,
               CHATSERVERDATE:'CHATSERVERDATE'
           }  
-    
     //send the message
-    console.log("emitting chatmessage with chatMessageObject:"+JSON.stringify(chatMessageObject));
     socket.emit('chatmessage',chatMessageObject); 
 }
 
@@ -44,8 +40,8 @@ $('form').submit(function(){
 
     //CLEAR THE MESSAGE FROM THE MESSAGE BOX
     $('#chatClientMessage').val('');
-    
-    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
+
+    //BROADCAST THE MESSAGE TO EVERYONE ELSE
     emitChatMessage(chatMessage);
     
     return false;
@@ -56,8 +52,8 @@ $('#chatClientAutoResponder').change(function(){
     
     //GET THE MESSAGE FROM THE AUTORESPONDER
     var chatMessage = $('#chatClientAutoResponder option:selected').text();
-    
-    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
+
+    //BROADCAST THE AUTO RESPONSE TO EVERYONE ELSE
     emitChatMessage(chatMessage);
     
     //set the autoresponder back to blanck
@@ -231,7 +227,6 @@ socket.on('tapmsg', function(msg){
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth); //RANDOM COLOR
-//    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth); //BLACK LINE
 
     $("#stuffedanimalwarsvg").append(newLine);
     
@@ -241,11 +236,4 @@ socket.on('tapmsg', function(msg){
 
 });
 
-
-/* GETRANDOMCOLORVALUE (COMMON)
- * this function returns a random color value, used by drawing new things
- */
-function getRandomColorValue(){
-    return Math.floor((Math.random() * 255) + 1);
-}
 
