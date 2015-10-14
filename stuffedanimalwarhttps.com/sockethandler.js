@@ -199,9 +199,7 @@ $('#stuffedanimalwarsvg').click(function(event){
     socket.emit('tapmsg','{"x":"'+event.pageX+'", "y":"'+event.pageY+'"}');
 });
 
-//STUFFED ANIMAL WAR - DJ NACHOS (tapmsg) - ALL COMMON EXCEPT FOR JUST THE EVENT NAME, WHICH NEEDS TO BE UNIQUE TO SERVICE DIFFERENT CHAT PAGES ON THE SAME SERVER
-//the server is telling us new coordinates for the next line from another player
-//DRAW A LINE DEPENDING ON COORDINATES RECEIVED FROM THE SERVER SIDE JAVASCRIPT
+//STUFFED ANIMAL WAR
 socket.on('tapmsg', function(msg){
           
     //width of the line to draw
