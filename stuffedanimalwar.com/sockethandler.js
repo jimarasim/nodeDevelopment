@@ -14,9 +14,8 @@ var baseSocket = null;
 var rectTimer = null;
 var objectTimerIds = [];
 
-var animalPositionIncrement = 1; //distance animal moves each reposition 
-var shapePositionIncrement = 1; //distance shape moves each reposition
-var stillInterval = 10000; //milliseconds between animal repositions
+var animalPositionIncrement = 10; //distance animal moves each reposition 
+var shapePositionIncrement = 10; //distance shape moves each reposition
 var animalInterval = 500; //milliseconds between animal repositions
 var shapeInterval = 500; //milliseconds between shape repositions
 
@@ -263,9 +262,6 @@ function onBaseTapSocketEventDots(msgObject){
         case 'DOWN':
             objectTimerId = startShapeObjectTimerDown(circleId,"cy",shapeInterval);
             break;
-        case 'STILL':
-            objectTimerId = startShapeObjectTimerDown(circleId,"cy",stillInterval);
-            break;
         default:
             console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
             break;
@@ -314,9 +310,6 @@ function onBaseTapSocketEventLines(msgObject){
             break;
         case 'DOWN':
             objectTimerId = startShapeObjectTimerDown(lineId,"y1",shapeInterval);
-            break;
-        case 'STILL':
-            objectTimerId = startShapeObjectTimerDown(lineId,"y1",stillInterval);
             break;
         default:
             console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
@@ -372,9 +365,6 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
             break;
         case 'DOWN':
             objectTimerId = startAnimalObjectTimerDown(animalId,"y",animalInterval);
-            break;
-        case 'STILL':
-            objectTimerId = startAnimalObjectTimerDown(animalId,"y",stillInterval);
             break;
         default:
             return;
