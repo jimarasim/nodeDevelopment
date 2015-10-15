@@ -16,8 +16,8 @@ var objectTimerIds = [];
 
 var animalPositionIncrement = 10; //distance animal moves each reposition 
 var shapePositionIncrement = 10; //distance shape moves each reposition
-var animalInterval = 500; //milliseconds between animal repositions
-var shapeInterval = 500; //milliseconds between shape repositions
+var animalInterval = 50; //milliseconds between animal repositions
+var shapeInterval = 50; //milliseconds between shape repositions
 
 //width of the line to draw
 var radius = 5;
