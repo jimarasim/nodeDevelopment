@@ -1,5 +1,8 @@
 /* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
-
+// rect x y
+// circle cx cy
+// line x1 y1 x2 y2
+// image x y
 //MEANT TO BE OVERRIDDEN - USE djnachossockethandler.js FOR AN EXAMPLE
 var gameMediaUrl = "http://seattlenative.org/gamemedia";
 var baseMasterAlias = null;
@@ -13,10 +16,13 @@ var objectTimerIds = [];
 
 var animalPositionIncrement = 1; //distance animal moves each reposition 
 var shapePositionIncrement = 1; //distance shape moves each reposition
-var stillInterval = 1000; //milliseconds between animal repositions
+var stillInterval = 10000; //milliseconds between animal repositions
+var animalInterval = 500; //milliseconds between animal repositions
+var shapeInterval = 500; //milliseconds between shape repositions
 
-var animalInterval = 1000; //milliseconds between animal repositions
-var shapeInterval = 1000; //milliseconds between shape repositions
+//width of the line to draw
+var radius = 5;
+var lineWidth = 5;
 
 //CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
 function initializeCommonVars(masterAlias,unspecifiedAlias){
@@ -99,49 +105,57 @@ function startShapeObjectTimerDown(objectId,axis,interval){
 function moveAnimalObjectUp(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
     if(yPosition>0){
         //update the coordinates
-        yPosition -= shapePositionIncrement;
+        yPosition--;
         $('#'+objectId).attr(axis,yPosition);
     }
     else{
-        $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
+        $('#'+objectId).attr(axis,svgHeight);
     }
 }
 function moveAnimalObjectDown(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
-    if(yPosition<$('#stuffedanimalwarsvg').height()){
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
+    if(yPosition<svgHeight){
         //update the coordinates
-        yPosition += shapePositionIncrement;
+        yPosition++;
         $('#'+objectId).attr(axis,yPosition);
     }
     else{
-        $('#'+objectId).attr(axis,'10');
+        $('#'+objectId).attr(axis,'0');
     }
 }
 function moveShapeObjectUp(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
     if(yPosition>0){
         //update the coordinates
-        yPosition -= shapePositionIncrement;
+        yPosition--;
         $('#'+objectId).attr(axis,yPosition);
     }
     else{
-        $('#'+objectId).attr(axis,$('#stuffedanimalwarsvg').height());
+        $('#'+objectId).attr(axis,svgHeight);
     }
 }
 function moveShapeObjectDown(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
-    if(yPosition<=$('#stuffedanimalwarsvg').height()){
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
+    if(yPosition<svgHeight){
         //update the coordinates
-        yPosition += shapePositionIncrement;
+        yPosition++;
         $('#'+objectId).attr(axis,yPosition);
     }
     else{
-        $('#'+objectId).attr(axis,'10');
+        $('#'+objectId).attr(axis,'0');
     }
 }
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
@@ -215,8 +229,7 @@ $('#selectvideos').change(function(){
     }
 });
 function onBaseTapSocketEventDots(msgObject){
-    //width of the line to draw
-    var radius = 5;
+    
 
     //get the coordinates emitted
     var pointX = msgObject.x;
@@ -233,11 +246,7 @@ function onBaseTapSocketEventDots(msgObject){
     
     //WHITE
     newCircle.setAttribute('style','stroke:rgb(255,255,255);strokewidth:1;fill:white;'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
-    //BLACK
-    //newCircle.setAttribute('style','stroke:rgb(0,0,0);strokewidth:3;fill:black;'); //BLACK FILL / BLACK STROKE (OUTER CIRCLE) 
-    //RANDOM 
-    //newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:1;fill:black;'); //RANDOM COLOR STROKE (OUTER CIRCLE)
-
+    
     $("#stuffedanimalwarsvg").append(newCircle);
 
     //move the state rectangle to where the click was made
@@ -249,13 +258,13 @@ function onBaseTapSocketEventDots(msgObject){
     var objectTimerId;
     switch(direction){
         case 'UP':
-            objectTimerId = startShapeObjectTimerUp(circleId,"y1",shapeInterval);
+            objectTimerId = startShapeObjectTimerUp(circleId,"cy",shapeInterval);
             break;
         case 'DOWN':
-            objectTimerId = startShapeObjectTimerDown(circleId,"y1",shapeInterval);
+            objectTimerId = startShapeObjectTimerDown(circleId,"cy",shapeInterval);
             break;
         case 'STILL':
-            objectTimerId = startShapeObjectTimerDown(circleId,"y1",stillInterval);
+            objectTimerId = startShapeObjectTimerDown(circleId,"cy",stillInterval);
             break;
         default:
             console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
@@ -265,9 +274,6 @@ function onBaseTapSocketEventDots(msgObject){
 
 }
 function onBaseTapSocketEventLines(msgObject){
-    //width of the line to draw
-    var lineWidth = 5;
-
     //get the coordinates emitted
     var newPointX = msgObject.x;
     var newPointY = msgObject.y;
