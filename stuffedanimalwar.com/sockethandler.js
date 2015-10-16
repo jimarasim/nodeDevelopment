@@ -151,7 +151,7 @@ function moveShapeObjectUp(objectId,axis) {
         forEach(
             function(objectTimer)
             {
-                console.log(objectTimer.objectId);
+                console.log("OBJECT:"+objectTimer.objectId+"TIMER:"+objectTimer.objectTimerId);
             }
         );
 }
@@ -176,7 +176,7 @@ function moveShapeObjectDown(objectId,axis) {
         forEach(
             function(objectTimer)
             {
-                console.log(objectTimer.objectId);
+                console.log("OBJECT:"+objectTimer.objectId+"TIMER:"+objectTimer.objectTimerId);
             }
         );
 }
