@@ -6,181 +6,15 @@ var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
 var rectTimer = null;
-var animalObjectTimerIds = [];
-var shapeObjectTimerIds = [];
-
-
+var animalObjectTimerIds = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
+var shapeObjectTimerIds = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
 var animalPositionIncrement = 10; //distance animal moves each reposition 
 var shapePositionIncrement = 10; //distance shape moves each reposition
 var animalInterval = 50; //milliseconds between animal repositions
 var shapeInterval = 50; //milliseconds between shape repositions
+var radius = 5; //RADIUS of the dot shape to draw
+var lineWidth = 5; //width of the line shape to draw
 
-//width of the line to draw
-var radius = 5;
-var lineWidth = 5;
-
-//CONSTRUCTION - SETUP INITIAL VARS - CALLED WHEN THE OVERRIDDEN JS FILE IS LOADED, AND HAS SET THESE UNIQUE VALUES
-function initializeCommonVars(masterAlias,unspecifiedAlias){
-    baseMasterAlias = masterAlias;
-    baseUnspecifiedAlias = unspecifiedAlias;
-}
-//CONSTRUCTION - 
-//SVG - WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
-//  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
-//  DEPENDING ON THE TYPE OF ANIMAL SENT.
-//  THE TYPE OF ANIMAL SENT IS SENT BY $('#stuffedanimalwarsvg').click 
-function initializeTapSocketHandler(socket){
-    socket.on(tapSocketEvent, function(msgObject){
-        var animal = msgObject.animal;
-        switch(animal){
-            case "cats":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/cats.png");
-                break;
-            case "dogs":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/dogs.png");
-                break;
-            case "lions":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/lions.png");
-                break;
-            case "crocodiles":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/crocodiles.png");
-                break;
-            case "chickens":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/chickens.png");
-                break;
-            case "birds":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/birds.png");
-                break;
-            case "lamblambs":
-                onBaseTapSocketEventImages(msgObject,"gamemedia/lamblambs.png");
-                break;
-            case "dots":
-                onBaseTapSocketEventDots(msgObject);
-                break;
-            case "lines":
-                onBaseTapSocketEventLines(msgObject);
-                break;
-            case "custom":
-                onBaseTapSocketEventCustom(msgObject);
-                break;
-            default:
-                console.log("I DONT KNOW WHAT THIS IS!!:"+msgObject.animal);
-                break;
-        }        
-    });
-    baseSocket=socket;
-}
-//CONSTRUCTION - 
-//CHAT - WHEN A CHAT MESSAGE IS RECEIVED FROM THE SERVER,
-//  SEND THE OBJECT RECEIVED TO THE FUNCTION THAT HANDLES IT
-function initializeChatSocketHandler(socket){
-    socket.on(chatSocketEvent, function(msgObject){
-        onBaseChatSocketEvent(msgObject);
-    });
-    baseSocket=socket;
-}
-//SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
-function startAnimalObjectTimerUp(objectId,axis,interval){
-    var timerId=window.setInterval(moveAnimalObjectUp,interval,objectId,axis)
-    var animalObjectTimer = {'objectId':objectId,'timerId':timerId};
-    animalObjectTimerIds.push(animalObjectTimer);
-}
-function startShapeObjectTimerUp(objectId,axis,interval){
-    var timerId = window.setInterval(moveShapeObjectUp,interval,objectId,axis);
-    var shapeObjectTimer = {'objectId':objectId,'timerId':timerId};
-    shapeObjectTimerIds.push(shapeObjectTimer);
-}
-function startAnimalObjectTimerDown(objectId,axis,interval){
-    var timerId = window.setInterval(moveAnimalObjectDown,interval,objectId,axis);
-    var animalObjectTimer = {'objectId':objectId,'timerId':timerId};
-    animalObjectTimerIds.push(animalObjectTimer);
-}
-function startShapeObjectTimerDown(objectId,axis,interval){
-    var timerId = window.setInterval(moveShapeObjectDown,interval,objectId,axis);
-    var shapeObjectTimer = {'objectId':objectId,'timerId':timerId};
-    shapeObjectTimerIds.push(shapeObjectTimer);
-}
-function moveAnimalObjectUp(objectId,axis) {
-    //get the current location
-    var yPosition = $('#'+objectId).attr(axis);
-    var svgHeight = $('#stuffedanimalwarsvg').height();
-    //if still on the gameboard
-    if(yPosition>0){
-        //update the coordinates
-        yPosition--;
-        $('#'+objectId).attr(axis,yPosition);
-    }
-    else{
-        $('#'+objectId).attr(axis,svgHeight);
-    }
-    
-}
-function moveAnimalObjectDown(objectId,axis) {
-    //get the current location
-    var yPosition = $('#'+objectId).attr(axis);
-    var svgHeight = $('#stuffedanimalwarsvg').height();
-    //if still on the gameboard
-    if(yPosition<svgHeight){
-        //update the coordinates
-        yPosition++;
-        $('#'+objectId).attr(axis,yPosition);
-    }
-    else{
-        $('#'+objectId).attr(axis,'0');
-    }
-    
-    
-}
-
-function moveShapeObjectUp(objectId,axis) {
-    //get the current location
-    var yPosition = $('#'+objectId).attr(axis);
-    var svgHeight = $('#stuffedanimalwarsvg').height();
-    //if still on the gameboard
-    if(yPosition>0){
-        //update the coordinates
-        yPosition--;
-        $('#'+objectId).attr(axis,yPosition);
-    }
-    else{
-        $('#'+objectId).attr(axis,svgHeight);
-    }
-    
-    //check if any image animal was hit
-    animalObjectTimerIds.
-        forEach(
-            function(objectTimer)
-            {
-                console.log("OBJECT:"+objectTimer.objectId+"TIMER:"+objectTimer.objectTimerId);
-            }
-        );
-}
-
-function moveShapeObjectDown(objectId,axis) {
-    //get the current location
-    var yPosition = $('#'+objectId).attr(axis);
-    var svgHeight = $('#stuffedanimalwarsvg').height();
-    //if still on the gameboard
-    if(yPosition<svgHeight){
-        //update the coordinates
-        yPosition++;
-        $('#'+objectId).attr(axis,yPosition);
-    }
-    else{
-        $('#'+objectId).attr(axis,'0');
-    }
-    
-    
-    //check if any image animal was hit
-    animalObjectTimerIds.
-        forEach(
-            function(objectTimer)
-            {
-                console.log("OBJECT:"+objectTimer.objectId+"TIMER:"+objectTimer.objectTimerId);
-            }
-        );
-}
-//CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
 
     //GET THE MESSAGE IN THE MESSAGE BOX
@@ -194,32 +28,25 @@ $('form').submit(function(){
 
     return false;
 });
-//SVG - WHEN THE STUFFED ANIMAL WAR GAME PAD IS CLICKED, 
-//      SEND A MESSAGE TO THE SERVER WITH THE LOCATION AND ANIMAL
 $('#stuffedanimalwarsvg').click(function(event){
-    
-    var msgObject = JSON.parse('{"x":"'+event.pageX+
+    var tapMsgObject = JSON.parse('{"x":"'+event.pageX+
             '", "y":"'+event.pageY+
             '", "animal":"'+$( '#animals option:selected' ).val()+
             '","customimage":"'+$('#imagepathtextbox option:selected').val()+
             '","movement":"'+$('#movement option:selected').val()+'"}');
     
-    console.log('EMITTING:'+tapSocketEvent+' WITH:'+msgObject);
-    baseSocket.emit(tapSocketEvent,msgObject);
+    baseSocket.emit(tapSocketEvent,tapMsgObject);
 });
-//AUTORESPONDER HANDLER - SELECT DROP DOWN (COMMON) 
 $('#chatClientAutoResponder').change(function(){
 
     //GET THE MESSAGE FROM THE AUTORESPONDER
     var chatMessage = $('#chatClientAutoResponder option:selected').text();
 
-    console.log("CALLING EMITCHATMESSAGE FROM AUTORESPONDER WITH #chatClientAutoResponder option:selected => "+chatMessage);
     emitChatMessage(chatMessage);
 
     //set the autoresponder back to blanck
     $('#chatClientAutoResponder').val('blank');
 });
-//AUDIO DROPDOWN HANDLER - SELECT DROP DOWN - CHANGE SONG (COMMON)
 $('#selectsongs').change(function(){
     var songToPlay = $('#selectsongs option:selected').attr("value");
     var chatClientUser = $("#chatClientUser").val();
@@ -231,14 +58,10 @@ $('#selectsongs').change(function(){
         changeMp3(songToPlay);
     }
 });
-//AUDIO - WHEN THE PLAYER'S SONG HAS ENDED
-//  GO TO THE FIRST SONG IN THE DROPDOWN
 $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
     var currentFile = $(this).children(":first").attr('src');
     PlayNextTrack(currentFile);
 });
-//VIDEO - WHEN VIDEO DROPDOWN BOX IS CHANGED, 
-//  SEND A MESSAGE TO THE SERVER WITH THE SELECTED VALUE
 $('#selectvideos').change(function(){
     var videoToPlay = $('#selectvideos option:selected').attr("value");
     var chatClientUser = $("#chatClientUser").val();
@@ -250,12 +73,167 @@ $('#selectvideos').change(function(){
         changeMp4(videoToPlay);
     }
 });
-function onBaseTapSocketEventDots(msgObject){
-    
 
+
+//CONSTRUCTION - INITIALIZE VARIABLES
+function initializeCommonVars(masterAlias,unspecifiedAlias){
+    baseMasterAlias = masterAlias;
+    baseUnspecifiedAlias = unspecifiedAlias;
+}
+//CONSTRUCTION - SETUP TAP HANDLERS
+function initializeTapSocketHandler(socket){
+    //  WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
+    //  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
+    //  DEPENDING ON THE TYPE OF ANIMAL SENT BY $('#stuffedanimalwarsvg').click;
+    socket.on(tapSocketEvent, function(tapMsgObject){
+        var animal = tapMsgObject.animal; //see htmlwriter.js writeStuffedAnimalWarChoices
+        switch(animal){
+            case "cats":
+                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/cats.png");
+                break;
+            case "dogs":
+                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/dogs.png");
+                break;
+            case "lions":
+                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/lions.png");
+                break;
+            case "crocodiles":
+                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/crocodiles.png");
+                break;
+            case "chickens":
+                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/chickens.png");
+                break;
+            case "birds":
+                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/birds.png");
+                break;
+            case "lamblambs":
+                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/lamblambs.png");
+                break;
+            case "dots":
+                onBaseTapSocketEventDots(tapMsgObject);
+                break;
+            case "lines":
+                onBaseTapSocketEventLines(tapMsgObject);
+                break;
+            case "custom":
+                onBaseTapSocketEventCustom(tapMsgObject);
+                break;
+            default:
+                console.log("I DONT KNOW WHAT THIS IS!!:"+tapMsgObject.animal);
+                break;
+        }        
+    });
+    baseSocket=socket;
+}
+//CONSTRUCTION - SETUP CHAT HANDLERS
+function initializeChatSocketHandler(socket){
+    socket.on(chatSocketEvent, function(msgObject){
+        onBaseChatSocketEvent(msgObject);
+    });
+    baseSocket=socket;
+}
+
+function startAnimalObjectTimerUp(objectId,xAxisAttr,yAxisAttr){
+    var timerId=window.setInterval(moveAnimalObjectUp,animalInterval,objectId,xAxisAttr,yAxisAttr)
+    var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    animalObjectTimerIds.push(animalObjectTimerId);
+}
+function startShapeObjectTimerUp(objectId,xAxisAttr,yAxisAttr){
+    var timerId = window.setInterval(moveShapeObjectUp,shapeInterval,objectId,xAxisAttr,yAxisAttr);
+    var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    shapeObjectTimerIds.push(shapeObjectTimerId);
+}
+function startAnimalObjectTimerDown(objectId,xAxisAttr,yAxisAttr){
+    var timerId = window.setInterval(moveAnimalObjectDown,animalInterval,objectId,xAxisAttr,yAxisAttr);
+    var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    animalObjectTimerIds.push(animalObjectTimerId);
+}
+function startShapeObjectTimerDown(objectId,xAxisAttr,yAxisAttr){
+    var timerId = window.setInterval(moveShapeObjectDown,shapeInterval,objectId,xAxisAttr,yAxisAttr);
+    var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    shapeObjectTimerIds.push(shapeObjectTimerId);
+}
+
+function moveAnimalObjectUp(objectId,xAxisAttr,yAxisAttr) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(yAxisAttr);
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
+    if(yPosition>0){
+        //update the coordinates
+        yPosition--;
+        $('#'+objectId).attr(yAxisAttr,yPosition);
+    }
+    else{
+        $('#'+objectId).attr(yAxisAttr,svgHeight);
+    }  
+}
+function moveAnimalObjectDown(objectId,xAxisAttr,yAxisAttr) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(yAxisAttr);
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
+    if(yPosition<svgHeight){
+        //update the coordinates
+        yPosition++;
+        $('#'+objectId).attr(yAxisAttr,yPosition);
+    }
+    else{
+        $('#'+objectId).attr(yAxisAttr,'0');
+    }
+}
+function moveShapeObjectUp(objectId,xAxisAttr,yAxisAttr) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(yAxisAttr);
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
+    if(yPosition>0){
+        //update the coordinates
+        yPosition--;
+        $('#'+objectId).attr(yAxisAttr,yPosition);
+    }
+    else{
+        $('#'+objectId).attr(yAxisAttr,svgHeight);
+    }
+    
+    //check if any image animal was hit
+    animalObjectTimerIds.
+        forEach(
+            function(animalObjectTimerId)
+            {
+                console.log(JSON.stringify(animalObjectTimerId));
+            }
+        );
+}
+function moveShapeObjectDown(objectId,xAxisAttr,yAxisAttr) {
+    //get the current location
+    var yPosition = $('#'+objectId).attr(yAxisAttr);
+    var svgHeight = $('#stuffedanimalwarsvg').height();
+    //if still on the gameboard
+    if(yPosition<svgHeight){
+        //update the coordinates
+        yPosition++;
+        $('#'+objectId).attr(yAxisAttr,yPosition);
+    }
+    else{
+        $('#'+objectId).attr(yAxisAttr,'0');
+    }
+    
+    //check if any image animal was hit
+    animalObjectTimerIds.
+        forEach(
+            function(animalObjectTimerId)
+            {
+                console.log(JSON.stringify(animalObjectTimerId));
+            }
+        );
+}
+
+function onBaseTapSocketEventDots(tapMsgObject){
+    
     //get the coordinates emitted
-    var pointX = msgObject.x;
-    var pointY = msgObject.y;
+    var pointX = tapMsgObject.x;
+    var pointY = tapMsgObject.y;
 
     //draw a circle from the new to the old location
     var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
@@ -276,7 +254,7 @@ function onBaseTapSocketEventDots(msgObject){
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
     
     //start a timer for the line, depending on the direction
-    var direction = msgObject.movement;
+    var direction = tapMsgObject.movement;
     var objectTimerId;
     switch(direction){
         case 'UP':
@@ -289,14 +267,14 @@ function onBaseTapSocketEventDots(msgObject){
             console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
             break;
     }
-    var timerObject = {'objectId':circleId,'objectTimerId':objectTimerId};
-    shapeObjectTimerIds.push(timerObject);
+    var shapeObjectTimer = {'objectId':circleId,'timerId':objectTimerId};
+    shapeObjectTimerIds.push(shapeObjectTimer);
 
 }
-function onBaseTapSocketEventLines(msgObject){
+function onBaseTapSocketEventLines(tapMsgObject){
     //get the coordinates emitted
-    var newPointX = msgObject.x;
-    var newPointY = msgObject.y;
+    var newPointX = tapMsgObject.x;
+    var newPointY = tapMsgObject.y;
 
     //save off these coordinates (for drawing a line)
     var oldPointX =$("#stuffedanimalwarsvgrect").attr("x");
@@ -312,10 +290,6 @@ function onBaseTapSocketEventLines(msgObject){
     newLine.setAttribute('x2',oldPointX);
     newLine.setAttribute('y2',oldPointY);
     
-    //RANDOM
-    //newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth+';'); //RANDOM COLOR
-    //BLACK LINE
-    //newLine.setAttribute('style','stroke:rgb(0,0,0);strokewidth:'+lineWidth+';'); 
     //WHITE LINE
     newLine.setAttribute('style','stroke:rgb(255,255,255);stroke-width:'+lineWidth+';'); 
 
@@ -326,7 +300,7 @@ function onBaseTapSocketEventLines(msgObject){
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
     
     //start a timer for the line, depending on the direction
-    var direction = msgObject.movement;
+    var direction = tapMsgObject.movement;
     var objectTimerId;
     switch(direction){
         case 'UP':
@@ -339,34 +313,33 @@ function onBaseTapSocketEventLines(msgObject){
             console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
             break;
     }
-    var timerObject = {'objectId':lineId,'objectTimerId':objectTimerId};
+    var timerObject = {'objectId':lineId,'timerId':objectTimerId};
     shapeObjectTimerIds.push(timerObject);
 }
-function onBaseTapSocketEventCustom(msgObject){
+function onBaseTapSocketEventCustom(tapMsgObject){
     if (
-        msgObject.customimage.indexOf("http://")===0||
-        msgObject.customimage.indexOf("https://")===0
+        tapMsgObject.customimage.indexOf("http://")===0||
+        tapMsgObject.customimage.indexOf("https://")===0
        ){ 
-            if( msgObject.customimage.indexOf(".jpg")   >   0 ||
-                msgObject.customimage.indexOf(".jpeg")  >   0 ||
-                msgObject.customimage.indexOf(".gif")   >   0 ||
-                msgObject.customimage.indexOf(".png")   >   0){
-                onBaseTapSocketEventImages(msgObject,msgObject.customimage);
+            if( tapMsgObject.customimage.indexOf(".jpg")   >   0 ||
+                tapMsgObject.customimage.indexOf(".jpeg")  >   0 ||
+                tapMsgObject.customimage.indexOf(".gif")   >   0 ||
+                tapMsgObject.customimage.indexOf(".png")   >   0){
+                onBaseTapSocketEventImages(tapMsgObject,tapMsgObject.customimage);
             }
             else{
-                console.log('MESSAGE SENT DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+msgObject.customimage);
+                console.log('MESSAGE SENT DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+tapMsgObject.customimage);
             }
         }
 }
-//SVG - HELPER FUNCTION FOR HELPER FUNCTION FOR ANIMAL IMAGES AND CUSTOM
-function onBaseTapSocketEventImages(msgObject,imagePath){
+function onBaseTapSocketEventImages(tapMsgObject,imagePath){
     var width="100";
     var height="100";
     var animalId='animal'+$.now();
 
     //get the coordinates emitted
-    var pointX = msgObject.x-(width/2);
-    var pointY = msgObject.y-(height/2);
+    var pointX = tapMsgObject.x-(width/2);
+    var pointY = tapMsgObject.y-(height/2);
     
     var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
     svgimg.setAttributeNS(null,'id',animalId);
@@ -379,11 +352,11 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
     svgimg.setAttributeNS(null, 'visibility', 'visible');
     $('#stuffedanimalwarsvg').append(svgimg);
 
-    $("#stuffedanimalwarsvgrect").attr("x",msgObject.x);
-    $("#stuffedanimalwarsvgrect").attr("y",msgObject.y); 
+    $("#stuffedanimalwarsvgrect").attr("x",tapMsgObject.x);
+    $("#stuffedanimalwarsvgrect").attr("y",tapMsgObject.y); 
     
     //start a timer for the line, depending on the direction
-    var direction = msgObject.movement;
+    var direction = tapMsgObject.movement;
     var objectTimerId;
     switch(direction){
         case 'UP':
@@ -397,41 +370,16 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
             console.log("UNKNOWN DIRECTION FOR ANIMAL:"+direction);
             break;
     }
-    var timerObject = {'objectId':animalId,'objectTimerId':objectTimerId};
+    var timerObject = {'objectId':animalId,'timerId':objectTimerId};
     animalObjectTimerIds.push(timerObject);
 }
-//CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
-function emitChatMessage(message){
-    //get the user alias
-    var chatClientUser = $("#chatClientUser").val();
 
-    //SET THE DEFAULT ALIAS IF IT'S EMPTY
-    if(chatClientUser.length===0){
-        chatClientUser = baseUnspecifiedAlias;
-    }
-
-    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    var chatMessageObject = {
-              CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'',
-              CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:''
-          };  
-
-    console.log("EMIT:"+JSON.stringify(chatMessageObject)+" CHATSOCKETEVENT:"+chatSocketEvent);
-    //send the message
-    baseSocket.emit(chatSocketEvent,chatMessageObject); 
-}
-//CHAT - 
-function onBaseChatSocketEvent(msgObject){
-    var remoteChatClientUser = msgObject.CHATCLIENTUSER;
-    var chatServerUser = msgObject.CHATSERVERUSER;
-    var chatClientMessage = msgObject.CHATCLIENTMESSAGE;
-    var chatServerDate = msgObject.CHATSERVERDATE;
-    var serverStamp = "[IP:"+chatServerUser+" DATE:"+chatServerDate+"]"; //ip and time stamp
-
-    console.log("RECEIVED MSGOBJECT FROM A CHATMESSAGE BROADCAST:"+JSON.stringify(msgObject));
-    console.log("PARAMETERIZED FOR READABILITY remoteChatClientUser:"+remoteChatClientUser+" CHATSERVERUSER:"+chatServerUser+" CHATCLIENTMESSAGE:"+chatClientMessage+" CHATSERVERDATE:"+chatServerDate);
+function onBaseChatSocketEvent(chatMsgObject){
+    var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
+    var chatServerUser = chatMsgObject.CHATSERVERUSER;
+    var chatClientMessage = chatMsgObject.CHATCLIENTMESSAGE;
+    var chatServerDate = chatMsgObject.CHATSERVERDATE;
+    var serverStamp = "["+chatServerUser+"]["+chatServerDate+"]"; //ip and time stamp
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -453,16 +401,14 @@ function onBaseChatSocketEvent(msgObject){
             }
           else if(chatClientMessage.indexOf(".mp3") && remoteChatClientUser===baseMasterAlias)
             {
-
-                    //change the source of the AUDIO player
-                    changeMp3(chatClientMessage);
+                //change the source of the AUDIO player
+                changeMp3(chatClientMessage);
 
             }
           else if(chatClientMessage.indexOf(".mp4") > 0 && remoteChatClientUser===baseMasterAlias)
             {
                     //change the source of the VIDEO player
                     changeMp4(chatClientMessage);
-
             }
             else{
                 $('#messagesdiv').prepend($('<br />'));
@@ -507,9 +453,31 @@ function onBaseChatSocketEvent(msgObject){
             }).text(chatClientMessage);
         }
 }
-//AUDIO - USED TO PLAY NEXT TRACK IN THE AUDIO DROPDOWN
-function PlayNextTrack(currentFile)
-{
+function emitChatMessage(message){
+    //get the user alias
+    var chatClientUser = $("#chatClientUser").val();
+
+    //SET THE DEFAULT ALIAS IF IT'S EMPTY
+    if(chatClientUser.length===0){
+        chatClientUser = baseUnspecifiedAlias;
+    }
+
+    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
+    var chatMessageObject = {
+              CHATCLIENTUSER: chatClientUser,
+              CHATSERVERUSER:'',
+              CHATCLIENTMESSAGE:message,
+              CHATSERVERDATE:''
+          };  
+
+    console.log("EMIT:"+JSON.stringify(chatMessageObject)+" CHATSOCKETEVENT:"+chatSocketEvent);
+    //send the message
+    baseSocket.emit(chatSocketEvent,chatMessageObject); 
+}
+
+
+//AUDIO SPECIFIC UTILITIES
+function PlayNextTrack(currentFile){
     //don't do anything if there are no tracks
     if($('#selectsongs option').length===0)
     {
@@ -529,11 +497,6 @@ function PlayNextTrack(currentFile)
         console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
     }
 }
-/* UTILITY - GETRANDOMCOLORVALUE (COMMON)
- * this function returns a random color value, used by drawing new things
- */
-
-/* UTILITY - CHANGEMP3 (COMMON)*/
 function changeMp3(mp3Url){
     //change the source of the AUDIO player
     $('#jaemzwaredynamicaudiosource').attr("src",mp3Url);
@@ -541,7 +504,6 @@ function changeMp3(mp3Url){
     document.getElementById("jaemzwaredynamicaudioplayer").play();
     $('#selectsongs').val(mp3Url);
 }
-/*UTILITY CHANGEMP4 (COMMON)*/
 function changeMp4(mp4Url){
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
     document.getElementById("jaemzwaredynamicvideoplayer").load();

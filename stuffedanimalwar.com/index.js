@@ -126,6 +126,12 @@ io.on('connection', function(socket){
     }); 
     
     //CHATMESSAGES--------------------------------------------------------------------------------------
+//    var chatMessageObject = {
+//              CHATCLIENTUSER: chatClientUser,
+//              CHATSERVERUSER:'',
+//              CHATCLIENTMESSAGE:message,
+//              CHATSERVERDATE:''
+//          };  
     socket.on('chatmessage', function(msgObject){
         sendChatMessage('chatmessage',msgObject);
     });
@@ -213,29 +219,35 @@ io.on('connection', function(socket){
     
     
     //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
-    function sendChatMessage(socketEvent,msgObject){
+    //    sockethandler.js (client) => emitChatMessage
+    //    var chatMessageObject = {
+    //              CHATCLIENTUSER: chatClientUser,
+    //              CHATSERVERUSER:'',
+    //              CHATCLIENTMESSAGE:message,
+    //              CHATSERVERDATE:''
+    //          };  
+    function sendChatMessage(chatSocketEvent,chatMsgObject){
           //GET THE ADDRESS AND DATE
           var chatClientAddress = socket.handshake.address;
           var chatServerDate = new Date();
 
           //update the emitted json object with server information
-          msgObject.CHATSERVERUSER = chatClientAddress;
-          msgObject.CHATSERVERDATE = chatServerDate;
-
-          console.log("BROADCAST SOCKETEVENT CHAT:"+socketEvent+" CHATMESSAGEOBJECT:" + JSON.stringify(msgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
+          chatMsgObject.CHATSERVERUSER = chatClientAddress;
+          chatMsgObject.CHATSERVERDATE = chatServerDate;
 
           //broadcast
-          io.emit(socketEvent,msgObject);
+          io.emit(chatSocketEvent,chatMsgObject);
     }
-
-    function sendTapMessage(socketEvent,msgObject){
-            //GET THE ADDRESS AND DATE
-            var chatClientAddress = socket.handshake.address;
-            var chatServerDate = new Date();
-            console.log("BROADCAST SOCKETEVENT TAP:"+socketEvent+" TAPMSGOBJECT:" + JSON.stringify(msgObject)+" FROM:"+chatClientAddress+" ON:"+chatServerDate);
-
-            //broadcast chat message (client page needs to have  a socket.on handler for this)
-            io.emit(socketEvent,msgObject);
+    //GENERIC TAPMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
+    //    sockethandler.js (client) => $('#stuffedanimalwarsvg').click
+    //    var tapMsgObject = JSON.parse('{"x":"'+event.pageX+
+    //            '", "y":"'+event.pageY+
+    //            '", "animal":"'+$( '#animals option:selected' ).val()+
+    //            '","customimage":"'+$('#imagepathtextbox option:selected').val()+
+    //            '","movement":"'+$('#movement option:selected').val()+'"}');
+    function sendTapMessage(tapSocketEvent,tapMsgObject){
+        //broadcast TAP message (client page needs to have  a socket.on handler for this)
+        io.emit(tapSocketEvent,tapMsgObject);
     } 
 });
 

@@ -1,7 +1,5 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * GENERAL UTILITIES
  */
 function RectContainsPoint(rectx, recty, height, width, pointx, pointy){
     //if the point is inside the rectangle
@@ -17,7 +15,9 @@ function RectContainsPoint(rectx, recty, height, width, pointx, pointy){
         return false;
     }
 }
-
+/* UTILITY - GETRANDOMCOLORVALUE (COMMON)
+ * this function returns a random color value, used by drawing new things
+ */
 function getRandomColorValue(){
     return Math.floor((Math.random() * 255) + 1);
 }
