@@ -1,9 +1,3 @@
-/* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
-// rect x y
-// circle cx cy
-// line x1 y1 x2 y2
-// image x y
-//MEANT TO BE OVERRIDDEN - USE djnachossockethandler.js FOR AN EXAMPLE
 var gameMediaUrl = "http://seattlenative.org/gamemedia";
 var baseMasterAlias = null;
 var baseUnspecifiedAlias = null;
@@ -12,7 +6,9 @@ var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
 var rectTimer = null;
-var objectTimerIds = [];
+var animalObjectTimerIds = [];
+var shapeObjectTimerIds = [];
+
 
 var animalPositionIncrement = 10; //distance animal moves each reposition 
 var shapePositionIncrement = 10; //distance shape moves each reposition
@@ -36,7 +32,6 @@ function initializeCommonVars(masterAlias,unspecifiedAlias){
 function initializeTapSocketHandler(socket){
     socket.on(tapSocketEvent, function(msgObject){
         var animal = msgObject.animal;
-        console.log("RECEIVED TAPSOCKETEVENT:"+JSON.stringify(msgObject)+" ANIMAL:"+animal);
         switch(animal){
             case "cats":
                 onBaseTapSocketEventImages(msgObject,"gamemedia/cats.png");
@@ -69,7 +64,7 @@ function initializeTapSocketHandler(socket){
                 onBaseTapSocketEventCustom(msgObject);
                 break;
             default:
-                console.log("unknown stuffed animal or drawing object:"+msgObject.animal);
+                console.log("I DONT KNOW WHAT THIS IS!!:"+msgObject.animal);
                 break;
         }        
     });
@@ -86,20 +81,24 @@ function initializeChatSocketHandler(socket){
 }
 //SVG - HELPER FUNCTIONS THAT HANDLE MESSAGES RECEIVED FROM THE SERVER
 function startAnimalObjectTimerUp(objectId,axis,interval){
-    var objectTimer = window.setInterval(moveAnimalObjectUp,interval,objectId,axis);
-    objectTimerIds.push(objectTimer);
+    var timerId=window.setInterval(moveAnimalObjectUp,interval,objectId,axis)
+    var animalObjectTimer = {'objectId':objectId,'timerId':timerId};
+    animalObjectTimerIds.push(animalObjectTimer);
 }
 function startShapeObjectTimerUp(objectId,axis,interval){
-    var objectTimer = window.setInterval(moveShapeObjectUp,interval,objectId,axis);
-    objectTimerIds.push(objectTimer);
+    var timerId = window.setInterval(moveShapeObjectUp,interval,objectId,axis);
+    var shapeObjectTimer = {'objectId':objectId,'timerId':timerId};
+    shapeObjectTimerIds.push(shapeObjectTimer);
 }
 function startAnimalObjectTimerDown(objectId,axis,interval){
-    var objectTimer = window.setInterval(moveAnimalObjectDown,interval,objectId,axis);
-    objectTimerIds.push(objectTimer);
+    var timerId = window.setInterval(moveAnimalObjectDown,interval,objectId,axis);
+    var animalObjectTimer = {'objectId':objectId,'timerId':timerId};
+    animalObjectTimerIds.push(animalObjectTimer);
 }
 function startShapeObjectTimerDown(objectId,axis,interval){
-    var objectTimer = window.setInterval(moveShapeObjectDown,interval,objectId,axis);
-    objectTimerIds.push(objectTimer);
+    var timerId = window.setInterval(moveShapeObjectDown,interval,objectId,axis);
+    var shapeObjectTimer = {'objectId':objectId,'timerId':timerId};
+    shapeObjectTimerIds.push(shapeObjectTimer);
 }
 function moveAnimalObjectUp(objectId,axis) {
     //get the current location
@@ -114,6 +113,7 @@ function moveAnimalObjectUp(objectId,axis) {
     else{
         $('#'+objectId).attr(axis,svgHeight);
     }
+    
 }
 function moveAnimalObjectDown(objectId,axis) {
     //get the current location
@@ -128,7 +128,10 @@ function moveAnimalObjectDown(objectId,axis) {
     else{
         $('#'+objectId).attr(axis,'0');
     }
+    
+    
 }
+
 function moveShapeObjectUp(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
@@ -142,7 +145,17 @@ function moveShapeObjectUp(objectId,axis) {
     else{
         $('#'+objectId).attr(axis,svgHeight);
     }
+    
+    //check if any image animal was hit
+    animalObjectTimerIds.
+        forEach(
+            function(objectTimer)
+            {
+                console.log(objectTimer.objectId);
+            }
+        );
 }
+
 function moveShapeObjectDown(objectId,axis) {
     //get the current location
     var yPosition = $('#'+objectId).attr(axis);
@@ -156,6 +169,16 @@ function moveShapeObjectDown(objectId,axis) {
     else{
         $('#'+objectId).attr(axis,'0');
     }
+    
+    
+    //check if any image animal was hit
+    animalObjectTimerIds.
+        forEach(
+            function(objectTimer)
+            {
+                console.log(objectTimer.objectId);
+            }
+        );
 }
 //CHAT MESSAGE HANDLER - CHAT MESSAGE => SOCKET (COMMON)
 $('form').submit(function(){
@@ -266,7 +289,8 @@ function onBaseTapSocketEventDots(msgObject){
             console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
             break;
     }
-    objectTimerIds.push(objectTimerId);
+    var timerObject = {'objectId':circleId,'objectTimerId':objectTimerId};
+    shapeObjectTimerIds.push(timerObject);
 
 }
 function onBaseTapSocketEventLines(msgObject){
@@ -315,7 +339,8 @@ function onBaseTapSocketEventLines(msgObject){
             console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
             break;
     }
-    objectTimerIds.push(objectTimerId);
+    var timerObject = {'objectId':lineId,'objectTimerId':objectTimerId};
+    shapeObjectTimerIds.push(timerObject);
 }
 function onBaseTapSocketEventCustom(msgObject){
     if (
@@ -345,6 +370,7 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
     
     var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
     svgimg.setAttributeNS(null,'id',animalId);
+    svgimg.setAttributeNS(null,'class','animalimage');
     svgimg.setAttributeNS(null,'height',height);
     svgimg.setAttributeNS(null,'width',width);
     svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', imagePath);
@@ -371,7 +397,8 @@ function onBaseTapSocketEventImages(msgObject,imagePath){
             console.log("UNKNOWN DIRECTION FOR ANIMAL:"+direction);
             break;
     }
-    objectTimerIds.push(objectTimerId);
+    var timerObject = {'objectId':animalId,'objectTimerId':objectTimerId};
+    animalObjectTimerIds.push(timerObject);
 }
 //CHAT - EMITCHATMESSAGE - CALLED BY CHAT MESSAGE FORM SUBMIT AND AUTORESPONDER 
 function emitChatMessage(message){
@@ -505,9 +532,7 @@ function PlayNextTrack(currentFile)
 /* UTILITY - GETRANDOMCOLORVALUE (COMMON)
  * this function returns a random color value, used by drawing new things
  */
-function getRandomColorValue(){
-    return Math.floor((Math.random() * 255) + 1);
-}
+
 /* UTILITY - CHANGEMP3 (COMMON)*/
 function changeMp3(mp3Url){
     //change the source of the AUDIO player
@@ -522,3 +547,4 @@ function changeMp4(mp4Url){
     document.getElementById("jaemzwaredynamicvideoplayer").load();
     document.getElementById("jaemzwaredynamicvideoplayer").play();
 }
+
