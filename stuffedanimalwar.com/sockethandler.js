@@ -23,7 +23,6 @@ $('form').submit(function(){
     //CLEAR THE MESSAGE FROM THE MESSAGE BOX
     $('#chatClientMessage').val('');
 
-    console.log("CALLING EMITCHATMESSAGE FROM FORM SUBMIT WITH #chatClientMessage => "+chatMessage);
     emitChatMessage(chatMessage);
 
     return false;
@@ -180,13 +179,12 @@ function moveShapeObjectUp(objectId,xAxisAttr,yAxisAttr) {
         forEach(
             function(animalObjectTimerId)
             {
-                console.log("ANIMALS:"+JSON.stringify(animalObjectTimerId));
+//                RectContainsPoint(rectx, recty, height, width, pointx, pointy)
             }
         );
 }
 function moveShapeObjectDown(objectId,xAxisAttr,yAxisAttr) {
     //get the current location
-    console.log(objectId);
     var yPosition = $('#'+objectId).attr(yAxisAttr);
     var svgHeight = $('#stuffedanimalwarsvg').height();
     //if still on the gameboard
@@ -200,13 +198,17 @@ function moveShapeObjectDown(objectId,xAxisAttr,yAxisAttr) {
     }
     
     //check if any image animal was hit
+    var objectIdDisplay = '';
     animalObjectTimerIds.
         forEach(
             function(animalObjectTimerId)
             {
-                console.log(JSON.stringify(animalObjectTimerId));
+                objectIdDisplay += "--OBJECT:"+JSON.stringify(animalObjectTimerId);
+
             }
         );
+    console.log(objectIdDisplay);
+
 }
 
 function startAnimalObjectTimerUp(objectId,xAxisAttr,yAxisAttr,animalInterval){
@@ -269,11 +271,6 @@ function onBaseTapSocketEventDots(tapMsgObject){
             console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
             break;
     }
-    var shapeObjectTimer = {'objectId':circleId,'timerId':objectTimerId};
-    
-//    console.log(JSON.stringify(shapeObjectTimer));
-    shapeObjectTimerIds.push(shapeObjectTimer);
-
 }
 function onBaseTapSocketEventLines(tapMsgObject){
     //get the coordinates emitted
@@ -317,8 +314,6 @@ function onBaseTapSocketEventLines(tapMsgObject){
             console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
             break;
     }
-    var timerObject = {'objectId':lineId,'timerId':objectTimerId};
-    shapeObjectTimerIds.push(timerObject);
 }
 function onBaseTapSocketEventCustom(tapMsgObject){
     if (
@@ -374,8 +369,6 @@ function onBaseTapSocketEventImages(tapMsgObject,imagePath){
             console.log("UNKNOWN DIRECTION FOR ANIMAL:"+direction);
             break;
     }
-    var timerObject = {'objectId':animalId,'timerId':objectTimerId};
-    animalObjectTimerIds.push(timerObject);
 }
 
 function onBaseChatSocketEvent(chatMsgObject){
@@ -474,7 +467,6 @@ function emitChatMessage(message){
               CHATSERVERDATE:''
           };  
 
-//    console.log("EMIT:"+JSON.stringify(chatMessageObject)+" CHATSOCKETEVENT:"+chatSocketEvent);
     //send the message
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
