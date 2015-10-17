@@ -12,8 +12,8 @@ var animalPositionIncrement = 10; //distance animal moves each reposition
 var shapePositionIncrement = 10; //distance shape moves each reposition
 var animalInterval = 50; //milliseconds between animal repositions
 var shapeInterval = 50; //milliseconds between shape repositions
-var radius = 5; //RADIUS of the dot shape to draw
-var lineWidth = 5; //width of the line shape to draw
+var radius = 10; //RADIUS of the dot shape to draw
+var lineWidth = 10; //width of the line shape to draw
 
 $('form').submit(function(){
 
@@ -180,7 +180,7 @@ function moveShapeObjectUp(objectId,xAxisAttr,yAxisAttr) {
         forEach(
             function(animalObjectTimerId)
             {
-                console.log(JSON.stringify(animalObjectTimerId));
+                console.log("ANIMALS:"+JSON.stringify(animalObjectTimerId));
             }
         );
 }
@@ -246,7 +246,7 @@ function onBaseTapSocketEventDots(tapMsgObject){
     newCircle.setAttribute('r',radius);
     
     //WHITE
-    newCircle.setAttribute('style','stroke:rgb(255,255,255);strokewidth:1;fill:white;'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
+    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');strokewidth:5;fill:white;'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
     
     $("#stuffedanimalwarsvg").append(newCircle);
 
@@ -271,7 +271,7 @@ function onBaseTapSocketEventDots(tapMsgObject){
     }
     var shapeObjectTimer = {'objectId':circleId,'timerId':objectTimerId};
     
-    console.log(JSON.stringify(shapeObjectTimer));
+//    console.log(JSON.stringify(shapeObjectTimer));
     shapeObjectTimerIds.push(shapeObjectTimer);
 
 }
@@ -474,7 +474,7 @@ function emitChatMessage(message){
               CHATSERVERDATE:''
           };  
 
-    console.log("EMIT:"+JSON.stringify(chatMessageObject)+" CHATSOCKETEVENT:"+chatSocketEvent);
+//    console.log("EMIT:"+JSON.stringify(chatMessageObject)+" CHATSOCKETEVENT:"+chatSocketEvent);
     //send the message
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }

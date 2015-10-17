@@ -1,6 +1,8 @@
 /* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
-
-//REQUIRE BASE SOCKET HANDLER JAVASCRIPT
+//REQUIRES UTILITIES FOR SOCKETHANDLER BASE
+$.getScript('utilities.js', function()
+{
+//REQUIRES SOCKETHANDLER BASE
 $.getScript('sockethandler.js', function()
 {
     endpoint = "djnachos";
@@ -13,6 +15,7 @@ $.getScript('sockethandler.js', function()
     initializeCommonVars(masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
+});
 });
 
 
