@@ -133,27 +133,6 @@ function initializeChatSocketHandler(socket){
     baseSocket=socket;
 }
 
-function startAnimalObjectTimerUp(objectId,xAxisAttr,yAxisAttr){
-    var timerId=window.setInterval(moveAnimalObjectUp,animalInterval,objectId,xAxisAttr,yAxisAttr)
-    var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
-    animalObjectTimerIds.push(animalObjectTimerId);
-}
-function startShapeObjectTimerUp(objectId,xAxisAttr,yAxisAttr){
-    var timerId = window.setInterval(moveShapeObjectUp,shapeInterval,objectId,xAxisAttr,yAxisAttr);
-    var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
-    shapeObjectTimerIds.push(shapeObjectTimerId);
-}
-function startAnimalObjectTimerDown(objectId,xAxisAttr,yAxisAttr){
-    var timerId = window.setInterval(moveAnimalObjectDown,animalInterval,objectId,xAxisAttr,yAxisAttr);
-    var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
-    animalObjectTimerIds.push(animalObjectTimerId);
-}
-function startShapeObjectTimerDown(objectId,xAxisAttr,yAxisAttr){
-    var timerId = window.setInterval(moveShapeObjectDown,shapeInterval,objectId,xAxisAttr,yAxisAttr);
-    var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
-    shapeObjectTimerIds.push(shapeObjectTimerId);
-}
-
 function moveAnimalObjectUp(objectId,xAxisAttr,yAxisAttr) {
     //get the current location
     var yPosition = $('#'+objectId).attr(yAxisAttr);
@@ -207,6 +186,7 @@ function moveShapeObjectUp(objectId,xAxisAttr,yAxisAttr) {
 }
 function moveShapeObjectDown(objectId,xAxisAttr,yAxisAttr) {
     //get the current location
+    console.log(objectId);
     var yPosition = $('#'+objectId).attr(yAxisAttr);
     var svgHeight = $('#stuffedanimalwarsvg').height();
     //if still on the gameboard
@@ -227,6 +207,27 @@ function moveShapeObjectDown(objectId,xAxisAttr,yAxisAttr) {
                 console.log(JSON.stringify(animalObjectTimerId));
             }
         );
+}
+
+function startAnimalObjectTimerUp(objectId,xAxisAttr,yAxisAttr,animalInterval){
+    var timerId=window.setInterval(moveAnimalObjectUp,animalInterval,objectId,xAxisAttr,yAxisAttr);
+    var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    animalObjectTimerIds.push(animalObjectTimerId);
+}
+function startShapeObjectTimerUp(objectId,xAxisAttr,yAxisAttr,shapeInterval){
+    var timerId = window.setInterval(moveShapeObjectUp,shapeInterval,objectId,xAxisAttr,yAxisAttr);
+    var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    shapeObjectTimerIds.push(shapeObjectTimerId);
+}
+function startAnimalObjectTimerDown(objectId,xAxisAttr,yAxisAttr,animalInterval){
+    var timerId = window.setInterval(moveAnimalObjectDown,animalInterval,objectId,xAxisAttr,yAxisAttr);
+    var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    animalObjectTimerIds.push(animalObjectTimerId);
+}
+function startShapeObjectTimerDown(objectId,xAxisAttr,yAxisAttr,shapeInterval){
+    var timerId = window.setInterval(moveShapeObjectDown,shapeInterval,objectId,xAxisAttr,yAxisAttr);
+    var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    shapeObjectTimerIds.push(shapeObjectTimerId);
 }
 
 function onBaseTapSocketEventDots(tapMsgObject){
@@ -258,10 +259,11 @@ function onBaseTapSocketEventDots(tapMsgObject){
     var objectTimerId;
     switch(direction){
         case 'UP':
-            objectTimerId = startShapeObjectTimerUp(circleId,"cy",shapeInterval);
+            objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
             break;
         case 'DOWN':
-            objectTimerId = startShapeObjectTimerDown(circleId,"cy",shapeInterval);
+            objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
+
             break;
         default:
             console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
@@ -306,10 +308,10 @@ function onBaseTapSocketEventLines(tapMsgObject){
     var objectTimerId;
     switch(direction){
         case 'UP':
-            objectTimerId = startShapeObjectTimerUp(lineId,"y1",shapeInterval);
+            objectTimerId = startShapeObjectTimerUp(lineId,"x1","y1",shapeInterval);
             break;
         case 'DOWN':
-            objectTimerId = startShapeObjectTimerDown(lineId,"y1",shapeInterval);
+            objectTimerId = startShapeObjectTimerDown(lineId,"x1","y1",shapeInterval);
             break;
         default:
             console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
@@ -362,10 +364,10 @@ function onBaseTapSocketEventImages(tapMsgObject,imagePath){
     var objectTimerId;
     switch(direction){
         case 'UP':
-            objectTimerId = startAnimalObjectTimerUp(animalId,"y",animalInterval);
+            objectTimerId = startAnimalObjectTimerUp(animalId,"x","y",animalInterval);
             break;
         case 'DOWN':
-            objectTimerId = startAnimalObjectTimerDown(animalId,"y",animalInterval);
+            objectTimerId = startAnimalObjectTimerDown(animalId,"x","y",animalInterval);
             break;
         default:
             return;
