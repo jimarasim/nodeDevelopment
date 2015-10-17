@@ -127,8 +127,8 @@ function initializeTapSocketHandler(socket){
 }
 //CONSTRUCTION - SETUP CHAT HANDLERS
 function initializeChatSocketHandler(socket){
-    socket.on(chatSocketEvent, function(msgObject){
-        onBaseChatSocketEvent(msgObject);
+    socket.on(chatSocketEvent, function(chatMsgObject){
+        onBaseChatSocketEvent(chatMsgObject);
     });
     baseSocket=socket;
 }
@@ -268,6 +268,8 @@ function onBaseTapSocketEventDots(tapMsgObject){
             break;
     }
     var shapeObjectTimer = {'objectId':circleId,'timerId':objectTimerId};
+    
+    console.log(JSON.stringify(shapeObjectTimer));
     shapeObjectTimerIds.push(shapeObjectTimer);
 
 }

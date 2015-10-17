@@ -121,8 +121,8 @@ io.on('connection', function(socket){
     });
          
     //ON ERROR
-    socket.on('error', function(msgObject){
-              console.log('ERROR: ' + msgObject  );
+    socket.on('error', function(errorMsgObject){
+              console.log('ERROR: ' + errorMsgObject  );
     }); 
     
     //CHATMESSAGES--------------------------------------------------------------------------------------
@@ -132,89 +132,89 @@ io.on('connection', function(socket){
 //              CHATCLIENTMESSAGE:message,
 //              CHATSERVERDATE:''
 //          };  
-    socket.on('chatmessage', function(msgObject){
-        sendChatMessage('chatmessage',msgObject);
+    socket.on('chatmessage', function(chatMsgObject){
+        sendChatMessage('chatmessage',chatMsgObject);
     });
     
-    socket.on('djnachoschatmessage', function(msgObject){
-        sendChatMessage('djnachoschatmessage',msgObject);
+    socket.on('djnachoschatmessage', function(chatMsgObject){
+        sendChatMessage('djnachoschatmessage',chatMsgObject);
     });
     
-    socket.on('roxhillsessionschatmessage', function(msgObject){
-        sendChatMessage('roxhillsessionschatmessage',msgObject);
+    socket.on('roxhillsessionschatmessage', function(chatMsgObject){
+        sendChatMessage('roxhillsessionschatmessage',chatMsgObject);
     });
     
-    socket.on('sufferingfuckheadschatmessage', function(msgObject){
-        sendChatMessage('sufferingfuckheadschatmessage',msgObject);
+    socket.on('sufferingfuckheadschatmessage', function(chatMsgObject){
+        sendChatMessage('sufferingfuckheadschatmessage',chatMsgObject);
     });
     
-    socket.on('melvinschatmessage', function(msgObject){
-        sendChatMessage('melvinschatmessage',msgObject);
+    socket.on('melvinschatmessage', function(chatMsgObject){
+        sendChatMessage('melvinschatmessage',chatMsgObject);
     });
     
-    socket.on('cracksabbathchatmessage', function(msgObject){
-        sendChatMessage('cracksabbathchatmessage',msgObject);
+    socket.on('cracksabbathchatmessage', function(chatMsgObject){
+        sendChatMessage('cracksabbathchatmessage',chatMsgObject);
     });
     
-    socket.on('builttospillchatmessage', function(msgObject){
-        sendChatMessage('builttospillchatmessage',msgObject);
+    socket.on('builttospillchatmessage', function(chatMsgObject){
+        sendChatMessage('builttospillchatmessage',chatMsgObject);
     });
     
-    socket.on('zekechatmessage', function(msgObject){
-        sendChatMessage('zekechatmessage',msgObject);
+    socket.on('zekechatmessage', function(chatMsgObject){
+        sendChatMessage('zekechatmessage',chatMsgObject);
     });
     
-    socket.on('lastgaspchatmessage', function(msgObject){
-        sendChatMessage('lastgaspchatmessage',msgObject);
+    socket.on('lastgaspchatmessage', function(chatMsgObject){
+        sendChatMessage('lastgaspchatmessage',chatMsgObject);
     });
     
-    socket.on('marklaneganchatmessage', function(msgObject){
-        sendChatMessage('marklaneganchatmessage',msgObject);
+    socket.on('marklaneganchatmessage', function(chatMsgObject){
+        sendChatMessage('marklaneganchatmessage',chatMsgObject);
     });
     
-    socket.on('bigbusinesschatmessage', function(msgObject){
-        sendChatMessage('bigbusinesschatmessage',msgObject);
+    socket.on('bigbusinesschatmessage', function(chatMsgObject){
+        sendChatMessage('bigbusinesschatmessage',chatMsgObject);
     });
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
-    socket.on('djnachostapmessage', function(msgObject){
-        sendTapMessage('djnachostapmessage',msgObject);
+    socket.on('djnachostapmessage', function(tapMsgObject){
+        sendTapMessage('djnachostapmessage',tapMsgObject);
     });  
     
-    socket.on('roxhillsessionstapmessage', function(msgObject){
-        sendTapMessage('roxhillsessionstapmessage',msgObject);
+    socket.on('roxhillsessionstapmessage', function(tapMsgObject){
+        sendTapMessage('roxhillsessionstapmessage',tapMsgObject);
     });
     
-    socket.on('sufferingfuckheadstapmessage', function(msgObject){
-        sendTapMessage('sufferingfuckheadstapmessage',msgObject);
+    socket.on('sufferingfuckheadstapmessage', function(tapMsgObject){
+        sendTapMessage('sufferingfuckheadstapmessage',tapMsgObject);
     });
     
-    socket.on('melvinstapmessage', function(msgObject){
-        sendTapMessage('melvinstapmessage',msgObject);
+    socket.on('melvinstapmessage', function(tapMsgObject){
+        sendTapMessage('melvinstapmessage',tapMsgObject);
     });
     
-    socket.on('cracksabbathtapmessage', function(msgObject){
-        sendTapMessage('cracksabbathtapmessage',msgObject);
+    socket.on('cracksabbathtapmessage', function(tapMsgObject){
+        sendTapMessage('cracksabbathtapmessage',tapMsgObject);
     });
     
-    socket.on('builttospilltapmessage', function(msgObject){
-        sendTapMessage('builttospilltapmessage',msgObject);
+    socket.on('builttospilltapmessage', function(tapMsgObject){
+        sendTapMessage('builttospilltapmessage',tapMsgObject);
     });
     
-    socket.on('zeketapmessage', function(msgObject){
-        sendTapMessage('zeketapmessage',msgObject);
+    socket.on('zeketapmessage', function(tapMsgObject){
+        sendTapMessage('zeketapmessage',tapMsgObject);
     });
     
-    socket.on('lastgasptapmessage', function(msgObject){
-        sendTapMessage('lastgasptapmessage',msgObject);
+    socket.on('lastgasptapmessage', function(tapMsgObject){
+        sendTapMessage('lastgasptapmessage',tapMsgObject);
     });
     
-    socket.on('marklanegantapmessage', function(msgObject){
-        sendTapMessage('marklanegantapmessage',msgObject);
+    socket.on('marklanegantapmessage', function(tapMsgObject){
+        sendTapMessage('marklanegantapmessage',tapMsgObject);
     });
     
-    socket.on('bigbusinesstapmessage', function(msgObject){
-        sendTapMessage('bigbusinesstapmessage',msgObject);
+    socket.on('bigbusinesstapmessage', function(tapMsgObject){
+        sendTapMessage('bigbusinesstapmessage',tapMsgObject);
     });
     
     
