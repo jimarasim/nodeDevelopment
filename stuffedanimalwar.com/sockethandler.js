@@ -31,8 +31,10 @@ $('#stuffedanimalwarsvg').click(function(event){
     var tapMsgObject = JSON.parse('{"x":"'+event.pageX+
             '", "y":"'+event.pageY+
             '", "animal":"'+$( '#animals option:selected' ).val()+
-            '","customimage":"'+$('#imagepathtextbox option:selected').val()+
+            '","customimage":"'+$('#imagepathtextbox').val()+
             '","movement":"'+$('#movement option:selected').val()+'"}');
+    
+    console.log("tapMsgObject:"+JSON.stringify(tapMsgObject));
     
     baseSocket.emit(tapSocketEvent,tapMsgObject);
 });
@@ -325,6 +327,7 @@ function onBaseTapSocketEventLines(tapMsgObject){
     }
 }
 function onBaseTapSocketEventCustom(tapMsgObject){
+    console.log("tapMsgObject:"+tapMsgObject+"tapMsgObject.customimage:"+tapMsgObject.customimage);
     if (
         tapMsgObject.customimage.indexOf("http://")===0||
         tapMsgObject.customimage.indexOf("https://")===0
@@ -341,6 +344,7 @@ function onBaseTapSocketEventCustom(tapMsgObject){
         }
 }
 function onBaseTapSocketEventImages(tapMsgObject,imagePath){
+    console.log("tapMsgObject:"+tapMsgObject+"imagePath:"+imagePath);
     var width="100";
     var height="100";
     var animalId='animal'+$.now();
