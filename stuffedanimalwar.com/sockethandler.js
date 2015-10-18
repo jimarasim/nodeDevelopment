@@ -8,8 +8,8 @@ var baseSocket = null;
 var rectTimer = null;
 var animalObjectTimerIds = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
 var shapeObjectTimerIds = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
-var animalPositionIncrement = 10; //distance animal moves each reposition 
-var shapePositionIncrement = 10; //distance shape moves each reposition
+var animalPositionIncrement = 5; //distance animal moves each reposition 
+var shapePositionIncrement = 5; //distance shape moves each reposition
 var animalInterval = 50; //milliseconds between animal repositions
 var shapeInterval = 50; //milliseconds between shape repositions
 var radius = 10; //RADIUS of the dot shape to draw
@@ -73,13 +73,11 @@ $('#selectvideos').change(function(){
     }
 });
 
-
-//CONSTRUCTION - INITIALIZE VARIABLES
+//CONSTRUCTION
 function initializeCommonVars(masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
 }
-//CONSTRUCTION - SETUP TAP HANDLERS
 function initializeTapSocketHandler(socket){
     //  WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
     //  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
@@ -124,7 +122,6 @@ function initializeTapSocketHandler(socket){
     });
     baseSocket=socket;
 }
-//CONSTRUCTION - SETUP CHAT HANDLERS
 function initializeChatSocketHandler(socket){
     socket.on(chatSocketEvent, function(chatMsgObject){
         onBaseChatSocketEvent(chatMsgObject);
@@ -139,7 +136,9 @@ function moveAnimalObjectUp(objectId,xAxisAttr,yAxisAttr) {
     //if still on the gameboard
     if(yPosition>0){
         //update the coordinates
-        yPosition--;
+        console.log(yAxisAttr+"<==yAxisAttr"+animalPositionIncrement+"<=animalPositionIncrement"+yPosition+"<==yPosition");
+        yPosition=parseInt(yPosition)-parseInt(animalPositionIncrement);
+        console.log(yAxisAttr+"<==yAxisAttr"+animalPositionIncrement+"<=animalPositionIncrement"+yPosition+"<==new yPosition");
         $('#'+objectId).attr(yAxisAttr,yPosition);
     }
     else{
@@ -153,7 +152,9 @@ function moveAnimalObjectDown(objectId,xAxisAttr,yAxisAttr) {
     //if still on the gameboard
     if(yPosition<svgHeight){
         //update the coordinates
-        yPosition++;
+        console.log(yAxisAttr+"<==yAxisAttr"+animalPositionIncrement+"<=animalPositionIncrement"+yPosition+"<==yPosition");
+        yPosition=parseInt(yPosition)+parseInt(animalPositionIncrement);
+        console.log(yAxisAttr+"<==yAxisAttr"+animalPositionIncrement+"<=animalPositionIncrement"+yPosition+"<==new yPosition");
         $('#'+objectId).attr(yAxisAttr,yPosition);
     }
     else{
@@ -167,8 +168,10 @@ function moveShapeObjectUp(objectId,xAxisAttr,yAxisAttr) {
     //if still on the gameboard
     if(yPosition>0){
         //update the coordinates
-        yPosition--;
-        $('#'+objectId).attr(yAxisAttr,yPosition);
+        console.log(yAxisAttr+"<==yAxisAttr"+shapePositionIncrement+"<=shapePositionIncrement"+yPosition+"<==yPosition");
+        yPosition=parseInt(yPosition)-parseInt(shapePositionIncrement);
+        console.log(yAxisAttr+"<==yAxisAttr"+shapePositionIncrement+"<=shapePositionIncrement"+yPosition+"<==new yPosition");
+                $('#'+objectId).attr(yAxisAttr,yPosition);
     }
     else{
         $('#'+objectId).attr(yAxisAttr,svgHeight);
@@ -179,7 +182,6 @@ function moveShapeObjectUp(objectId,xAxisAttr,yAxisAttr) {
         forEach(
             function(animalObjectTimerId)
             {
-//                RectContainsPoint(rectx, recty, height, width, pointx, pointy)
             }
         );
 }
@@ -190,7 +192,9 @@ function moveShapeObjectDown(objectId,xAxisAttr,yAxisAttr) {
     //if still on the gameboard
     if(yPosition<svgHeight){
         //update the coordinates
-        yPosition++;
+        console.log(yAxisAttr+"<==yAxisAttr"+shapePositionIncrement+"<=shapePositionIncrement"+yPosition+"<==yPosition");
+        yPosition=parseInt(yPosition)+parseInt(shapePositionIncrement);
+        console.log(yAxisAttr+"<==yAxisAttr"+shapePositionIncrement+"<=shapePositionIncrement"+yPosition+"<==new yPosition");
         $('#'+objectId).attr(yAxisAttr,yPosition);
     }
     else{
@@ -203,30 +207,35 @@ function moveShapeObjectDown(objectId,xAxisAttr,yAxisAttr) {
         forEach(
             function(animalObjectTimerId)
             {
-                objectIdDisplay += "--OBJECT:"+JSON.stringify(animalObjectTimerId);
 
             }
         );
-    console.log(objectIdDisplay);
 
 }
 
 function startAnimalObjectTimerUp(objectId,xAxisAttr,yAxisAttr,animalInterval){
+            console.log("startAnimalObjectTimerUp objectId:"+objectId+"xAxisAttr:"+xAxisAttr+"yAxisAttr:"+yAxisAttr);
+
     var timerId=window.setInterval(moveAnimalObjectUp,animalInterval,objectId,xAxisAttr,yAxisAttr);
     var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
     animalObjectTimerIds.push(animalObjectTimerId);
 }
 function startShapeObjectTimerUp(objectId,xAxisAttr,yAxisAttr,shapeInterval){
+        console.log("startShapeObjectTimerUp objectId:"+objectId+"xAxisAttr:"+xAxisAttr+"yAxisAttr:"+yAxisAttr);
+
     var timerId = window.setInterval(moveShapeObjectUp,shapeInterval,objectId,xAxisAttr,yAxisAttr);
     var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
     shapeObjectTimerIds.push(shapeObjectTimerId);
 }
 function startAnimalObjectTimerDown(objectId,xAxisAttr,yAxisAttr,animalInterval){
+    console.log("startAnimalObjectTimerDown objectId:"+objectId+"xAxisAttr:"+xAxisAttr+"yAxisAttr:"+yAxisAttr);
     var timerId = window.setInterval(moveAnimalObjectDown,animalInterval,objectId,xAxisAttr,yAxisAttr);
     var animalObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
     animalObjectTimerIds.push(animalObjectTimerId);
 }
 function startShapeObjectTimerDown(objectId,xAxisAttr,yAxisAttr,shapeInterval){
+        console.log("startShapeObjectTimerDown objectId:"+objectId+"xAxisAttr:"+xAxisAttr+"yAxisAttr:"+yAxisAttr);
+
     var timerId = window.setInterval(moveShapeObjectDown,shapeInterval,objectId,xAxisAttr,yAxisAttr);
     var shapeObjectTimerId = {'objectId':objectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
     shapeObjectTimerIds.push(shapeObjectTimerId);
@@ -470,39 +479,3 @@ function emitChatMessage(message){
     //send the message
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
-
-
-//AUDIO SPECIFIC UTILITIES
-function PlayNextTrack(currentFile){
-    //don't do anything if there are no tracks
-    if($('#selectsongs option').length===0)
-    {
-        return;
-    }
-
-    //get the next track, if there isn't one, use the first one
-    if($('#selectsongs option[value="'+currentFile+'"]').next().text().length!==0)
-    {
-        changeMp3($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
-    }
-    else if($('#selectsongs option[value="'+currentFile+'"]').first().text().length!==0)
-    {
-        changeMp3($('#selectsongs option[value="'+currentFile+'"]').first().attr('value'));
-    }
-    else{
-        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
-    }
-}
-function changeMp3(mp3Url){
-    //change the source of the AUDIO player
-    $('#jaemzwaredynamicaudiosource').attr("src",mp3Url);
-    document.getElementById("jaemzwaredynamicaudioplayer").load();
-    document.getElementById("jaemzwaredynamicaudioplayer").play();
-    $('#selectsongs').val(mp3Url);
-}
-function changeMp4(mp4Url){
-    $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
-    document.getElementById("jaemzwaredynamicvideoplayer").load();
-    document.getElementById("jaemzwaredynamicvideoplayer").play();
-}
-
