@@ -24,7 +24,7 @@ img.videolink:hover
 
 span.videolinktext
 {
-    /*font-size:25%;*/
+    font-size:medium;
 }
 
 div.videostrip
@@ -36,7 +36,10 @@ div.videostrip
     border:0px solid;
     border-radius:0px;
     text-align:center;
-    height: 80px;
+    height: 100px;
+    width: 640px;
+    vertical-align:middle;
+    
 }
 
 
