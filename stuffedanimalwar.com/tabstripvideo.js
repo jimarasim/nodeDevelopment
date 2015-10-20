@@ -73,7 +73,7 @@ function MultiVideoJquery(multiGroup){
         }
         
         //write the video player
-        $("#"+multiGroup[i]).after("<video style='width:640px;height:480px' controls='controls' preload='metadata' poster='"+filePathsNoExtensionArray[0][0]+".png' title='"+filePathsNoExtensionArray[0][1]+"' id='"+multiGroup[i]+"Video'>browser doesn't support video</video>");
+        $("#"+multiGroup[i]).after("<video width='640' height='480' controls='controls' preload='metadata' poster='"+filePathsNoExtensionArray[0][0]+".png' title='"+filePathsNoExtensionArray[0][1]+"' id='"+multiGroup[i]+"Video'>browser doesn't support video</video>");
 
         //add the different file format clips
         $("#"+multiGroup[i]+"Video").append("<source src='"+filePathsNoExtensionArray[0][0]+".mp4' type='video/mp4' id='"+multiGroup[i]+"Videomp4'/>");
