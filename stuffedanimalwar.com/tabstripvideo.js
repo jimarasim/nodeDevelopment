@@ -22,6 +22,20 @@ var jaemzwarevideojim = [
                     ["http://www.helena.seattlerules.com/media/jim/IMG_3273","Jim Roxhill board slide"]
                     ];
 
+var jaemzwarevideohouston2015 = [
+                    ["http://seattlerules.com/media/houston2015/IMG_4091","Video01"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4092","Video02"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4011","Video03"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4125","Video04"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4126","Video05"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4127","Video06"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4258","Video07"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4260","Video08"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4285","Video09"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4345","Video10"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4348","Video11"] 
+];
+
 //THIS FUNCTION SETS UP THE VIDEO ELEMENTS
 function SetupEvents(){
     
@@ -50,13 +64,16 @@ function MultiVideoJquery(multiGroup){
         else if(multiGroup[i]===        "jaemzwarevideoadam"){
             filePathsNoExtensionArray = jaemzwarevideoadam;
         }
+        else if(multiGroup[i]===        "jaemzwarevideohouston2015"){
+            filePathsNoExtensionArray = jaemzwarevideohouston2015;
+        }
         else{
             console.error("UNEXPECTED JAEMZWAREVIDEOGROUP PRE-BUILT VIDEO ARRAY:"+multiGroup[i]);
             break;
         }
         
         //write the video player
-        $("#"+multiGroup[i]).after("<video style='width: 100%;' controls='controls' preload='metadata' poster='"+filePathsNoExtensionArray[0][0]+".png' title='"+filePathsNoExtensionArray[0][1]+"' id='"+multiGroup[i]+"Video'>browser doesn't support video</video>");
+        $("#"+multiGroup[i]).after("<video style='width:640px;height:480px' controls='controls' preload='metadata' poster='"+filePathsNoExtensionArray[0][0]+".png' title='"+filePathsNoExtensionArray[0][1]+"' id='"+multiGroup[i]+"Video'>browser doesn't support video</video>");
 
         //add the different file format clips
         $("#"+multiGroup[i]+"Video").append("<source src='"+filePathsNoExtensionArray[0][0]+".mp4' type='video/mp4' id='"+multiGroup[i]+"Videomp4'/>");
@@ -99,16 +116,7 @@ function MultiVideoJquery(multiGroup){
     }
 }
 
-/**
- * This function changes the video loaded in the video player for video pages
- * @param {type} basepath - if empty, assumes the whole path is specified
- * @param {type} png - full path to the png image
- * @param {type} mp4 - full path to the mp4 file
- * @param {type} ogv - full path to the ogv file
- * @param {type} group - group of videos / images (array) to change. need to put this in the id
- * of the video images and video, so there could be more than one on a page
- * @returns {undefined}
- */
+
 function ChangeVideo(basepath,png,mp4,ogv,group,fileNameOnly)
 {
     var pngpath = basepath===""?png:basepath + png;
