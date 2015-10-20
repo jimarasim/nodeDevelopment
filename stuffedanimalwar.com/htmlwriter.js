@@ -22,7 +22,7 @@ function writeStuffedAnimalWar(){
 function writeStuffedAnimalWarChoices(){
     document.write("<tr>");
     document.write("<td>");
-    document.write("<form>");
+    document.write("<form class=\"animalchoiceform\">");
     
     document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
     document.write("<option value=\"dots\" selected>Dots</option>");
@@ -109,7 +109,7 @@ function writeChat(){
 function writeDefaultAutoResponderOptions(){
     document.write("<tr>");
     document.write("<td>");
-    document.write("<form action=\"\">");
+    document.write("<form class=\"autoresponderform\" action=\"\">");
     document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
     document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
     document.write("<select id=\"chatClientAutoResponder\" size=1 >");
