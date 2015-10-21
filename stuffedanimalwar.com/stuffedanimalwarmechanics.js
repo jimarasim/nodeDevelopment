@@ -14,9 +14,6 @@ var baseUnspecifiedAlias = null;
 var imageHeightPixels = 100;
 var imageWidthPixels = 100;
 
-
-
-
 function moveAnimalObjectUp(objectId,xAxisAttr,yAxisAttr) {
     //get the current location
     var yPosition = $('#'+objectId).attr(yAxisAttr);
@@ -59,9 +56,12 @@ function moveShapeObjectUp(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
         $('#'+shapeObjectId).attr(shapeYAxisAttr,svgHeight);
     }
     
-    //check if any image animal was hit
+    //check if any image animal was hit, and stop it if so
     for(var i=0;i<animalObjects.length;i++){
-        HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr);
+        if(HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr)){
+            clearInterval(animalObjects[i].timerId);
+            $('#'+animalObjects[i].objectId).remove();
+        }
     }
 }
 function moveShapeObjectDown(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
@@ -78,9 +78,12 @@ function moveShapeObjectDown(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
         $('#'+shapeObjectId).attr(shapeYAxisAttr,'0');
     }    
     
-    //check if any image animal was hit
+    //check if any image animal was hit, and stop it if so
     for(var i=0;i<animalObjects.length;i++){
-        HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr);
+        if(HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr)){
+            clearInterval(animalObjects[i].timerId);
+            $('#'+animalObjects[i].objectId).remove();
+        }
     }
 }
 
@@ -89,15 +92,15 @@ function startAnimalObjectTimerUp(animalObjectId,xAxisAttr,yAxisAttr,animalInter
     var animalObjectTimerId = {'objectId':animalObjectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
     animalObjects.push(animalObjectTimerId);
 }
-function startShapeObjectTimerUp(shapeObjectId,xAxisAttr,yAxisAttr,shapeInterval){
-    var timerId = window.setInterval(moveShapeObjectUp,shapeInterval,shapeObjectId,xAxisAttr,yAxisAttr);
-    var shapeObjectTimerId = {'objectId':shapeObjectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
-    shapeObjects.push(shapeObjectTimerId);
-}
 function startAnimalObjectTimerDown(animalObjectId,xAxisAttr,yAxisAttr,animalInterval){
     var timerId = window.setInterval(moveAnimalObjectDown,animalInterval,animalObjectId,xAxisAttr,yAxisAttr);
     var animalObjectTimerId = {'objectId':animalObjectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
     animalObjects.push(animalObjectTimerId);
+}
+function startShapeObjectTimerUp(shapeObjectId,xAxisAttr,yAxisAttr,shapeInterval){
+    var timerId = window.setInterval(moveShapeObjectUp,shapeInterval,shapeObjectId,xAxisAttr,yAxisAttr);
+    var shapeObjectTimerId = {'objectId':shapeObjectId,'timerId':timerId,'xAxisAttr':xAxisAttr,'yAxisAttr':yAxisAttr};
+    shapeObjects.push(shapeObjectTimerId);
 }
 function startShapeObjectTimerDown(shapeObjectId,xAxisAttr,yAxisAttr,shapeInterval){
     var timerId = window.setInterval(moveShapeObjectDown,shapeInterval,shapeObjectId,xAxisAttr,yAxisAttr);
@@ -250,24 +253,20 @@ function onBaseTapSocketEventImages(tapMsgObject,imagePath){
  * HIT TEST
  */
 function HitTest(animalObject,shapeObjectId,shapeXAxisAttr,shapeYAxisAttr){
-    var pointx=$('#'+shapeObjectId).attr(shapeXAxisAttr);
-    var pointy=$('#'+shapeObjectId).attr(shapeYAxisAttr);
+    var shapePointX=            parseInt($('#'+shapeObjectId).attr(shapeXAxisAttr));
+    var shapePointY=            parseInt($('#'+shapeObjectId).attr(shapeYAxisAttr));
+    var animalOriginPointX =    parseInt($('#'+animalObject.objectId).attr(animalObject.xAxisAttr));
+    var animalOriginPointY =    parseInt($('#'+animalObject.objectId).attr(animalObject.yAxisAttr));
+    var animalWidthPixels =     parseInt($('#'+animalObject.objectId).attr('width'));
+    var animalHeightPixels =    parseInt($('#'+animalObject.objectId).attr('height'));
     
-    console.log("animalObject:"+JSON.stringify(animalObject));
-    console.log("pointx"+pointx);
-    console.log("pointy"+pointy);
-    console.log("imageWidthPixels:"+imageWidthPixels);
-    console.log("imageHeightPixels:"+imageHeightPixels);
-    
-    if(     pointx >= $('#'+animalObject.objectId).attr(animalObject.xAxisAttr) && 
-            pointx <= ($('#'+animalObject.objectId).attr(animalObject.xAxisAttr) + imageWidthPixels) &&
-            pointy >= $('#'+animalObject.objectId).attr(animalObject.yAxisAttr) &&
-            pointy <= ($('#'+animalObject.objectId).attr(animalObject.yAxisAttr) + imageHeightPixels)){
-        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>HIT<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+    if(     shapePointX >= animalOriginPointX && 
+            shapePointX <= (animalOriginPointX + animalWidthPixels) &&
+            shapePointY >= animalOriginPointY &&
+            shapePointY <= (animalOriginPointY + animalHeightPixels)){
         return true;
     }
     else{
-        console.log("------------------------------MISS------------------------------");
         return false;
     }
 }
