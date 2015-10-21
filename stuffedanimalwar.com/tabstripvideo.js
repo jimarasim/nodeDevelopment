@@ -23,17 +23,17 @@ var jaemzwarevideojim = [
                     ];
 
 var jaemzwarevideohouston2015 = [
-                    ["http://seattlerules.com/media/houston2015/IMG_4091","Video01"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4092","Video02"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4011","Video03"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4125","Video04"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4126","Video05"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4127","Video06"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4258","Video07"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4260","Video08"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4285","Video09"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4345","Video10"],
-                    ["http://seattlerules.com/media/houston2015/IMG_4348","Video11"] 
+                    ["http://seattlerules.com/media/houston2015/IMG_4091","IMG_4091"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4092","IMG_4092"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4111","IMG_4111"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4125","IMG_4125"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4126","IMG_4126"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4127","IMG_4127"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4258","IMG_4258"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4260","IMG_4260"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4285","IMG_4285"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4345","IMG_4345"],
+                    ["http://seattlerules.com/media/houston2015/IMG_4348","IMG_4348"] 
 ];
 
 //THIS FUNCTION SETS UP THE VIDEO ELEMENTS
