@@ -60,7 +60,9 @@ function moveShapeObjectUp(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     for(var i=0;i<animalObjects.length;i++){
         if(HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr)){
             clearInterval(animalObjects[i].timerId);
-            $('#'+animalObjects[i].objectId).remove();
+            $('#'+animalObjects[i].objectId).fadeToggle('slow', function() {
+                this.remove();
+            });
         }
     }
 }
@@ -82,7 +84,9 @@ function moveShapeObjectDown(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     for(var i=0;i<animalObjects.length;i++){
         if(HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr)){
             clearInterval(animalObjects[i].timerId);
-            $('#'+animalObjects[i].objectId).remove();
+            $('#'+animalObjects[i].objectId).fadeToggle('slow', function() {
+                this.remove();
+            });
         }
     }
 }
@@ -124,7 +128,7 @@ function onBaseTapSocketEventDots(tapMsgObject){
     newCircle.setAttribute('r',radius);
     
     //WHITE
-    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');strokewidth:5;fill:white;'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
+    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');strokewidth:10;fill:black;'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
     
     $("#stuffedanimalwarsvg").append(newCircle);
 
@@ -168,7 +172,7 @@ function onBaseTapSocketEventLines(tapMsgObject){
     newLine.setAttribute('y2',oldPointY);
     
     //WHITE LINE
-    newLine.setAttribute('style','stroke:rgb(255,255,255);stroke-width:'+lineWidth+';'); 
+    newLine.setAttribute('style','stroke:rgb(0,0,0);stroke-width:'+lineWidth+';'); 
 
     $("#stuffedanimalwarsvg").append(newLine);
 

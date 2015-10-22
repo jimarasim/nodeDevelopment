@@ -1,6 +1,5 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 var baseMediaPath = "http://analogarchive.com/live/";
-
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWarTable(){
     document.write("<table style='"+"width:"+screen.width+"px;'>");
@@ -38,8 +37,8 @@ function writeStuffedAnimalWarChoices(){
     document.write("</select>");
     document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
     document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
-    document.write("<option value=\"DOWN\" selected>DOWN</option>");
-    document.write("<option value=\"UP\">UP</option>");
+    document.write("<option value=\"UP\" selected>UP</option>");
+    document.write("<option value=\"DOWN\">DOWN</option>");
     document.write("</select>");
     document.write("</form>"); 
     document.write("</td>");
