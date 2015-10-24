@@ -59,8 +59,26 @@ function moveShapeObjectUp(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     //check if any image animal was hit, and stop it if so
     for(var i=0;i<animalObjects.length;i++){
         if(HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr)){
+            //remove the shape from the svg
+            //get the shape timer
+            shapeObjectThatHitAnimal = jQuery.grep(shapeObjects, function(shapeObject) {
+                return shapeObject.objectId === shapeObjectId;
+            });
+            
+            console.log("shapeObjectThatHitAnimal:"+JSON.stringify(shapeObjectThatHitAnimal));
+            
+            //stop the shapeObjectThatHitAnimal timer
+            clearInterval(shapeObjectThatHitAnimal.timerId);
+            
+            //remove the shapeObjectThatHitAnimal 
+            $('#'+shapeObjectId).remove();
+            
+            //stop the animal timer
             clearInterval(animalObjects[i].timerId);
+            
+            //fade out the animal
             $('#'+animalObjects[i].objectId).fadeToggle('slow', function() {
+                //remove the animal from the svg
                 this.remove();
             });
         }
@@ -83,8 +101,26 @@ function moveShapeObjectDown(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     //check if any image animal was hit, and stop it if so
     for(var i=0;i<animalObjects.length;i++){
         if(HitTest(animalObjects[i],shapeObjectId,shapeXAxisAttr,shapeYAxisAttr)){
+            //remove the shape from the svg
+            //get the shape timer
+            shapeObjectThatHitAnimal = jQuery.grep(shapeObjects, function(shapeObject) {
+                return shapeObject.objectId === shapeObjectId;
+            });
+            
+            console.log("shapeObjectThatHitAnimal:"+JSON.stringify(shapeObjectThatHitAnimal));
+            
+            //stop the shapeObjectThatHitAnimal timer
+            clearInterval(shapeObjectThatHitAnimal.timerId);
+            
+            //remove the shapeObjectThatHitAnimal 
+            $('#'+shapeObjectId).remove();
+            
+            //stop the animal timer
             clearInterval(animalObjects[i].timerId);
+            
+            //fade out the animal
             $('#'+animalObjects[i].objectId).fadeToggle('slow', function() {
+                //remove the animal from the svg
                 this.remove();
             });
         }
@@ -127,8 +163,8 @@ function onBaseTapSocketEventDots(tapMsgObject){
     newCircle.setAttribute('cy',pointY);
     newCircle.setAttribute('r',radius);
     
-    //WHITE
-    newCircle.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');strokewidth:10;fill:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
+    //RANDOM COLOR
+    newCircle.setAttribute('style','stroke:rgb('+GetRandomColorValue()+','+GetRandomColorValue()+','+GetRandomColorValue()+');fill:rgb('+GetRandomColorValue()+','+GetRandomColorValue()+','+GetRandomColorValue()+');'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
     
     $("#stuffedanimalwarsvg").append(newCircle);
 
@@ -172,7 +208,7 @@ function onBaseTapSocketEventLines(tapMsgObject){
     newLine.setAttribute('y2',oldPointY);
     
     //WHITE LINE
-    newLine.setAttribute('style','stroke:rgb('+getRandomColorValue()+','+getRandomColorValue()+','+getRandomColorValue()+');stroke-width:'+lineWidth+';'); 
+    newLine.setAttribute('style','stroke:rgb('+GetRandomColorValue()+','+GetRandomColorValue()+','+GetRandomColorValue()+');stroke-width:'+lineWidth+';'); 
 
     $("#stuffedanimalwarsvg").append(newLine);
 
@@ -196,7 +232,6 @@ function onBaseTapSocketEventLines(tapMsgObject){
     }
 }
 function onBaseTapSocketEventCustom(tapMsgObject){
-    console.log("tapMsgObject:"+tapMsgObject+"tapMsgObject.customimage:"+tapMsgObject.customimage);
     if (
         tapMsgObject.customimage.indexOf("http://")===0||
         tapMsgObject.customimage.indexOf("https://")===0
@@ -213,7 +248,6 @@ function onBaseTapSocketEventCustom(tapMsgObject){
         }
 }
 function onBaseTapSocketEventImages(tapMsgObject,imagePath){
-    console.log("tapMsgObject:"+tapMsgObject+"imagePath:"+imagePath);
     var width=imageWidthPixels;
     var height=imageHeightPixels;
     var animalId='animal'+$.now();

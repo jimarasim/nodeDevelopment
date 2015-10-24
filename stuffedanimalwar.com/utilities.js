@@ -2,7 +2,7 @@
 /* UTILITY - GETRANDOMCOLORVALUE (COMMON)
  * this function returns a random color value, used by drawing new things
  */
-function getRandomColorValue(){
+function GetRandomColorValue(){
     return Math.floor((Math.random() * 255) + 1);
 }
 

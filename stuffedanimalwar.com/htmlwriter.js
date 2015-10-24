@@ -4,7 +4,7 @@ var baseMediaPath = "http://analogarchive.com/live/";
 function writeStuffedAnimalWarTable(){
     document.write("<table style='"+"width:"+screen.width+"px;'>");
     writeStuffedAnimalWar();
-    writeStuffedAnimalWarChoices();
+    writeStuffedAnimalWarAnimalDropdown();
     document.write("</table>");
 }   
 function writeStuffedAnimalWar(){
@@ -18,11 +18,35 @@ function writeStuffedAnimalWar(){
     document.write("</td>");
     document.write("</tr>");
 }
-function writeStuffedAnimalWarChoices(){
+function writeStuffedAnimalWarAnimalDropdown(){
     document.write("<tr>");
     document.write("<td>");
-    document.write("<form class=\"animalchoiceform\">");
-    
+    document.write("<form>");
+    document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
+    document.write("<option value=\"dots\" selected>Dots</option>");
+    document.write("<option value=\"lines\">Lines</option>");
+    document.write("<option value=\"cats\">Cats</option>");
+    document.write("<option value=\"dogs\">Dogs</option>");
+    document.write("<option value=\"lions\">Lions</option>");
+    document.write("<option value=\"crocodiles\">Crocodiles</option>");
+    document.write("<option value=\"birds\">Birds</option>");
+    document.write("<option value=\"lamblambs\">Lamb</option>");
+    document.write("<option value=\"chickens\">Chickens</option>");
+    document.write("<option value=\"custom\">CUSTOM URL</option>");    
+    document.write("</select>");
+    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
+    document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
+    document.write("<option value=\"UP\" selected>UP</option>");
+    document.write("<option value=\"DOWN\">DOWN</option>");
+    document.write("</select>");
+    document.write("</form>"); 
+    document.write("</td>");
+    document.write("</tr>");
+}
+function writeStuffedAnimalWarAnimalUpAndDownButtons(){
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<form>");
     document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
     document.write("<option value=\"dots\" selected>Dots</option>");
     document.write("<option value=\"lines\">Lines</option>");

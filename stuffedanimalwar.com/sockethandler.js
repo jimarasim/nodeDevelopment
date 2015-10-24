@@ -86,7 +86,7 @@ function initializeTapSocketHandler(socket){
     //  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
     //  DEPENDING ON THE TYPE OF ANIMAL SENT BY $('#stuffedanimalwarsvg').click;
     socket.on(tapSocketEvent, function(tapMsgObject){
-        var animal = tapMsgObject.animal; //see htmlwriter.js writeStuffedAnimalWarChoices
+        var animal = tapMsgObject.animal; //see htmlwriter.js writeStuffedAnimalWarAnimalDropdown
         switch(animal){
             case "cats":
                 onBaseTapSocketEventImages(tapMsgObject,"gamemedia/cats.png");
