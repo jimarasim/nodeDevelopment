@@ -16,7 +16,7 @@ var imageWidthPixels = 100;
 
 function moveAnimalObjectUp(objectId,xAxisAttr,yAxisAttr) {
     //get the current location
-    var yPosition = $('#'+objectId).attr(yAxisAttr);
+    var yPosition = $('#'+objectId).attr(yAxisAttr)+$('#stuffedanimalwardiv').top;
     var svgHeight = $('#stuffedanimalwarsvg').height();
     //if still on the gameboard
     if(yPosition>0){
@@ -30,7 +30,7 @@ function moveAnimalObjectUp(objectId,xAxisAttr,yAxisAttr) {
 }
 function moveAnimalObjectDown(objectId,xAxisAttr,yAxisAttr) {
     //get the current location
-    var yPosition = $('#'+objectId).attr(yAxisAttr);
+    var yPosition = $('#'+objectId).attr(yAxisAttr)+$('#stuffedanimalwardiv').top;
     var svgHeight = $('#stuffedanimalwarsvg').height();
     //if still on the gameboard
     if(yPosition<svgHeight){
@@ -44,7 +44,7 @@ function moveAnimalObjectDown(objectId,xAxisAttr,yAxisAttr) {
 }
 function moveShapeObjectUp(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     //get the current location
-    var yPosition = $('#'+shapeObjectId).attr(shapeYAxisAttr);
+    var yPosition = $('#'+shapeObjectId).attr(shapeYAxisAttr)+$('#stuffedanimalwardiv').top;
     var svgHeight = $('#stuffedanimalwarsvg').height();
     //if still on the gameboard
     if(yPosition>0){
@@ -86,7 +86,7 @@ function moveShapeObjectUp(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
 }
 function moveShapeObjectDown(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     //get the current location
-    var yPosition = $('#'+shapeObjectId).attr(shapeYAxisAttr);
+    var yPosition = $('#'+shapeObjectId).attr(shapeYAxisAttr)+$('#stuffedanimalwardiv').top;
     var svgHeight = $('#stuffedanimalwarsvg').height();
     //if still on the gameboard
     if(yPosition<svgHeight){
@@ -95,7 +95,8 @@ function moveShapeObjectDown(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
         $('#'+shapeObjectId).attr(shapeYAxisAttr,yPosition);
     }
     else{
-        $('#'+shapeObjectId).attr(shapeYAxisAttr,'0');
+        
+        $('#'+shapeObjectId).attr(shapeYAxisAttr,$('#stuffedanimalwardiv').top);
     }    
     
     //check if any image animal was hit, and stop it if so
@@ -152,7 +153,7 @@ function onBaseTapSocketEventDots(tapMsgObject){
     
     //get the coordinates emitted
     var pointX = tapMsgObject.x;
-    var pointY = tapMsgObject.y;
+    var pointY = tapMsgObject.y+$('#stuffedanimalwardiv').top;
 
     //draw a circle from the new to the old location
     var newCircle = document.createElementNS('http://www.w3.org/2000/svg','circle');
@@ -191,7 +192,7 @@ function onBaseTapSocketEventDots(tapMsgObject){
 function onBaseTapSocketEventLines(tapMsgObject){
     //get the coordinates emitted
     var newPointX = tapMsgObject.x;
-    var newPointY = tapMsgObject.y;
+    var newPointY = tapMsgObject.y+$('#stuffedanimalwardiv').top;
 
     //save off these coordinates (for drawing a line)
     var oldPointX =$("#stuffedanimalwarsvgrect").attr("x");
@@ -254,7 +255,7 @@ function onBaseTapSocketEventImages(tapMsgObject,imagePath){
 
     //get the coordinates emitted
     var pointX = tapMsgObject.x-(width/2);
-    var pointY = tapMsgObject.y-(height/2);
+    var pointY = tapMsgObject.y-(height/2)+$('#stuffedanimalwardiv').top;
     
     var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
     svgimg.setAttributeNS(null,'id',animalId);
