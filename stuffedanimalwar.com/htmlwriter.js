@@ -4,6 +4,7 @@ var baseMediaPath = "http://analogarchive.com/live/";
 function writeStuffedAnimalWarTable(){
     document.write("<table style='"+"width:"+screen.width+"px;'>");
     writeStuffedAnimalWar();
+    document.write("<br />");
     writeStuffedAnimalWarAnimalDropdown();
     document.write("</table>");
 }   

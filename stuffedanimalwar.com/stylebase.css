@@ -67,6 +67,7 @@ div.divstuffedanimalwaronly
 svg.svgstuffedanimalwar
 {
     background-image: url("stuffedanimalmountain.jpg");
+    background-size: contain;
     background-color:antiquewhite;
     background-position:left;
     vertical-align: top;
