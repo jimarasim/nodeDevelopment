@@ -11,47 +11,40 @@ body {
     background-position:top right;
 }
 
-div.divstuffedanimalwaronly
-{
-    display:block;
-    
-    position:absolute;
-    margin: 0% 0% 0% 0%;
-    padding: 0% 0% 0% 0%;
-    border: 0px solid #ffffff;
 
-    top:100px;
-    bottom:10px;
-    left:0px;
-    right:0px;
+#stuffedanimalwardiv{
+    display:block;
+    position:absolute;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    width:100%;
+    bottom:50px;
 }
 
-svg.svgstuffedanimalwar
-{
+#stuffedanimalwarsvg{
+    display:block;
+    position:absolute;
     width:100%;
     height:100%;
-
-    /*background-image: url("stuffedanimalmountain.jpg");*/
-    /*background-size: contain;*/
-    /*background-position:left;*/
-    background-color:black;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+    background-image: url("stuffedanimalmountain.jpg");
+    background-size: contain;
+    background-position:left;
 }
+
 div.seattlenativelinks{
     position:absolute;
-    left:50px;
+    left:100px;
 }
 
-table.stuffedanimalwar{
+#audiotable{
     border-spacing:0px; /*need to specify so it doesn't get defaulted by user agent stylesheet'*/
     height:500px;
 }
-td{
+#audioplayertd{
     vertical-align: top;
     text-align: left;
-}
-div{
-    width:100%;
-    height:100%;
 }
 #messagesdiv
 {

@@ -11,7 +11,7 @@ body {
     background-position:top right;
 }
 
-div.divstuffedanimalwaronly
+#stuffedanimalwardiv
 {
     display:block;
     
@@ -26,7 +26,7 @@ div.divstuffedanimalwaronly
     right:0px;
 }
 
-svg.svgstuffedanimalwar
+#stuffedanimalwarsvg
 {
     width:100%;
     height:100%;

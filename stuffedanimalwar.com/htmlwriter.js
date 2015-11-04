@@ -1,39 +1,32 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 var baseMediaPath = "http://analogarchive.com/live/";
 //STUFFEDANIMALWAR
-function writeStuffedAnimalWarTable(){
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
-    writeStuffedAnimalWar();
-    document.write("<br />");
-    writeStuffedAnimalWarAnimalDropdown();
-    document.write("</table>");
-}   
 function writeStuffedAnimalWar(){
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<div id=\"stuffedanimalwardiv\" class=\"divstuffedanimalwaronly\">");
-    document.write("<svg id=\"stuffedanimalwarsvg\" class=\"svgstuffedanimalwar\">");
+    
+    writeStuffedAnimalWarDiv();
+    writeStuffedAnimalWarForm();
+}  
+
+function writeStuffedAnimalWarDiv(){
+    document.write("<div id=\"stuffedanimalwardiv\">");
+    document.write("<svg id=\"stuffedanimalwarsvg\">");
     document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"10\" height=\"10\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
     document.write("</svg>"); 
     document.write("</div>");
-    document.write("</td>");
-    document.write("</tr>");
 }
-function writeStuffedAnimalWarAnimalDropdown(){
-    document.write("<tr>");
-    document.write("<td>");
+function writeStuffedAnimalWarForm(){
     document.write("<form>");
-    document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
-    document.write("<option value=\"dots\" selected>Dots</option>");
-    document.write("<option value=\"lines\">Lines</option>");
-    document.write("<option value=\"cats\">Cats</option>");
-    document.write("<option value=\"dogs\">Dogs</option>");
-    document.write("<option value=\"lions\">Lions</option>");
-    document.write("<option value=\"crocodiles\">Crocodiles</option>");
+    document.write("<select id=\"animals\" name=\"sawstyle\" size=10 >");
     document.write("<option value=\"birds\">Birds</option>");
-    document.write("<option value=\"lamblambs\">Lamb</option>");
+    document.write("<option value=\"cats\">Cats</option>");
     document.write("<option value=\"chickens\">Chickens</option>");
+    document.write("<option value=\"crocodiles\">Crocodiles</option>");
     document.write("<option value=\"custom\">CUSTOM URL</option>");    
+    document.write("<option value=\"dogs\">Dogs</option>");
+    document.write("<option value=\"dots\" selected>Dots</option>");
+    document.write("<option value=\"lamblambs\">Lamb</option>");
+    document.write("<option value=\"lines\">Lines</option>");
+    document.write("<option value=\"lions\">Lions</option>");
     document.write("</select>");
     document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
     document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
@@ -41,39 +34,12 @@ function writeStuffedAnimalWarAnimalDropdown(){
     document.write("<option value=\"DOWN\">DOWN</option>");
     document.write("</select>");
     document.write("</form>"); 
-    document.write("</td>");
-    document.write("</tr>");
-}
-function writeStuffedAnimalWarAnimalUpAndDownButtons(){
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<form>");
-    document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
-    document.write("<option value=\"dots\" selected>Dots</option>");
-    document.write("<option value=\"lines\">Lines</option>");
-    document.write("<option value=\"cats\">Cats</option>");
-    document.write("<option value=\"dogs\">Dogs</option>");
-    document.write("<option value=\"lions\">Lions</option>");
-    document.write("<option value=\"crocodiles\">Crocodiles</option>");
-    document.write("<option value=\"birds\">Birds</option>");
-    document.write("<option value=\"lamblambs\">Lamb</option>");
-    document.write("<option value=\"chickens\">Chickens</option>");
-    document.write("<option value=\"custom\">CUSTOM URL</option>");    
-    document.write("</select>");
-    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
-    document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
-    document.write("<option value=\"UP\" selected>UP</option>");
-    document.write("<option value=\"DOWN\">DOWN</option>");
-    document.write("</select>");
-    document.write("</form>"); 
-    document.write("</td>");
-    document.write("</tr>");
 }
 function writeAudioPlayerFromJson(mediaObject){
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
+    document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
     //paint the audio player
     document.write("<tr>");
-    document.write("<td>");
+    document.write("<td class='audioplayertd'>");
     document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
     document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
     document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
@@ -82,7 +48,7 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</tr>");
     //paint the song selection dropdown 
     document.write("<tr>");
-    document.write("<td>");
+    document.write("<td class='audioplayertd'>");
     document.write("<select id=\"selectsongs\">");
     //paint song selection dropdown options (songs)
     for (var i=0;i<mediaObject.songs.length;i++){
@@ -92,31 +58,32 @@ function writeAudioPlayerFromJson(mediaObject){
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");  
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
+    
+    document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
     writeDefaultAutoResponderOptions();
     writeChatMessagesDiv();
     document.write("</table>");  
     //paint the photos
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
+    document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
     for (var i=0;i<mediaObject.photos.length;i++){
         document.write("<tr>");
-        document.write("<td>");
+        document.write("<td class='audioplayertd'>");
         document.write(mediaObject.photos[i].title);
         document.write("</td>");
         document.write("</tr>");
         document.write("<tr>");
-        document.write("<td>");
+        document.write("<td class='audioplayertd'>");
         document.write("<img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" />");
         document.write("</td>");
         document.write("</tr>");
     }
     document.write("</table>");   
     //paint links to the songs
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
+    document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
     document.write("<tr><th>Download</th></tr>");
     for (var i=0;i<mediaObject.songs.length;i++){
         document.write("<tr>");
-        document.write("<td>");
+        document.write("<td class='audioplayertd'>");
         document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
         document.write("</td>");
         document.write("</tr>");
