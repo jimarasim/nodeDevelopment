@@ -40,7 +40,13 @@ app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
         });
+
+app.get('/sawonlyV2', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwarV2.html');
+        });
         
+
 app.get('/videodjonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosvideo.html');
@@ -145,6 +151,11 @@ io.on('connection', function(socket){
         sendChatMessage('djnachoschatmessage',chatMsgObject);
     });
     
+    
+    socket.on('djnachoschatmessageV2', function(chatMsgObject){
+        sendChatMessage('djnachoschatmessageV2',chatMsgObject);
+    });
+    
     socket.on('roxhillsessionschatmessage', function(chatMsgObject){
         sendChatMessage('roxhillsessionschatmessage',chatMsgObject);
     });
@@ -189,6 +200,10 @@ io.on('connection', function(socket){
     socket.on('djnachostapmessage', function(tapMsgObject){
         sendTapMessage('djnachostapmessage',tapMsgObject);
     });  
+    
+    socket.on('djnachostapmessageV2', function(tapMsgObject){
+        sendTapMessage('djnachostapmessageV2',tapMsgObject);
+    }); 
     
     socket.on('roxhillsessionstapmessage', function(tapMsgObject){
         sendTapMessage('roxhillsessionstapmessage',tapMsgObject);
