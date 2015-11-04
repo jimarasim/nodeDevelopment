@@ -14,30 +14,34 @@ var baseUnspecifiedAlias = null; //default alias when none is specified
 var imageHeightPixels = 100; //height of the stuffed animals
 var imageWidthPixels = 100; //width of the stuffed animals
 
-function moveAnimalObjectUp(objectId,xAxisAttr,yAxisAttr) {
-    var xPosition = $('#'+objectId).attr(xAxisAttr);    //get the current location
-    var yPosition = $('#'+objectId).attr(yAxisAttr);    //get the current location
+function moveAnimalObjectUp(animalObjectId,animalXAxisAttr,animalYAxisAttr) {
+    var xPosition = $('#'+animalObjectId).attr(animalXAxisAttr);    //get the current location
+    var yPosition = $('#'+animalObjectId).attr(animalYAxisAttr);    //get the current location
     var svgHeight = $('#stuffedanimalwarsvg').height();
     if(yPosition>0){    //if still on the gameboard
         yPosition=parseInt(yPosition)-parseInt(animalPositionIncrement);        //update the coordinates
         xPosition=parseInt(xPosition);        //update the coordinates
-        $('#'+objectId).attr(yAxisAttr,yPosition).attr(xAxisAttr,yPosition);
+        $('#'+animalObjectId).attr(animalYAxisAttr,yPosition);
+        $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);
     }
     else{
-        $('#'+objectId).attr(yAxisAttr,svgHeight).attr(xAxisAttr,svgHeight);
+        $('#'+animalObjectId).attr(animalYAxisAttr,svgHeight);
+        $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);
     }  
 }
-function moveAnimalObjectDown(objectId,xAxisAttr,yAxisAttr) {
+function moveAnimalObjectDown(animalObjectId,animalXAxisAttr,animalYyAxisAttr) {
     //get the current location
-    var yPosition = $('#'+objectId).attr(yAxisAttr);
-    var xPosition = $('#'+objectId).attr(xAxisAttr);
+    var yPosition = $('#'+animalObjectId).attr(animalYyAxisAttr);
+    var xPosition = $('#'+animalObjectId).attr(animalXAxisAttr);
     var svgHeight = $('#stuffedanimalwarsvg').height();
     if(yPosition<svgHeight){     //if still on SVG gameboard
         yPosition=parseInt(yPosition)+parseInt(animalPositionIncrement);         //update the coordinates
-        $('#'+objectId).attr(yAxisAttr,yPosition).attr(xAxisAttr,xPosition);
+        $('#'+animalObjectId).attr(animalYyAxisAttr,yPosition);
+        $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);
     }
     else{
-        $('#'+objectId).attr(yAxisAttr,'0').attr(xAxisAttr,xPosition);  //MOVE BACK TO THE TOP OF THE SVG
+        $('#'+animalObjectId).attr(animalYyAxisAttr,'0');
+        $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);  //MOVE BACK TO THE TOP OF THE SVG
     }
 }
 function moveShapeObjectUp(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
@@ -47,10 +51,10 @@ function moveShapeObjectUp(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     var svgHeight = $('#stuffedanimalwarsvg').height();
     if(yPosition>0){    //if still on the SVG gameboard
         yPosition=parseInt(yPosition)-parseInt(shapePositionIncrement);              //update the coordinates
-        $('#'+shapeObjectId).attr(shapeYAxisAttr,yPosition).attr(shapeXAxisAttr,xPosition);
+        $('#'+shapeObjectId).attr(shapeYAxisAttr,yPosition);$('#'+shapeObjectId).attr(shapeXAxisAttr,xPosition);
     }
     else{
-        $('#'+shapeObjectId).attr(shapeYAxisAttr,svgHeight).attr(shapeXAxisAttr,xPosition);
+        $('#'+shapeObjectId).attr(shapeYAxisAttr,svgHeight);$('#'+shapeObjectId).attr(shapeXAxisAttr,xPosition);
     }
     
     //check if any image animal was hit, and stop it if so
@@ -76,10 +80,10 @@ function moveShapeObjectDown(shapeObjectId,shapeXAxisAttr,shapeYAxisAttr) {
     if(yPosition<svgHeight){
         //update the coordinates
         yPosition=parseInt(yPosition)+parseInt(shapePositionIncrement);
-        $('#'+shapeObjectId).attr(shapeYAxisAttr,yPosition).attr(shapeXAxisAttr,xPosition);
+        $('#'+shapeObjectId).attr(shapeYAxisAttr,yPosition);$('#'+shapeObjectId).attr(shapeXAxisAttr,xPosition);
     }
     else{
-        $('#'+shapeObjectId).attr(shapeYAxisAttr,'0').attr(shapeXAxisAttr,xPosition);
+        $('#'+shapeObjectId).attr(shapeYAxisAttr,'0');$('#'+shapeObjectId).attr(shapeXAxisAttr,xPosition);
     }    
     
     //check if any image animal was hit, and stop it if so
