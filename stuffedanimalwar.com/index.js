@@ -102,6 +102,11 @@ app.get('/lastgasp', function(req, res){
         res.sendFile(__dirname + '/lastgasp.html');
         });
         
+app.get('/skycriesmary', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/skycriesmary.html');
+        });
+        
 app.get('/marklanegan', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/marklanegan.html');
@@ -184,6 +189,10 @@ io.on('connection', function(socket){
         sendChatMessage('lastgaspchatmessage',chatMsgObject);
     });
     
+    socket.on('skycriesmarychatmessage', function(chatMsgObject){
+        sendChatMessage('skycriesmarychatmessage',chatMsgObject);
+    });
+    
     socket.on('marklaneganchatmessage', function(chatMsgObject){
         sendChatMessage('marklaneganchatmessage',chatMsgObject);
     });
@@ -231,6 +240,10 @@ io.on('connection', function(socket){
     
     socket.on('lastgasptapmessage', function(tapMsgObject){
         sendTapMessage('lastgasptapmessage',tapMsgObject);
+    });
+    
+    socket.on('skycriesmarytapmessage', function(tapMsgObject){
+        sendTapMessage('skycriesmarytapmessage',tapMsgObject);
     });
     
     socket.on('marklanegantapmessage', function(tapMsgObject){

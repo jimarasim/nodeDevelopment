@@ -2,9 +2,10 @@
 var baseMediaPath = "http://analogarchive.com/live/";
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWar(){
-    
     writeStuffedAnimalWarDiv();
+    document.write("<hr />");
     writeStuffedAnimalWarForm();
+    document.write("<hr />");
 }  
 
 function writeStuffedAnimalWarDiv(){
@@ -35,60 +36,89 @@ function writeStuffedAnimalWarForm(){
     document.write("</select>");
     document.write("</form>"); 
 }
-function writeAudioPlayerFromJson(mediaObject){
-    document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
-    //paint the audio player
-    document.write("<tr>");
-    document.write("<td class='audioplayertd'>");
-    document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
-    document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
-    document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
-    document.write("</audio>");
-    document.write("</td>");
-    document.write("</tr>");
-    //paint the song selection dropdown 
-    document.write("<tr>");
-    document.write("<td class='audioplayertd'>");
-    document.write("<select id=\"selectsongs\">");
-    //paint song selection dropdown options (songs)
-    for (var i=0;i<mediaObject.songs.length;i++){
-        document.write("<option value=\""+mediaObject.songspath+mediaObject.songs[i].file+"\">"+mediaObject.songs[i].title+"</option>");
+function writeMediaFromJson(mediaObject){
+    if(mediaObject.videospath && mediaObject.videos[0]){
+        document.write("<table style='"+"width:"+screen.width+"px;'>");
+        document.write("<tr>");
+        document.write("<td>");
+        if(mediaObject.photos[0]){
+            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.photospath+mediaObject.photos[0].file+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+        }
+        else{
+            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/vinyl.jpeg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+        }
+        document.write(" browser doesn't support mp4 video. use chrome.");
+        document.write("<source src=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+        document.write("</video>");
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("<tr>");
+        document.write("<td>");
+        document.write("<select id=\"selectvideos\">");
+        for (var i=0;i<mediaObject.videos.length;i++){
+            document.write("<option value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+        }
+        document.write("</select>");
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("</table>");  
+
     }
-    document.write("</select>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("</table>");  
+
+    if(mediaObject.songspath && mediaObject.songs[0]){
+        document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
+        //paint the audio player
+        document.write("<tr>");
+        document.write("<td class='audioplayertd'>");
+        document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+        document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
+        document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+        document.write("</audio>");
+        document.write("</td>");
+        document.write("</tr>");
+        //paint the song selection dropdown 
+        document.write("<tr>");
+        document.write("<td class='audioplayertd'>");
+        document.write("<select id=\"selectsongs\">");
+        //paint song selection dropdown options (songs)
+        for (var i=0;i<mediaObject.songs.length;i++){
+            document.write("<option value=\""+mediaObject.songspath+mediaObject.songs[i].file+"\">"+mediaObject.songs[i].title+"</option>");
+        }
+        document.write("</select>");
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("</table>");  
+        //paint links to the songs
+        document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
+        document.write("<tr><th>Download</th></tr>");
+        for (var i=0;i<mediaObject.songs.length;i++){
+            document.write("<tr>");
+            document.write("<td class='audioplayertd'>");
+            document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
+            document.write("</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    }
     
-    document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
-    writeDefaultAutoResponderOptions();
-    writeChatMessagesDiv();
-    document.write("</table>");  
-    //paint the photos
-    document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
-    for (var i=0;i<mediaObject.photos.length;i++){
-        document.write("<tr>");
-        document.write("<td class='audioplayertd'>");
-        document.write(mediaObject.photos[i].title);
-        document.write("</td>");
-        document.write("</tr>");
-        document.write("<tr>");
-        document.write("<td class='audioplayertd'>");
-        document.write("<img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" />");
-        document.write("</td>");
-        document.write("</tr>");
+    if(mediaObject.photospath && mediaObject.photos[0]){
+        //paint the photos
+        document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
+        for (var i=0;i<mediaObject.photos.length;i++){
+            document.write("<tr>");
+            document.write("<td class='audioplayertd'>");
+            document.write(mediaObject.photos[i].title);
+            document.write("</td>");
+            document.write("</tr>");
+            document.write("<tr>");
+            document.write("<td class='audioplayertd'>");
+            document.write("<img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" />");
+            document.write("</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");   
     }
-    document.write("</table>");   
-    //paint links to the songs
-    document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
-    document.write("<tr><th>Download</th></tr>");
-    for (var i=0;i<mediaObject.songs.length;i++){
-        document.write("<tr>");
-        document.write("<td class='audioplayertd'>");
-        document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
-        document.write("</td>");
-        document.write("</tr>");
-    }
-    document.write("</table>");  
+      
 }
 //CHAT
 function writeChat(){
