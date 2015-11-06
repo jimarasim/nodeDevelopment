@@ -138,7 +138,7 @@ function onBaseTapSocketEventDots(tapMsgObject){
     newCircle.setAttribute('r',radius);
     
     //RANDOM COLOR
-    newCircle.setAttribute('style','stroke:rgb('+GetRandomColorValue()+','+GetRandomColorValue()+','+GetRandomColorValue()+');fill:rgb('+GetRandomColorValue()+','+GetRandomColorValue()+','+GetRandomColorValue()+');'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
+    newCircle.setAttribute('style','transform=translate(75,25);stroke:rgb('+GetRandomColorValue()+','+GetRandomColorValue()+','+GetRandomColorValue()+');fill:rgb('+GetRandomColorValue()+','+GetRandomColorValue()+','+GetRandomColorValue()+');'); //WHITE FILL / WHITE STROKE (OUTER CIRCLE) 
     
     $("#stuffedanimalwarsvg").append(newCircle);
 
