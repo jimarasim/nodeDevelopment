@@ -1,5 +1,4 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
-var baseMediaPath = "http://analogarchive.com/live/";
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWar(){
     writeStuffedAnimalWarDiv();
@@ -7,7 +6,6 @@ function writeStuffedAnimalWar(){
     writeStuffedAnimalWarForm();
     document.write("<hr />");
 }  
-
 function writeStuffedAnimalWarDiv(){
     document.write("<div id=\"stuffedanimalwardiv\">");
     document.write("<svg id=\"stuffedanimalwarsvg\">");
@@ -36,6 +34,7 @@ function writeStuffedAnimalWarForm(){
     document.write("</select>");
     document.write("</form>"); 
 }
+//AUDIO VIDEO PHOTOS
 function writeMediaFromJson(mediaObject){
     if(mediaObject.videospath && mediaObject.videos[0]){
         document.write("<table style='"+"width:"+screen.width+"px;'>");
@@ -90,7 +89,7 @@ function writeMediaFromJson(mediaObject){
         document.write("</table>");  
         //paint links to the songs
         document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
-        document.write("<tr><th>Download</th></tr>");
+        document.write("<tr><td>Download</td></tr>");
         for (var i=0;i<mediaObject.songs.length;i++){
             document.write("<tr>");
             document.write("<td class='audioplayertd'>");
@@ -191,61 +190,7 @@ function writeChatMessagesDiv(){
     document.write("</td>");
     document.write("</tr>");
 }
-//VIDEO 
-function writeVideoPlayer(){
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
-    writeVideoPlayer();
-    writeDefaultVideoPlayerOptions();
-    document.write("</table>");
-}
-function writeVideoPlayerWithChat(){
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
-    writeVideoPlayer();
-    writeDefaultVideoPlayerOptions();
-    writeDefaultAutoResponderOptions();
-    writeChatMessagesDiv();
-    document.write("</table>");
-}
-function writeVideoPlayer(){
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/media/cat.jpg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-    document.write(" browser doesn't support mp4 video. use chrome.");
-    document.write("<source src=\"https://seattlerules.com/media/marginal/jim-marginal-overthelight-march2015.mp4\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-    document.write("</video>");
-    document.write("</td>");
-    document.write("</tr>");
-}
-function writeDefaultVideoPlayerOptions(){
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<select id=\"selectvideos\">");
-    document.write("<option value=\"http://seattlerules.com/media/marginal/jim-marginal-overthelight-march2015.mp4\" selected>Sk8creteordie over the light at Marginal</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0098.mp4\">01 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0101.mp4\">02 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0103.mp4\">03 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0106.mp4\">04 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0109.mp4\">05 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0113.mp4\">01 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0116.mp4\">02 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0117.mp4\">03 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0119.mp4\">04 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0120.mp4\">05 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/IMG_0127.mp4\">06 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/wxpfl/wxpfl-greenwood-201411.mp4\">07 WXPFL</option>");
-    document.write("<option value=\"http://seattlerules.com/media/kaylacheering/kayla_cheerleading_20150215.mp4\">01 Kayla Cheering</option>");
-    document.write("<option value=\"http://seattlerules.com/media/kaylacheering/kayla_cheerleading_20150215b.mp4\"> 02Kayla Cheering</option>");
-    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131923451.mp4\">01 Sk8creteordie cellphoto</option>");
-    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131950341.mp4\">02 Sk8creteordie cellphoto</option>");
-    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131952541.mp4\">03 Sk8creteordie cellphoto</option>");
-    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408131956261.mp4\">04 Sk8creteordie cellphoto</option>");
-    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408132002401.mp4\">05 Sk8creteordie cellphoto</option>");
-    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408132012071.mp4\">06  Sk8creteordie cellphoto</option>");
-    document.write("<option value=\"http://seattlerules.com/cellphoto/cellphoto/sk8crete201408142156021.mp4\">07 Sk8creteordie cellphoto</option>");
-    document.write("</select>");
-    document.write("</td>");
-    document.write("</tr>");
-}
+
 
 
 
