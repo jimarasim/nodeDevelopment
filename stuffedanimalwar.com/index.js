@@ -1,6 +1,6 @@
-//JAEMZWARE
+//STUFFPEDANIMALWAR HTTP JAEMZWARE
 //EXAMPLE STARTED FROM: http://socket.io/get-started/chat/
-//
+
 /* global require, __dirname, process, http */
 
 //setup an express application and bind it to an http server
@@ -46,7 +46,6 @@ app.get('/sawonlyV2', function(req, res){
         res.sendFile(__dirname + '/djnachosstuffedanimalwarV2.html');
         });
         
-
 app.get('/videodjonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosvideo.html');
