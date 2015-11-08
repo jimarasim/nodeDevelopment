@@ -9,12 +9,38 @@ function writeStuffedAnimalWar(stuffedAnimalMediaObject){
 }  
 function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
-    //IF THE BACKGROUND IMAGE WAS SPECIFIED, USE IT
+    //IF THE BACKGROUND IMAGE WAS SPECIFIED
     if(stuffedAnimalMediaObject.backgroundimage){
-        document.write("<svg id=\"stuffedanimalwarsvg\" style=\"background-image:url('"+stuffedAnimalMediaObject.backgroundimage+"');\">");
+        //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT
+        if (    stuffedAnimalMediaObject.backgroundimage.indexOf("http://")===0||
+                stuffedAnimalMediaObject.backgroundimage.indexOf("https://")===0||
+                stuffedAnimalMediaObject.backgroundimage.indexOf("gamemedia/")===0){ 
+            if( stuffedAnimalMediaObject.backgroundimage.indexOf(".jpg")   >   0 ||
+                stuffedAnimalMediaObject.backgroundimage.indexOf(".jpeg")  >   0 ||
+                stuffedAnimalMediaObject.backgroundimage.indexOf(".gif")   >   0 ||
+                stuffedAnimalMediaObject.backgroundimage.indexOf(".png")   >   0){
+                //USE IT
+                document.write("<svg id=\"stuffedanimalwarsvg\" style=\"background-image:url('"+stuffedAnimalMediaObject.backgroundimage+"');\">");
+            }
+            else{
+                //JUST WRITE THE DEFAULT IMAGE
+                document.write("<svg id=\"stuffedanimalwarsvg\">");
+                //SHOW IN LOG WHY WE DIDNT USE IT
+                console.log('BACKGROUNDIMAGEPROFIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+stuffedAnimalMediaObject.backgroundimage);
+            }
+        }
+        else{
+        //JUST WRITE THE DEFAULT IMAGE
+        document.write("<svg id=\"stuffedanimalwarsvg\">");
+        //SHOW IN LOG WHY WE DIDNT USE IT
+                console.log('BACKGROUNDIMAGEPROFIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+stuffedAnimalMediaObject.backgroundimage);
+        }
     }
     else{
+        //JUST WRITE THE DEFAULT IMAGE
         document.write("<svg id=\"stuffedanimalwarsvg\">");
+        //SHOW IN LOG WHY WE DIDNT USE IT
+                console.log('BACKGROUNDIMAGEPROFIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+stuffedAnimalMediaObject.backgroundimage);
     }
     document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
     document.write("</svg>"); 
