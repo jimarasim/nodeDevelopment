@@ -17,9 +17,12 @@ function writeStuffedAnimalWarForm(){
     document.write("<form>");
     document.write("<select id=\"animals\" name=\"sawstyle\" size=10 >");
     document.write("<option value=\"dots\" selected>Bullets</option>");
-    document.write("<option value=\"line01\">Line01</option>");
-    document.write("<option value=\"line02\">Line02</option>");
-    document.write("<option value=\"line03\">Line03</option>");
+    document.write("<option value=\"line01\">Vertical Line</option>");
+    document.write("<option value=\"line02\">Diagonal Line</option>");
+    document.write("<option value=\"line03\">Sun Ray Line</option>");
+
+
+
     document.write("<option value=\"birds\">Bird</option>");
     document.write("<option value=\"cats\">Cat</option>");
     document.write("<option value=\"chickens\">Chicken</option>");

@@ -176,26 +176,26 @@ function onBaseTapSocketEventLines(tapMsgObject){
     var lineId='line'+$.now();
 
     newLine.setAttribute('id',lineId);
-    newLine.setAttribute('x1',oldPointX);
-        newLine.setAttribute('y1',oldPointY);
     //XYxy
-    if(tapMsgObject.animal='line01'){
-         
-        newLine.setAttribute('x2',oldPointX); //
+    if(tapMsgObject.animal==='line01'){
+        newLine.setAttribute('x1',newPointX);
+        newLine.setAttribute('y1',newPointY);
+    
+        newLine.setAttribute('x2',newPointX); //
         newLine.setAttribute('y2',newPointY); //
-        console.log('xyxY');
     }
     //xyXY
-    else if(tapMsgObject.animal='line02'){ 
+    else if(tapMsgObject.animal==='line02'){ 
+        newLine.setAttribute('x1',oldPointX);
+        newLine.setAttribute('y1',oldPointY);
+    
         newLine.setAttribute('x2',newPointX); //
         newLine.setAttribute('y2',newPointY); //
-        console.log('xyXY');
     }
     //xYxy
-    if(tapMsgObject.animal='line03'){ 
-        newLine.setAttribute('x2',newPointX); //
-        newLine.setAttribute('y2',oldPointY); //
-        console.log('xyXy');
+    else if(tapMsgObject.animal==='line03'){ 
+        newLine.setAttribute('x1',newPointX);
+        newLine.setAttribute('y1',newPointY); //
     }
     else{
         console.log('UNKNOWN LINE ANIMAL:'+tapMsgObject.animal);
