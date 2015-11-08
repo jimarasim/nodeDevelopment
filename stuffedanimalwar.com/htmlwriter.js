@@ -1,12 +1,15 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
+    //WRITE OUT THE INTERACTIVE GAME PAD
     writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
     document.write("<hr />");
+    //WRITE OUT THE CONTROLS
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
 }  
 function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
+    //IF THE BACKGROUND IMAGE WAS SPECIFIED, USE IT
     if(stuffedAnimalMediaObject.backgroundimage){
         document.write("<svg id=\"stuffedanimalwarsvg\" style=\"background-image:url('"+stuffedAnimalMediaObject.backgroundimage+"');\">");
     }
@@ -27,19 +30,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     document.write("<option value=\"dots\" selected>Bullets</option>");
     document.write("<option value=\"line01\">Line 01</option>");
     document.write("<option value=\"line02\">Line 02</option>");
-    /* CUSTOM ANIMAL CHOICES
-     * SAMPLE FROM djnachosstuffedanimalwar.html
-     *  
-     *   "animals":[
-     *       {'file':'gamemedia/cats.png','title':'cats'},
-     *       {'file':'gamemedia/dogs.png','title':'dogs'},
-     *       {'file':'gamemedia/birds.png','title':'birds'},
-     *       {'file':'gamemedia/chickens.png','title':'chickens'},
-     *       {'file':'gamemedia/crocodiles.png','title':'crocodiles'},
-     *       {'file':'gamemedia/lamblambs.png','title':'lamblambs'},
-     *       {'file':'gamemedia/lions.png','title':'lions'}
-     *       ]
-     */
+    //IF SOME IMAGES WERE PROFIDED AS ANIMALS, USE THEM
     if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
         for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
             document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
