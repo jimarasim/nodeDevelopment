@@ -1,14 +1,18 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 //STUFFEDANIMALWAR
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
-    writeStuffedAnimalWarDiv();
+    writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
     document.write("<hr />");
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
-    document.write("<hr />");
 }  
-function writeStuffedAnimalWarDiv(){
+function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
-    document.write("<svg id=\"stuffedanimalwarsvg\">");
+    if(stuffedAnimalMediaObject.backgroundimage){
+        document.write("<svg id=\"stuffedanimalwarsvg\" style=\"background-image:url('"+stuffedAnimalMediaObject.backgroundimage+"');\">");
+    }
+    else{
+        document.write("<svg id=\"stuffedanimalwarsvg\">");
+    }
     document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
     document.write("</svg>"); 
     document.write("</div>");
