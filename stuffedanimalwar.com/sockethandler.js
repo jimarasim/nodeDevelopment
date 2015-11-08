@@ -118,9 +118,7 @@ function initializeTapSocketHandler(socket){
             case "line02":
                 onBaseTapSocketEventLines(tapMsgObject);
                 break;
-            case "line03":
-                onBaseTapSocketEventLines(tapMsgObject);
-                break;
+            
             case "custom":
                 onBaseTapSocketEventCustom(tapMsgObject);
                 break;

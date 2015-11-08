@@ -17,12 +17,8 @@ function writeStuffedAnimalWarForm(){
     document.write("<form>");
     document.write("<select id=\"animals\" name=\"sawstyle\" size=10 >");
     document.write("<option value=\"dots\" selected>Bullets</option>");
-    document.write("<option value=\"line01\">Vertical Line</option>");
-    document.write("<option value=\"line02\">Diagonal Line</option>");
-    document.write("<option value=\"line03\">Sun Ray Line</option>");
-
-
-
+    document.write("<option value=\"line01\">Line 01</option>");
+    document.write("<option value=\"line02\">Line 02</option>");
     document.write("<option value=\"birds\">Bird</option>");
     document.write("<option value=\"cats\">Cat</option>");
     document.write("<option value=\"chickens\">Chicken</option>");
@@ -37,6 +33,9 @@ function writeStuffedAnimalWarForm(){
     document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
     document.write("<option value=\"UP\" selected>UP</option>");
     document.write("<option value=\"DOWN\">DOWN</option>");
+    document.write("<option value=\"LEFT\">LEFT</option>");
+    document.write("<option value=\"RIGHT\">RIGHT</option>");
+
     document.write("</select>");
     document.write("</form>"); 
 }
