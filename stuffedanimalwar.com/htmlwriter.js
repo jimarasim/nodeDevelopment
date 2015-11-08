@@ -56,8 +56,8 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     //DEFAULT ANIMAL CHOICES
     document.write("<option value=\"custom\">CUSTOM URL</option>");  
     document.write("<option value=\"dots\" selected>Bullets</option>");
-    document.write("<option value=\"line01\">Line 01</option>");
-    document.write("<option value=\"line02\">Line 02</option>");
+    document.write("<option value=\"line01\">Laser</option>");
+    document.write("<option value=\"line02\">Bow Staff</option>");
     //IF SOME IMAGES WERE PROFIDED AS ANIMALS, USE THEM
     if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
         for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
