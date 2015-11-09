@@ -1,14 +1,11 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 //STUFFEDANIMALWAR
 
-function writeStuffedAnimalWar(){
+function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarDiv();
-    document.write("<hr />");
-    writeStuffedAnimalWarForm();
-    document.write("<h1>STUFFED ANIMAL WAR</h1>");
-    document.write("<hr />");
-    //WRITE OUT THE CONTROLS
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
+    document.write("<h1>STUFFED ANIMAL WAR</h1>");
+    document.write("<hr />");    
 }  
 function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
