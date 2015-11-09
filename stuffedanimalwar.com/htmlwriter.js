@@ -1,8 +1,11 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 //STUFFEDANIMALWAR
-function writeStuffedAnimalWar(stuffedAnimalMediaObject){
-    //WRITE OUT THE INTERACTIVE GAME PAD
-    writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
+
+function writeStuffedAnimalWar(){
+    writeStuffedAnimalWarDiv();
+    document.write("<hr />");
+    writeStuffedAnimalWarForm();
+    document.write("<h1>STUFFED ANIMAL WAR</h1>");
     document.write("<hr />");
     //WRITE OUT THE CONTROLS
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
@@ -85,6 +88,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
 //AUDIO VIDEO PHOTOS
 function writeMediaFromJson(mediaObject){
     if(mediaObject.videospath && mediaObject.videos[0]){
+        document.write("<h1>VIDEO</h1>");
         document.write("<table style='"+"width:"+screen.width+"px;'>");
         document.write("<tr>");
         document.write("<td>");
@@ -109,10 +113,11 @@ function writeMediaFromJson(mediaObject){
         document.write("</td>");
         document.write("</tr>");
         document.write("</table>");  
-
+        document.write("<hr>");
     }
 
     if(mediaObject.songspath && mediaObject.songs[0]){
+        document.write("<h1>AUDIO</h1>");
         document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
         //paint the audio player
         document.write("<tr>");
@@ -146,9 +151,11 @@ function writeMediaFromJson(mediaObject){
             document.write("</tr>");
         }
         document.write("</table>");
+        document.write("<hr>");
     }
     
     if(mediaObject.photospath && mediaObject.photos[0]){
+        document.write("<h1>PHOTOS</h1>");
         //paint the photos
         document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
         for (var i=0;i<mediaObject.photos.length;i++){
@@ -164,6 +171,7 @@ function writeMediaFromJson(mediaObject){
             document.write("</tr>");
         }
         document.write("</table>");   
+        document.write("<hr>");
     }
       
 }
