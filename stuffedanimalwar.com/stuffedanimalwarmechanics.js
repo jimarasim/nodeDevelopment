@@ -352,6 +352,7 @@ function onBaseTapSocketEventCustom(tapMsgObject){
        ){ 
             if( tapMsgObject.customimage.indexOf(".jpg")   >   0 ||
                 tapMsgObject.customimage.indexOf(".jpeg")  >   0 ||
+                tapMsgObject.customimage.indexOf(".JPG")  >   0 ||
                 tapMsgObject.customimage.indexOf(".gif")   >   0 ||
                 tapMsgObject.customimage.indexOf(".png")   >   0){
                 onBaseTapSocketEventImages(tapMsgObject,tapMsgObject.customimage);

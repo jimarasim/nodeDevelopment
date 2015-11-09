@@ -88,27 +88,6 @@ function initializeTapSocketHandler(socket){
     socket.on(tapSocketEvent, function(tapMsgObject){
         var animal = tapMsgObject.animal; //see htmlwriter.js writeStuffedAnimalWarAnimalDropdown
         switch(animal){
-            case "cats":
-                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/cats.png");
-                break;
-            case "dogs":
-                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/dogs.png");
-                break;
-            case "lions":
-                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/lions.png");
-                break;
-            case "crocodiles":
-                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/crocodiles.png");
-                break;
-            case "chickens":
-                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/chickens.png");
-                break;
-            case "birds":
-                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/birds.png");
-                break;
-            case "lamblambs":
-                onBaseTapSocketEventImages(tapMsgObject,"gamemedia/lamblambs.png");
-                break;
             case "dots":
                 onBaseTapSocketEventDots(tapMsgObject);
                 break;
@@ -118,12 +97,11 @@ function initializeTapSocketHandler(socket){
             case "line02":
                 onBaseTapSocketEventLines(tapMsgObject);
                 break;
-            
             case "custom":
                 onBaseTapSocketEventCustom(tapMsgObject);
                 break;
             default:
-                console.log("UNKNOWN ANIMAL:"+tapMsgObject.animal);
+                onBaseTapSocketEventImages(tapMsgObject,tapMsgObject.animal);
                 break;
         }        
     });

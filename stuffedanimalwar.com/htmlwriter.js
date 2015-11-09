@@ -1,44 +1,89 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
 //STUFFEDANIMALWAR
+
 function writeStuffedAnimalWar(){
     writeStuffedAnimalWarDiv();
     document.write("<hr />");
     writeStuffedAnimalWarForm();
     document.write("<h1>STUFFED ANIMAL WAR</h1>");
     document.write("<hr />");
+    //WRITE OUT THE CONTROLS
+    writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
 }  
-function writeStuffedAnimalWarDiv(){
+function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
-    document.write("<svg id=\"stuffedanimalwarsvg\">");
+    //IF THE BACKGROUND IMAGE WAS SPECIFIED
+    if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.backgroundimage){
+        //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT
+        if (    stuffedAnimalMediaObject.backgroundimage.indexOf("http://")===0||
+                stuffedAnimalMediaObject.backgroundimage.indexOf("https://")===0||
+                stuffedAnimalMediaObject.backgroundimage.indexOf("gamemedia/")===0){ 
+            if( stuffedAnimalMediaObject.backgroundimage.indexOf(".jpg")   >   0 ||
+                stuffedAnimalMediaObject.backgroundimage.indexOf(".jpeg")  >   0 ||
+                stuffedAnimalMediaObject.backgroundimage.indexOf(".JPG")  >   0 ||
+                stuffedAnimalMediaObject.backgroundimage.indexOf(".gif")   >   0 ||
+                stuffedAnimalMediaObject.backgroundimage.indexOf(".png")   >   0){
+                //USE IT
+                document.write("<svg id=\"stuffedanimalwarsvg\" style=\"background-image:url('"+stuffedAnimalMediaObject.backgroundimage+"');\">");
+            }
+            else{
+                //JUST WRITE THE DEFAULT IMAGE
+                document.write("<svg id=\"stuffedanimalwarsvg\">");
+                //SHOW IN LOG WHY WE DIDNT USE IT
+                console.log('BACKGROUNDIMAGEPROVIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+stuffedAnimalMediaObject.backgroundimage);
+            }
+        }
+        else{
+        //JUST WRITE THE DEFAULT IMAGE
+        document.write("<svg id=\"stuffedanimalwarsvg\">");
+        //SHOW IN LOG WHY WE DIDNT USE IT
+                console.log('BACKGROUNDIMAGEPROVIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+stuffedAnimalMediaObject.backgroundimage);
+        }
+    }
+    else{
+        //JUST WRITE THE DEFAULT IMAGE
+        document.write("<svg id=\"stuffedanimalwarsvg\">");
+        //SHOW IN LOG WHY WE DIDNT USE IT
+        console.log('BACKGROUNDIMAGENOTPROVIDED');
+    }
     document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
     document.write("</svg>"); 
     document.write("</div>");
 }
-function writeStuffedAnimalWarForm(){
+function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
+    document.write("<div>");
     document.write("<form>");
-    document.write("<select id=\"animals\" name=\"sawstyle\" size=10 >");
+    
+    //ANIMAL CHOICES
+    document.write("<select style=\"float:left;\" id=\"animals\" name=\"sawstyle\" size=17 >");
+    //DEFAULT ANIMAL CHOICES
+    document.write("<option value=\"custom\">CUSTOM URL</option>");  
     document.write("<option value=\"dots\" selected>Bullets</option>");
-    document.write("<option value=\"line01\">Line 01</option>");
-    document.write("<option value=\"line02\">Line 02</option>");
-    document.write("<option value=\"birds\">Bird</option>");
-    document.write("<option value=\"cats\">Cat</option>");
-    document.write("<option value=\"chickens\">Chicken</option>");
-    document.write("<option value=\"crocodiles\">Crocodile</option>");
-    document.write("<option value=\"dogs\">Dogs</option>");
-    document.write("<option value=\"lamblambs\">Lamb</option>");
-    document.write("<option value=\"lions\">Lions</option>");
-    document.write("<option value=\"custom\">CUSTOM URL (paste link in adjacent textbox</option>");    
-
+    document.write("<option value=\"line01\">Laser</option>");
+    document.write("<option value=\"line02\">Bow Staff</option>");
+    //IF SOME IMAGES WERE PROFIDED AS ANIMALS, USE THEM
+    if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
+        for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
+            document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
+        }
+    }
     document.write("</select>");
-    document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
-    document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
+    document.write("<div>");
+    //CUSTOM URL TEXT BOX
+    document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
+    document.write("<br />");
+    //MOVEMENT DIRECTION
+    document.write("<select style=\"vertical-align:bottom;text-align:left;\" id=\"movement\" name=\"sawmove\" size=4 >");
     document.write("<option value=\"UP\" selected>UP</option>");
     document.write("<option value=\"DOWN\">DOWN</option>");
     document.write("<option value=\"LEFT\">LEFT</option>");
     document.write("<option value=\"RIGHT\">RIGHT</option>");
-
     document.write("</select>");
+    document.write("</div>");
     document.write("</form>"); 
+    document.write("<div>");
+
+    
 }
 //AUDIO VIDEO PHOTOS
 function writeMediaFromJson(mediaObject){
