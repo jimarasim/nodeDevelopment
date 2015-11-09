@@ -10,28 +10,33 @@ function writeStuffedAnimalWar(){
 function writeStuffedAnimalWarDiv(){
     document.write("<div id=\"stuffedanimalwardiv\">");
     document.write("<svg id=\"stuffedanimalwarsvg\">");
-    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"10\" height=\"10\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
+    document.write("<rect id=\"stuffedanimalwarsvgrect\" x=\"0\" y=\"0\" width=\"1\" height=\"1\" style=\"fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)\" />");
     document.write("</svg>"); 
     document.write("</div>");
 }
 function writeStuffedAnimalWarForm(){
     document.write("<form>");
     document.write("<select id=\"animals\" name=\"sawstyle\" size=10 >");
-    document.write("<option value=\"birds\">Birds</option>");
-    document.write("<option value=\"cats\">Cats</option>");
-    document.write("<option value=\"chickens\">Chickens</option>");
-    document.write("<option value=\"crocodiles\">Crocodiles</option>");
-    document.write("<option value=\"custom\">CUSTOM URL</option>");    
+    document.write("<option value=\"dots\" selected>Bullets</option>");
+    document.write("<option value=\"line01\">Line 01</option>");
+    document.write("<option value=\"line02\">Line 02</option>");
+    document.write("<option value=\"birds\">Bird</option>");
+    document.write("<option value=\"cats\">Cat</option>");
+    document.write("<option value=\"chickens\">Chicken</option>");
+    document.write("<option value=\"crocodiles\">Crocodile</option>");
     document.write("<option value=\"dogs\">Dogs</option>");
-    document.write("<option value=\"dots\" selected>Dots</option>");
     document.write("<option value=\"lamblambs\">Lamb</option>");
-    document.write("<option value=\"lines\">Lines</option>");
     document.write("<option value=\"lions\">Lions</option>");
+    document.write("<option value=\"custom\">CUSTOM URL (paste link in adjacent textbox</option>");    
+
     document.write("</select>");
     document.write("<input id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
     document.write("<select id=\"movement\" name=\"sawmove\" size=1 >");
     document.write("<option value=\"UP\" selected>UP</option>");
     document.write("<option value=\"DOWN\">DOWN</option>");
+    document.write("<option value=\"LEFT\">LEFT</option>");
+    document.write("<option value=\"RIGHT\">RIGHT</option>");
+
     document.write("</select>");
     document.write("</form>"); 
 }
