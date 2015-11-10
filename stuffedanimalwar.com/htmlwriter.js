@@ -2,13 +2,14 @@
 //STUFFEDANIMALWAR
 
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
-    writeStuffedAnimalWarDiv();
+    writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
     document.write("<h1>STUFFED ANIMAL WAR</h1>");
     document.write("<hr />");    
 }  
 function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
+    console.log('stuffedAnimalMediaObject.backgroundimage:'+stuffedAnimalMediaObject);
     //IF THE BACKGROUND IMAGE WAS SPECIFIED
     if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.backgroundimage){
         //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT
@@ -27,14 +28,14 @@ function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
                 //JUST WRITE THE DEFAULT IMAGE
                 document.write("<svg id=\"stuffedanimalwarsvg\">");
                 //SHOW IN LOG WHY WE DIDNT USE IT
-                console.log('BACKGROUNDIMAGEPROVIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+stuffedAnimalMediaObject.backgroundimage);
+                console.log('BACKGROUNDIMAGEPROVIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL. NEEDS TO END WITH .jpg, .jpeg, .JPG, .gif, .png'+stuffedAnimalMediaObject.backgroundimage);
             }
         }
         else{
-        //JUST WRITE THE DEFAULT IMAGE
-        document.write("<svg id=\"stuffedanimalwarsvg\">");
-        //SHOW IN LOG WHY WE DIDNT USE IT
-                console.log('BACKGROUNDIMAGEPROVIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL'+stuffedAnimalMediaObject.backgroundimage);
+            //JUST WRITE THE DEFAULT IMAGE
+            document.write("<svg id=\"stuffedanimalwarsvg\">");
+            //SHOW IN LOG WHY WE DIDNT USE IT
+            console.log('BACKGROUNDIMAGEPROVIDED  DOES NOT CONTAIN A VALID ENOUGH IMAGE URL. NEEDS TO START WITH http:// gamemedia https://'+stuffedAnimalMediaObject.backgroundimage);
         }
     }
     else{
