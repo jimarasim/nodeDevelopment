@@ -8,6 +8,8 @@ var endpoint = null;
 var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
+var connectSocketEvent = 'connectSocketEvent';
+var disconnectSocketEvent = 'disconnectSocketEvent';
 
 $('#stuffedanimalwarsvg').click(function(event){
     
@@ -127,6 +129,21 @@ function initializeChatSocketHandler(socket){
     baseSocket=socket;
 }
 
+function initializeConnectSocketHandler(socket){
+    socket.on(connectSocketEvent, function(connectMsgObject){
+        onBaseConnectSocketEvent(connectMsgObject);
+    });
+    baseSocket=socket;
+}
+function initializeDisConnectSocketHandler(socket){
+    socket.on(disconnectSocketEvent, function(connectMsgObject){
+        onBaseDisconnectSocketEvent(connectMsgObject);
+    });
+    baseSocket=socket;
+}
+
+function onBaseConnectSocketEvent(connectMsgObject){console.log('CONNECT:'+JSON.stringify(connectMsgObject));}
+function onBaseDisconnectSocketEvent(connectMsgObject){console.log('DISCONNECCT:'+JSON.stringify(connectMsgObject));}
 function onBaseChatSocketEvent(chatMsgObject){
     var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
     var chatServerUser = chatMsgObject.CHATSERVERUSER;

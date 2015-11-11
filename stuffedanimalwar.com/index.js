@@ -126,13 +126,24 @@ app.get('/houston2015', function(req, res){
 io.on('connection', function(socket){
     var chatClientAddress = socket.handshake.address;
     var chatServerDate = new Date();
-    console.log('CONNECT:'+chatClientAddress+chatServerDate);
+    var connectMsgObject = {
+                  CHATSERVERUSER:chatClientAddress,
+                  CHATSERVERDATE:chatServerDate
+     }; 
+    io.emit('connectSocketEvent',connectMsgObject);
+    console.log("connectSocketEvent:"+JSON.stringify(connectMsgObject));
+
     
     //COMMON--------------------------------------------------------------------------------------
     socket.on('disconnect', function(){
         var chatClientAddress = socket.handshake.address;
         var chatServerDate = new Date();
-        console.log('DISCONNECT:'+chatClientAddress+chatServerDate);
+        var connectMsgObject = {
+                CHATSERVERUSER:chatClientAddress,
+                CHATSERVERDATE:chatServerDate
+         }; 
+        io.emit('disconnectSocketEvent',connectMsgObject);
+        console.log("disconnectSocketEvent:"+JSON.stringify(connectMsgObject));
     });
          
     //ON ERROR
