@@ -205,13 +205,20 @@ io.on('connection', function(socket){
     });
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
+//    var tapMsgObject = {
+//          x:event.pageX,
+//          y:event.pageY,
+//          animal:$('#animals option:selected').val(),
+//          customimage:$('#imagepathtextbox').val(),
+//          movement:$('#movement option:selected').val(),
+//          CHATCLIENTUSER: chatClientUser,
+//          CHATSERVERUSER:'',
+//          CHATSERVERDATE:''
+//      }; 
     socket.on('djnachostapmessage', function(tapMsgObject){
         sendTapMessage('djnachostapmessage',tapMsgObject);
     });  
     
-    socket.on('djnachostapmessageV2', function(tapMsgObject){
-        sendTapMessage('djnachostapmessageV2',tapMsgObject);
-    }); 
     
     socket.on('roxhillsessionstapmessage', function(tapMsgObject){
         sendTapMessage('roxhillsessionstapmessage',tapMsgObject);
@@ -277,6 +284,9 @@ io.on('connection', function(socket){
 
           //broadcast
           io.emit(chatSocketEvent,chatMsgObject);
+          
+          console.log(JSON.stringify(chatMsgObject));
+
     }
     //GENERIC TAPMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
     //    sockethandler.js (client) => $('#stuffedanimalwarsvg').click
@@ -286,8 +296,28 @@ io.on('connection', function(socket){
     //            '","customimage":"'+$('#imagepathtextbox option:selected').val()+
     //            '","movement":"'+$('#movement option:selected').val()+'"}');
     function sendTapMessage(tapSocketEvent,tapMsgObject){
+        //    var tapMsgObject = {
+        //          x:event.pageX,
+        //          y:event.pageY,
+        //          animal:$('#animals option:selected').val(),
+        //          customimage:$('#imagepathtextbox').val(),
+        //          movement:$('#movement option:selected').val(),
+        //          CHATCLIENTUSER: chatClientUser,
+        //          CHATSERVERUSER:'',
+        //          CHATSERVERDATE:''
+        //      }; 
+        //GET THE ADDRESS AND DATE
+        var tapClientAddress = socket.handshake.address;
+        var tapServerDate = new Date();
+        
+        //update the emitted json object with server information
+        tapMsgObject.CHATSERVERUSER = tapClientAddress;
+        tapMsgObject.CHATSERVERDATE = tapServerDate;
+          
         //broadcast TAP message (client page needs to have  a socket.on handler for this)
         io.emit(tapSocketEvent,tapMsgObject);
+        
+        console.log(JSON.stringify(tapMsgObject));
     } 
 });
 

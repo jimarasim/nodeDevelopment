@@ -17,12 +17,25 @@ $('#stuffedanimalwarsvg').click(function(event){
     //  3. THE URL OF THE IMAGE (IN CASE THE ANIMAL IS CUSTOM)
     //  4. THE DIRECTION THE ANIMAL SHOULD GO
     //THEN SEND THE JSON BLOB TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
+    //get the user alias
+    var chatClientUser = $("#chatClientUser").val();
+
+    //SET THE DEFAULT ALIAS IF IT'S EMPTY
+    if(chatClientUser.length===0){
+        chatClientUser = baseUnspecifiedAlias;
+    }
     
-    var tapMsgObject = JSON.parse('{"x":"'+event.pageX+
-            '", "y":"'+event.pageY+
-            '", "animal":"'+$( '#animals option:selected' ).val()+
-            '","customimage":"'+$('#imagepathtextbox').val()+
-            '","movement":"'+$('#movement option:selected').val()+'"}');
+    var tapMsgObject = {
+          x:event.pageX,
+          y:event.pageY,
+          animal:$('#animals option:selected').val(),
+          customimage:$('#imagepathtextbox').val(),
+          movement:$('#movement option:selected').val(),
+          CHATCLIENTUSER: chatClientUser,
+          CHATSERVERUSER:'',
+          CHATSERVERDATE:''
+      }; 
+    
     baseSocket.emit(tapSocketEvent,tapMsgObject);
 });
 $('form.autoresponderform').submit(function(){
