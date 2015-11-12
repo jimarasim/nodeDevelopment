@@ -6,7 +6,7 @@
         <link rel="Stylesheet" href="stylebase.css" />
         <script type="text/javascript" src="htmlwriter.js"></script>
         <script src="jquery-2.1.4.min.js"></script>
-        <script src="socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
     </head>
 <body>
 <script type="text/javascript">
@@ -49,6 +49,7 @@
     
     
     writeMediaFromJson(mediaObject);
+    writeChat();
 </script>
 <script type="text/javascript" src="lastgaspsockethandler.js"></script>
 </body>

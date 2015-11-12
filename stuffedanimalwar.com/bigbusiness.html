@@ -6,7 +6,7 @@
         <link rel="Stylesheet" href="stylebase.css" />
         <script type="text/javascript" src="http://seattlerules.com:3000/htmlwriter.js"></script>
         <script src="jquery-2.1.4.min.js"></script>
-        <script src="socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
     </head>
 <body>
 <script type="text/javascript">
@@ -28,9 +28,8 @@
             {"file":"ZOOM0005bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 5"}
         ]
     };
-    
-    
     writeMediaFromJson(mediaObject);
+    writeChat();
 </script>
 <script type="text/javascript" src="http://seattlerules.com:3000/utilities.js"></script>
 <script type="text/javascript" src="http://seattlerules.com:3000/bigbusinesssockethandler.js"></script>
