@@ -41,6 +41,11 @@ app.get('/sawonly', function(req, res){
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
         });
 
+app.get('/roxhill', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/roxhillsessions.html');
+        });
+
 app.get('/sawonlyV2', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwarV2.html');
