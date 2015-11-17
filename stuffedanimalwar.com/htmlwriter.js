@@ -85,35 +85,6 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
 }
 //AUDIO VIDEO PHOTOS
 function writeMediaFromJson(mediaObject){
-    if(mediaObject.videospath && mediaObject.videos[0]){
-        document.write("<h1>VIDEO</h1>");
-        document.write("<table style='"+"width:"+screen.width+"px;'>");
-        document.write("<tr>");
-        document.write("<td>");
-        if(mediaObject.photos[0]){
-            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.photospath+mediaObject.photos[0].file+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-        }
-        else{
-            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/vinyl.jpeg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-        }
-        document.write(" browser doesn't support mp4 video. use chrome.");
-        document.write("<source src=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-        document.write("</video>");
-        document.write("</td>");
-        document.write("</tr>");
-        document.write("<tr>");
-        document.write("<td>");
-        document.write("<select id=\"selectvideos\">");
-        for (var i=0;i<mediaObject.videos.length;i++){
-            document.write("<option value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
-        }
-        document.write("</select>");
-        document.write("</td>");
-        document.write("</tr>");
-        document.write("</table>");  
-        document.write("<hr>");
-    }
-
     if(mediaObject.songspath && mediaObject.songs[0]){
         document.write("<h1>AUDIO</h1>");
         document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
@@ -151,6 +122,37 @@ function writeMediaFromJson(mediaObject){
         document.write("</table>");
         document.write("<hr>");
     }
+    
+    if(mediaObject.videospath && mediaObject.videos[0]){
+        document.write("<h1>VIDEO</h1>");
+        document.write("<table style='"+"width:"+screen.width+"px;'>");
+        document.write("<tr>");
+        document.write("<td>");
+        if(mediaObject.photos[0]){
+            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.photospath+mediaObject.photos[0].file+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+        }
+        else{
+            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/vinyl.jpeg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+        }
+        document.write(" browser doesn't support mp4 video. use chrome.");
+        document.write("<source src=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+        document.write("</video>");
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("<tr>");
+        document.write("<td>");
+        document.write("<select id=\"selectvideos\">");
+        for (var i=0;i<mediaObject.videos.length;i++){
+            document.write("<option value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+        }
+        document.write("</select>");
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("</table>");  
+        document.write("<hr>");
+    }
+
+    
     
     if(mediaObject.photospath && mediaObject.photos[0]){
         document.write("<h1>PHOTOS</h1>");

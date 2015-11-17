@@ -126,6 +126,11 @@ app.get('/houston2015', function(req, res){
         res.sendFile(__dirname + '/houston2015.html');
         });
 
+app.get('/fromkittehwithlove', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/fromkittehwithlove.html');
+        });
+
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
 io.on('connection', function(socket){
@@ -220,6 +225,10 @@ io.on('connection', function(socket){
         sendChatMessage('houston2015chatmessage',chatMsgObject);
     });
     
+    socket.on('fromkittehwithlovechatmessage', function(chatMsgObject){
+        sendChatMessage('fromkittehwithlovechatmessage',chatMsgObject);
+    });
+    
     //TAPMESSAGES--------------------------------------------------------------------------------------
 //    var tapMsgObject = {
 //          x:event.pageX,
@@ -278,6 +287,10 @@ io.on('connection', function(socket){
     
     socket.on('houston2015tapmessage', function(tapMsgObject){
         sendTapMessage('houston2015tapmessage',tapMsgObject);
+    });
+    
+    socket.on('fromkittehwithlovetapmessage', function(tapMsgObject){
+        sendTapMessage('fromkittehwithlovetapmessage',tapMsgObject);
     });
     
     

@@ -1,0 +1,67 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org  20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>From Kitteh With Love</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    var stuffedAnimalMediaObject = {
+        "backgroundimage":"http://seattlerules.com/media/kittehwithlove/IMG_4575.JPG",
+        "animals":[
+            {'file':'gamemedia/thechosenone.png','title':'Anakin'},
+            {'file':'gamemedia/darthvader.png','title':'Darth Vader'},
+            {'file':'gamemedia/snakesonaplane.png','title':'Mace'},
+            {'file':'gamemedia/queen.png','title':'Queen'},
+            {'file':'gamemedia/r2d2.png','title':'R2D2'},
+            {'file':'gamemedia/stormtrooper.png','title':'Storm Trooper'},
+            {'file':'gamemedia/yoda.png','title':'Yoda'},
+            {'file':'gamemedia/cats.png','title':'Cat'},
+            {'file':'gamemedia/chickens.png','title':'Chicken'},
+            {'file':'gamemedia/crocodiles.png','title':'Crocodile'},
+            {'file':'gamemedia/dogs.png','title':'Dog'},
+            {'file':'gamemedia/lamblambs.png','title':'Lamb'},
+            {'file':'gamemedia/lions.png','title':'Lion'}
+            ]
+    };
+    var mediaObject = {
+        "songspath":"http://seattlerules.com/media/kittehwithlove/",
+        "photospath":"http://seattlerules.com/media/kittehwithlove/",
+        "videospath":"http://seattlerules.com/media/movieclips/",
+        "videos":[
+            {'file':'airplanejivetalkersfoodsickwithjunecleaver.mp4','title':'Airplane Movie -Jive Talkers Sick with June Cleaver'},
+            {'file':'airplanejivetalkers.mp4','title':'Airplane Movie -Jive Talkers'},
+            {'file':'airplanejivetalkersorderfood.mp4','title':'Airplane Movie -Jive Talkers Order Food'}
+        ],
+        "photos":[
+            {'file':'IMG_4599.JPG','title':'Kitteh Mehowh'},
+            {'file':'IMG_4659.JPG','title':'Daffodil'},
+            {'file':'IMG_4675.JPG','title':'Good Luck Kitteh!'},
+            {'file':'IMG_4575.JPG','title':'Good Boy!'},
+            {'file':'IMG_4691.JPG','title':'Leaf Blower'}
+            ],
+        "songs":[  
+            {'file':'01 Here To Fall.mp3','title':'Here to Fall'},
+            {'file':'02 Avalon Or Someone Very Similar.mp3','title':'Avalon Or Someone Very Similar'},
+            {'file':'03 By Twos.mp3','title':'By Twos'},
+            {'file':'04 Nothing To Hide.mp3','title':'Nothing to Hide'},
+            {'file':'05 Periodically Triple Or Double.mp3','title':'Periodically Triple Or Double'},
+            {'file':'06 If Its True.mp3','title':'If Its True'},
+            {'file':'07 Im On My Way.mp3','title':'Im On My Way'},
+            {'file':'08 When Its Dark.mp3','title':'When Its Dark'},
+            {'file':'09 All Your Secrets.mp3','title':'All Your Secrets'},
+            {'file':'10 More Stars Than There Are In Heaven.mp3','title':'More Stars Than There Are In Heaven'},
+            {'file':'11 The Fireside.mp3','title':'The Fireside'}
+]
+    };
+    writeStuffedAnimalWar(stuffedAnimalMediaObject);
+    writeMediaFromJson(mediaObject);
+    writeChat();
+</script>
+<script type="text/javascript" src="fromkittehwithlovesockethandler.js"></script>
+</body>
+</html> 
