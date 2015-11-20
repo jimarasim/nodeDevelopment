@@ -4,8 +4,6 @@
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
-    document.write("<h1>STUFFED ANIMAL WAR</h1>");
-    document.write("<hr />");    
 }  
 function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
@@ -49,39 +47,41 @@ function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("</div>");
 }
 function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
-    document.write("<div>");
+    document.write("<h1>STUFFED ANIMAL WAR</h1>");
     document.write("<form>");
     
     //ANIMAL CHOICES
-    document.write("<select style=\"float:left;\" id=\"animals\" name=\"sawstyle\" size=17 >");
-    //DEFAULT ANIMAL CHOICES
-    document.write("<option value=\"custom\">CUSTOM URL</option>");  
-    document.write("<option value=\"dots\" selected>Bullets</option>");
-    document.write("<option value=\"line01\">Laser</option>");
-    document.write("<option value=\"line02\">Bow Staff</option>");
-    //IF SOME IMAGES WERE PROFIDED AS ANIMALS, USE THEM
-    if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
-        for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
-            document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
+    document.write("<div style=\"float:left;\">");
+        document.write("<select id=\"animals\" name=\"sawstyle\" size=17 >");
+        //DEFAULT ANIMAL CHOICES
+        document.write("<option value=\"custom\">CUSTOM URL</option>");  
+        document.write("<option value=\"dots\" selected>Bullets</option>");
+        document.write("<option value=\"line01\">Laser</option>");
+        document.write("<option value=\"line02\">Bow Staff</option>");
+        //IF SOME IMAGES WERE PROFIDED AS ANIMALS, USE THEM
+        if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
+            for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
+                document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
+            }
         }
-    }
-    document.write("</select>");
-    document.write("<div>");
-    //CUSTOM URL TEXT BOX
-    document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
-    document.write("<br />");
-    //MOVEMENT DIRECTION
-    document.write("<select style=\"vertical-align:bottom;text-align:left;\" id=\"movement\" name=\"sawmove\" size=4 >");
-    document.write("<option value=\"UP\" selected>UP</option>");
-    document.write("<option value=\"DOWN\">DOWN</option>");
-    document.write("<option value=\"LEFT\">LEFT</option>");
-    document.write("<option value=\"RIGHT\">RIGHT</option>");
-    document.write("</select>");
+        document.write("</select>");
     document.write("</div>");
-    document.write("</form>"); 
-    document.write("<div>");
 
-    
+    document.write("<div>");
+        //CUSTOM URL TEXT BOX
+        document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
+        document.write("<br />");
+        //MOVEMENT DIRECTION
+        document.write("<select style=\"vertical-align:bottom;text-align:left;\" id=\"movement\" name=\"sawmove\" size=4 >");
+        document.write("<option value=\"UP\" selected>UP</option>");
+        document.write("<option value=\"DOWN\">DOWN</option>");
+        document.write("<option value=\"LEFT\">LEFT</option>");
+        document.write("<option value=\"RIGHT\">RIGHT</option>");
+        document.write("</select>");
+    document.write("</div>");
+    document.write("</form>");  
+    document.write("<hr style=\"clear:left;\" />");  
+
 }
 //AUDIO VIDEO PHOTOS
 function writeMediaFromJson(mediaObject){
