@@ -172,6 +172,10 @@ io.on('connection', function(socket){
         sendChatMessage('chatmessage',chatMsgObject);
     });
     
+    socket.on('indexchatmessage', function(chatMsgObject){
+        sendChatMessage('indexchatmessage',chatMsgObject);
+    });
+    
     socket.on('djnachoschatmessage', function(chatMsgObject){
         sendChatMessage('djnachoschatmessage',chatMsgObject);
     });
@@ -263,6 +267,10 @@ io.on('connection', function(socket){
     
     socket.on('builttospilltapmessage', function(tapMsgObject){
         sendTapMessage('builttospilltapmessage',tapMsgObject);
+    });
+    
+    socket.on('indextapmessage', function(tapMsgObject){
+        sendTapMessage('indextapmessage',tapMsgObject);
     });
     
     socket.on('zeketapmessage', function(tapMsgObject){

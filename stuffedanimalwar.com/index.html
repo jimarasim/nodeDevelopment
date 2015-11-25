@@ -5,10 +5,12 @@
         <title>seattlenative stuffedanimalwar</title>
         <link rel="Stylesheet" href="stylebase.css" />
         <script src="jquery-2.1.4.min.js"></script>
+                <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+
     </head>
     <body>
-        <h1><a class="jaemzwarelogo" href="sawonly">STUFFEDANIMALWAR</a></h1>
-<h1>SEATTLENATIVE</h1>
+        <h1><a class="jaemzwarelogo" href="sawonly">Stuffed Animal War Games</a></h1>
+        <h1>Seattle Native</h1>
 <div class='seattlenativelinks'>
         <h2><a class="jaemzwarelogo" href="bigbusiness">BIG BUSINESS - portland/wonder ballroom</a></h2>
         <h2><a class="jaemzwarelogo" href="builttospill">BUILT TO SPILL - neumos, georgetown, fremont, bellingham</a></h2>
@@ -22,6 +24,149 @@
         <h2><a class="jaemzwarelogo" href="sufferingfuckheads">SUFFERING FUCKHEADS - coppergate</a></h2>
         <h2><a class="jaemzwarelogo" href="zeke">ZEKE - el corazon, highline</a></h2>
 </div>
+<hr size="100"/>
+<script type="text/javascript">
+    var mediaObject = {
         
+        "videospath":"https://seattlerules.com/media/",
+        "videos":[
+            {'file':'marginal/jim-marginal-overthelight-march2015.mp4','title':'./marginal/jim-marginal-overthelight-march2015.mp4'},
+            {'file':'wxpfl/IMG_0098.mp4','title':'./wxpfl/IMG_0098.mp4'},
+            {'file':'wxpfl/IMG_0101.mp4','title':'./wxpfl/IMG_0101.mp4'},
+            {'file':'wxpfl/IMG_0103.mp4','title':'./wxpfl/IMG_0103.mp4'},
+            {'file':'wxpfl/IMG_0106.mp4','title':'./wxpfl/IMG_0106.mp4'},
+            {'file':'wxpfl/IMG_0109.mp4','title':'./wxpfl/IMG_0109.mp4'},
+            {'file':'wxpfl/IMG_0113.mp4','title':'./wxpfl/IMG_0113.mp4'},
+            {'file':'wxpfl/IMG_0116.mp4','title':'./wxpfl/IMG_0116.mp4'},
+            {'file':'wxpfl/IMG_0117.mp4','title':'./wxpfl/IMG_0117.mp4'},
+            {'file':'wxpfl/IMG_0119.mp4','title':'./wxpfl/IMG_0119.mp4'},
+            {'file':'wxpfl/IMG_0120.mp4','title':'./wxpfl/IMG_0120.mp4'},
+            {'file':'wxpfl/IMG_0127.mp4','title':'./wxpfl/IMG_0127.mp4'},
+            {'file':'wxpfl/wxpfl-greenwood-201411.mp4','title':'./wxpfl/wxpfl-greenwood-201411.mp4'},
+            {'file':'kaylacheering/kayla_cheerleading_20150215.mp4','title':'./kaylacheering/kayla_cheerleading_20150215.mp4'},
+            {'file':'kaylacheering/kayla_cheerleading_20150215b.mp4','title':'./kaylacheering/kayla_cheerleading_20150215b.mp4'},
+            {'file':'houston2015/IMG_4285.mp4','title':'./houston2015/IMG_4285.mp4'},
+            {'file':'houston2015/IMG_4348.mp4','title':'./houston2015/IMG_4348.mp4'},
+            {'file':'houston2015/IMG_4090.mp4','title':'./houston2015/IMG_4090.mp4'},
+            {'file':'houston2015/IMG_4091.mp4','title':'./houston2015/IMG_4091.mp4'},
+            {'file':'houston2015/IMG_4092.mp4','title':'./houston2015/IMG_4092.mp4'},
+            {'file':'houston2015/IMG_4111.mp4','title':'./houston2015/IMG_4111.mp4'},
+            {'file':'houston2015/IMG_4125.mp4','title':'./houston2015/IMG_4125.mp4'},
+            {'file':'houston2015/IMG_4126.mp4','title':'./houston2015/IMG_4126.mp4'},
+            {'file':'houston2015/IMG_4127.mp4','title':'./houston2015/IMG_4127.mp4'},
+            {'file':'houston2015/IMG_4258.mp4','title':'./houston2015/IMG_4258.mp4'},
+            {'file':'houston2015/IMG_4260.mp4','title':'./houston2015/IMG_4260.mp4'},
+            {'file':'houston2015/IMG_4345.mp4','title':'./houston2015/IMG_4345.mp4'},
+            {'file':'skycriesmary/IMG_4516.mp4','title':'./skycriesmary/IMG_4516.mp4'},
+            {'file':'skycriesmary/IMG_4519.mp4','title':'./skycriesmary/IMG_4519.mp4'},
+            {'file':'movieclips/airplanejivetalkers.mp4','title':'./movieclips/airplanejivetalkers.mp4'},
+            {'file':'movieclips/airplanejivetalkersfoodsickwithjunecleaver.mp4','title':'./movieclips/airplanejivetalkersfoodsickwithjunecleaver.mp4'},
+            {'file':'movieclips/airplanejivetalkersorderfood.mp4','title':'./movieclips/airplanejivetalkersorderfood.mp4'},
+            {'file':'skate/yakima201508.mp4','title':'./skate/yakima201508.mp4'},
+            {'file':'skate/roxhillollierockline201508.mp4','title':'./skate/roxhillollierockline201508.mp4'},
+            {'file':'skate/roxhillbacksideolliesmallbankstepup201500807.mp4','title':'./skate/roxhillbacksideolliesmallbankstepup201500807.mp4'},
+            {'file':'skate/roxhillbacksideollieline201508.mp4','title':'./skate/roxhillbacksideollieline201508.mp4'},
+            {'file':'skate/jimroxhill5.mp4','title':'./skate/jimroxhill5.mp4'},
+            {'file':'skate/jimroxhill4.mp4','title':'./skate/jimroxhill4.mp4'},
+            {'file':'skate/jimroxhill3.mp4','title':'./skate/jimroxhill3.mp4'},
+            {'file':'skate/jimroxhill2.mp4','title':'./skate/jimroxhill2.mp4'},
+            {'file':'skate/jimroxhill.mp4','title':'./skate/jimroxhill.mp4'},
+            {'file':'skate/fortboise201508.mp4','title':'./skate/fortboise201508.mp4'},
+            {'file':'ats/IMG_0361.m4v','title':'./ats/IMG_0361.m4v'},
+            {'file':'ats/IMG_0365.m4v','title':'./ats/IMG_0365.m4v'},
+            {'file':'bigbusiness/big-business-veraproject20140611-1.m4v','title':'./bigbusiness/big-business-veraproject20140611-1.m4v'},
+            {'file':'bigbusiness/big-business-veraproject20140611-2.m4v','title':'./bigbusiness/big-business-veraproject20140611-2.m4v'},
+            {'file':'bigbusiness/big-business-veraproject20140611-3.m4v','title':'./bigbusiness/big-business-veraproject20140611-3.m4v'},
+            {'file':'bigbusiness/big-business-veraproject20140611-4.m4v','title':'./bigbusiness/big-business-veraproject20140611-4.m4v'},
+            {'file':'bigbusiness/big-business-veraproject20140611-5.m4v','title':'./bigbusiness/big-business-veraproject20140611-5.m4v'},
+            {'file':'bigbusiness/big-business-veraproject20140611-6.m4v','title':'./bigbusiness/big-business-veraproject20140611-6.m4v'},
+            {'file':'bigbusiness/big-business-veraproject20140611-7.m4v','title':'./bigbusiness/big-business-veraproject20140611-7.m4v'},
+            {'file':'cincodemargo/IMG_0485.m4v','title':'./cincodemargo/IMG_0485.m4v'},
+            {'file':'cincodemargo/ZOOM0009.m4v','title':'./cincodemargo/ZOOM0009.m4v'},
+            {'file':'cincodemargo/IMG_0486.m4v','title':'./cincodemargo/IMG_0486.m4v'},
+            {'file':'cincodemargo/IMG_0487.m4v','title':'./cincodemargo/IMG_0487.m4v'},
+            {'file':'cincodemargo/IMG_0488.m4v','title':'./cincodemargo/IMG_0488.m4v'},
+            {'file':'cincodemargo/IMG_0493.m4v','title':'./cincodemargo/IMG_0493.m4v'},
+            {'file':'cincodemargo/IMG_0499.m4v','title':'./cincodemargo/IMG_0499.m4v'},
+            {'file':'cincodemargo/IMG_0500.m4v','title':'./cincodemargo/IMG_0500.m4v'},
+            {'file':'cincodemargo/IMG_0505.m4v','title':'./cincodemargo/IMG_0505.m4v'},
+            {'file':'cincodemargo/IMG_0507.m4v','title':'./cincodemargo/IMG_0507.m4v'},
+            {'file':'cincodemargo/IMG_0513.m4v','title':'./cincodemargo/IMG_0513.m4v'},
+            {'file':'cincodemargo/IMG_0514.m4v','title':'./cincodemargo/IMG_0514.m4v'},
+            {'file':'cincodemargo/IMG_0516.m4v','title':'./cincodemargo/IMG_0516.m4v'},
+            {'file':'cincodemargo/IMG_0531.m4v','title':'./cincodemargo/IMG_0531.m4v'},
+            {'file':'cincodemargo/IMG_0535.m4v','title':'./cincodemargo/IMG_0535.m4v'},
+            {'file':'cincodemargo/IMG_0549.m4v','title':'./cincodemargo/IMG_0549.m4v'},
+            {'file':'cincodemargo/IMG_0559.m4v','title':'./cincodemargo/IMG_0559.m4v'},
+            {'file':'cincodemargo/IMG_0562.m4v','title':'./cincodemargo/IMG_0562.m4v'},
+            {'file':'cincodemargo/IMG_0566.m4v','title':'./cincodemargo/IMG_0566.m4v'},
+            {'file':'cincodemargo/IMG_0567.m4v','title':'./cincodemargo/IMG_0567.m4v'},
+            {'file':'cincodemargo/IMG_0568.m4v','title':'./cincodemargo/IMG_0568.m4v'},
+            {'file':'cincodemargo/IMG_0570.m4v','title':'./cincodemargo/IMG_0570.m4v'},
+            {'file':'cracksabbath/ZOOM0001.m4v','title':'./cracksabbath/ZOOM0001.m4v'},
+            {'file':'cracksabbath/ZOOM0002.m4v','title':'./cracksabbath/ZOOM0002.m4v'},
+            {'file':'cracksabbath/ZOOM0003.m4v','title':'./cracksabbath/ZOOM0003.m4v'},
+            {'file':'cracksabbath/ZOOM0004.m4v','title':'./cracksabbath/ZOOM0004.m4v'},
+            {'file':'cracksabbath/ZOOM0005.m4v','title':'./cracksabbath/ZOOM0005.m4v'},
+            {'file':'cracksabbath/ZOOM0006.m4v','title':'./cracksabbath/ZOOM0006.m4v'},
+            {'file':'cracksabbath/ZOOM0007.m4v','title':'./cracksabbath/ZOOM0007.m4v'},
+            {'file':'cracksabbath/ZOOM0008.m4v','title':'./cracksabbath/ZOOM0008.m4v'},
+            {'file':'cracksabbath/ZOOM0009.m4v','title':'./cracksabbath/ZOOM0009.m4v'},
+            {'file':'cracksabbath/ZOOM0010.m4v','title':'./cracksabbath/ZOOM0010.m4v'},
+            {'file':'greenlake/IMG_0624.m4v','title':'./greenlake/IMG_0624.m4v'},
+            {'file':'jefferson/IMG_0824.m4v','title':'./jefferson/IMG_0824.m4v'},
+            {'file':'jefferson/IMG_0825.m4v','title':'./jefferson/IMG_0825.m4v'},
+            {'file':'lastgasp/ZOOM0038.m4v','title':'./lastgasp/ZOOM0038.m4v'},
+            {'file':'lastgasp/ZOOM0039.m4v','title':'./lastgasp/ZOOM0039.m4v'},
+            {'file':'lastgasp/ZOOM0040.m4v','title':'./lastgasp/ZOOM0040.m4v'},
+            {'file':'lastgasp/ZOOM0041.m4v','title':'./lastgasp/ZOOM0041.m4v'},
+            {'file':'lastgasp/ZOOM0042.m4v','title':'./lastgasp/ZOOM0042.m4v'},
+            {'file':'lastgasp/ZOOM0043.m4v','title':'./lastgasp/ZOOM0043.m4v'},
+            {'file':'lastgasp/ZOOM0044.m4v','title':'./lastgasp/ZOOM0044.m4v'},
+            {'file':'lastgasp/ZOOM0045.m4v','title':'./lastgasp/ZOOM0045.m4v'},
+            {'file':'lastgasp/ZOOM0046.m4v','title':'./lastgasp/ZOOM0046.m4v'},
+            {'file':'lastgasp/ZOOM0047.m4v','title':'./lastgasp/ZOOM0047.m4v'},
+            {'file':'lastgasp/ZOOM0048.m4v','title':'./lastgasp/ZOOM0048.m4v'},
+            {'file':'lastgasp/ZOOM0049.m4v','title':'./lastgasp/ZOOM0049.m4v'},
+            {'file':'lastgasp/ZOOM0050.m4v','title':'./lastgasp/ZOOM0050.m4v'},
+            {'file':'lastgasp/ZOOM0051.m4v','title':'./lastgasp/ZOOM0051.m4v'},
+            {'file':'marginal/IMG_0054rotated.m4v','title':'./marginal/IMG_0054rotated.m4v'},
+            {'file':'marginal/IMG_0055.m4v','title':'./marginal/IMG_0055.m4v'},
+            {'file':'marginal/IMG_0056.m4v','title':'./marginal/IMG_0056.m4v'},
+            {'file':'marginal/IMG_0059.m4v','title':'./marginal/IMG_0059.m4v'},
+            {'file':'marginal/IMG_0069rotated.m4v','title':'./marginal/IMG_0069rotated.m4v'},
+            {'file':'pride/IMG_0372.m4v','title':'./pride/IMG_0372.m4v'},
+            {'file':'pride/IMG_0385.m4v','title':'./pride/IMG_0385.m4v'},
+            {'file':'pride/IMG_0387.m4v','title':'./pride/IMG_0387.m4v'},
+            {'file':'pride/IMG_0389.m4v','title':'./pride/IMG_0389.m4v'},
+            {'file':'pride/IMG_0392.m4v','title':'./pride/IMG_0392.m4v'},
+            {'file':'pride/IMG_0409.m4v','title':'./pride/IMG_0409.m4v'},
+            {'file':'pride/IMG_0458.m4v','title':'./pride/IMG_0458.m4v'},
+            {'file':'pride/IMG_0488.m4v','title':'./pride/IMG_0488.m4v'},
+            {'file':'pride/IMG_0581.m4v','title':'./pride/IMG_0581.m4v'},
+            {'file':'pride/IMG_0592.m4v','title':'./pride/IMG_0592.m4v'},
+            {'file':'pride/IMG_0624.m4v','title':'./pride/IMG_0624.m4v'},
+            {'file':'pride/IMG_0645.m4v','title':'./pride/IMG_0645.m4v'},
+            {'file':'pride/IMG_0657.m4v','title':'./pride/IMG_0657.m4v'},
+            {'file':'pride/IMG_0676.m4v','title':'./pride/IMG_0676.m4v'},
+            {'file':'kaylacheering/kayla_cheerleading_20150215b.m4v','title':'./kaylacheering/kayla_cheerleading_20150215b.m4v'},
+            {'file':'skate/IMG_4693.m4v','title':'./skate/IMG_4693.m4v'},
+            {'file':'skate/IMG_4695.m4v','title':'./skate/IMG_4695.m4v'},
+            {'file':'skate/IMG_4699.m4v','title':'./skate/IMG_4699.m4v'},
+            {'file':'skate/IMG_4701.m4v','title':'./skate/IMG_4701.m4v'},
+            {'file':'skate/IMG_4818.m4v','title':'./skate/IMG_4818.m4v'},
+            {'file':'skate/IMG_4819.m4v','title':'./skate/IMG_4819.m4v'},
+            {'file':'skate/IMG_4837.m4v','title':'./skate/IMG_4837.m4v'},
+            {'file':'skate/IMG_4838.m4v','title':'./skate/IMG_4838.m4v'},
+            {'file':'skate/IMG_4839.m4v','title':'./skate/IMG_4839.m4v'},
+            {'file':'skate/IMG_4841.m4v','title':'./skate/IMG_4841.m4v'},
+            {'file':'skate/IMG_4843.m4v','title':'./skate/IMG_4843.m4v'},
+            {'file':'skate/NGNQ0173.m4v','title':'./skate/NGNQ0173.m4v'}
+    ]
+    };
+    writeMediaFromJson(mediaObject);
+</script>
+<script type="text/javascript" src="http://seattlerules.com:3000/indexsockethandler.js"></script>
+
     </body>
 </html>
