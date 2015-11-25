@@ -27,6 +27,26 @@ function PlayNextTrack(currentFile){
         console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
     }
 }
+function PlayNextVideo(currentFile){
+    
+    //don't do anything if there are no tracks
+    if($('#selectvideos option').length===0)
+    {
+        return;
+    }
+    //get the next track, if there isn't one, use the first one
+    if($('#selectvideos option[value="'+currentFile+'"]').next().text().length!==0)
+    {
+        changeMp3($('#selectvideos option[value="'+currentFile+'"]').next().attr('value'));
+    }
+    else if($('#selectvideos option[value="'+currentFile+'"]').first().text().length!==0)
+    {
+        changeMp3($('#selectvideos option[value="'+currentFile+'"]').first().attr('value'));
+    }
+    else{
+        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
+    }
+}
 function changeMp3(mp3Url){
     //change the source of the AUDIO player
     $('#jaemzwaredynamicaudiosource').attr("src",mp3Url);

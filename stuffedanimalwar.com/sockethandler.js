@@ -90,6 +90,10 @@ $('#selectvideos').change(function(){
         changeMp4(videoToPlay);
     }
 });
+('#jaemzwaredynamicvideoplayer').bind("ended", function(){
+    var currentFile = $(this).children(":first").attr('src');
+    PlayNextVideo(currentFile);
+});
 
 //CONSTRUCTION
 function initializeCommonVars(masterAlias,unspecifiedAlias){
