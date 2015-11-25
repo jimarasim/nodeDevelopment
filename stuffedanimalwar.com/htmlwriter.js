@@ -128,8 +128,8 @@ function writeMediaFromJson(mediaObject){
         document.write("<table style='"+"width:"+screen.width+"px;'>");
         document.write("<tr>");
         document.write("<td>");
-        if(mediaObject.photos[0]){
-            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.photospath+mediaObject.photos[0].file+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
+        if(mediaObject.videos[0]){
+            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
         }
         else{
             document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/vinyl.jpeg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
