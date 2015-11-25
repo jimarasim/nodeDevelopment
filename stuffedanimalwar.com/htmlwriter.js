@@ -142,6 +142,7 @@ function writeMediaFromJson(mediaObject){
         document.write("<tr>");
         document.write("<td>");
         document.write("<select id=\"selectvideos\">");
+        console.log("videos specified:"+mediaObject.videos.length);
         for (var i=0;i<mediaObject.videos.length;i++){
             document.write("<option value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
         }
