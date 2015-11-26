@@ -234,7 +234,7 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"youreworkingthatoutfitgirl\">youre working that outfit girl</option>");
     document.write("<option value=\"yourewrong\">youre wrong</option>");
     document.write("</select>");
-    document.write("<button>SEND</button>");
+    document.write("<button id='sendbutton'>SEND</button>");
     document.write("</form>");
     document.write("</td>");
     document.write("</tr>");

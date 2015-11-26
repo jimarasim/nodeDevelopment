@@ -40,6 +40,7 @@ $('#stuffedanimalwarsvg').click(function(event){
     
     baseSocket.emit(tapSocketEvent,tapMsgObject);
 });
+
 $('form.autoresponderform').submit(function(){
 
     //GET THE MESSAGE IN THE MESSAGE BOX
@@ -50,8 +51,6 @@ $('form.autoresponderform').submit(function(){
 
     //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
     emitChatMessage(chatMessage);
-
-    return false;
 });
 $('#chatClientAutoResponder').change(function(){
 
@@ -246,5 +245,6 @@ function emitChatMessage(message){
           };  
 
     //send the message
+    console.log(JSON.stringify(chatMessageObject));
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }

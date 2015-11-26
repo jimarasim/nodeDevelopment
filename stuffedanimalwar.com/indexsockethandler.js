@@ -10,16 +10,14 @@ $.getScript('sockethandler.js', function()
 {
     endpoint = "index";
     masterAlias = "DJ";
-    unspecifiedAlias = 'LURKER';
-    chatSocketEvent = endpoint+'chatmessage';
-    tapSocketEvent = endpoint+'tapmessage';
+    unspecifiedAlias = "LURKER";
+    chatSocketEvent = endpoint+"chatmessage";
+    tapSocketEvent = endpoint+"tapmessage";
 
     var socket = io();
     initializeCommonVars(masterAlias,unspecifiedAlias);
-    initializeChatSocketHandler(socket);
-    initializeTapSocketHandler(socket);
-    initializeConnectSocketHandler(socket);
-    initializeDisConnectSocketHandler(socket);
+    initializeChatSocketHandler(socket,chatSocketEvent);
+    initializeTapSocketHandler(socket,tapSocketEvent);
 });
 });
 });
