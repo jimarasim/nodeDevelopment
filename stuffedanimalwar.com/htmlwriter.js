@@ -186,7 +186,6 @@ function writeChat(){
 function writeDefaultAutoResponderOptions(){
     document.write("<tr>");
     document.write("<td>");
-    document.write("<form class=\"autoresponderform\" action=\"\">");
     document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
     document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
     document.write("<select id=\"chatClientAutoResponder\" size=1 >");
@@ -235,7 +234,6 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"yourewrong\">youre wrong</option>");
     document.write("</select>");
     document.write("<button id='sendbutton'>SEND</button>");
-    document.write("</form>");
     document.write("</td>");
     document.write("</tr>");
 

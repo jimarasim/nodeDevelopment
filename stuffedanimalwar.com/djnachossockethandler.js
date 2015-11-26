@@ -14,13 +14,10 @@ $.getScript('sockethandler.js', function()
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
     
-
     var socket = io();
-    initializeCommonVars(masterAlias,unspecifiedAlias);
-    initializeChatSocketHandler(socket);
-    initializeTapSocketHandler(socket);
-    initializeConnectSocketHandler(socket);
-    initializeDisConnectSocketHandler(socket);
+    initializeCommonVars(socket,masterAlias,unspecifiedAlias);
+    initializeChatSocketHandler(socket,chatSocketEvent);
+    initializeTapSocketHandler(socket,tapSocketEvent);
 });
 });
 });

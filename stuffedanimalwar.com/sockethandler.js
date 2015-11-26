@@ -8,18 +8,11 @@ var endpoint = null;
 var chatSocketEvent = null;
 var tapSocketEvent = null;
 var baseSocket = null;
-var connectSocketEvent = 'connectSocketEvent';
-var disconnectSocketEvent = 'disconnectSocketEvent';
+var baseMasterAlias=null;
+var baseUnspecifiedAlias=null;
 
 $('#stuffedanimalwarsvg').click(function(event){
-    
-    //ASSEMBLE A JSON BLOB OF INFORMATION INCLUDING:
-    //  1. WHERE THE USER CLICKED
-    //  2. THE ANIMAL (INCLUDING SHAPES AND CUSTOM) CHOSEN
-    //  3. THE URL OF THE IMAGE (IN CASE THE ANIMAL IS CUSTOM)
-    //  4. THE DIRECTION THE ANIMAL SHOULD GO
-    //THEN SEND THE JSON BLOB TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
-    //get the user alias
+    console.log("$('#stuffedanimalwarsvg').click");
     var chatClientUser = $("#chatClientUser").val();
 
     //SET THE DEFAULT ALIAS IF IT'S EMPTY
@@ -41,7 +34,8 @@ $('#stuffedanimalwarsvg').click(function(event){
     baseSocket.emit(tapSocketEvent,tapMsgObject);
 });
 
-$('form.autoresponderform').submit(function(){
+$('#chatClientAutoResponder').change(function(){
+    console.log("$('chatClientAutoResponder");
 
     //GET THE MESSAGE IN THE MESSAGE BOX
     var chatMessage = $('#chatClientMessage').val();
@@ -52,19 +46,10 @@ $('form.autoresponderform').submit(function(){
     //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
     emitChatMessage(chatMessage);
 });
-$('#chatClientAutoResponder').change(function(){
-
-    //GET THE MESSAGE FROM THE AUTORESPONDER
-    var chatMessage = $('#chatClientAutoResponder option:selected').text();
-
-    //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
-    emitChatMessage(chatMessage);
-
-    //set the autoresponder back to blank
-    $('#chatClientAutoResponder').val('blank');
-});
 
 $('#selectsongs').change(function(){
+    console.log("$('#selectsongs').change");
+
     var songToPlay = $('#selectsongs option:selected').attr("value");
     var chatClientUser = $("#chatClientUser").val();
     
@@ -75,11 +60,19 @@ $('#selectsongs').change(function(){
         changeMp3(songToPlay);
     }
 });
+$('#jaemzwaredynamicvideoplayer').bind("ended", function(){
+    console.log("$('#jaemzwaredynamicvideoplayer').bind(ended, function(){");
+    var currentFile = $(this).children(":first").attr('src');
+    PlayNextVideo(currentFile);
+});
+
 $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
+    console.log('#jaemzwaredynamicaudioplayer');
     var currentFile = $(this).children(":first").attr('src');
     PlayNextTrack(currentFile);
 });
 $('#selectvideos').change(function(){
+    console.log('selectvideos.change');
     var videoToPlay = $('#selectvideos option:selected').attr("value");
     var chatClientUser = $("#chatClientUser").val();
 
@@ -90,17 +83,19 @@ $('#selectvideos').change(function(){
         changeMp4(videoToPlay);
     }
 });
-('#jaemzwaredynamicvideoplayer').bind("ended", function(){
-    var currentFile = $(this).children(":first").attr('src');
-    PlayNextVideo(currentFile);
-});
 
 //CONSTRUCTION
-function initializeCommonVars(masterAlias,unspecifiedAlias){
+
+
+function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
+    console.log(this);
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
+    baseSocket=socket;
 }
+
 function initializeTapSocketHandler(socket){
+    console.log(this);
     //  WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
     //  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
     //  DEPENDING ON THE TYPE OF ANIMAL SENT BY $('#stuffedanimalwarsvg').click;
@@ -126,28 +121,17 @@ function initializeTapSocketHandler(socket){
     });
     baseSocket=socket;
 }
+
 function initializeChatSocketHandler(socket){
+        console.log(this);
+
     socket.on(chatSocketEvent, function(chatMsgObject){
         onBaseChatSocketEvent(chatMsgObject);
     });
+    
     baseSocket=socket;
 }
 
-function initializeConnectSocketHandler(socket){
-    socket.on(connectSocketEvent, function(connectMsgObject){
-        onBaseConnectSocketEvent(connectMsgObject);
-    });
-    baseSocket=socket;
-}
-function initializeDisConnectSocketHandler(socket){
-    socket.on(disconnectSocketEvent, function(connectMsgObject){
-        onBaseDisconnectSocketEvent(connectMsgObject);
-    });
-    baseSocket=socket;
-}
-
-function onBaseConnectSocketEvent(connectMsgObject){console.log('CONNECT:'+JSON.stringify(connectMsgObject));}
-function onBaseDisconnectSocketEvent(connectMsgObject){console.log('DISCONNECCT:'+JSON.stringify(connectMsgObject));}
 function onBaseChatSocketEvent(chatMsgObject){
     var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
     var chatServerUser = chatMsgObject.CHATSERVERUSER;
@@ -227,24 +211,21 @@ function onBaseChatSocketEvent(chatMsgObject){
             }).text(chatClientMessage);
         }
 }
-function emitChatMessage(message){
-    //get the user alias
-    var chatClientUser = $("#chatClientUser").val();
+function emitChatMessage(messageString){
+    console.log('emitChatMessage'+messageString);
 
-    //SET THE DEFAULT ALIAS IF IT'S EMPTY
-    if(chatClientUser.length===0){
-        chatClientUser = baseUnspecifiedAlias;
-    }
+    //get the user alias
+    var chatClientUser = $('#chatClientUser').val();
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
     var chatMessageObject = {
               CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'',
-              CHATCLIENTMESSAGE:message,
-              CHATSERVERDATE:''
+              CHATSERVERUSER:'defaultserveruserresponse',
+              CHATCLIENTMESSAGE:messageString,
+              CHATSERVERDATE:'defaultserverdateresponse'
           };  
 
     //send the message
-    console.log(JSON.stringify(chatMessageObject));
+    console.log("EMIT CHAT MESSAGE:"+JSON.stringify(chatMessageObject));
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
