@@ -64,6 +64,7 @@ $('#chatClientAutoResponder').change(function(){
     //set the autoresponder back to blank
     $('#chatClientAutoResponder').val('blank');
 });
+
 $('#selectsongs').change(function(){
     var songToPlay = $('#selectsongs option:selected').attr("value");
     var chatClientUser = $("#chatClientUser").val();
