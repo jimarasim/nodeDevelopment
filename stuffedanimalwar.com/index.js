@@ -45,7 +45,6 @@ app.get('/roxhill', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/roxhillsessions.html');
         });
-
         
 app.get('/videodjonly', function(req, res){
         //send a file back as the response
@@ -126,6 +125,12 @@ app.get('/fromkittehwithlove', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/fromkittehwithlove.html');
         });
+        
+app.get('/ride', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/ride.html');
+        });
+
 
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
@@ -170,7 +175,6 @@ io.on('connection', function(socket){
     socket.on('djnachoschatmessage', function(chatMsgObject){
         sendChatMessage('djnachoschatmessage',chatMsgObject);
     });
-    
     
     socket.on('djnachoschatmessageV2', function(chatMsgObject){
         sendChatMessage('djnachoschatmessageV2',chatMsgObject);
@@ -223,6 +227,11 @@ io.on('connection', function(socket){
     socket.on('fromkittehwithlovechatmessage', function(chatMsgObject){
         sendChatMessage('fromkittehwithlovechatmessage',chatMsgObject);
     });
+    
+    socket.on('ridechatmessage', function(chatMsgObject){
+        sendChatMessage('ridechatmessage',chatMsgObject);
+    });
+
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
  
@@ -282,6 +291,11 @@ io.on('connection', function(socket){
     socket.on('fromkittehwithlovetapmessage', function(tapMsgObject){
         sendTapMessage('fromkittehwithlovetapmessage',tapMsgObject);
     });
+    
+    socket.on('ridetapmessage', function(tapMsgObject){
+        sendTapMessage('ridetapmessage',tapMsgObject);
+    });
+    
     
     
     //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS   

@@ -13,12 +13,6 @@ var baseUnspecifiedAlias=null;
 
 $('#stuffedanimalwarsvg').click(function(event){
     console.log("$('#stuffedanimalwarsvg').click");
-    var chatClientUser = $("#chatClientUser").val();
-
-    //SET THE DEFAULT ALIAS IF IT'S EMPTY
-    if(chatClientUser.length===0){
-        chatClientUser = baseUnspecifiedAlias;
-    }
     
     var tapMsgObject = {
           x:event.pageX,
@@ -26,7 +20,7 @@ $('#stuffedanimalwarsvg').click(function(event){
           animal:$('#animals option:selected').val(),
           customimage:$('#imagepathtextbox').val(),
           movement:$('#movement option:selected').val(),
-          CHATCLIENTUSER: chatClientUser,
+          CHATCLIENTUSER: baseUnspecifiedAlias,
           CHATSERVERUSER:'',
           CHATSERVERDATE:''
       }; 
@@ -51,14 +45,9 @@ $('#selectsongs').change(function(){
     console.log("$('#selectsongs').change");
 
     var songToPlay = $('#selectsongs option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-    
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(songToPlay);
-    }
-    else{
-        changeMp3(songToPlay);
-    }
+//    var chatClientUser = $("#chatClientUser").val();
+    emitChatMessage(songToPlay);
+
 });
 $('#jaemzwaredynamicvideoplayer').bind("ended", function(){
     console.log("$('#jaemzwaredynamicvideoplayer').bind(ended, function(){");
@@ -74,14 +63,16 @@ $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
 $('#selectvideos').change(function(){
     console.log('selectvideos.change');
     var videoToPlay = $('#selectvideos option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
+    emitChatMessage(videoToPlay);
+    
+});
 
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(videoToPlay);
-    }
-    else{
-        changeMp4(videoToPlay);
-    }
+$('#sendbutton').click(function(){
+    var chatMessage = $('#chatClientMessage').val();
+    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
+    $('#chatClientMessage').val('');
+    //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
+    emitChatMessage(chatMessage);    
 });
 
 //CONSTRUCTION

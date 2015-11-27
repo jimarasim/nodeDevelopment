@@ -1,0 +1,65 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org  20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ride</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    
+    var mediaObject = {
+        "songspath":"http://seattlerules.com/media/ride/",
+        "photospath":"http://seattlerules.com/media/ride/",
+        "videospath":"http://seattlerules.com/media/ride/",
+        "videos":[
+            
+        ],
+        "photos":[
+            {'file':'IMG_4733.JPG','title':'Photo01'},
+            {'file':'IMG_4734.JPG','title':'Photo02'},
+            {'file':'IMG_4743.JPG','title':'Photo03'},
+            {'file':'IMG_4748.JPG','title':'Photo04'},
+            {'file':'IMG_4757.JPG','title':'Photo05'},
+            {'file':'IMG_4758.JPG','title':'Photo06'},
+            {'file':'IMG_4759.JPG','title':'Photo07'},
+            {'file':'IMG_4763.JPG','title':'Photo08'},
+            {'file':'IMG_4766.JPG','title':'Photo09'},
+            {'file':'IMG_4767.JPG','title':'Photo10'}
+            ],
+        "songs":[  
+            {'file':'01ride2015.mp3','title':'Leave Them All Behind'},
+            {'file':'02ride2015.mp3','title':'Twisterella'},
+            {'file':'03ride2015.mp3','title':'Song03'},
+            {'file':'04ride2015.mp3','title':'Song04'},
+            {'file':'05ride2015.mp3','title':'Song05'},
+            {'file':'06ride2015.mp3','title':'Song06'},
+            {'file':'07ride2015.mp3','title':'Song07'},
+            {'file':'08ride2015.mp3','title':'Song08'},
+            {'file':'09ride2015.mp3','title':'Song09'},
+            {'file':'10ride2015.mp3','title':'Song10'},
+            {'file':'11ride2015.mp3','title':'Song11'},
+            {'file':'12ride2015.mp3','title':'Song12'},
+            {'file':'13ride2015.mp3','title':'Song13'},
+            {'file':'14ride2015.mp3','title':'Song14'},
+            {'file':'IMG_4733.jpg','title':'Song15'},
+            {'file':'IMG_4734.jpg','title':'Song16'},
+            {'file':'IMG_4743.jpg','title':'Song17'},
+            {'file':'IMG_4748.jpg','title':'Song18'},
+            {'file':'IMG_4757.jpg','title':'Song19'},
+            {'file':'IMG_4758.jpg','title':'Song20'},
+            {'file':'IMG_4759.jpg','title':'Song21'},
+            {'file':'IMG_4763.jpg','title':'Song22'},
+            {'file':'IMG_4766.jpg','title':'Song23'},
+            {'file':'IMG_4767.jpg','title':'Song24'}
+        ]
+    };
+    //writeChat();
+    writeMediaFromJson(mediaObject);
+</script>
+<script type="text/javascript" src="ridesockethandler.js"></script>
+</body>
+</html> 
