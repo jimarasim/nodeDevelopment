@@ -83,7 +83,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 function writeMediaFromJson(mediaObject){
     //AUDIO
-    if(mediaObject.songspath && mediaObject.songs[0]){
+    if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
         document.write("<h1>AUDIO</h1>");
         document.write("<form id='audioform'>")
         document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
@@ -122,7 +122,7 @@ function writeMediaFromJson(mediaObject){
         document.write("</form>");
     }
     //VIDEO
-    if(mediaObject.videospath && mediaObject.videos[0]){
+    if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
         document.write("<h1>VIDEO</h1>");
         document.write("<form id='videoform'>")
         document.write("<table style='"+"width:"+screen.width+"px;'>");
@@ -153,7 +153,7 @@ function writeMediaFromJson(mediaObject){
         document.write("</form>");
     }
     //PHOTOS
-    if(mediaObject.photospath && mediaObject.photos[0]){
+    if(mediaObject.photospath && mediaObject.photos && mediaObject.photos[0]){
         document.write("<h1>PHOTOS</h1>");
         //paint the photos
         document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
@@ -181,32 +181,42 @@ function writeChat(){
     document.write("<hr />");  
 }
 function writeChatForm(){
-    document.write("<table style='"+"width:"+screen.width+"px;'>");
-    document.write("<tr>");
-    document.write("<td>");
     document.write("<form id='chatform'>");
-    document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
-    document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
-    document.write("<select id=\"chatClientAutoResponder\" size=10 >");
-    writeDefaultAutoResponderOptions();
-    document.write("</select>");
-    document.write("<button id='sendbutton'>SEND</button>");
-    document.write("</form>");
-    document.write("</td>");
-    document.write("</tr>");
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<div id=\"messagesdiv\"></div>");
-    document.write("</td>");
-    document.write("</tr>");
+    document.write("<table id='chattable'>");
+    
+        document.write("<tr>");
+        
+            document.write("<td>");
+            document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
+            document.write("</td>");
+            
+            document.write("<td>");
+            document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
+            document.write("<button id='sendbutton'>SEND</button>");
+            document.write("</td>");
+            
+        document.write("</tr>");
+        
+        document.write("<tr>");
+            document.write("<td>");
+            document.write("<div id=\"messagesdiv\"></div>");
+            document.write("</td>");
+            
+            document.write("<td>");
+            document.write("<select id=\"chatClientAutoResponder\" size=5 >");
+            writeDefaultAutoResponderOptions();
+            document.write("</select>");
+            document.write("</td>");
+            
+        document.write("</tr>");
+        
     document.write("</table>");
+    document.write("</form>");
+
 }
 function writeDefaultAutoResponderOptions(){
     
     document.write("<option value=\"blank\" selected>--pick an autoresponse--</option>");
-    document.write("<option value=\"wink\">;)</option>");
-    document.write("<option value=\"smiley\">:)</option>");
-    document.write("<option value=\"bigsmiley\">:D</option>");
     document.write("<option value=\"didyougoogle\">did you google that comeback?</option>");
     document.write("<option value=\"idk\">i dont know</option>");
     document.write("<option value=\"ikr\">i know right</option>");
@@ -246,6 +256,9 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"youremybestfriend\">youre my best friend</option>");
     document.write("<option value=\"youreworkingthatoutfitgirl\">youre working that outfit girl</option>");
     document.write("<option value=\"yourewrong\">youre wrong</option>");
+    document.write("<option value=\"wink\">;)</option>");
+    document.write("<option value=\"smiley\">:)</option>");
+    document.write("<option value=\"bigsmiley\">:D</option>");
 }
 //CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
 

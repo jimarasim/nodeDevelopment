@@ -29,16 +29,15 @@ $('#stuffedanimalwarsvg').click(function(event){
 });
 
 $('#chatClientAutoResponder').change(function(){
-    console.log("$('chatClientAutoResponder");
-
-    //GET THE MESSAGE IN THE MESSAGE BOX
-    var chatMessage = $('#chatClientMessage').val();
-
-    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
-    $('#chatClientMessage').val('');
+    //GET THE MESSAGE FROM THE AUTORESPONDER
+    var chatAutoResponderMessage = $('#chatClientAutoResponder option:selected').text();
 
     //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
-    emitChatMessage(chatMessage);
+    emitChatMessage(chatAutoResponderMessage);
+    
+    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
+    $('#chatClientAutoResponder').val('blank');
+
 });
 
 $('#selectsongs').change(function(){
@@ -114,8 +113,6 @@ function initializeTapSocketHandler(socket){
 }
 
 function initializeChatSocketHandler(socket){
-        console.log(this);
-
     socket.on(chatSocketEvent, function(chatMsgObject){
         onBaseChatSocketEvent(chatMsgObject);
     });
