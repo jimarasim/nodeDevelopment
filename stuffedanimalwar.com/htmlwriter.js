@@ -1,13 +1,12 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
-//STUFFEDANIMALWAR
 
+//STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
 }  
 function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
-    console.log('stuffedAnimalMediaObject.backgroundimage:'+stuffedAnimalMediaObject);
     //IF THE BACKGROUND IMAGE WAS SPECIFIED
     if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.backgroundimage){
         //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT
@@ -48,8 +47,7 @@ function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
 }
 function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     document.write("<h1>STUFFED ANIMAL WAR</h1>");
-    document.write("<form>");
-    
+    document.write("<form id='stuffedanimalwarform'>");
     //ANIMAL CHOICES
     document.write("<div style=\"float:left;\">");
         document.write("<select id=\"animals\" name=\"sawstyle\" size=17 >");
@@ -66,7 +64,6 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
         }
         document.write("</select>");
     document.write("</div>");
-
     document.write("<div>");
         //CUSTOM URL TEXT BOX
         document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
@@ -81,12 +78,14 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     document.write("</div>");
     document.write("</form>");  
     document.write("<hr style=\"clear:left;\" />");  
-
 }
-//AUDIO VIDEO PHOTOS
+//STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR
+//AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 function writeMediaFromJson(mediaObject){
+    //AUDIO
     if(mediaObject.songspath && mediaObject.songs[0]){
         document.write("<h1>AUDIO</h1>");
+        document.write("<form id='audioform'>")
         document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
         //paint the audio player
         document.write("<tr>");
@@ -120,11 +119,12 @@ function writeMediaFromJson(mediaObject){
             document.write("</tr>");
         }
         document.write("</table>");
-        document.write("<hr>");
+        document.write("</form>");
     }
-    
+    //VIDEO
     if(mediaObject.videospath && mediaObject.videos[0]){
         document.write("<h1>VIDEO</h1>");
+        document.write("<form id='videoform'>")
         document.write("<table style='"+"width:"+screen.width+"px;'>");
         document.write("<tr>");
         document.write("<td>");
@@ -150,11 +150,9 @@ function writeMediaFromJson(mediaObject){
         document.write("</td>");
         document.write("</tr>");
         document.write("</table>");  
-        document.write("<hr>");
+        document.write("</form>");
     }
-
-    
-    
+    //PHOTOS
     if(mediaObject.photospath && mediaObject.photos[0]){
         document.write("<h1>PHOTOS</h1>");
         //paint the photos
@@ -172,23 +170,39 @@ function writeMediaFromJson(mediaObject){
             document.write("</tr>");
         }
         document.write("</table>");   
-        document.write("<hr>");
     }
-      
+    document.write("<hr />");  
 }
-//CHAT
+//AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
+//CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
 function writeChat(){
+    document.write("<h1>CHAT</h1>");
+    writeChatForm();
+    document.write("<hr />");  
+}
+function writeChatForm(){
     document.write("<table style='"+"width:"+screen.width+"px;'>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<form id='chatform'>");
+    document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
+    document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
+    document.write("<select id=\"chatClientAutoResponder\" size=10 >");
     writeDefaultAutoResponderOptions();
-    writeChatMessagesDiv();
+    document.write("</select>");
+    document.write("<button id='sendbutton'>SEND</button>");
+    document.write("</form>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+    document.write("<td>");
+    document.write("<div id=\"messagesdiv\"></div>");
+    document.write("</td>");
+    document.write("</tr>");
     document.write("</table>");
 }
 function writeDefaultAutoResponderOptions(){
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
-    document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
-    document.write("<select id=\"chatClientAutoResponder\" size=1 >");
+    
     document.write("<option value=\"blank\" selected>--pick an autoresponse--</option>");
     document.write("<option value=\"wink\">;)</option>");
     document.write("<option value=\"smiley\">:)</option>");
@@ -232,19 +246,9 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"youremybestfriend\">youre my best friend</option>");
     document.write("<option value=\"youreworkingthatoutfitgirl\">youre working that outfit girl</option>");
     document.write("<option value=\"yourewrong\">youre wrong</option>");
-    document.write("</select>");
-    document.write("<button id='sendbutton'>SEND</button>");
-    document.write("</td>");
-    document.write("</tr>");
+}
+//CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
 
-}
-function writeChatMessagesDiv(){
-    document.write("<tr>");
-    document.write("<td>");
-    document.write("<div id=\"messagesdiv\"></div>");
-    document.write("</td>");
-    document.write("</tr>");
-}
 
 
 
