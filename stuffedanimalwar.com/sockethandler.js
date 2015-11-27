@@ -11,6 +11,7 @@ var baseSocket = null;
 var baseMasterAlias=null;
 var baseUnspecifiedAlias=null;
 
+//HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
 $('#stuffedanimalwarsvg').click(function(event){
     console.log("$('#stuffedanimalwarsvg').click");
     
@@ -27,7 +28,6 @@ $('#stuffedanimalwarsvg').click(function(event){
     
     baseSocket.emit(tapSocketEvent,tapMsgObject);
 });
-
 $('#chatClientAutoResponder').change(function(){
     //GET THE MESSAGE FROM THE AUTORESPONDER
     var chatAutoResponderMessage = $('#chatClientAutoResponder option:selected').text();
@@ -39,7 +39,6 @@ $('#chatClientAutoResponder').change(function(){
     $('#chatClientAutoResponder').val('blank');
 
 });
-
 $('#selectsongs').change(function(){
     console.log("$('#selectsongs').change");
 
@@ -53,7 +52,6 @@ $('#jaemzwaredynamicvideoplayer').bind("ended", function(){
     var currentFile = $(this).children(":first").attr('src');
     PlayNextVideo(currentFile);
 });
-
 $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
     console.log('#jaemzwaredynamicaudioplayer');
     var currentFile = $(this).children(":first").attr('src');
@@ -65,25 +63,21 @@ $('#selectvideos').change(function(){
     emitChatMessage(videoToPlay);
     
 });
-
-$('#sendbutton').click(function(){
-    var chatMessage = $('#chatClientMessage').val();
-    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
-    $('#chatClientMessage').val('');
-    //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
-    emitChatMessage(chatMessage);    
+$('#chatClientMessage').keypress(function (event) {
+    if (event.which === 13) {
+        emitChatMessage($('#chatClientMessage').val());   
+        $('#chatClientMessage').val('');
+        return false; 
+    }
 });
-
-//CONSTRUCTION
-
-
+//HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
+//SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//
 function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
     console.log(this);
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
     baseSocket=socket;
 }
-
 function initializeTapSocketHandler(socket){
     console.log(this);
     //  WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
@@ -111,7 +105,6 @@ function initializeTapSocketHandler(socket){
     });
     baseSocket=socket;
 }
-
 function initializeChatSocketHandler(socket){
     socket.on(chatSocketEvent, function(chatMsgObject){
         onBaseChatSocketEvent(chatMsgObject);
@@ -119,7 +112,6 @@ function initializeChatSocketHandler(socket){
     
     baseSocket=socket;
 }
-
 function onBaseChatSocketEvent(chatMsgObject){
     var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
     var chatServerUser = chatMsgObject.CHATSERVERUSER;
@@ -217,3 +209,4 @@ function emitChatMessage(messageString){
     console.log("EMIT CHAT MESSAGE:"+JSON.stringify(chatMessageObject));
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
+//SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//

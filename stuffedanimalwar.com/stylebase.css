@@ -62,14 +62,14 @@ div.seattlenativelinks{
     color:yellow; /*text color*/
     font-weight:bold;
     font-family:sans-serif;
-    font-size:x-small;
+    font-size:xx-small;
 }
 span.serverdate{
-    color:green;
+    color:orangered;
     font-size:xx-small
 }
 span.remoteChatClientUser{
-    color:pink;
+    color:orange;
     font-size:xx-small
 
 }

@@ -192,7 +192,6 @@ function writeChatForm(){
             
             document.write("<td>");
             document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
-            document.write("<button id='sendbutton'>SEND</button>");
             document.write("</td>");
             
         document.write("</tr>");
