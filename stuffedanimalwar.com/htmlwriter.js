@@ -86,7 +86,7 @@ function writeMediaFromJson(mediaObject){
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
         document.write("<h1>AUDIO</h1>");
         document.write("<form id='audioform'>")
-        document.write("<table class='audiotable' style='"+"width:"+screen.width+"px;'>");
+        document.write("<table id='audiotable'>");
         //paint the audio player
         document.write("<tr>");
         document.write("<td class='audioplayertd'>");
@@ -125,7 +125,7 @@ function writeMediaFromJson(mediaObject){
     if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
         document.write("<h1>VIDEO</h1>");
         document.write("<form id='videoform'>")
-        document.write("<table style='"+"width:"+screen.width+"px;'>");
+        document.write("<table id='videotable'>");
         document.write("<tr>");
         document.write("<td>");
         if(mediaObject.videos[0]){
@@ -156,7 +156,7 @@ function writeMediaFromJson(mediaObject){
     if(mediaObject.photospath && mediaObject.photos && mediaObject.photos[0]){
         document.write("<h1>PHOTOS</h1>");
         //paint the photos
-        document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
+        document.write("<table id='phototable'>");
         for (var i=0;i<mediaObject.photos.length;i++){
             document.write("<tr>");
             document.write("<td class='audioplayertd'>");

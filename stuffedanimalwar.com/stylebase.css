@@ -82,15 +82,45 @@ span.chatclientmessage{
     font-size:xx-small
 }
 /*CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT*/
-
 /*AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
 #audiotable{
-    border-spacing:0px; /*need to specify so it doesn't get defaulted by user agent stylesheet'*/
-    height:500px;
+    background-color:darkred;
+    width:100%;
 }
-#audioplayertd{
-    vertical-align: top;
+#audiotable td{
     text-align: left;
+    vertical-align:top;
+    width:100%;
+}
+#audiotable select{
+    width:100%;
+}
+#audiotable audio{
+    width:100%;
+}
+#videotable{
+    background-color:blueviolet;
+    width:100%;
+}
+#videotable td{
+    text-align: left;
+    vertical-align:top;
+    width:100%;
+}
+#videotable select{
+    width:100%;
+}
+#videotable video{
+    width:100%;
+}
+#phototable{
+    background-color:darkgrey;
+    width:100%;
+}
+#phototable td{
+    text-align: left;
+    vertical-align:top;
+    width:100%;
 }
 /*AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
 
