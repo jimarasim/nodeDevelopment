@@ -13,8 +13,6 @@ var baseUnspecifiedAlias=null;
 
 //HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
 $('#stuffedanimalwarsvg').click(function(event){
-    console.log("$('#stuffedanimalwarsvg').click");
-    
     var tapMsgObject = {
           x:event.pageX,
           y:event.pageY,
@@ -34,10 +32,6 @@ $('#chatClientAutoResponder').change(function(){
 
     //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
     emitChatMessage(chatAutoResponderMessage);
-    
-    //CLEAR THE MESSAGE FROM THE MESSAGE BOX
-    $('#chatClientAutoResponder').val('blank');
-
 });
 $('#selectsongs').change(function(){
     var songToPlay = $('#selectsongs option:selected').attr("value");

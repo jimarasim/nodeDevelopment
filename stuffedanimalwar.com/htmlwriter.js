@@ -50,7 +50,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     document.write("<form id='stuffedanimalwarform'>");
     //ANIMAL CHOICES
     document.write("<div style=\"float:left;\">");
-        document.write("<select id=\"animals\" name=\"sawstyle\" size=17 >");
+        document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
         //DEFAULT ANIMAL CHOICES
         document.write("<option value=\"custom\">CUSTOM URL</option>");  
         document.write("<option value=\"dots\" selected>Bullets</option>");
@@ -69,7 +69,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
         document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
         document.write("<br />");
         //MOVEMENT DIRECTION
-        document.write("<select style=\"vertical-align:bottom;text-align:left;\" id=\"movement\" name=\"sawmove\" size=4 >");
+        document.write("<select style=\"vertical-align:bottom;text-align:left;\" id=\"movement\" name=\"sawmove\" size=1 >");
         document.write("<option value=\"UP\" selected>UP</option>");
         document.write("<option value=\"DOWN\">DOWN</option>");
         document.write("<option value=\"LEFT\">LEFT</option>");
@@ -190,8 +190,22 @@ function writeChatForm(){
             document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
             document.write("</td>");
             
+        document.write("</tr>");
+        
+        document.write("<tr>");
+        
             document.write("<td>");
-            document.write("<input id=\"chatClientMessage\" size=\"35\" placeholder=\"type message\" />");
+            document.write("<input id=\"chatClientMessage\" size=\"30\" placeholder=\"type message\" />");
+            document.write("</td>");
+            
+        document.write("</tr>");
+        
+        document.write("<tr>");
+            
+            document.write("<td>");
+            document.write("<select id=\"chatClientAutoResponder\" size=1 >");
+            writeDefaultAutoResponderOptions();
+            document.write("</select>");
             document.write("</td>");
             
         document.write("</tr>");
@@ -199,12 +213,6 @@ function writeChatForm(){
         document.write("<tr>");
             document.write("<td>");
             document.write("<div id=\"messagesdiv\"></div>");
-            document.write("</td>");
-            
-            document.write("<td>");
-            document.write("<select id=\"chatClientAutoResponder\" size=5 >");
-            writeDefaultAutoResponderOptions();
-            document.write("</select>");
             document.write("</td>");
             
         document.write("</tr>");
