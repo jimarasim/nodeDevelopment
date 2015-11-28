@@ -4,6 +4,7 @@
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
+    document.write("<hr />");  
 }  
 function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
@@ -48,8 +49,10 @@ function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
 function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     document.write("<h1>STUFFED ANIMAL WAR</h1>");
     document.write("<form id='stuffedanimalwarform'>");
+    document.write("<table id='stuffedanimalwarformtable'>");
     //ANIMAL CHOICES
-    document.write("<div style=\"float:left;\">");
+    document.write("<tr>");
+    document.write("<td>");
         document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
         //DEFAULT ANIMAL CHOICES
         document.write("<option value=\"custom\">CUSTOM URL</option>");  
@@ -63,8 +66,10 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
             }
         }
         document.write("</select>");
-    document.write("</div>");
-    document.write("<div>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("<tr>");
+    document.write("<td>");
         //CUSTOM URL TEXT BOX
         document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
         document.write("<br />");
@@ -75,9 +80,10 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
         document.write("<option value=\"LEFT\">LEFT</option>");
         document.write("<option value=\"RIGHT\">RIGHT</option>");
         document.write("</select>");
-    document.write("</div>");
+    document.write("</td>");
+    document.write("</tr>");
+    document.write("</table>");
     document.write("</form>");  
-    document.write("<hr style=\"clear:left;\" />");  
 }
 //STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS

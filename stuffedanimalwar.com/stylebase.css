@@ -30,6 +30,21 @@ div.seattlenativelinks{
     background-size:contain;
     background-position:left;
 }
+#stuffedanimalwarformtable{
+    background-color:darkcyan;
+    width:100%;
+}
+#stuffedanimalwarformtable td{
+    text-align: left;
+    vertical-align:top;
+    width:100%;
+}
+#stuffedanimalwarformtable select{
+    width:100%;
+}
+#stuffedanimalwarformtable input{
+    width:100%;
+}
 /*STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR*/
 /*CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT*/
 #chattable{
