@@ -37,11 +37,16 @@ $('#selectsongs').change(function(){
     var songToPlay = $('#selectsongs option:selected').attr("value");
     var chatClientUser = $("#chatClientUser").val();
     
+    console.log("CHATCLIENTUSER:"+chatClientUser+" BASEMASTERALIAS:"+baseMasterAlias);
+    
     if(chatClientUser===baseMasterAlias){
+        console.log("DJ CHANGED THE SONG:");
         emitChatMessage(songToPlay);
     }
     else{
         changeMp3(songToPlay);
+        console.log("DJ DID NOT CHANGE THE SONG:");
+
     }
 });
 $('#jaemzwaredynamicvideoplayer').bind("ended", function(){
@@ -73,6 +78,21 @@ $('#chatClientMessage').keypress(function (event) {
         return false; 
     }
 });
+function emitChatMessage(messageString){
+    //get the user alias
+    var chatClientUser = $('#chatClientUser').val();
+
+    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
+    var chatMessageObject = {
+              CHATCLIENTUSER: chatClientUser,
+              CHATSERVERUSER:'defaultserveruserresponse',
+              CHATCLIENTMESSAGE:messageString,
+              CHATSERVERDATE:'defaultserverdateresponse'
+          };  
+
+    //send the message
+    baseSocket.emit(chatSocketEvent,chatMessageObject); 
+}
 //HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
 //SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//
 function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
@@ -80,6 +100,8 @@ function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
     baseSocket=socket;
+    
+    console.log("BASEMASTERALIAS"+baseMasterAlias);
 }
 function initializeTapSocketHandler(socket){
     console.log(this);
@@ -121,6 +143,8 @@ function onBaseChatSocketEvent(chatMsgObject){
     var chatClientMessage = chatMsgObject.CHATCLIENTMESSAGE;
     var chatServerDate = chatMsgObject.CHATSERVERDATE;
     var serverStamp = "["+chatServerUser+"]["+chatServerDate+"]"; //ip and time stamp
+    
+    console.log("DJ BROADCAST");
 
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -144,6 +168,7 @@ function onBaseChatSocketEvent(chatMsgObject){
             {
                 //change the source of the AUDIO player
                 changeMp3(chatClientMessage);
+                console.log("DJ BROADCAST CHANGED THE SONG");
 
             }
           else if(chatClientMessage.indexOf(".mp4") > 0 && remoteChatClientUser===baseMasterAlias)
@@ -193,23 +218,5 @@ function onBaseChatSocketEvent(chatMsgObject){
                class: "chatclientmessage"
             }).text(chatClientMessage);
         }
-}
-function emitChatMessage(messageString){
-    console.log('emitChatMessage'+messageString);
-
-    //get the user alias
-    var chatClientUser = $('#chatClientUser').val();
-
-    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    var chatMessageObject = {
-              CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'defaultserveruserresponse',
-              CHATCLIENTMESSAGE:messageString,
-              CHATSERVERDATE:'defaultserverdateresponse'
-          };  
-
-    //send the message
-    console.log("EMIT CHAT MESSAGE:"+JSON.stringify(chatMessageObject));
-    baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
 //SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//

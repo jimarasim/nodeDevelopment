@@ -12,7 +12,7 @@ $.getScript('sockethandler.js', function()
     tapSocketEvent = endpoint+'tapmessage';
 
     var socket = io();
-    initializeCommonVars(masterAlias,unspecifiedAlias);
+    initializeCommonVars(socket,masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
 });
