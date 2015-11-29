@@ -115,11 +115,11 @@ function writeMediaFromJson(mediaObject){
         document.write("</tr>");
         document.write("</table>");  
         //paint links to the songs
-        document.write("<table  class='audiotable' style='"+"width:"+screen.width+"px;'>");
-        document.write("<tr><td>Download</td></tr>");
+        document.write("<table id='audiotablelinks'>");
+        document.write("<tr><td><b>Audio Download Links</b></td></tr>");
         for (var i=0;i<mediaObject.songs.length;i++){
             document.write("<tr>");
-            document.write("<td class='audioplayertd'>");
+            document.write("<td>");
             document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
             document.write("</td>");
             document.write("</tr>");
@@ -156,6 +156,17 @@ function writeMediaFromJson(mediaObject){
         document.write("</td>");
         document.write("</tr>");
         document.write("</table>");  
+        //paint links to the videos
+        document.write("<table id='videotablelinks'>");
+        document.write("<tr><td><b>Video Download Links</b></td></tr>");
+        for (var i=0;i<mediaObject.videos.length;i++){
+            document.write("<tr>");
+            document.write("<td>");
+            document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.videosspath+mediaObject.videos[i].file+"\" download>"+mediaObject.videos[i].title+"</a>");
+            document.write("</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
         document.write("</form>");
     }
     //PHOTOS
