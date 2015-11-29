@@ -88,45 +88,6 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
 //STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 function writeMediaFromJson(mediaObject){
-    //AUDIO
-    if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
-        document.write("<h1>AUDIO</h1>");
-        document.write("<form id='audioform'>")
-        document.write("<table id='audiotable'>");
-        //paint the audio player
-        document.write("<tr>");
-        document.write("<td class='audioplayertd'>");
-        document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
-        document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
-        document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
-        document.write("</audio>");
-        document.write("</td>");
-        document.write("</tr>");
-        //paint the song selection dropdown 
-        document.write("<tr>");
-        document.write("<td class='audioplayertd'>");
-        document.write("<select id=\"selectsongs\">");
-        //paint song selection dropdown options (songs)
-        for (var i=0;i<mediaObject.songs.length;i++){
-            document.write("<option value=\""+mediaObject.songspath+mediaObject.songs[i].file+"\">"+mediaObject.songs[i].title+"</option>");
-        }
-        document.write("</select>");
-        document.write("</td>");
-        document.write("</tr>");
-        document.write("</table>");  
-        //paint links to the songs
-        document.write("<table id='audiotablelinks'>");
-        document.write("<tr><td><b>Audio Download Links</b></td></tr>");
-        for (var i=0;i<mediaObject.songs.length;i++){
-            document.write("<tr>");
-            document.write("<td>");
-            document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
-            document.write("</td>");
-            document.write("</tr>");
-        }
-        document.write("</table>");
-        document.write("</form>");
-    }
     //VIDEO
     if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
         document.write("<h1>VIDEO</h1>");
@@ -169,6 +130,47 @@ function writeMediaFromJson(mediaObject){
         document.write("</table>");
         document.write("</form>");
     }
+    
+    //AUDIO
+    if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
+        document.write("<h1>AUDIO</h1>");
+        document.write("<form id='audioform'>")
+        document.write("<table id='audiotable'>");
+        //paint the audio player
+        document.write("<tr>");
+        document.write("<td class='audioplayertd'>");
+        document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+        document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
+        document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+        document.write("</audio>");
+        document.write("</td>");
+        document.write("</tr>");
+        //paint the song selection dropdown 
+        document.write("<tr>");
+        document.write("<td class='audioplayertd'>");
+        document.write("<select id=\"selectsongs\">");
+        //paint song selection dropdown options (songs)
+        for (var i=0;i<mediaObject.songs.length;i++){
+            document.write("<option value=\""+mediaObject.songspath+mediaObject.songs[i].file+"\">"+mediaObject.songs[i].title+"</option>");
+        }
+        document.write("</select>");
+        document.write("</td>");
+        document.write("</tr>");
+        document.write("</table>");  
+        //paint links to the songs
+        document.write("<table id='audiotablelinks'>");
+        document.write("<tr><td><b>Audio Download Links</b></td></tr>");
+        for (var i=0;i<mediaObject.songs.length;i++){
+            document.write("<tr>");
+            document.write("<td>");
+            document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
+            document.write("</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        document.write("</form>");
+    }
+    
     //PHOTOS
     if(mediaObject.photospath && mediaObject.photos && mediaObject.photos[0]){
         document.write("<h1>PHOTOS</h1>");
