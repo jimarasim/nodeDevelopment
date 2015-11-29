@@ -15,16 +15,16 @@ function PlayNextTrack(currentFile){
     }
 
     //get the next track, if there isn't one, use the first one
-    if($('#selectsongs option[value="'+currentFile+'"]').next().text().length!==0)
+    if($('#selectsongs option[value="'+currentFile+'"]').next())
     {
         changeMp3($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
     }
-    else if($('#selectsongs option[value="'+currentFile+'"]').first().text().length!==0)
+    else if($('#selectsongs option[value="'+currentFile+'"]').first())
     {
         changeMp3($('#selectsongs option[value="'+currentFile+'"]').first().attr('value'));
     }
     else{
-        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
+        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT SONG IN THE DROPDOWN");
     }
 }
 function PlayNextVideo(currentFile){
@@ -35,16 +35,16 @@ function PlayNextVideo(currentFile){
         return;
     }
     //get the next track, if there isn't one, use the first one
-    if($('#selectvideos option[value="'+currentFile+'"]').next().text().length!==0)
+    if($('#selectvideos option[value="'+currentFile+'"]').next())
     {
-        changeMp3($('#selectvideos option[value="'+currentFile+'"]').next().attr('value'));
+        changeMp4($('#selectvideos option[value="'+currentFile+'"]').next().attr('value'));
     }
-    else if($('#selectvideos option[value="'+currentFile+'"]').first().text().length!==0)
+    else if($('#selectvideos option[value="'+currentFile+'"]'))
     {
-        changeMp3($('#selectvideos option[value="'+currentFile+'"]').first().attr('value'));
+        changeMp4($('#selectvideos option[value="'+currentFile+'"]').first().attr('value'));
     }
     else{
-        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT TRACK IN THE DROPDOWN");
+        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT VIDEO IN THE DROPDOWN");
     }
 }
 function changeMp3(mp3Url){
@@ -55,8 +55,10 @@ function changeMp3(mp3Url){
     $('#selectsongs').val(mp3Url);
 }
 function changeMp4(mp4Url){
+    //change the source of the VIDEO player
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
     document.getElementById("jaemzwaredynamicvideoplayer").load();
     document.getElementById("jaemzwaredynamicvideoplayer").play();
+    $('#selectsongs').val(mp4Url);
 }
 
