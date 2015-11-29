@@ -36,6 +36,7 @@ app.get('/', function(req, res){
 });
 
 //handler for incoming get requests
+
 app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
@@ -131,6 +132,11 @@ app.get('/ride', function(req, res){
         res.sendFile(__dirname + '/ride.html');
         });
 
+app.get('/omlb', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/omlb.html');
+        });
+        
 
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
@@ -231,6 +237,10 @@ io.on('connection', function(socket){
     socket.on('ridechatmessage', function(chatMsgObject){
         sendChatMessage('ridechatmessage',chatMsgObject);
     });
+    
+    socket.on('omlbchatmessage', function(chatMsgObject){
+        sendChatMessage('omlbchatmessage',chatMsgObject);
+    });
 
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
@@ -294,6 +304,10 @@ io.on('connection', function(socket){
     
     socket.on('ridetapmessage', function(tapMsgObject){
         sendTapMessage('ridetapmessage',tapMsgObject);
+    });
+    
+    socket.on('omlbtapmessage', function(tapMsgObject){
+        sendTapMessage('omlbtapmessage',tapMsgObject);
     });
     
     

@@ -1,0 +1,44 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org  20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OMLB</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    
+    var mediaObject = {
+        "songspath":"http://www.analogarchive.com/digital/",
+        "photospath":"http://seattlerules.com/media/omlb/",
+        "videospath":"http://seattlerules.com/media/omlb/",
+        "videos":[
+            {'file':'2015_HoustonSkateKation_Full.mp4','title':'2015 Houston SkateKation Full MP4'}
+        ],
+        "photos":[
+            {'file':'IMG_4691.JPG','title':'Sk8creteordie'},
+            {'file':'IMG_4599.JPG','title':'Kitteh'}
+            ],
+        "songs":[  
+            {'file':'14%20Walkin%20On%20The%20Sky.mp3','title':'Walkin on the Sky'},
+            {'file':'11%20Car%20Thief.mp3','title':'Beastie Boys - Car Thief'},
+            {'file':'03%20Pass%20The%20Mic.mp3','title':'Beastie Boys - Pass the Mic'},
+            {'file':'12%20Black%20Tambourine%20(Film%20Version).mp3','title':'Beck - Black Tambourine'},
+            {'file':'03 The Tide Is High.mp3','title':'Blondie - The Tide Is High'},
+            {'file':'1-14%20With%20Teeth%20(Live).mp3','title':'Melvins - With Teeth (Live)'},
+            {'file':'1-07%20I%20Will%20Refuse.mp3','title':'Pailhead - I Will Refuse'},
+            {'file':'3-01%20Rubber%20Glove%20Seduction.mp3','title':'PTP - Rubber Glove Seduction'},
+            {'file':'02%20Avalon%20Or%20Someone%20Very%20Similar.mp3','title':'Yo La Tengo - Avalon Or Someone Very Similar'},
+            {'file':'1-01%20Supernaut.mp3','title':'1000 Homo DJs - Supernaut'},
+            {'file':'03%20In%20Your%20Face.mp3','title':'7 Seconds - In Your Face'}
+        ]
+    };
+    writeChat();
+    writeMediaFromJson(mediaObject);
+</script>
+<script type="text/javascript" src="omlbsockethandler.js"></script>
+</body>
+</html> 
