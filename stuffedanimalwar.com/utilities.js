@@ -8,43 +8,45 @@ function GetRandomColorValue(){
 
 //AUDIO SPECIFIC UTILITIES
 function PlayNextTrack(currentFile){
-    //don't do anything if there are no tracks
-    if($('#selectsongs option').length===0)
-    {
+    //don't do anything if there are no songs
+    if($('#selectsongs option').length===0){
         return;
     }
 
-    //get the next track, if there isn't one, use the first one
-    if($('#selectsongs option[value="'+currentFile+'"]').next())
-    {
-        changeMp3($('#selectsongs option[value="'+currentFile+'"]').next().attr('value'));
+    var current=$('#selectsongs option[value="'+currentFile+'"]').attr('value');
+    var first=$('#selectsongs option').first().attr('value');
+    var last=$('#selectsongs option').last().attr('value');
+    var next=$('#selectsongs option[value="'+currentFile+'"]').next().attr('value');
+
+    console.log("FIRST:"+first+" CURRENT:"+current+" NEXT:"+next+" LAST:"+last);
+
+    //if the current song is the last song, play the first song
+    if(current===last){
+        changeMp3(first);
     }
-    else if($('#selectsongs option[value="'+currentFile+'"]').first())
-    {
-        changeMp3($('#selectsongs option[value="'+currentFile+'"]').first().attr('value'));
-    }
-    else{
-        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT SONG IN THE DROPDOWN");
+    else{ //otherwise, play the next song
+        changeMp3(next);
     }
 }
 function PlayNextVideo(currentFile){
-    
-    //don't do anything if there are no tracks
-    if($('#selectvideos option').length===0)
-    {
+    //don't do anything if there are no videos
+    if($('#selectvideos option').length===0){
         return;
     }
-    //get the next track, if there isn't one, use the first one
-    if($('#selectvideos option[value="'+currentFile+'"]').next())
-    {
-        changeMp4($('#selectvideos option[value="'+currentFile+'"]').next().attr('value'));
+
+    var current=$('#selectvideos option[value="'+currentFile+'"]').attr('value');
+    var first=$('#selectvideos option').first().attr('value');
+    var last=$('#selectvideos option').last().attr('value');
+    var next=$('#selectvideos option[value="'+currentFile+'"]').next().attr('value');
+
+    console.log("FIRST:"+first+" CURRENT:"+current+" NEXT:"+next+" LAST:"+last);
+
+    //if the current video is the last video, play the first video
+    if(current===last){
+        changeMp4(first);
     }
-    else if($('#selectvideos option[value="'+currentFile+'"]'))
-    {
-        changeMp4($('#selectvideos option[value="'+currentFile+'"]').first().attr('value'));
-    }
-    else{
-        console.log("SOMETHING WENT WRONG TRYING TO PLAY NEXT VIDEO IN THE DROPDOWN");
+    else{ //otherwise, play the next video
+        changeMp4(next);
     }
 }
 function changeMp3(mp3Url){
