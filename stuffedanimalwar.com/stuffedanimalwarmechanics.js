@@ -3,9 +3,9 @@
  */
 var animalObjects = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
 var shapeObjects = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
-var animalPositionIncrement = 5; //distance animal moves each reposition 
-var shapePositionIncrement = 7; //distance shape moves each reposition
-var animalInterval = 50; //milliseconds between animal repositions
+var animalPositionIncrement = 10; //distance animal moves each reposition 
+var shapePositionIncrement = 10; //distance shape moves each reposition
+var animalInterval = 75; //milliseconds between animal repositions
 var shapeInterval = 25; //milliseconds between shape repositions
 var radius = 10; //RADIUS of the dot shape to draw
 var lineWidth = 10; //width of the line shape to draw
@@ -19,7 +19,9 @@ function moveAnimalObjectUp(animalObjectId,animalXAxisAttr,animalYAxisAttr) {
     var yPosition = $('#'+animalObjectId).attr(animalYAxisAttr);    //get the current location
     var svgHeight = $('#stuffedanimalwarsvg').height();
     if(yPosition>0){    //if still on the gameboard
-        yPosition=parseInt(yPosition)-parseInt(animalPositionIncrement);        //update the coordinates
+        //randomize the distance of how much each animal moves
+        var randomAnimalPositionIncrement=Math.floor((Math.random() * animalPositionIncrement) + 1);
+        yPosition=parseInt(yPosition)-parseInt(randomAnimalPositionIncrement);        //update the coordinates
         xPosition=parseInt(xPosition);        //update the coordinates
         $('#'+animalObjectId).attr(animalYAxisAttr,yPosition);
         $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);
@@ -34,8 +36,10 @@ function moveAnimalObjectLeft(animalObjectId,animalXAxisAttr,animalYAxisAttr) {
     var yPosition = $('#'+animalObjectId).attr(animalYAxisAttr);    //get the current location
     var svgWidth = $('#stuffedanimalwarsvg').width();
     if(xPosition>0){    //if still on the gameboard
+        //randomize the distance of how much each animal moves
+        var randomAnimalPositionIncrement=Math.floor((Math.random() * animalPositionIncrement) + 1);
         yPosition=parseInt(yPosition);        //update the coordinates
-        xPosition=parseInt(xPosition)-parseInt(animalPositionIncrement);        //update the coordinates
+        xPosition=parseInt(xPosition)-parseInt(randomAnimalPositionIncrement);        //update the coordinates
         $('#'+animalObjectId).attr(animalYAxisAttr,yPosition);
         $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);
     }
@@ -50,7 +54,9 @@ function moveAnimalObjectDown(animalObjectId,animalXAxisAttr,animalYyAxisAttr) {
     var xPosition = $('#'+animalObjectId).attr(animalXAxisAttr);
     var svgHeight = $('#stuffedanimalwarsvg').height();
     if(yPosition<svgHeight){     //if still on SVG gameboard
-        yPosition=parseInt(yPosition)+parseInt(animalPositionIncrement);         //update the coordinates
+        //randomize the distance of how much each animal moves
+        var randomAnimalPositionIncrement=Math.floor((Math.random() * animalPositionIncrement) + 1);
+        yPosition=parseInt(yPosition)+parseInt(randomAnimalPositionIncrement);         //update the coordinates
         $('#'+animalObjectId).attr(animalYyAxisAttr,yPosition);
         $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);
     }
@@ -65,7 +71,9 @@ function moveAnimalObjectRight(animalObjectId,animalXAxisAttr,animalYAxisAttr) {
     var xPosition = $('#'+animalObjectId).attr(animalXAxisAttr);
     var svgWidth = $('#stuffedanimalwarsvg').width();
     if(xPosition<svgWidth){     //if still on SVG gameboard
-        xPosition=parseInt(xPosition)+parseInt(animalPositionIncrement);         //update the coordinates
+        //randomize the distance of how much each animal moves
+        var randomAnimalPositionIncrement=Math.floor((Math.random() * animalPositionIncrement) + 1);
+        xPosition=parseInt(xPosition)+parseInt(randomAnimalPositionIncrement);         //update the coordinates
         $('#'+animalObjectId).attr(animalYAxisAttr,yPosition);
         $('#'+animalObjectId).attr(animalXAxisAttr,xPosition);
     }
@@ -388,18 +396,22 @@ function onBaseTapSocketEventImages(tapMsgObject,imagePath){
     //start a timer for the line, depending on the direction
     var direction = tapMsgObject.movement;
     var objectTimerId;
+    
+    //randomize the speed at how often the animal moves
+    var randomAnimalInterval=Math.floor((Math.random() * animalInterval) + 1);
+
     switch(direction){
         case 'UP':
-            objectTimerId = startAnimalObjectTimerUp(animalId,"x","y",animalInterval);
+            objectTimerId = startAnimalObjectTimerUp(animalId,"x","y",randomAnimalInterval);
             break;
         case 'DOWN':
-            objectTimerId = startAnimalObjectTimerDown(animalId,"x","y",animalInterval);
+            objectTimerId = startAnimalObjectTimerDown(animalId,"x","y",randomAnimalInterval);
             break;
         case 'LEFT':
-            objectTimerId = startAnimalObjectTimerLeft(animalId,"x","y",animalInterval);
+            objectTimerId = startAnimalObjectTimerLeft(animalId,"x","y",randomAnimalInterval);
             break;
         case 'RIGHT':
-            objectTimerId = startAnimalObjectTimerRight(animalId,"x","y",animalInterval);
+            objectTimerId = startAnimalObjectTimerRight(animalId,"x","y",randomAnimalInterval);
             break;
         default:
             return;
