@@ -61,7 +61,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
                 document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
             }
         }
-       document.write("<option value=\"custom\">CUSTOM URL</option>");  
+       document.write("<option value=\"custom\">CUSTOM</option>");  
         document.write("<option value=\"dots\">Bullets</option>");
         document.write("<option value=\"line01\">Laser</option>");
         document.write("<option value=\"line02\">Bow Staff</option>");
