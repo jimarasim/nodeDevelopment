@@ -137,6 +137,11 @@ app.get('/omlb', function(req, res){
         res.sendFile(__dirname + '/omlb.html');
         });
         
+app.get('/mixpage', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/mixpage.html');
+        });
+        
 
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
@@ -241,6 +246,10 @@ io.on('connection', function(socket){
     socket.on('omlbchatmessage', function(chatMsgObject){
         sendChatMessage('omlbchatmessage',chatMsgObject);
     });
+    
+    socket.on('mixpagechatmessage', function(chatMsgObject){
+        sendChatMessage('mixpagechatmessage',chatMsgObject);
+    });
 
     
     //TAPMESSAGES--------------------------------------------------------------------------------------
@@ -308,6 +317,10 @@ io.on('connection', function(socket){
     
     socket.on('omlbtapmessage', function(tapMsgObject){
         sendTapMessage('omlbtapmessage',tapMsgObject);
+    });
+    
+    socket.on('mixpagetapmessage', function(tapMsgObject){
+        sendTapMessage('mixpagetapmessage',tapMsgObject);
     });
     
     
