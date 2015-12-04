@@ -49,16 +49,24 @@ $('#selectsongs').change(function(){
 
     }
 });
+
+//VIDEO PLAYER HTML EVENTS
 $('#jaemzwaredynamicvideoplayer').bind("ended", function(){
-    console.log("$('#jaemzwaredynamicvideoplayer').bind(ended, function(){");
     var currentFile = $(this).children(":first").attr('src');
     PlayNextVideo(currentFile);
 });
+
+//AUDIO PLAYER HTML EVENTS
 $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
-    console.log('#jaemzwaredynamicaudioplayer');
     var currentFile = $(this).children(":first").attr('src');
     PlayNextTrack(currentFile);
 });
+
+$('#nextaudiotrack').click(function(){
+    var currentFile = $('#selectsongs option:selected').attr("value");
+    PlayNextTrack(currentFile);
+});
+
 $('#selectvideos').change(function(){
     var videoToPlay = $('#selectvideos option:selected').attr("value");
     var chatClientUser = $("#chatClientUser").val();
