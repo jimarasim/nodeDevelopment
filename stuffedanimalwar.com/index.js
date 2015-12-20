@@ -150,10 +150,12 @@ io.on('connection', function(socket){
     var chatServerDate = new Date();
     var connectMsgObject = {
                   CHATSERVERUSER:chatClientAddress,
-                  CHATSERVERDATE:chatServerDate
+                  CHATSERVERDATE:chatServerDate,
+                  CHATCLIENTUSER:'WHATS UP ',
+                  CHATCLIENTMESSAGE:'Connect'
      }; 
+    console.log(JSON.stringify(connectMsgObject)+' CONNECT');
     io.emit('connectSocketEvent',connectMsgObject);
-    console.log("connectSocketEvent:"+JSON.stringify(connectMsgObject));
 
     
     //COMMON--------------------------------------------------------------------------------------
@@ -162,10 +164,12 @@ io.on('connection', function(socket){
         var chatServerDate = new Date();
         var disconnectMsgObject = {
                 CHATSERVERUSER:chatClientAddress,
-                CHATSERVERDATE:chatServerDate
+                CHATSERVERDATE:chatServerDate,
+                CHATCLIENTUSER:'BAh BY ',
+                CHATCLIENTMESSAGE:'Disconnect'
          }; 
+        console.log(JSON.stringify(disconnectMsgObject)+' DISCONNECT');
         io.emit('disconnectSocketEvent',disconnectMsgObject);
-        console.log("disconnectSocketEvent:"+JSON.stringify(disconnectMsgObject));
     });
          
     //ON ERROR

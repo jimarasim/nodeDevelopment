@@ -7,6 +7,8 @@
 var endpoint = null;
 var chatSocketEvent = null;
 var tapSocketEvent = null;
+var connectSocketEvent = null;
+var disconnectSocketEvent = null;
 var baseSocket = null;
 var baseMasterAlias=null;
 var baseUnspecifiedAlias=null;
@@ -104,7 +106,6 @@ function emitChatMessage(messageString){
 //HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
 //SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//
 function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
-    console.log(this);
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
     baseSocket=socket;
@@ -112,7 +113,6 @@ function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
     console.log("BASEMASTERALIAS"+baseMasterAlias);
 }
 function initializeTapSocketHandler(socket){
-    console.log(this);
     //  WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
     //  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
     //  DEPENDING ON THE TYPE OF ANIMAL SENT BY $('#stuffedanimalwarsvg').click;
@@ -145,6 +145,24 @@ function initializeChatSocketHandler(socket){
     
     baseSocket=socket;
 }
+function initializeConnectSocketHandler(socket){
+    socket.on(connectSocketEvent, function(connectMsgObject){
+        console.log(connectMsgObject.CHATCLIENTMESSAGE);
+        connectMsgObject.CHATCLIENTMESSAGE += ' EP:'+endpoint;
+        onBaseChatSocketEvent(connectMsgObject);
+    });
+    
+    baseSocket=socket;
+}
+function initializeDisconnectSocketHandler(socket){
+    socket.on(disconnectSocketEvent, function(disconnectMsgObject){
+        console.log(disconnectMsgObject.CHATCLIENTMESSAGE);
+        disconnectMsgObject.CHATCLIENTMESSAGE += ' EP:'+endpoint;
+        onBaseChatSocketEvent(disconnectMsgObject);
+    });
+    
+    baseSocket=socket;
+}
 function onBaseChatSocketEvent(chatMsgObject){
     var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
     var chatServerUser = chatMsgObject.CHATSERVERUSER;
@@ -152,8 +170,6 @@ function onBaseChatSocketEvent(chatMsgObject){
     var chatServerDate = chatMsgObject.CHATSERVERDATE;
     var serverStamp = "["+chatServerUser+"]["+chatServerDate+"]"; //ip and time stamp
     
-    console.log("DJ BROADCAST");
-
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
         chatClientMessage.indexOf("http://")===0||

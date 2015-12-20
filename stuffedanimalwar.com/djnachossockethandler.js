@@ -13,11 +13,15 @@ $.getScript('sockethandler.js', function()
     unspecifiedAlias = 'LURKER';
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
+    connectSocketEvent = 'connectSocketEvent';
+    disconnectSocketEvent = 'disconnectSocketEvent';
     
     var socket = io();
     initializeCommonVars(socket,masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
+    initializeConnectSocketHandler(socket,connectSocketEvent);
+    initializeConnectSocketHandler(socket,disconnectSocketEvent);
 });
 });
 });
