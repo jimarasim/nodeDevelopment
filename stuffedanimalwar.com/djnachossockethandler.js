@@ -21,7 +21,7 @@ $.getScript('sockethandler.js', function()
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);
     initializeConnectSocketHandler(socket,connectSocketEvent);
-    initializeConnectSocketHandler(socket,disconnectSocketEvent);
+    initializeDisonnectSocketHandler(socket,disconnectSocketEvent);
 });
 });
 });

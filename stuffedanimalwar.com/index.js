@@ -35,8 +35,6 @@ app.get('/', function(req, res){
         res.sendFile(__dirname + '/index.html');
 });
 
-//handler for incoming get requests
-
 app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
@@ -151,10 +149,11 @@ io.on('connection', function(socket){
     var connectMsgObject = {
                   CHATSERVERUSER:chatClientAddress,
                   CHATSERVERDATE:chatServerDate,
-                  CHATCLIENTUSER:'HELLO '+chatClientAddress,
+                  CHATCLIENTUSER:chatClientAddress,
                   CHATCLIENTMESSAGE:'CONNECT'
      }; 
-    console.log(JSON.stringify(connectMsgObject)+' CONNECT');
+    console.log('CONNECT');
+    console.log(JSON.stringify(connectMsgObject));
     io.emit('connectSocketEvent',connectMsgObject);
 
     
@@ -165,10 +164,10 @@ io.on('connection', function(socket){
         var disconnectMsgObject = {
                 CHATSERVERUSER:chatClientAddress,
                 CHATSERVERDATE:chatServerDate,
-                CHATCLIENTUSER:'GOODBYE '+chatClientAddress,
+                CHATCLIENTUSER:chatClientAddress,
                 CHATCLIENTMESSAGE:'DISCONNECT'
          }; 
-        console.log(JSON.stringify(disconnectMsgObject)+' DISCONNECT');
+        console.log('DISCONNECT');
         io.emit('disconnectSocketEvent',disconnectMsgObject);
     });
          
