@@ -12,98 +12,6 @@ var disconnectSocketEvent = null;
 var baseSocket = null;
 var baseMasterAlias=null;
 var baseUnspecifiedAlias=null;
-
-//HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
-$('#stuffedanimalwarsvg').click(function(event){
-    var tapMsgObject = {
-          x:event.pageX,
-          y:event.pageY,
-          animal:$('#animals option:selected').val(),
-          customimage:$('#imagepathtextbox').val(),
-          movement:$('#movement option:selected').val(),
-          CHATCLIENTUSER: baseUnspecifiedAlias,
-          CHATSERVERUSER:'',
-          CHATSERVERDATE:''
-      }; 
-    
-    baseSocket.emit(tapSocketEvent,tapMsgObject);
-});
-$('#chatClientAutoResponder').change(function(){
-    //GET THE MESSAGE FROM THE AUTORESPONDER
-    var chatAutoResponderMessage = $('#chatClientAutoResponder option:selected').text();
-
-    //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
-    emitChatMessage(chatAutoResponderMessage);
-});
-$('#selectsongs').change(function(){
-    var songToPlay = $('#selectsongs option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-    
-    console.log("CHATCLIENTUSER:"+chatClientUser+" BASEMASTERALIAS:"+baseMasterAlias);
-    
-    if(chatClientUser===baseMasterAlias){
-        console.log("DJ CHANGED THE SONG:");
-        emitChatMessage(songToPlay);
-    }
-    else{
-        changeMp3(songToPlay);
-        console.log("DJ DID NOT CHANGE THE SONG:");
-
-    }
-});
-
-//VIDEO PLAYER HTML EVENTS
-$('#jaemzwaredynamicvideoplayer').bind("ended", function(){
-    var currentFile = $(this).children(":first").attr('src');
-    PlayNextVideo(currentFile);
-});
-
-//AUDIO PLAYER HTML EVENTS
-$('#jaemzwaredynamicaudioplayer').bind("ended", function(){
-    var currentFile = $(this).children(":first").attr('src');
-    PlayNextTrack(currentFile);
-});
-
-$('#nextaudiotrack').click(function(){
-    var currentFile = $('#selectsongs option:selected').attr("value");
-    PlayNextTrack(currentFile);
-});
-
-$('#selectvideos').change(function(){
-    var videoToPlay = $('#selectvideos option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
-
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(videoToPlay);
-    }
-    else{
-        changeMp4(videoToPlay);
-    }
-    
-});
-$('#chatClientMessage').keypress(function (event) {
-    if (event.which === 13) {
-        emitChatMessage($('#chatClientMessage').val());   
-        $('#chatClientMessage').val('');
-        return false; 
-    }
-});
-function emitChatMessage(messageString){
-    //get the user alias
-    var chatClientUser = $('#chatClientUser').val();
-
-    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    var chatMessageObject = {
-              CHATCLIENTUSER: chatClientUser,
-              CHATSERVERUSER:'defaultserveruserresponse',
-              CHATCLIENTMESSAGE:messageString,
-              CHATSERVERDATE:'defaultserverdateresponse'
-          };  
-
-    //send the message
-    baseSocket.emit(chatSocketEvent,chatMessageObject); 
-}
-//HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
 //SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//
 function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
@@ -147,22 +55,36 @@ function initializeChatSocketHandler(socket){
 }
 function initializeConnectSocketHandler(socket){
     socket.on(connectSocketEvent, function(connectMsgObject){
-        console.log(connectMsgObject.CHATCLIENTMESSAGE);
+        var remoteChatClientUser = connectMsgObject.CHATCLIENTUSER;
+        var chatServerUser = connectMsgObject.CHATSERVERUSER;
+        var chatClientMessage = connectMsgObject.CHATCLIENTMESSAGE;
+        var chatServerDate = connectMsgObject.CHATSERVERDATE; 
+        
         connectMsgObject.CHATCLIENTMESSAGE += ' EP:'+endpoint;
-        onBaseChatSocketEvent(connectMsgObject);
+        
+        $('#messagesdiv').prepend($('<br />chatServerUser:'+chatServerUser+' remoteChatClientUser:'+remoteChatClientUser+ ' chatClientMessage:'+chatClientMessage+' chatServerDate:'+chatServerDate));
+
     });
     
     baseSocket=socket;
 }
 function initializeDisconnectSocketHandler(socket){
     socket.on(disconnectSocketEvent, function(disconnectMsgObject){
-        console.log(disconnectMsgObject.CHATCLIENTMESSAGE);
         disconnectMsgObject.CHATCLIENTMESSAGE += ' EP:'+endpoint;
-        onBaseChatSocketEvent(disconnectMsgObject);
+        var remoteChatClientUser = disconnectMsgObject.CHATCLIENTUSER;
+        var chatServerUser = disconnectMsgObject.CHATSERVERUSER;
+        var chatClientMessage = disconnectMsgObject.CHATCLIENTMESSAGE;
+        var chatServerDate = disconnectMsgObject.CHATSERVERDATE;   
+        
+        disconnectMsgObject.CHATCLIENTMESSAGE += ' EP:'+endpoint;
+        
+        $('#messagesdiv').prepend($('<br />chatServerUser:'+chatServerUser+' remoteChatClientUser:'+remoteChatClientUser+ ' chatClientMessage:'+chatClientMessage+' chatServerDate:'+chatServerDate));
+
     });
     
     baseSocket=socket;
 }
+
 function onBaseChatSocketEvent(chatMsgObject){
     var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
     var chatServerUser = chatMsgObject.CHATSERVERUSER;
@@ -244,3 +166,91 @@ function onBaseChatSocketEvent(chatMsgObject){
         }
 }
 //SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//
+
+//HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
+$('#stuffedanimalwarsvg').click(function(event){
+    var tapMsgObject = {
+          x:event.pageX,
+          y:event.pageY,
+          animal:$('#animals option:selected').val(),
+          customimage:$('#imagepathtextbox').val(),
+          movement:$('#movement option:selected').val(),
+          CHATCLIENTUSER: baseUnspecifiedAlias,
+          CHATSERVERUSER:'',
+          CHATSERVERDATE:''
+      }; 
+    
+    baseSocket.emit(tapSocketEvent,tapMsgObject);
+});
+$('#chatClientAutoResponder').change(function(){
+    //GET THE MESSAGE FROM THE AUTORESPONDER
+    var chatAutoResponderMessage = $('#chatClientAutoResponder option:selected').text();
+
+    //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
+    emitChatMessage(chatAutoResponderMessage);
+});
+$('#selectsongs').change(function(){
+    var songToPlay = $('#selectsongs option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
+    
+    console.log("CHATCLIENTUSER:"+chatClientUser+" BASEMASTERALIAS:"+baseMasterAlias);
+    
+    if(chatClientUser===baseMasterAlias){
+        console.log("DJ CHANGED THE SONG:");
+        emitChatMessage(songToPlay);
+    }
+    else{
+        changeMp3(songToPlay);
+        console.log("DJ DID NOT CHANGE THE SONG:");
+
+    }
+});
+//VIDEO PLAYER HTML EVENTS
+$('#jaemzwaredynamicvideoplayer').bind("ended", function(){
+    var currentFile = $(this).children(":first").attr('src');
+    PlayNextVideo(currentFile);
+});
+//AUDIO PLAYER HTML EVENTS
+$('#jaemzwaredynamicaudioplayer').bind("ended", function(){
+    var currentFile = $(this).children(":first").attr('src');
+    PlayNextTrack(currentFile);
+});
+$('#nextaudiotrack').click(function(){
+    var currentFile = $('#selectsongs option:selected').attr("value");
+    PlayNextTrack(currentFile);
+});
+$('#selectvideos').change(function(){
+    var videoToPlay = $('#selectvideos option:selected').attr("value");
+    var chatClientUser = $("#chatClientUser").val();
+
+    if(chatClientUser===baseMasterAlias){
+        emitChatMessage(videoToPlay);
+    }
+    else{
+        changeMp4(videoToPlay);
+    }
+    
+});
+$('#chatClientMessage').keypress(function (event) {
+    if (event.which === 13) {
+        emitChatMessage($('#chatClientMessage').val());   
+        $('#chatClientMessage').val('');
+        return false; 
+    }
+});
+function emitChatMessage(messageString){
+    //get the user alias
+    var chatClientUser = $('#chatClientUser').val();
+
+    //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
+    var chatMessageObject = {
+              CHATCLIENTUSER: chatClientUser,
+              CHATSERVERUSER:'defaultserveruserresponse',
+              CHATCLIENTMESSAGE:messageString,
+              CHATSERVERDATE:'defaultserverdateresponse'
+          };  
+
+    //send the message
+    baseSocket.emit(chatSocketEvent,chatMessageObject); 
+}
+//HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//

@@ -151,8 +151,8 @@ io.on('connection', function(socket){
     var connectMsgObject = {
                   CHATSERVERUSER:chatClientAddress,
                   CHATSERVERDATE:chatServerDate,
-                  CHATCLIENTUSER:'WHATS UP ',
-                  CHATCLIENTMESSAGE:'Connect'
+                  CHATCLIENTUSER:'HELLO '+chatClientAddress,
+                  CHATCLIENTMESSAGE:'CONNECT'
      }; 
     console.log(JSON.stringify(connectMsgObject)+' CONNECT');
     io.emit('connectSocketEvent',connectMsgObject);
@@ -165,8 +165,8 @@ io.on('connection', function(socket){
         var disconnectMsgObject = {
                 CHATSERVERUSER:chatClientAddress,
                 CHATSERVERDATE:chatServerDate,
-                CHATCLIENTUSER:'BAh BY ',
-                CHATCLIENTMESSAGE:'Disconnect'
+                CHATCLIENTUSER:'GOODBYE '+chatClientAddress,
+                CHATCLIENTMESSAGE:'DISCONNECT'
          }; 
         console.log(JSON.stringify(disconnectMsgObject)+' DISCONNECT');
         io.emit('disconnectSocketEvent',disconnectMsgObject);
