@@ -1,6 +1,12 @@
 //STUFFPEDANIMALWAR HTTP JAEMZWARE
 //EXAMPLE STARTED FROM: http://socket.io/get-started/chat/
 
+
+//FOR MORE CUSTOM PAGES, ADD 3 THINGS for them to the file
+//1111 - APP.GET (NOTE: it should make sense how to add these.  Copy paste a previous one, and change the names)
+//2222 - {CUSTOM}chatmessage (NOTE: it should make sense how to add these.  Copy paste a previous one, and change the names)
+//3333 - {CUSTOM}tapmessage (NOTE: it should make sense how to add these.  Copy paste a previous one, and change the names)
+
 /* global require, __dirname, process, http */
 
 //setup an express application and bind it to an http server
@@ -34,6 +40,10 @@ app.get('/', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/index.html');
 });
+
+/**
+ * 111111111111111
+ */
 
 app.get('/sawonly', function(req, res){
         //send a file back as the response
@@ -140,6 +150,11 @@ app.get('/mixpage', function(req, res){
         res.sendFile(__dirname + '/mixpage.html');
         });
         
+app.get('/joeythepaintbrush', function(req, res){
+    //send a file back as the response
+    res.sendFile(__dirname + '/joeythepaintbrush.html');
+    });
+        
 
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
@@ -176,6 +191,9 @@ io.on('connection', function(socket){
               console.log('ERROR: ' + errorMsgObject  );
     }); 
     
+    /**
+     * 22222222222222222
+     */
     //CHATMESSAGES--------------------------------------------------------------------------------------
   
     socket.on('chatmessage', function(chatMsgObject){
@@ -253,9 +271,14 @@ io.on('connection', function(socket){
     socket.on('mixpagechatmessage', function(chatMsgObject){
         sendChatMessage('mixpagechatmessage',chatMsgObject);
     });
-
     
-    //TAPMESSAGES--------------------------------------------------------------------------------------
+    socket.on('joeythepaintbrushchatmessage', function(chatMsgObject){
+        sendChatMessage('joeythepaintbrushchatmessage',chatMsgObject);
+    });
+
+    /*
+     * 33333333333333333
+     */
  
     socket.on('djnachostapmessage', function(tapMsgObject){
         sendTapMessage('djnachostapmessage',tapMsgObject);
@@ -324,6 +347,10 @@ io.on('connection', function(socket){
     
     socket.on('mixpagetapmessage', function(tapMsgObject){
         sendTapMessage('mixpagetapmessage',tapMsgObject);
+    });
+    
+    socket.on('joeythepaintbrushtapmessage', function(tapMsgObject){
+        sendTapMessage('joeythepaintbrushtapmessage',tapMsgObject);
     });
     
     
