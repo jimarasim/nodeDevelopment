@@ -29,7 +29,8 @@ span.videolinktext
 
 div.videostrip
 {
-    overflow-x:scroll;
+    overflow-x:visible;
+    overflow-y:hidden;
     margin:0px;
     border:0px;
     padding:0px;
