@@ -16,10 +16,10 @@ var jaemzwarevideoadam = [
                     ];
 
 var jaemzwarevideojim = [
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
-                    ["http://www.helena.seattlerules.com/media/jim/IMG_3273","Jim Roxhill board slide"]
+//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
+//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
+//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
+//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3273","Jim Roxhill board slide"]
                     ];
 
 var jaemzwarevideohouston2015 = [
