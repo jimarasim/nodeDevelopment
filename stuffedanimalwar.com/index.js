@@ -145,6 +145,11 @@ app.get('/joeythepaintbrush', function(req, res){
     //send a file back as the response
     res.sendFile(__dirname + '/joeythepaintbrush.html');
     });
+   
+app.get('/skatecreteordie', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/skatecreteordie.html');
+        });
         
 
 //ON PERSISTENT CONNECTION
@@ -266,6 +271,10 @@ io.on('connection', function(socket){
     socket.on('joeythepaintbrushchatmessage', function(chatMsgObject){
         sendChatMessage('joeythepaintbrushchatmessage',chatMsgObject);
     });
+    
+    socket.on('skatecreteordie', function(chatMsgObject){
+        sendChatMessage('skatecreteordie',chatMsgObject);
+    });
 
     /*
      * 33333333333333333
@@ -342,6 +351,10 @@ io.on('connection', function(socket){
     
     socket.on('joeythepaintbrushtapmessage', function(tapMsgObject){
         sendTapMessage('joeythepaintbrushtapmessage',tapMsgObject);
+    });
+    
+    socket.on('skatecreteordie', function(tapMsgObject){
+        sendTapMessage('skatecreteordie',tapMsgObject);
     });
     
     
