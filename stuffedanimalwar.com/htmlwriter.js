@@ -98,6 +98,8 @@ function writeAudioFromJson(mediaObject){
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
         document.write("<h1>AUDIO</h1>");
         document.write("<form id='audioform'>");
+        document.write("<div id='audioformdiv'>");
+
         document.write("<table id='audiotable'>");
         //paint the audio player
         document.write("<tr>");
@@ -133,6 +135,7 @@ function writeAudioFromJson(mediaObject){
 //            document.write("</tr>");
 //        }
 //        document.write("</table>");
+        document.write("</div'>");
         document.write("</form>");
     }
 }
@@ -141,6 +144,8 @@ function writeVideoFromJson(mediaObject){
     if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
         document.write("<h1>VIDEO</h1>");
         document.write("<form id='videoform'>")
+        document.write("<div id='videoformdiv'>");
+
         document.write("<table id='videotable'>");
         document.write("<tr>");
         document.write("<td>");
@@ -177,6 +182,7 @@ function writeVideoFromJson(mediaObject){
 //            document.write("</tr>");
 //        }
 //        document.write("</table>");
+        document.write("</div>");
         document.write("</form>");
     }
 }
@@ -210,6 +216,7 @@ function writeChat(){
 }
 function writeChatForm(){
     document.write("<form id='chatform'>");
+    document.write("<div id='chatformdiv'>");
     document.write("<table id='chattable'>");
     
         document.write("<tr>");
@@ -246,6 +253,7 @@ function writeChatForm(){
         document.write("</tr>");
         
     document.write("</table>");
+    document.write("</div>");
     document.write("</form>");
 
 }
