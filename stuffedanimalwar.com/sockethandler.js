@@ -120,14 +120,13 @@ function onBaseChatSocketEvent(chatMsgObject){
                 changeMp4(chatClientMessage);
             }
             else{
-                $('#messagesdiv').prepend($('<br />'));
 
                 //ip and time stamp
-                $("<span>").prependTo("#messagesdiv").attr({
-                   class: "serverdate"
-                }).text(serverStamp);
+//                $("<span>").prependTo("#messagesdiv").attr({
+//                   class: "serverdate"
+//                }).text(serverStamp);
 
-                //user alias
+//                user alias
                 $("<span>").prependTo("#messagesdiv").attr({
                                     class: "remoteChatClientUser"
                                  }).text(remoteChatClientUser);
@@ -144,10 +143,10 @@ function onBaseChatSocketEvent(chatMsgObject){
         else{
             $('#messagesdiv').prepend($('<br />'));
 
-            //ip and time stamp
-            $("<span>").prependTo("#messagesdiv").attr({
-               class: "serverdate"
-            }).text(serverStamp);
+//            //ip and time stamp
+//            $("<span>").prependTo("#messagesdiv").attr({
+//               class: "serverdate"
+//            }).text(serverStamp);
 
             //user alias
             $("<span>").prependTo("#messagesdiv").attr({
