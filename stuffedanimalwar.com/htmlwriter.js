@@ -216,15 +216,20 @@ function writeChatForm(){
 }
 function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"blank\" selected>--pick an autoresponse--</option>");
+    document.write("<option value=\"checkoutthisspot\">check out this spot</option>");
+        document.write("<option value=\"claimer\">claimer</option>");
+
     document.write("<option value=\"didyougoogle\">did you google that comeback?</option>");
+    document.write("<option value=\"getsome\">get some</option>");
+    document.write("<option value=\"holdmybeerwatchthis\">hold my beer, watch this</option>");
     document.write("<option value=\"idk\">i dont know</option>");
     document.write("<option value=\"ikr\">i know right</option>");
     document.write("<option value=\"ilikeyou\">i like you</option>");
     document.write("<option value=\"iloveyou\">i love you</option>");
     document.write("<option value=\"ithinkyoure\">i think youre attractive</option>");
-    document.write("<option value=\"holdmybeerwatchthis\">hold my beer, watch this</option>");
     document.write("<option value=\"idratherplaywithmycat\">id rather play with my cat</option>");
     document.write("<option value=\"ilikeyou\">i like you</option>");
+    document.write("<option value=\"itsabust\">it's a bust</option>");
     document.write("<option value=\"linkisbusted\">that link is busted</option>");
     document.write("<option value=\"look it up\">look it up</option>");
     document.write("<option value=\"lol\">LOL</option>");
@@ -238,6 +243,7 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"witty\">witty comeback</option>");
     document.write("<option value=\"omg\">OMG</option>");
     document.write("<option value=\"picsoritdidnthappen\">pics or it didnt happen</option>");
+    document.write("<option value=\"skateordie\">skate or die</option>");
     document.write("<option value=\"stfu\">STFU</option>");
     document.write("<option value=\"thatlinkisrad\">that link is rad</option>");
     document.write("<option value=\"thatscool\">thats cool</option>");
@@ -245,6 +251,8 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"thatsucks\">that sucks</option>");
     document.write("<option value=\"thatscool\">thats cool</option>");
     document.write("<option value=\"thatswhatshesaid\">thats what she said</option>");
+    document.write("<option value=\"thisisnotapoliticalforum\">this is not a political forum</option>");
+    document.write("<option value=\"thisisnotareligious>this is not a religious forum</option>");
     document.write("<option value=\"whatever\">whatever</option>");
     document.write("<option value=\"youinspireme\">you inspire me</option>");
     document.write("<option value=\"youlookverynicetoday\">you look very nice today</option>");
