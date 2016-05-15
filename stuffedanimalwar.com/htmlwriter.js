@@ -100,7 +100,7 @@ function writeAudioFromJson(mediaObject){
         document.write("<table id='audiotable'>");
         //paint the audio player
         document.write("<tr>");
-        document.write("<td class='audioplayertd'>");
+        document.write("<td class='audioplayertd' colspan='2'>");
         document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
         document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
         document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
@@ -116,7 +116,9 @@ function writeAudioFromJson(mediaObject){
             document.write("<option value=\""+mediaObject.songspath+mediaObject.songs[i].file+"\">"+mediaObject.songs[i].title+"</option>");
         }
         document.write("</select>");
+        document.write("</td>");
         //previous and next buttons
+        document.write("<td>");
         document.write("<input type='button' id='nextaudiotrack' value='next' />");
         document.write("</td>");
         document.write("</tr>");
