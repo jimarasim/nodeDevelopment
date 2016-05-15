@@ -25,13 +25,13 @@ chatformdiv{
     vertical-align:top;
 }
 #chatclientusertd{
-    width:15%;
+    width:30%;
 }
 #chatClientUser{
     width:100%;
 }
 chatclientmessagetd{
-    width:75%;
+    width:60%;
 }
 #chatClientMessage{
     width:100%;
