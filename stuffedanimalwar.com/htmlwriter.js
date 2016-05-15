@@ -96,7 +96,7 @@ function writeMediaFromJson(mediaObject){
 function writeAudioFromJson(mediaObject){
     //AUDIO
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
-        document.write("<h1>AUDIO</h1>");
+    document.write("<h1 class='h1s'>AUDIO</h1>");
         document.write("<form id='audioform'>");
         document.write("<div id='audioformdiv'>");
 
@@ -142,7 +142,7 @@ function writeAudioFromJson(mediaObject){
 function writeVideoFromJson(mediaObject){
     //VIDEO
     if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
-        document.write("<h1>VIDEO</h1>");
+    document.write("<h1 class='h1s'>VIDEO</h1>");
         document.write("<form id='videoform'>")
         document.write("<div id='videoformdiv'>");
 
@@ -210,7 +210,7 @@ function writePhotosFromJson(mediaObject){
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 //CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
 function writeChat(){
-    document.write("<h1>CHAT</h1>");
+    document.write("<h1 class='h1s'>CHAT</h1>");
     writeChatForm();
     document.write("<hr />");  
 }
