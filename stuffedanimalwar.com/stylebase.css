@@ -2,7 +2,7 @@
 
 body {
     background-image:url("gamemedia/streetdome.jpg"); 
-    background-color:#000066;background behind any elements on the body of the page
+    background-color:#000066;
     color:white;
     font-weight:normal;
     font-family:sans-serif;
@@ -59,7 +59,7 @@ chatformdiv{
 }
 #chattable{
     background-color:deeppink;
-    width:40%;
+    width:100%;
 }
 #chattable td{
     text-align: left;
@@ -117,7 +117,7 @@ span.chatclientmessage{
 AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
 #audiotable{
     background-color:darkred;
-    width:40%;
+    width:100%;
 }
 #audiotable td{
     text-align: left;
