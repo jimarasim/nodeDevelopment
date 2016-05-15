@@ -1,7 +1,6 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
 
 body {
-    background-image:url("hillyard2.jpg"); 
     background-color:black;
     color:white;
     font-weight:normal;
@@ -25,13 +24,14 @@ chatformdiv{
     vertical-align:top;
 }
 #chatclientusertd{
-    width:20%;
+   width:20%;
 }
 #chatClientUser{
-    width:100%;
+   margin-right:3px;
+
 }
-chatclientmessagetd{
-    width:60%;
+#chatclientmessagetd{
+    width:80%;
 }
 #chatClientMessage{
     width:100%;
