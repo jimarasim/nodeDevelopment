@@ -91,14 +91,12 @@ function writeMediaFromJson(mediaObject){
     writeVideoFromJson(mediaObject);
     writeAudioFromJson(mediaObject);
     writePhotosFromJson(mediaObject);
-    
 }
 function writeAudioFromJson(mediaObject){
     //AUDIO
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
         document.write("<form id='audioform'>");
         document.write("<div id='audioformdiv'>");
-
         document.write("<table id='audiotable'>");
         //paint the audio player
         document.write("<tr>");
@@ -123,17 +121,6 @@ function writeAudioFromJson(mediaObject){
         document.write("</td>");
         document.write("</tr>");
         document.write("</table>");  
-        //paint links to the songs
-//        document.write("<table id='audiotablelinks'>");
-//        document.write("<tr><td><b>Audio Download Links</b></td></tr>");
-//        for (var i=0;i<mediaObject.songs.length;i++){
-//            document.write("<tr>");
-//            document.write("<td>");
-//            document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.songspath+mediaObject.songs[i].file+"\" download>"+mediaObject.songs[i].title+"</a>");
-//            document.write("</td>");
-//            document.write("</tr>");
-//        }
-//        document.write("</table>");
         document.write("</div'>");
         document.write("</form>");
     }
@@ -143,7 +130,6 @@ function writeVideoFromJson(mediaObject){
     if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
         document.write("<form id='videoform'>")
         document.write("<div id='videoformdiv'>");
-
         document.write("<table id='videotable'>");
         document.write("<tr>");
         document.write("<td>");
@@ -169,17 +155,6 @@ function writeVideoFromJson(mediaObject){
         document.write("</td>");
         document.write("</tr>");
         document.write("</table>");  
-        //paint links to the videos
-//        document.write("<table id='videotablelinks'>");
-//        document.write("<tr><td><b>Video Download Links</b></td></tr>");
-//        for (var i=0;i<mediaObject.videos.length;i++){
-//            document.write("<tr>");
-//            document.write("<td>");
-//            document.write("<a class=\"jaemzwarelogo\" href=\""+mediaObject.videosspath+mediaObject.videos[i].file+"\" download>"+mediaObject.videos[i].title+"</a>");
-//            document.write("</td>");
-//            document.write("</tr>");
-//        }
-//        document.write("</table>");
         document.write("</div>");
         document.write("</form>");
     }
@@ -208,53 +183,36 @@ function writePhotosFromJson(mediaObject){
 //CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
 function writeChat(){
     writeChatForm();
-    document.write("<hr />");  
 }
 function writeChatForm(){
     document.write("<form id='chatform'>");
     document.write("<div id='chatformdiv'>");
     document.write("<table id='chattable'>");
-    
         document.write("<tr>");
-        
-            document.write("<td>");
-            document.write("<input id=\"chatClientUser\" placeholder=\"your alias\"/>");
+            document.write("<td id=\"chatclientusertd\">");
+            document.write("<input id=\"chatClientUser\" placeholder=\"alias\"/>");
             document.write("</td>");
-            
-        document.write("</tr>");
-        
-        document.write("<tr>");
-        
-            document.write("<td>");
-            document.write("<input id=\"chatClientMessage\" size=\"30\" placeholder=\"type message\" />");
+            document.write("<td id=\"chatclientmessagetd\">");
+            document.write("<input id=\"chatClientMessage\" placeholder=\"message\" />");
             document.write("</td>");
-            
         document.write("</tr>");
-        
         document.write("<tr>");
-            
-            document.write("<td>");
+            document.write("<td colspan='2'>");
             document.write("<select id=\"chatClientAutoResponder\" size=1 >");
             writeDefaultAutoResponderOptions();
             document.write("</select>");
             document.write("</td>");
-            
         document.write("</tr>");
-        
         document.write("<tr>");
-            document.write("<td>");
+            document.write("<td colspan='2'>");
             document.write("<div id=\"messagesdiv\"></div>");
             document.write("</td>");
-            
         document.write("</tr>");
-        
     document.write("</table>");
     document.write("</div>");
     document.write("</form>");
-
 }
 function writeDefaultAutoResponderOptions(){
-    
     document.write("<option value=\"blank\" selected>--pick an autoresponse--</option>");
     document.write("<option value=\"didyougoogle\">did you google that comeback?</option>");
     document.write("<option value=\"idk\">i dont know</option>");
