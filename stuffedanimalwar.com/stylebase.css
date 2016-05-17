@@ -1,5 +1,38 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+ /* STYLES GO HERE */
+ body{
+     font-size:large;
+   }
+   select {
+      width: 100%; max-width: 100%;
+   }
+   #messagesdiv
+   {
+       width:100%;
+       height:200px;
+       background-color:black;
+       background-position:left;
+       border-width:thin;
+       border-style: ridge;
+       overflow-x: scroll;
+       overflow-y: scroll;
+       margin: 0%;
+       border: 0%;
+       padding: 0%;
+       text-align: left;
+       vertical-align: top;
+       text-align: left;
+       font-weight:bold;
+       font-family:sans-serif;
+       font-size:large;
+       color:white;
+   }
 
+
+ }
 body {
     background-color:black;
     color:white;
@@ -44,6 +77,7 @@ chatformdiv{
 #chattable input{
     font-size:xx-large;
 }
+
 #messagesdiv
 {
     width:100%;
