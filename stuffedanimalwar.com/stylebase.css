@@ -7,7 +7,7 @@ and (max-device-width : 667px) {
      font-size:large;
    }
    select {
-      width: 100%; max-width: 100%;
+      width: 100%; max-width: 100%; font-size:40px;
    }
    #messagesdiv
    {
