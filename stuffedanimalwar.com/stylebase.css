@@ -68,6 +68,74 @@ and (max-device-width : 667px) {
         width:187px;
     }
  }
+/*BIGGER THAN AN IPHONE 6 I HOPE*/
+ @media all and (max-width: 1024px) {
+    body {
+           background-color:black;
+           color:white;
+           font-weight:normal;
+           font-family:sans-serif;
+           font-size:small;
+           margin: 0px;
+           background-repeat:no-repeat;
+           background-position:top left;
+           text-align: left;
+        }
+        select {
+          width: 100%; max-width: 100%; font-size:50px;
+        }
+        #messagesdiv
+        {
+           width:100%;
+           height:500px;
+           background-color:black;
+           background-position:left;
+           border-width:thin;
+           border-style: ridge;
+           overflow-x: scroll;
+           overflow-y: scroll;
+           margin: 0%;
+           border: 0%;
+           padding: 0%;
+           text-align: left;
+           vertical-align: top;
+           text-align: left;
+           font-weight:bold;
+           font-family:sans-serif;
+           font-size:large;
+           color:white;
+        }
+
+        #chattable input{
+           font-size:xx-large;
+        }
+
+        #nextaudiotrack{
+           font-size:50px;
+        }
+
+        #chatclientusertd{
+           width:20%;
+        }
+
+        #chatclientmessagetd{
+            width:80%;
+        }
+
+        #chatClientMessage{
+            width:100%;
+        }
+
+        #jaemzwaredynamicaudioplayer{
+            width:100%;
+            height:200px;
+        }
+
+        img{
+            width:187px;
+        }
+ }
+
 
 /*CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT*/
 chatformdiv{
@@ -75,13 +143,13 @@ chatformdiv{
 }
 #chattable{
     background-color:black;
-    width:95%;
+    width:100%;
 }
 #chattable td{
     text-align: left;
     vertical-align:top;
 }
-
+/*CHAT MESSAGES FONTS*/
 span.serverdate{
     color:orangered;
     font-size:xx-small
@@ -94,10 +162,12 @@ span.chatclientmessage{
     color:lime;
     font-size:large;
 }
-/*CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT*/
+
+/*LINKS ON INDEX.HTM FOR CONCERT BAND LINKS*/
 div.seattlenativelinks{
     margin-left:10px;
 }
+
 /*STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR*/
 #stuffedanimalwardiv{
     margin:0;
@@ -127,7 +197,6 @@ div.seattlenativelinks{
 #stuffedanimalwarformtable input{
     width:100%;
 }
-/*STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR*/
 
 /*AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
 #audiotable{
@@ -165,13 +234,11 @@ div.seattlenativelinks{
     vertical-align:top;
     width:100%;
 }
-/*AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
 
 /*TABSTRIPVIDEO//////////////////////////////////////////////TABSTRIPVIDEO//////////////////////////////////////////////////TABSTRIPVIDEO*/
 img.videolink{
     height:10%;
 }
-/*TABSTRIPVIDEO//////////////////////////////////////////////TABSTRIPVIDEO//////////////////////////////////////////////////TABSTRIPVIDEO*/
 
 /*JAEMZWARELOGO//////////////////////////////////////////////JAEMZWARELOGO//////////////////////////////////////////////////JAEMZWARELOGO*/
 p.jaemzwarelogo{
@@ -198,5 +265,4 @@ a.jaemzwarelogo:active {
     color: white;
     text-decoration: underline;
 }
-/*JAEMZWARELOGO//////////////////////////////////////////////JAEMZWARELOGO//////////////////////////////////////////////////JAEMZWARELOGO*/
 
