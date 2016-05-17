@@ -117,6 +117,9 @@ function writeAudioFromJson(mediaObject){
         }
         document.write("</select>");
         document.write("</td>");
+                document.write("</tr>");
+        document.write("<tr>");
+
         //previous and next buttons
         document.write("<td>");
         document.write("<input type='button' id='nextaudiotrack' value='next' />");
