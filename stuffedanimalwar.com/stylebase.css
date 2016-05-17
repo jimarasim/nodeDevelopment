@@ -3,7 +3,7 @@
 and (min-device-width : 375px)
 and (max-device-width : 667px) {
  /* STYLES GO HERE */
- body{
+   body{
      font-size:large;
    }
    select {
@@ -69,11 +69,7 @@ chatformdiv{
 #chatClientMessage{
     width:100%;
 }
-#chattable select{
-    width:100%;
-    height:100%;
-    font-size:xx-large;
-}
+
 #chattable input{
     font-size:xx-large;
 }
@@ -143,9 +139,6 @@ div.seattlenativelinks{
     vertical-align:top;
     width:100%;
 }
-#stuffedanimalwarformtable select{
-    width:100%;
-}
 #stuffedanimalwarformtable input{
     width:100%;
 }
@@ -161,9 +154,7 @@ div.seattlenativelinks{
     vertical-align:top;
     width:100%;
 }
-#audiotable select{
-    width:100%;
-}
+
 #audiotable audio{
     width:100%;
 }
@@ -176,9 +167,7 @@ div.seattlenativelinks{
     vertical-align:top;
     width:100%;
 }
-#videotable select{
-    width:100%;
-}
+
 #videotable video{
     width:100%;
 }
