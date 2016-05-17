@@ -210,7 +210,7 @@ function writeChatForm(){
     document.write("</form>");
 }
 function writeDefaultAutoResponderOptions(){
-    document.write("<option value=\"blank\" selected>--pick an autoresponse--</option>");
+    document.write("<option value=\"blank\" selected>--I don't know what to say--</option>");
     document.write("<option value=\"checkoutthisspot\">check out this spot</option>");
         document.write("<option value=\"claimer\">claimer</option>");
 
