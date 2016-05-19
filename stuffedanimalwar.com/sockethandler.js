@@ -95,6 +95,8 @@ function onBaseChatSocketEvent(chatMsgObject){
         chatClientMessage.indexOf("https://")===0
        ){ 
             if( chatClientMessage.indexOf(".jpg")   >   0 ||
+                chatClientMessage.indexOf(".JPG")  >   0 ||
+                chatClientMessage.indexOf(".JPEG")  >   0 ||
                 chatClientMessage.indexOf(".jpeg")  >   0 ||
                 chatClientMessage.indexOf(".gif")   >   0 ||
                 chatClientMessage.indexOf(".png")   >   0)
