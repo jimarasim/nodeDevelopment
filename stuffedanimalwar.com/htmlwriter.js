@@ -172,6 +172,7 @@ function writePhotosFromJson(mediaObject){
             var filepath = mediaObject.photospath+mediaObject.photos[i].file;
             var filetitle=mediaObject.photos[i].title;
             document.write("<div class=\"skatecreteordiephoto\"><span class=\"skatecreteordiephototitle\">"+filetitle+"</span><a href=\""+filepath+"\"><img src=\""+filepath+"\" alt=\""+mediaObject.photos[i].title+"\" /></a></div>");
+
         }
     }
 }
