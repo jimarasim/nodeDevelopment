@@ -169,7 +169,7 @@ function writePhotosFromJson(mediaObject){
     if(mediaObject.photospath && mediaObject.photos && mediaObject.photos[0]){
         //paint the photos
         for (var i=0;i<mediaObject.photos.length;i++){
-
+            String filepathandname = mediaObject.photospath+mediaObject.photos[i].file;
         //mediaObject.photos[i].title+"<br />
             document.write("<a href=\""+mediaObject.photospath+mediaObject.photos[i].file+"\"><img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" /></a>");
 
