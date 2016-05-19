@@ -171,7 +171,7 @@ function writePhotosFromJson(mediaObject){
         for (var i=0;i<mediaObject.photos.length;i++){
 
         //mediaObject.photos[i].title+"<br />
-            document.write("<img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" />");
+            document.write("<a href=\""+mediaObject.photospath+mediaObject.photos[i].file+"\"><img src=\""+mediaObject.photospath+mediaObject.photos[i].file+"\" alt=\""+mediaObject.photos[i].title+"\" /></a>");
 
         }
     }
