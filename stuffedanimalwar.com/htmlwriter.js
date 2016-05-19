@@ -144,7 +144,7 @@ function writeVideoFromJson(mediaObject){
         else{
             document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/vinyl.jpeg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
         }
-        document.write(" browser doesn't support mp4 video. use chrome.");
+        document.write("mp4 not supported in this browser");
         document.write("<source src=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
         document.write("</video>");
         document.write("</td>");
