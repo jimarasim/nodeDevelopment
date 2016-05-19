@@ -68,7 +68,9 @@ and (max-device-width : 667px) {
         width:187px;
     }
  }
+
 /*BIGGER THAN AN IPHONE 6 I HOPE*/
+
  @media screen and (min-width: 668px) {
     body {
            background-color:black;
@@ -138,6 +140,23 @@ and (max-device-width : 667px) {
 
 
 /*CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT*/
+
+div.skatecreteordiephoto{
+    text-align: left;
+    vertical-align:top;
+    position: relative;
+    width: 100%;
+}
+
+span.skatecreteordiephototitle{
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+}
+
+
+
 chatformdiv{
     width:100%;
 }
@@ -149,7 +168,9 @@ chatformdiv{
     text-align: left;
     vertical-align:top;
 }
+
 /*CHAT MESSAGES FONTS*/
+
 span.serverdate{
     color:orangered;
     font-size:xx-small
@@ -164,6 +185,7 @@ span.chatclientmessage{
 }
 
 /*LINKS ON INDEX.HTM FOR CONCERT BAND LINKS*/
+
 div.seattlenativelinks{
     margin-left:10px;
 }
@@ -199,6 +221,7 @@ div.seattlenativelinks{
 }
 
 /*AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
+
 #audiotable{
     background-color:black;
     width:95%;
@@ -236,11 +259,13 @@ div.seattlenativelinks{
 }
 
 /*TABSTRIPVIDEO//////////////////////////////////////////////TABSTRIPVIDEO//////////////////////////////////////////////////TABSTRIPVIDEO*/
+
 img.videolink{
     height:10%;
 }
 
 /*JAEMZWARELOGO//////////////////////////////////////////////JAEMZWARELOGO//////////////////////////////////////////////////JAEMZWARELOGO*/
+
 p.jaemzwarelogo{
     color: white;
     font-size:medium;
