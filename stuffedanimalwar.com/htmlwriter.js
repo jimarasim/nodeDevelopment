@@ -88,9 +88,9 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
 //STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 function writeMediaFromJson(mediaObject){
-    writeVideoFromJson(mediaObject);
     writeAudioFromJson(mediaObject);
     writePhotosFromJson(mediaObject);
+    writeVideoFromJson(mediaObject);
 }
 function writeAudioFromJson(mediaObject){
     //AUDIO
