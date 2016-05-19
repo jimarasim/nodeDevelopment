@@ -272,8 +272,8 @@ io.on('connection', function(socket){
         sendChatMessage('joeythepaintbrushchatmessage',chatMsgObject);
     });
     
-    socket.on('skatecreteordie', function(chatMsgObject){
-        sendChatMessage('skatecreteordie',chatMsgObject);
+    socket.on('skatecreteordiechatmessage', function(chatMsgObject){
+        sendChatMessage('skatecreteordiechatmessage',chatMsgObject);
     });
 
     /*
@@ -353,8 +353,8 @@ io.on('connection', function(socket){
         sendTapMessage('joeythepaintbrushtapmessage',tapMsgObject);
     });
     
-    socket.on('skatecreteordie', function(tapMsgObject){
-        sendTapMessage('skatecreteordie',tapMsgObject);
+    socket.on('skatecreteordietapmessage', function(tapMsgObject){
+        sendTapMessage('skatecreteordietapmessage',tapMsgObject);
     });
     
     

@@ -123,10 +123,10 @@ function onBaseChatSocketEvent(chatMsgObject){
             }
             else{
 
-                //ip and time stamp
-//                $("<span>").prependTo("#messagesdiv").attr({
-//                   class: "serverdate"
-//                }).text(serverStamp);
+//                ip and time stamp
+                $("<span>").prependTo("#messagesdiv").attr({
+                   class: "serverdate"
+                }).text(serverStamp);
 
 //                user alias
                 $("<span>").prependTo("#messagesdiv").attr({
@@ -145,10 +145,10 @@ function onBaseChatSocketEvent(chatMsgObject){
         else{
             $('#messagesdiv').prepend($('<br />'));
 
-//            //ip and time stamp
-//            $("<span>").prependTo("#messagesdiv").attr({
-//               class: "serverdate"
-//            }).text(serverStamp);
+            //ip and time stamp
+            $("<span>").prependTo("#messagesdiv").attr({
+               class: "serverdate"
+            }).text(serverStamp);
 
             //user alias
             $("<span>").prependTo("#messagesdiv").attr({
@@ -239,6 +239,9 @@ $('#chatClientMessage').keypress(function (event) {
 function emitChatMessage(messageString){
     //get the user alias
     var chatClientUser = $('#chatClientUser').val();
+    if(chatClientUser===""){
+        chatClientUser = baseUnspecifiedAlias;
+    }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
     var chatMessageObject = {
