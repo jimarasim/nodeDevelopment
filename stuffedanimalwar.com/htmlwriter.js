@@ -215,6 +215,8 @@ function writeDefaultAutoResponderOptions(){
         document.write("<option value=\"claimer\">claimer</option>");
 
     document.write("<option value=\"didyougoogle\">did you google that comeback?</option>");
+    document.write("<option value=\"doitswitch\">do it switch</option>");
+    document.write("<option value=\"doitfrontside\">do it frontside</option>");
     document.write("<option value=\"getsome\">get some</option>");
     document.write("<option value=\"holdmybeerwatchthis\">hold my beer, watch this</option>");
     document.write("<option value=\"idk\">i dont know</option>");
@@ -248,6 +250,7 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"thatswhatshesaid\">thats what she said</option>");
     document.write("<option value=\"thisisnotapoliticalforum\">this is not a political forum</option>");
     document.write("<option value=\"thisisnotareligious>this is not a religious forum</option>");
+    document.write("<option value=\"threetoclaimit>three to claim it</option>");
     document.write("<option value=\"whatever\">whatever</option>");
     document.write("<option value=\"youinspireme\">you inspire me</option>");
     document.write("<option value=\"youlookverynicetoday\">you look very nice today</option>");
