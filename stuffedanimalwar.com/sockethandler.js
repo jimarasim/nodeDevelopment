@@ -124,9 +124,9 @@ function onBaseChatSocketEvent(chatMsgObject){
             else{
 
 //                ip and time stamp
-                $("<span>").prependTo("#messagesdiv").attr({
-                   class: "serverdate"
-                }).text(serverStamp);
+//                $("<span>").prependTo("#messagesdiv").attr({
+//                   class: "serverdate"
+//                }).text(serverStamp);
 
 //                user alias
                 $("<span>").prependTo("#messagesdiv").attr({
