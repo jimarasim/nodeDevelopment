@@ -106,7 +106,8 @@ function onBaseChatSocketEvent(chatMsgObject){
                 $('#messagesdiv').prepend($('<br />'));
                 $("<img/>").prependTo("#messagesdiv").attr({
                     src: chatClientMessage,
-                    alt: remoteChatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate
+                    alt: "chat image"
+//                    alt: remoteChatClientUser+" "+chatServerUser+" "+chatClientMessage+" "+chatServerDate
                  });
             }
           else if(chatClientMessage.indexOf(".mp3") && remoteChatClientUser===baseMasterAlias)
@@ -146,9 +147,9 @@ function onBaseChatSocketEvent(chatMsgObject){
             $('#messagesdiv').prepend($('<br />'));
 
             //ip and time stamp
-            $("<span>").prependTo("#messagesdiv").attr({
-               class: "serverdate"
-            }).text(serverStamp);
+//            $("<span>").prependTo("#messagesdiv").attr({
+//               class: "serverdate"
+//            }).text(serverStamp);
 
             //user alias
             $("<span>").prependTo("#messagesdiv").attr({
