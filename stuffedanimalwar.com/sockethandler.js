@@ -60,8 +60,8 @@ function initializeConnectSocketHandler(socket){
         var chatClientMessage = connectMsgObject.CHATCLIENTMESSAGE;
         var chatServerDate = connectMsgObject.CHATSERVERDATE; 
         
-        $('#messagesdiv').prepend('<br />');
-        $('#messagesdiv').prepend('endpoint:'+endpoint+' chatServerUser:'+chatServerUser+' remoteChatClientUser:'+ remoteChatClientUser+' chatClientMessage:'+ chatClientMessage+' chatServerDate:'+chatServerDate);
+//        $('#messagesdiv').prepend('<br />');
+//        $('#messagesdiv').prepend('endpoint:'+endpoint+' chatServerUser:'+chatServerUser+' remoteChatClientUser:'+ remoteChatClientUser+' chatClientMessage:'+ chatClientMessage+' chatServerDate:'+chatServerDate);
 
     });
     
@@ -74,8 +74,8 @@ function initializeDisconnectSocketHandler(socket){
         var chatClientMessage = disconnectMsgObject.CHATCLIENTMESSAGE;
         var chatServerDate = disconnectMsgObject.CHATSERVERDATE;   
         
-        $('#messagesdiv').prepend('<br />');
-        $('#messagesdiv').prepend('endpoint:'+endpoint+' chatServerUser:'+chatServerUser+' remoteChatClientUser:'+ remoteChatClientUser+' chatClientMessage:'+ chatClientMessage+' chatServerDate:'+chatServerDate);
+//        $('#messagesdiv').prepend('<br />');
+//        $('#messagesdiv').prepend('endpoint:'+endpoint+' chatServerUser:'+chatServerUser+' remoteChatClientUser:'+ remoteChatClientUser+' chatClientMessage:'+ chatClientMessage+' chatServerDate:'+chatServerDate);
 
     });
     
