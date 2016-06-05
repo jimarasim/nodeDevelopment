@@ -38,15 +38,15 @@ function PlayNextVideo(currentFile){
     var first=$('#selectvideos option').first().attr('value');
     var last=$('#selectvideos option').last().attr('value');
     var next=$('#selectvideos option[value="'+currentFile+'"]').next().attr('value');
-
-    console.log("FIRST:"+first+" CURRENT:"+current+" NEXT:"+next+" LAST:"+last);
+    var firstposter=$('#selectvideos option').first().attr('optionposter');
+    var nextposter=$('#selectvideos option[value="'+currentFile+'"]').next().attr('optionposter');
 
     //if the current video is the last video, play the first video
     if(current===last){
-        changeMp4(first);
+        changeMp4(first,firstposter);
     }
     else{ //otherwise, play the next video
-        changeMp4(next);
+        changeMp4(next,nextposter);
     }
 }
 function changeMp3(mp3Url){
@@ -57,10 +57,15 @@ function changeMp3(mp3Url){
     $('#selectsongs').val(mp3Url);
 }
 function changeMp4(mp4Url){
+    //change the source of the VIDEO player with default video cover image
+    changeMp4(mp4Url,"http://skatecreteordie.com/media/kitteh.jpg")
+}
+function changeMp4(mp4Url,coverImageUrl){
     //change the source of the VIDEO player
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
+    $('#jaemzwaredynamicvideoplayer').attr("poster",coverImageUrl);
     document.getElementById("jaemzwaredynamicvideoplayer").load();
     document.getElementById("jaemzwaredynamicvideoplayer").play();
-    $('#selectsongs').val(mp4Url);
+    $('#selectvideos').val(mp4Url);
 }
 

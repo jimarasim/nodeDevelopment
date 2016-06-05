@@ -98,16 +98,7 @@ function writeAudioFromJson(mediaObject){
         document.write("<form id='audioform'>");
         document.write("<div id='audioformdiv'>");
         document.write("<table id='audiotable'>");
-        //paint the audio player
-        document.write("<tr>");
-        document.write("<td class='audioplayertd' colspan='2'>");
-        document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
-        document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
-        document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
-        document.write("</audio>");
-        document.write("</td>");
-        document.write("</tr>");
-        //paint the song selection dropdown 
+        //paint the song selection dropdown
         document.write("<tr>");
         document.write("<td class='audioplayertd'>");
         document.write("<select id=\"selectsongs\">");
@@ -117,7 +108,18 @@ function writeAudioFromJson(mediaObject){
         }
         document.write("</select>");
         document.write("</td>");
-                document.write("</tr>");
+        document.write("</tr>");
+        
+        //paint the audio player
+        document.write("<tr>");
+        document.write("<td class='audioplayertd' colspan='2'>");
+        document.write("<audio id=\"jaemzwaredynamicaudioplayer\" controls=\"\" preload=\"none\">");
+        document.write("<source id=\"jaemzwaredynamicaudiosource\" src=\""+mediaObject.songspath+mediaObject.songs[0].file+"\" type=\"audio/mpeg\">");
+        document.write("HTML5 Audio Tag support not available with your browser. For source type='audio/mpeg'");
+        document.write("</audio>");
+        document.write("</td>");
+        document.write("</tr>");
+
         document.write("<tr>");
 
         //previous and next buttons
@@ -136,29 +138,35 @@ function writeVideoFromJson(mediaObject){
         document.write("<form id='videoform'>")
         document.write("<div id='videoformdiv'>");
         document.write("<table id='videotable'>");
-        document.write("<tr>");
-        document.write("<td>");
-        if(mediaObject.videos[0]){
-            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-        }
-        else{
-            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://seattlerules.com/vinyl.jpeg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"jaemzwareTV\">");
-        }
-        document.write("mp4 not supported in this browser");
-        document.write("<source src=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
-        document.write("</video>");
-        document.write("</td>");
-        document.write("</tr>");
+
         document.write("<tr>");
         document.write("<td>");
         document.write("<select id=\"selectvideos\">");
         console.log("videos specified:"+mediaObject.videos.length);
         for (var i=0;i<mediaObject.videos.length;i++){
-            document.write("<option value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+            document.write("<option optionposter=\""+mediaObject.videospath+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
         }
         document.write("</select>");
         document.write("</td>");
         document.write("</tr>");
+
+        document.write("<tr>");
+        document.write("<td>");
+        //if a poster image was provided in the media object for the video
+        if(mediaObject.videospath+mediaObject.videos[0].poster){
+            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+        }
+        else{
+            //provide a default image for the video poweter
+            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\"http://skatecreteordie.com/media/kitteh.jpg\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+        }
+
+        document.write("mp4 not supported in this browser");
+        document.write("<source src=\""+mediaObject.videospath+mediaObject.videos[0].file+"\" type=\"video/mp4\" id=\"jaemzwaredynamicvideosource\">");
+        document.write("</video>");
+        document.write("</td>");
+        document.write("</tr>");
+
         document.write("</table>");  
         document.write("</div>");
         document.write("</form>");
