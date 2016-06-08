@@ -109,7 +109,7 @@ function writeAudioFromJson(mediaObject){
         document.write("</select>");
         document.write("</td>");
         document.write("</tr>");
-        
+
         //paint the audio player
         document.write("<tr>");
         document.write("<td class='audioplayertd' colspan='2'>");
