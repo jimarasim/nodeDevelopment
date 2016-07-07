@@ -1,0 +1,31 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org - djnachos - djnachosstuffedanimalwar.html 20150611 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>sTufFED AniMAl wAR</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    var stuffedAnimalMediaObject = {
+        "backgroundimage":"https://seattlerules.com/media/stuffedanimalwar/IMG_4779.JPG",
+        "animals":[
+            {'file':'gamemedia/pinkelephant.png','title':'Elephant'},
+            {'file':'gamemedia/ferry.png','title':'Ferry'},
+            {'file':'gamemedia/spaceneedle.png','title':'Needle'},
+            {'file':'gamemedia/whale.png','title':'Orca'},
+            {'file':'gamemedia/STARBUCK.png','title':'Starbuck'},
+            {'file':'gamemedia/rainier.png','title':'Rainier'}
+
+
+            ]
+    };
+    writeStuffedAnimalWar(stuffedAnimalMediaObject);
+    writeChat();
+</script>
+<script type="text/javascript" src="djnachossockethandler.js"></script>
+</body>
+</html> 

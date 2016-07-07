@@ -1,0 +1,67 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org  20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Joey The Paintbrush</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    var mediaObject = {
+        "songspath":"http://analogarchive.com/live/",
+        
+        "songs":[   
+            {"file":"ZOOM0001bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 1"},
+            {"file":"ZOOM0002bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 2"},
+            {"file":"ZOOM0003bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 3"},
+            {"file":"ZOOM0004bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 4"},
+            {"file":"ZOOM0005bigbusinessportlandwonderballroom20150907.mp3","title":"Big Business - Wonder Ballroom, Portland - September 7th, 2015 - 5"},
+            {"file":"ZOOM0038-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 1"},
+            {"file":"ZOOM0039-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 2"},
+            {"file":"ZOOM0040-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 3"},
+            {"file":"ZOOM0041-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 4"},
+            {"file":"ZOOM0042-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 5"},
+            {"file":"ZOOM0043-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 6"},
+            {"file":"ZOOM0044-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 7"},
+            {"file":"ZOOM0045-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 8"},
+            {"file":"ZOOM0046-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 9"},
+            {"file":"ZOOM0047-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 10"},
+            {"file":"ZOOM0048-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 11"},
+            {"file":"ZOOM0049-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 12"},
+            {"file":"ZOOM0050-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 13"},
+            {"file":"ZOOM0051-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 14"},
+            {"file":"ZOOM0006melvinsportlandwonderballroom20150907.mp3","title":"01  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0007melvinsportlandwonderballroom20150907.mp3","title":"02  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0008melvinsportlandwonderballroom20150907.mp3","title":"03  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0009melvinsportlandwonderballroom20150907.mp3","title":"04  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0010melvinsportlandwonderballroom20150907.mp3","title":"05  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0011melvinsportlandwonderballroom20150907.mp3","title":"06  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0012melvinsportlandwonderballroom20150907.mp3","title":"07  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0013melvinsportlandwonderballroom20150907.mp3","title":"08  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0014melvinsportlandwonderballroom20150907.mp3","title":"09  Melvins - Wonder Ballroom - Portland - September 7th, 2015"},
+            {"file":"ZOOM0001-melvins-showboxmarket-20141018.mp3","title":"01  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0002-melvins-showboxmarket-20141018.mp3","title":"02  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0003-melvins-showboxmarket-20141018.mp3","title":"03  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0004-melvins-showboxmarket-20141018.mp3","title":"04  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0005-melvins-showboxmarket-20141018.mp3","title":"05  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0006-melvins-showboxmarket-20141018.mp3","title":"06  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0007-melvins-showboxmarket-20141018.mp3","title":"07  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0008-melvins-showboxmarket-20141018.mp3","title":"08  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0009-melvins-showboxmarket-20141018.mp3","title":"09  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0010-melvins-showboxmarket-20141018.mp3","title":"10  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0011-melvins-showboxmarket-20141018.mp3","title":"11  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0012-melvins-showboxmarket-20141018.mp3","title":"12  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0013-melvins-showboxmarket-20141018.mp3","title":"13  Melvins - Showbox Market - October 18th, 2014"},
+            {"file":"ZOOM0014-melvins-showboxmarket-20141018.mp3","title":"14  Melvins - Showbox Market - October 18th, 2014"}
+        ]
+    };
+    writeMediaFromJson(mediaObject);
+    writeChat();
+    
+</script>
+<script type="text/javascript" src="joeythepaintbrushsockethandler.js"></script>
+</body>
+</html> 

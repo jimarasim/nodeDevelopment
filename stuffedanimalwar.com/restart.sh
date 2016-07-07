@@ -1,0 +1,1 @@
+./killportsbeingusedby3000through3005.sh && ./startrange.sh

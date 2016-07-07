@@ -1,0 +1,68 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org  20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Last Gasp</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    var mediaObject = {
+        "songspath":"http://analogarchive.com/live/",
+        "photospath":"http://seattlerules.com/media/lastgasp/",
+        "videospath":"https://seattlerules.com/media/skate/",
+        "photos":[
+            {"file":"ZOOM0038.jpg","title":"Last Gasp 1"},
+            {"file":"ZOOM0039.jpg","title":"Last Gasp 2"},
+            {"file":"ZOOM0040.jpg","title":"Last Gasp 3"},
+            {"file":"ZOOM0041.jpg","title":"Last Gasp 4"},
+            {"file":"ZOOM0042.jpg","title":"Last Gasp 5"},
+            {"file":"ZOOM0043.jpg","title":"Last Gasp 6"},
+            {"file":"ZOOM0044.jpg","title":"Last Gasp 7"},
+            {"file":"ZOOM0045.jpg","title":"Last Gasp 8"},
+            {"file":"ZOOM0046.jpg","title":"Last Gasp 9"},
+            {"file":"ZOOM0047.jpg","title":"Last Gasp 10"},
+            {"file":"ZOOM0048.jpg","title":"Last Gasp 11"},
+            {"file":"ZOOM0049.jpg","title":"Last Gasp 12"},
+            {"file":"ZOOM0050.jpg","title":"Last Gasp 13"},
+            {"file":"ZOOM0051.jpg","title":"Last Gasp 14"}
+            ],
+        "songs":[   
+            {"file":"ZOOM0038-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 1"},
+            {"file":"ZOOM0039-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 2"},
+            {"file":"ZOOM0040-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 3"},
+            {"file":"ZOOM0041-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 4"},
+            {"file":"ZOOM0042-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 5"},
+            {"file":"ZOOM0043-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 6"},
+            {"file":"ZOOM0044-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 7"},
+            {"file":"ZOOM0045-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 8"},
+            {"file":"ZOOM0046-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 9"},
+            {"file":"ZOOM0047-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 10"},
+            {"file":"ZOOM0048-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 11"},
+            {"file":"ZOOM0049-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 12"},
+            {"file":"ZOOM0050-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 13"},
+            {"file":"ZOOM0051-lastgasp-highline-2014.mp3","title":"Last Gasp - Highline - 2014 - 14"}
+        ],
+        "videos":[
+            {'file':'yakima201508.mp4','title':'Yakima 201508'},
+            {'file':'roxhillollierockline201508.mp4','title':'roxhill ollie rockline 201508'},
+            {'file':'roxhillbacksideolliesmallbankstepup201500807.mp4','title':'roxhill backside ollie small bank stepup 201500807'},
+            {'file':'roxhillbacksideollieline201508.mp4','title':'roxhill backside ollie line 201508'},
+            {'file':'jimroxhill5.mp4','title':'jim roxhill5'},
+            {'file':'jimroxhill4.mp4','title':'jim roxhill4'},
+            {'file':'jimroxhill3.mp4','title':'jim roxhill3'},
+            {'file':'jimroxhill2.mp4','title':'jim roxhill2'},
+            {'file':'jimroxhill.mp4','title':'jim roxhill'},
+            {'file':'fortboise201508.mp4','title':'fort boise 201508'}
+        ]
+    };
+    
+    writeMediaFromJson(mediaObject);
+    writeChat();
+</script>
+<script type="text/javascript" src="lastgaspsockethandler.js"></script>
+</body>
+</html> 

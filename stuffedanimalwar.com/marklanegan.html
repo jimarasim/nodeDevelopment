@@ -1,0 +1,50 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org  20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mark Lanegan</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    var mediaObject = {
+        "songspath":"http://analogarchive.com/live/",
+        "photospath":"https://seattlerules.com/wp-content/uploads/2014/07/",
+        "videospath":"https://seattlerules.com/media/skate/",
+        "photos":[
+            {"file":"IMG_0763-1024x768.jpg","title":"Mark Lanegan 1"},
+            {"file":"IMG_0764-1024x768.jpg","title":"Mark Lanegan 2"},
+            {"file":"IMG_0768-1024x768.jpg","title":"Mark Lanegan 3"}
+            ],
+        "songs":[   
+            {'file':'01%20marklanegan-showbox-20140703-01.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 1'},
+            {'file':'02%20marklanegan-showbox-20140703-02.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 2'},
+            {'file':'03%20marklanegan-showbox-20140703-03.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 3'},
+            {'file':'04%20marklanegan-showbox-20140703-04.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 4'},
+            {'file':'05%20marklanegan-showbox-20140703-05.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 5'},
+            {'file':'06%20marklanegan-showbox-20140703-06.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 6'},
+            {'file':'07%20marklanegan-showbox-20140703-07.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 7'},
+            {'file':'08%20marklanegan-showbox-20140703-08.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 8'},
+            {'file':'09%20marklanegan-showbox-20140703-09.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 9'},
+            {'file':'10%20marklanegan-showbox-20140703-10.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 10'},
+            {'file':'11%20marklanegan-showbox-20140703-11.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 11'},
+            {'file':'12%20marklanegan-showbox-20140703-12.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 12'},
+            {'file':'13%20marklanegan-showbox-20140703-13.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 13'},
+            {'file':'14%20marklanegan-showbox-20140703-14.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 14'},
+            {'file':'15%20marklanegan-showbox-20140703-15.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 15'},
+            {'file':'16%20marklanegan-showbox-20140703-16.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 16'},
+            {'file':'17%20marklanegan-showbox-20140703-17.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 17'},
+            {'file':'18%20marklanegan-showbox-20140703-18.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 18'},
+            {'file':'19%20marklanegan-showbox-20140703-19.mp3','title':'Mark Lanegan - Showbox Market, Seattle - July 3rd, 2014 - 19'}
+        ]
+    };
+    
+    writeMediaFromJson(mediaObject);
+    writeChat();
+</script>
+<script type="text/javascript" src="marklanegansockethandler.js"></script>
+</body>
+</html> 

@@ -1,0 +1,375 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org - 20150611 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HOUSTON SKATECATION 2015</title>
+    <link rel="Stylesheet" href="stylebase.css" />
+    <link rel="Stylesheet" href="tabstripvideo.css" />
+    <script type="text/javascript" src="tabstripvideo.js"></script>
+    <script type="text/javascript" src="htmlwriter.js"></script>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <span id="jaemzwarevideohouston2015"></span><!--meant for use with tabstripvideo.js and tabstripvideo.css-->
+        </td>
+    </tr>
+</table>
+<table>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4064.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4064small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4065.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4065small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4066.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4066small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4067.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4067small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4068.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4068small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4069.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4069small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4070.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4070small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4071.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4071small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4072.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4072small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4074.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4074small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4075.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4075small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4076.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4076small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4077.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4077small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4078.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4078small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4079.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4079small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4081.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4081small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4082.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4082small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4083.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4083small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4084.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4084small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4085.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4085small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4087.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4087small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4089.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4089small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4094.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4094small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4095.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4095small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4096.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4096small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4098.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4098small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4099.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4099small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4100.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4100small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4101.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4101small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4102.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4102small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4104.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4104small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4105.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4105small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4106.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4106small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4107.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4107small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4108.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4108small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4112.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4112small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4113.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4113small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4114.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4114small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4115.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4115small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4116.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4116small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4120.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4120small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4121.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4121small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4123.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4123small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4124.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4124small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4128.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4128small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4130.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4130small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4131.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4131small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4132.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4132small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4134.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4134small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4135.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4135small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4137.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4137small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4138.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4138small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4141.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4141small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4142.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4142small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4143.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4143small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4146.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4146small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4147.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4147small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4149.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4149small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4150.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4150small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4151.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4151small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4152.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4152small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4153.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4153small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4154.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4154small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4155.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4155small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4156.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4156small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4157.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4157small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4158.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4158small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4159.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4159small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4160.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4160small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4161.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4161small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4162.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4162small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4163.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4163small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4164.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4164small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4165.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4165small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4166.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4166small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4167.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4167small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4168.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4168small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4169.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4169small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4170.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4170small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4171.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4171small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4172.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4172small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4173.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4173small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4174.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4174small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4175.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4175small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4176.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4176small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4177.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4177small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4178.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4178small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4179.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4179small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4180.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4180small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4181.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4181small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4182.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4182small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4183.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4183small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4184.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4184small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4185.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4185small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4186.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4186small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4187.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4187small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4189.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4189small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4190.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4190small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4191.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4191small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4192.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4192small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4193.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4193small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4194.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4194small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4195.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4195small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4196.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4196small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4197.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4197small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4198.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4198small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4199.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4199small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4200.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4200small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4201.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4201small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4202.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4202small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4203.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4203small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4204.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4204small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4205.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4205small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4206.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4206small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4207.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4207small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4208.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4208small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4209.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4209small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4210.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4210small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4211.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4211small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4212.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4212small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4213.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4213small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4214.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4214small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4215.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4215small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4216.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4216small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4217.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4217small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4218.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4218small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4219.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4219small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4220.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4220small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4221.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4221small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4222.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4222small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4223.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4223small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4224.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4224small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4225.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4225small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4226.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4226small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4227.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4227small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4228.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4228small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4229.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4229small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4230.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4230small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4234.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4234small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4235.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4235small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4236.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4236small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4237.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4237small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4238.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4238small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4239.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4239small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4240.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4240small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4242.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4242small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4243.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4243small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4244.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4244small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4245.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4245small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4247.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4247small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4248.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4248small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4249.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4249small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4250.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4250small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4251.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4251small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4252.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4252small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4253.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4253small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4254.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4254small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4255.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4255small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4256.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4256small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4257.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4257small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4259.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4259small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4261.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4261small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4262.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4262small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4263.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4263small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4264.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4264small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4265.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4265small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4266.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4266small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4267.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4267small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4268.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4268small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4269.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4269small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4270.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4270small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4271.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4271small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4272.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4272small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4273.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4273small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4274.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4274small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4275.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4275small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4276.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4276small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4277.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4277small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4278.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4278small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4279.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4279small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4283.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4283small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4284.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4284small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4286.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4286small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4287.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4287small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4289.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4289small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4290.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4290small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4291.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4291small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4292.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4292small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4293.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4293small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4294.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4294small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4295.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4295small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4296.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4296small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4297.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4297small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4298.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4298small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4299.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4299small.JPG'></a>
+</td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4300.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4300small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4301.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4301small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4302.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4302small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4303.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4303small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4304.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4304small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4305.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4305small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4306.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4306small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4307.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4307small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4308.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4308small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4309.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4309small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4310.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4310small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4311.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4311small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4312.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4312small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4313.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4313small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4314.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4314small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4315.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4315small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4316.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4316small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4317.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4317small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4323.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4323small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4324.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4324small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4325.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4325small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4326.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4326small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4328.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4328small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4329.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4329small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4330.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4330small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4331.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4331small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4332.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4332small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4333.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4333small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4334.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4334small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4335.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4335small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4336.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4336small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4337.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4337small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4338.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4338small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4340.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4340small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4341.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4341small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4342.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4342small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4343.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4343small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4344.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4344small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4346.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4346small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4347.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4347small.JPG'></a>
+    </td></tr>
+<tr><td>
+<a href='http://seattlerules.com/media/houston2015/IMG_4349.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4349small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4350.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4350small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4351.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4351small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4352.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4352small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4353.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4353small.JPG'></a>
+    </td></tr>
+<tr><td>
+
+<a href='http://seattlerules.com/media/houston2015/IMG_4086.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4086small.JPG'></a>
+        <a href='http://seattlerules.com/media/houston2015/IMG_4097.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4097small.JPG'></a>
+        <a href='http://seattlerules.com/media/houston2015/IMG_4339.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4339small.JPG'></a>
+<a href='http://seattlerules.com/media/houston2015/IMG_4129.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4129small.JPG'></a>
+        <a href='http://seattlerules.com/media/houston2015/IMG_4103.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4103small.JPG'></a>
+    </td></tr>
+        
+<tr><td>
+        
+        <a href='http://seattlerules.com/media/houston2015/IMG_4109.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4109small.JPG'></a>
+                        <a href='http://seattlerules.com/media/houston2015/IMG_4117.JPG' target='_blank'><img width='100' height='100' alt='houston2015photos' src='http://seattlerules.com/media/houston2015/IMG_4117small.JPG'></a>
+    </td></tr>
+</table>
+<script type="text/javascript" src="houston2015.js"></script>
+</body>
+</html>

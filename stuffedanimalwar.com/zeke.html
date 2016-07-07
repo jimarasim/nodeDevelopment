@@ -1,0 +1,64 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org - 20150913 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zeke</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    var mediaObject = {
+        "songspath":"http://analogarchive.com/live/",
+        "photospath":"http://analogarchive.com/live/",
+        "videospath":"https://seattlerules.com/media/",
+        "photos":[
+            {"file":"zekeflier.jpg","title":"Zeke Flier"}
+            ],
+        "songs":[   
+            {"file":"Vinyl-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 1"},
+            {"file":"Vinyl_1-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 2"},
+            {"file":"Vinyl_2-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 3"},
+            {"file":"Vinyl_3-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 4"},
+            {"file":"Vinyl_4-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 5"},
+            {"file":"Vinyl_5-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 6"},
+            {"file":"Vinyl_6-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 7"},
+            {"file":"Vinyl_7-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 8"},
+            {"file":"Vinyl_8-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 9"},
+            {"file":"Vinyl_9-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 10"},
+            {"file":"Vinyl_10-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 11"},
+            {"file":"Vinyl_11-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 12"},
+            {"file":"Vinyl_12-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 13"},
+            {"file":"Vinyl_13-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 14"},
+            {"file":"Vinyl_14-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 15"},
+            {"file":"Vinyl_15-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 16"},
+            {"file":"Vinyl_16-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 17"},
+            {"file":"Vinyl_17-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 18"},
+            {"file":"Vinyl_18-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 19"},
+            {"file":"Vinyl_19-zeke-elcorazon-2013.mp3","title":"Zeke - El Corazon - 2013 - 20"},
+            {"file":"ZOOM0001-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 1"},
+            {"file":"ZOOM0002-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 2"},
+            {"file":"ZOOM0003-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 3"},
+            {"file":"ZOOM0004-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 4"},
+            {"file":"ZOOM0005-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 5"},
+            {"file":"ZOOM0006-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 6"},
+            {"file":"ZOOM0007-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 7"},
+            {"file":"ZOOM0008-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 8"},
+            {"file":"ZOOM0009-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 9"},
+            {"file":"ZOOM0010-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 10"},
+            {"file":"ZOOM0011-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 11"},
+            {"file":"ZOOM0012-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 12"},
+            {"file":"ZOOM0013-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 13"},
+            {"file":"ZOOM0014-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 14"},
+            {"file":"ZOOM0015-zeke-highline-20140822.mp3","title":"Zeke - Highline - August 22nd, 2014 - 15"}
+        ]
+    };
+    writeMediaFromJson(mediaObject);    
+    writeChat();
+
+</script>
+<script type="text/javascript" src="zekesockethandler.js"></script>
+</body>
+</html> 
