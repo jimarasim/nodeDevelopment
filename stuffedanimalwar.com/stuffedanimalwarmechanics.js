@@ -331,27 +331,28 @@ function onBaseTapSocketEventLines(tapMsgObject){
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",newPointX);
     $("#stuffedanimalwarsvgrect").attr("y",newPointY); 
-    
-    //start a timer for the line, depending on the direction
-    var direction = tapMsgObject.movement;
-    var objectTimerId;
-    switch(direction){
-        case 'UP':
-            objectTimerId = startShapeObjectTimerUp(lineId,"x1","y1",shapeInterval);
-            break;
-        case 'DOWN':
-            objectTimerId = startShapeObjectTimerDown(lineId,"x1","y1",shapeInterval);
-            break;
-        case 'LEFT':
-            objectTimerId = startShapeObjectTimerLeft(lineId,"x1","y1",shapeInterval);
-            break;
-        case 'RIGHT':
-            objectTimerId = startShapeObjectTimerRight(lineId,"x1","y1",shapeInterval);
-            break;
-        default:
-            console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
-            break;
-    }
+
+    //commented out to draw lines
+//    //start a timer for the line, depending on the direction
+//    var direction = tapMsgObject.movement;
+//    var objectTimerId;
+//    switch(direction){
+//        case 'UP':
+//            objectTimerId = startShapeObjectTimerUp(lineId,"x1","y1",shapeInterval);
+//            break;
+//        case 'DOWN':
+//            objectTimerId = startShapeObjectTimerDown(lineId,"x1","y1",shapeInterval);
+//            break;
+//        case 'LEFT':
+//            objectTimerId = startShapeObjectTimerLeft(lineId,"x1","y1",shapeInterval);
+//            break;
+//        case 'RIGHT':
+//            objectTimerId = startShapeObjectTimerRight(lineId,"x1","y1",shapeInterval);
+//            break;
+//        default:
+//            console.log("UNKNOWN DIRECTION FOR LINE:"+direction);
+//            break;
+//    }
 }
 function onBaseTapSocketEventCustom(tapMsgObject){
     if (
@@ -398,7 +399,9 @@ function onBaseTapSocketEventImages(tapMsgObject,imagePath){
     var objectTimerId;
     
     //randomize the speed at how often the animal moves
-    var randomAnimalInterval=Math.floor((Math.random() * animalInterval) + 1);
+//    var randomAnimalInterval=Math.floor((Math.random() * animalInterval) + 1);
+//TODO: TEST HOW FAST THE DEFAULT SETTINGS GO
+    var randomAnimalInterval=animalInterval;
 
     switch(direction){
         case 'UP':

@@ -45,6 +45,11 @@ app.get('/', function(req, res){
  * 111111111111111
  */
 
+app.get('/stuffedanimalwar', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        });
+
 app.get('/sawonly', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');

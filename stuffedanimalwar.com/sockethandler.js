@@ -81,7 +81,6 @@ function initializeDisconnectSocketHandler(socket){
     
     baseSocket=socket;
 }
-
 function onBaseChatSocketEvent(chatMsgObject){
     var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
     var chatServerUser = chatMsgObject.CHATSERVERUSER;
