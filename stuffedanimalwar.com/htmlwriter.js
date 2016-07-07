@@ -63,8 +63,8 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
         }
        document.write("<option value=\"custom\">CUSTOM</option>");  
         document.write("<option value=\"dots\">Bullets</option>");
-        document.write("<option value=\"line01\">Laser</option>");
-        document.write("<option value=\"line02\">Bow Staff</option>");
+        document.write("<option value=\"line01\">Tiny Neon Black Hole</option>");
+        document.write("<option value=\"line02\">Random Colored Neon Snake</option>");
         document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
