@@ -11,7 +11,18 @@
     </head>
 <body>
 <script type="text/javascript">
-    
+    var stuffedAnimalMediaObject = {
+            "backgroundimage":"https://seattlerules.com/media/stuffedanimalwar/IMG_4779.JPG",
+            "animals":[
+                {'file':'gamemedia/pinkelephant.png','title':'Elephant'},
+                {'file':'gamemedia/ferry.png','title':'Ferry'},
+                {'file':'gamemedia/spaceneedle.png','title':'Needle'},
+                {'file':'gamemedia/whale.png','title':'Orca'},
+                {'file':'gamemedia/STARBUCK.png','title':'Starbuck'},
+                {'file':'gamemedia/rainier.png','title':'Rainier'}
+                ]
+        };
+
     var mediaObject = {
         "songspath":"http://analogarchive.com/live/",
         "videospath":"http://skatecreteordie.com/media/",
@@ -89,23 +100,10 @@
             {'file':'ZOOM0017-sufferingfuckheads-coppergate-20130604.mp3','title':'10  Suffering Fuckheads - Coppergate - June 4th, 2013'}
         ]
     };
-
-
-    var stuffedAnimalMediaObject = {
-            "backgroundimage":"https://seattlerules.com/media/stuffedanimalwar/IMG_4779.JPG",
-            "animals":[
-                {'file':'gamemedia/pinkelephant.png','title':'Elephant'},
-                {'file':'gamemedia/ferry.png','title':'Ferry'},
-                {'file':'gamemedia/spaceneedle.png','title':'Needle'},
-                {'file':'gamemedia/whale.png','title':'Orca'},
-                {'file':'gamemedia/STARBUCK.png','title':'Starbuck'},
-                {'file':'gamemedia/rainier.png','title':'Rainier'}
-                ]
-        };
-
+    writeStuffedAnimalWar(stuffedAnimalMediaObject);
     writeChat();
     writeMediaFromJson(mediaObject);
-    writeStuffedAnimalWar(stuffedAnimalMediaObject);
+
 </script>
 
 <script type="text/javascript" src="skatecreteordiesockethandler.js"></script>

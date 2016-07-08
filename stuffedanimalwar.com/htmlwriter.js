@@ -10,7 +10,7 @@ function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
     document.write("<div id=\"stuffedanimalwardiv\">");
     //IF THE BACKGROUND IMAGE WAS SPECIFIED
     if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.backgroundimage){
-        //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT
+        //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT, OR gamemedia FOR LOCAL FILE REFERENCES
         if (    stuffedAnimalMediaObject.backgroundimage.indexOf("http://")===0||
                 stuffedAnimalMediaObject.backgroundimage.indexOf("https://")===0||
                 stuffedAnimalMediaObject.backgroundimage.indexOf("gamemedia/")===0){ 
