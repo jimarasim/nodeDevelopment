@@ -64,7 +64,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
        document.write("<option value=\"custom\">CUSTOM</option>");  
         document.write("<option value=\"dots\">Bullets</option>");
         document.write("<option value=\"line01\">Tiny Neon Black Hole</option>");
-        document.write("<option value=\"line02\">Random Colored Neon Snake</option>");
+        document.write("<option value=\"line02\" selected>Random Colored Neon Snake</option>");
         document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
@@ -187,9 +187,7 @@ function writePhotosFromJson(mediaObject){
 }
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 //CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
-function writeChat(){
-    writeChatForm();
-}
+function writeChat(){writeChatForm();}
 function writeChatForm(){
     document.write("<h1>TRASH TALK CHAT</h1>");
     document.write("<form id='chatform'>");
