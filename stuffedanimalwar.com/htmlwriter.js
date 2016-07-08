@@ -95,6 +95,7 @@ function writeMediaFromJson(mediaObject){
 function writeAudioFromJson(mediaObject){
     //AUDIO
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
+        document.write("<h1>RANDOMLY RAD TUNES</h1>");
         document.write("<form id='audioform'>");
         document.write("<div id='audioformdiv'>");
         document.write("<table id='audiotable'>");
