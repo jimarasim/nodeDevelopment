@@ -87,16 +87,25 @@
             {'file':'ZOOM0015-sufferingfuckheads-coppergate-20130604.mp3','title':'08  Suffering Fuckheads - Coppergate - June 4th, 2013'},
             {'file':'ZOOM0016-sufferingfuckheads-coppergate-20130604.mp3','title':'09  Suffering Fuckheads - Coppergate - June 4th, 2013'},
             {'file':'ZOOM0017-sufferingfuckheads-coppergate-20130604.mp3','title':'10  Suffering Fuckheads - Coppergate - June 4th, 2013'}
-
-
         ]
-
     };
-    
-    writeChat();
-    
-    writeMediaFromJson(mediaObject);
 
+
+    var stuffedAnimalMediaObject = {
+            "backgroundimage":"https://seattlerules.com/media/stuffedanimalwar/IMG_4779.JPG",
+            "animals":[
+                {'file':'gamemedia/pinkelephant.png','title':'Elephant'},
+                {'file':'gamemedia/ferry.png','title':'Ferry'},
+                {'file':'gamemedia/spaceneedle.png','title':'Needle'},
+                {'file':'gamemedia/whale.png','title':'Orca'},
+                {'file':'gamemedia/STARBUCK.png','title':'Starbuck'},
+                {'file':'gamemedia/rainier.png','title':'Rainier'}
+                ]
+        };
+
+    writeChat();
+    writeMediaFromJson(mediaObject);
+    writeStuffedAnimalWar(stuffedAnimalMediaObject);
 </script>
 
 <script type="text/javascript" src="skatecreteordiesockethandler.js"></script>
