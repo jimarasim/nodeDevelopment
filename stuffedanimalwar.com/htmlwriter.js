@@ -190,6 +190,7 @@ function writeChat(){
     writeChatForm();
 }
 function writeChatForm(){
+    document.write("<h1>TRASH TALK CHAT</h1>");
     document.write("<form id='chatform'>");
     document.write("<div id='chatformdiv'>");
     document.write("<table id='chattable'>");
