@@ -21,7 +21,7 @@ and (max-device-width : 600px) {
     #messagesdiv
     {
        width:100%;
-       height:250px;
+       height:auto;
        background-color:black;
        background-position:left;
        border-width:thin;
@@ -210,7 +210,7 @@ div.seattlenativelinks{
     margin:0;
     padding:0;
     width:100%;
-    height:600px;
+    height:auto;
     background-size:contain;
     background-position:left;
 }
@@ -268,7 +268,7 @@ div.seattlenativelinks{
 /*TABSTRIPVIDEO//////////////////////////////////////////////TABSTRIPVIDEO//////////////////////////////////////////////////TABSTRIPVIDEO*/
 
 img.videolink{
-    height:10%;
+    height:auto;
 }
 
 /*JAEMZWARELOGO//////////////////////////////////////////////JAEMZWARELOGO//////////////////////////////////////////////////JAEMZWARELOGO*/
