@@ -15,14 +15,14 @@ var app = require('express')();
 var express=require('express'); 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var listenPort =3000;
+var listenPort =5006;
 
 //serve .css and .js and media files
 app.use(express.static(__dirname));
 
 //GET PORT TO USE
 if(process.argv.length !== 3){
-    console.log("PARAMETERS EXPECTED:3 ACTUAL:"+process.argv.length+" ASSUMING: $ node index.js "+listenPort);
+    console.log("PARAMETERS EXPECTED:3 ACTUAL:"+process.argv.length+" ASSUMING: $ node index.js :someportnumber");
 }
 else{
     listenPort = process.argv[2];
