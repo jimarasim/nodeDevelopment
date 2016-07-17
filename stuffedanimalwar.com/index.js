@@ -45,6 +45,11 @@ app.get('/', function(req, res){
  * 111111111111111
  */
 
+app.get('/syddandkat', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/syddandkat.html');
+        });
+
 app.get('/stuffedanimalwar', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
@@ -196,7 +201,10 @@ io.on('connection', function(socket){
      * 22222222222222222
      */
     //CHATMESSAGES--------------------------------------------------------------------------------------
-  
+    socket.on('syddandkatchatmessage', function(chatMsgObject){
+          sendChatMessage('syddandkatchatmessage',chatMsgObject);
+      });
+
     socket.on('chatmessage', function(chatMsgObject){
         sendChatMessage('chatmessage',chatMsgObject);
     });
@@ -284,7 +292,11 @@ io.on('connection', function(socket){
     /*
      * 33333333333333333
      */
- 
+
+    socket.on('syddandkattapmessage', function(tapMsgObject){
+         sendTapMessage('syddandkattapmessage',tapMsgObject);
+     });
+
     socket.on('djnachostapmessage', function(tapMsgObject){
         sendTapMessage('djnachostapmessage',tapMsgObject);
     });  
