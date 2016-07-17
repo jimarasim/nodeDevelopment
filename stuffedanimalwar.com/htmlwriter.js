@@ -54,17 +54,16 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     document.write("<tr>");
     document.write("<td>");
         document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
-
         //SPECIFIED ANIMALS
         if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
             for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
                 document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
             }
         }
-       document.write("<option value=\"custom\">CUSTOM</option>");  
-        document.write("<option value=\"dots\">Bullets</option>");
-        document.write("<option value=\"line01\">Tiny Neon Black Hole</option>");
-        document.write("<option value=\"line02\" selected>Random Colored Neon Snake</option>");
+        document.write("<option value=\"dots\" selected>C I R C L E S</option>");
+        document.write("<option value=\"line01\">C U R S O R</option>");
+        document.write("<option value=\"custom\">I M A G E URL</option>");
+        document.write("<option value=\"line02\">L I N E S</option>");
         document.write("</select>");
     document.write("</td>");
     document.write("</tr>");

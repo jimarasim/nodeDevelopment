@@ -264,27 +264,28 @@ function onBaseTapSocketEventDots(tapMsgObject){
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
-    
+
+        //commented out to draw lines
     //start a timer for the line, depending on the direction
-    var direction = tapMsgObject.movement;
-    var objectTimerId;
-    switch(direction){
-        case 'UP':
-            objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
-            break;
-        case 'DOWN':
-            objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
-            break;
-        case 'LEFT':
-            objectTimerId = startShapeObjectTimerLeft(circleId,"cx","cy",shapeInterval);
-            break;
-        case 'RIGHT':
-            objectTimerId = startShapeObjectTimerRight(circleId,"cx","cy",shapeInterval);
-            break;
-        default:
-            console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
-            break;
-    }
+//    var direction = tapMsgObject.movement;
+//    var objectTimerId;
+//    switch(direction){
+//        case 'UP':
+//            objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
+//            break;
+//        case 'DOWN':
+//            objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
+//            break;
+//        case 'LEFT':
+//            objectTimerId = startShapeObjectTimerLeft(circleId,"cx","cy",shapeInterval);
+//            break;
+//        case 'RIGHT':
+//            objectTimerId = startShapeObjectTimerRight(circleId,"cx","cy",shapeInterval);
+//            break;
+//        default:
+//            console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
+//            break;
+//    }
 }
 function onBaseTapSocketEventLines(tapMsgObject){
     //get the coordinates emitted
