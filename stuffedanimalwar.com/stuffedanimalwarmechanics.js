@@ -261,31 +261,9 @@ function onBaseTapSocketEventDots(tapMsgObject){
     
     $("#stuffedanimalwarsvg").append(newCircle);
 
-    //move the state rectangle to where the click was made
+    //move the state DOT to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
-
-        //commented out to draw lines
-    //start a timer for the line, depending on the direction
-//    var direction = tapMsgObject.movement;
-//    var objectTimerId;
-//    switch(direction){
-//        case 'UP':
-//            objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
-//            break;
-//        case 'DOWN':
-//            objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
-//            break;
-//        case 'LEFT':
-//            objectTimerId = startShapeObjectTimerLeft(circleId,"cx","cy",shapeInterval);
-//            break;
-//        case 'RIGHT':
-//            objectTimerId = startShapeObjectTimerRight(circleId,"cx","cy",shapeInterval);
-//            break;
-//        default:
-//            console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
-//            break;
-//    }
 }
 function onBaseTapSocketEventLines(tapMsgObject){
     //get the coordinates emitted
@@ -420,6 +398,52 @@ function onBaseTapSocketEventImages(tapMsgObject,imagePath){
         default:
             return;
             console.log("UNKNOWN DIRECTION FOR ANIMAL:"+direction);
+            break;
+    }
+}
+function onBaseTapSocketEventBullets(tapMsgObject){ //UNIQUE Bullets
+
+    //get the coordinates emitted
+    var pointX = tapMsgObject.x;
+    var pointY = tapMsgObject.y;
+
+    //draw a BULLET from the new to the old location
+    var newBullet = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    var bulletId = 'bullet'+$.now(); //UNIQUE bulletId bullet
+
+    newBullet.setAttribute('id',circleId);
+    newBullet.setAttribute('cx',pointX);
+    newBullet.setAttribute('cy',pointY);
+    newBullet.setAttribute('r',radius);
+
+    //RANDOM COLOR
+    newBullet.setAttribute('style','transform=translate(75,25);stroke:rgb('0,0,0');fill:rgb('0,0,0');'); //BLACK FILL / BLACK STROKE (OUTER CIRCLE)
+
+    $("#stuffedanimalwarsvg").append(newBullet);
+
+    //move the state BULLET to where the click was made
+    $("#stuffedanimalwarsvgrect").attr("x",pointX);
+    $("#stuffedanimalwarsvgrect").attr("y",pointY);
+
+    //commented out to draw lines
+    //start a timer for the line, depending on the direction
+    var direction = tapMsgObject.movement;
+    var objectTimerId;
+    switch(direction){
+        case 'UP':
+            objectTimerId = startShapeObjectTimerUp(bulletId,"cx","cy",shapeInterval); //UNIQUE bulletId
+            break;
+        case 'DOWN':
+            objectTimerId = startShapeObjectTimerDown(bulletId,"cx","cy",shapeInterval); //UNIQUE bulletId
+            break;
+        case 'LEFT':
+            objectTimerId = startShapeObjectTimerLeft(bulletId,"cx","cy",shapeInterval); //UNIQUE bulletId
+            break;
+        case 'RIGHT':
+            objectTimerId = startShapeObjectTimerRight(bulletId,"cx","cy",shapeInterval); //UNIQUE bulletId
+            break;
+        default:
+            console.log("UNKNOWN DIRECTION FOR BULLET:"+direction); //UNIQUE BULLET
             break;
     }
 }

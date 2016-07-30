@@ -30,6 +30,9 @@ function initializeTapSocketHandler(socket){
             case "dots":
                 onBaseTapSocketEventDots(tapMsgObject);
                 break;
+            case "bullets":
+                onBaseTapSocketEventBullets(tapMsgObject); //UNIQUE BULLETS
+                break;
             case "line01":
                 onBaseTapSocketEventLines(tapMsgObject);
                 break;
