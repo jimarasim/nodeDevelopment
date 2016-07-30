@@ -179,7 +179,9 @@ $('#stuffedanimalwarsvg').click(function(event){
           CHATCLIENTUSER: baseUnspecifiedAlias,
           CHATSERVERUSER:'',
           CHATSERVERDATE:''
-      }; 
+      };
+
+      console.log('SVG CLICK');
     
     baseSocket.emit(tapSocketEvent,tapMsgObject);
 });
