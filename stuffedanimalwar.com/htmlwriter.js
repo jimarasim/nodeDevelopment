@@ -53,33 +53,33 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     //ANIMAL CHOICES
     document.write("<tr>");
     document.write("<td>");
-        document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
-        //SPECIFIED ANIMALS
-        if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
-            for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
-                document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
-            }
+    document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
+    //SPECIFIED ANIMALS
+    if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
+        for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){
+            document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
         }
-        document.write("<option value=\"bullets\" selected>B U L L E T S</option>");
-        document.write("<option value=\"dots\">C I R C L E S</option>");
-        document.write("<option value=\"line01\">C U R S O R</option>");
-        document.write("<option value=\"custom\">I M A G E URL</option>");
-        document.write("<option value=\"line02\">L I N E S</option>");
-        document.write("</select>");
+    }
+    document.write("<option value=\"bullets\" selected>B U L L E T S</option>");
+    document.write("<option value=\"dots\">D O T S</option>");
+    document.write("<option value=\"line01\">C U R S O R</option>");
+    document.write("<option value=\"custom\">I M A G E URL</option>");
+    document.write("<option value=\"line02\">L I N E S</option>");
+    document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
     document.write("<tr>");
     document.write("<td>");
-        //CUSTOM URL TEXT BOX
-        document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
-        document.write("<br />");
-        //MOVEMENT DIRECTION
-        document.write("<select style=\"vertical-align:bottom;text-align:left;\" id=\"movement\" name=\"sawmove\" size=1 >");
-        document.write("<option value=\"UP\" selected>UP</option>");
-        document.write("<option value=\"DOWN\">DOWN</option>");
-        document.write("<option value=\"LEFT\">LEFT</option>");
-        document.write("<option value=\"RIGHT\">RIGHT</option>");
-        document.write("</select>");
+    //CUSTOM URL TEXT BOX
+    document.write("<input style=\"vertical-align:top;text-align:left;\" id=\"imagepathtextbox\" size=\"35\" placeholder=\"CUSTOM URL\" />");
+    document.write("<br />");
+    //MOVEMENT DIRECTION
+    document.write("<select style=\"vertical-align:bottom;text-align:left;\" id=\"movement\" name=\"sawmove\" size=1 >");
+    document.write("<option value=\"UP\" selected>UP</option>");
+    document.write("<option value=\"DOWN\">DOWN</option>");
+    document.write("<option value=\"LEFT\">LEFT</option>");
+    document.write("<option value=\"RIGHT\">RIGHT</option>");
+    document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
     document.write("</table>");

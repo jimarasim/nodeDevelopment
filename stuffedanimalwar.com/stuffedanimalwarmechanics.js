@@ -265,7 +265,7 @@ function onBaseTapSocketEventDots(tapMsgObject){
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
 }
-function onBaseTapSocketEventBulletsbullets(tapMsgObject){ //UNIQUE Bullets
+function onBaseTapSocketEventBullets(tapMsgObject){ //UNIQUE Bullets
 
     //get the coordinates emitted
     var pointX = tapMsgObject.x;
@@ -273,14 +273,14 @@ function onBaseTapSocketEventBulletsbullets(tapMsgObject){ //UNIQUE Bullets
 
     //draw a BULLET from the new to the old location
     var newBullet = document.createElementNS('http://www.w3.org/2000/svg','circle');
-    var bulletId = 'bullet'+$.now(); //UNIQUE bulletId bullet
+    var bulletId = 'bullets'+$.now(); //UNIQUE bulletId bullet
 
     newBullet.setAttribute('id',circleId);
     newBullet.setAttribute('cx',pointX);
     newBullet.setAttribute('cy',pointY);
     newBullet.setAttribute('r',radius);
 
-    //RANDOM COLOR
+    //BLACK COLOR
     newBullet.setAttribute('style','transform=translate(75,25);stroke:rgb('0,0,0');fill:rgb('0,0,0');'); //BLACK FILL / BLACK STROKE (OUTER CIRCLE)
 
     $("#stuffedanimalwarsvg").append(newBullet);
