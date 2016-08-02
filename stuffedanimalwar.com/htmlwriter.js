@@ -134,27 +134,74 @@ function writeAudioFromJson(mediaObject){
 }
 function writeVideoFromJson(mediaObject){
     //VIDEO
+
+    //IF THERES A VIDEO PATH IN THE MEDIAOBJECT, AND THERE IS AT LEAST ONE VIDEO
     if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
+
+        //WRITE A WEB PAGE FORM FOR THE VIDEOS EMBEDDED IN A DIV
         document.write("<form id='videoform'>")
         document.write("<div id='videoformdiv'>");
+
+        //PUT A TABLE IN THE DIV
         document.write("<table id='videotable'>");
 
+        //WRITE THE FIRST TABLE ROW
         document.write("<tr>");
+
+        //WRITE THE FIRST TABLE COLUMN
         document.write("<td>");
+
+        //WRITE A SELECT DROPDOWN FOR THE VIDEOS PASSED THROUGH THE MEDIA OBJECT
         document.write("<select id=\"selectvideos\">");
-        console.log("videos specified:"+mediaObject.videos.length);
+
+        //WRITE A SELECT DROPDOWN OPTION FOR EACH VIDEO PASSED THROUGH THE MEDIA OBJECT
         for (var i=0;i<mediaObject.videos.length;i++){
-            document.write("<option optionposter=\""+mediaObject.videospath+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+
+            //IF A FILENAME WAS SPECIFIED IN THE MEDIA OBJECT
+            if(mediaObject.videos[i].file){
+
+                //IF THE FULL URL WAS SPECIFIED IN THE FILENAME (DETECTED BY CONTAINING HTTPS OR HTTP IN THE URL, DONT USE THE VIDEOS PREPENDING PATH SPECIFIED
+                if(mediaObject.videos[i].file.indexOf("http")!==-1 &&
+                    mediaObject.videos[i].file.indexOf("https")!==-1){
+
+                    console.log("1PROVIDED PARTIAL PATH FOR VIDEO OPTION");
+
+                    //MAKE THE VALUE OF THE OPTION THE FULL URL SPECIFIED IN THE FILENAME
+                    //mediaObject.videos[i].file
+                    document.write("<option value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                }
+                //ELSE THE FULL URL WAS NOT SPECIFIED...
+                else{
+
+                    console.log("2PROVIDED FULL PATH FOR VIDEO OPTION");
+
+                    //SO WE'LL PREPEND THE VIDEOSPATH TO THE FILENAME PASSED THROUGH THE MEDIAOBJECT
+                    //mediaObject.videospath+mediaObject.videos[i].file
+                    document.write("<option value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                }
+            }
         }
+
+        //FINISH WRITING THE SELECT DROPDOWN FOR EACH VIDOE PASSED THROUGH THE MEDIA OBJECT
         document.write("</select>");
         document.write("</td>");
         document.write("</tr>");
 
+        //PUT A POSTER IMAGE
         document.write("<tr>");
         document.write("<td>");
         //if a poster image was provided in the media object for the video
         if(mediaObject.videospath+mediaObject.videos[0].poster){
-            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+            //IF THE FULL URL WAS SPECIFIED, DONT USE THE VIDEOS PREPENDING PATH SPECIFIED
+            if(mediaObject.videos[0].file.indexOf("http:\/\/")!==-1 && mediaObject.videos[0].file.indexOf("https:\/\/")!==-1){
+                console.log("3PROVIDED PARTIAL PATH FOR POSTER OPTION");
+                document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+            }
+            else{
+                console.log("4PROVIDED FULL PATH FOR POSTER OPTION");
+                console.log("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+                document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+            }
         }
         else{
             //provide a default image for the video poweter
