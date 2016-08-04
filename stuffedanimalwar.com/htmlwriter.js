@@ -194,12 +194,9 @@ function writeVideoFromJson(mediaObject){
         if(mediaObject.videospath+mediaObject.videos[0].poster){
             //IF THE FULL URL WAS SPECIFIED, DONT USE THE VIDEOS PREPENDING PATH SPECIFIED
             if(mediaObject.videos[0].file.indexOf("http:\/\/")!==-1 && mediaObject.videos[0].file.indexOf("https:\/\/")!==-1){
-                console.log("3PROVIDED PARTIAL PATH FOR POSTER OPTION");
                 document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
             }
             else{
-                console.log("4PROVIDED FULL PATH FOR POSTER OPTION");
-                console.log("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
                 document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
             }
         }
