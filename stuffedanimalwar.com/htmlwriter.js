@@ -6,7 +6,7 @@ function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
     document.write("<hr />");  
 }  
-function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
+function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject) {
     document.write("<div id=\"stuffedanimalwardiv\">");
     //IF THE BACKGROUND IMAGE WAS SPECIFIED
     if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.backgroundimage){
@@ -162,7 +162,7 @@ function writeVideoFromJson(mediaObject){
 
                 //IF THE FULL URL WAS SPECIFIED IN THE FILENAME (DETECTED BY CONTAINING HTTPS OR HTTP IN THE URL, DONT USE THE VIDEOS PREPENDING PATH SPECIFIED
                 if(mediaObject.videos[i].file.indexOf("http")!==-1 &&
-                    mediaObject.videos[i].file.indexOf("https")!==-1){
+                          mediaObject.videos[i].file.indexOf("https")!==-1){
 
                     console.log("1PROVIDED PARTIAL PATH FOR VIDEO OPTION");
 
