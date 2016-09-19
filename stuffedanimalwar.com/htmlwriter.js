@@ -88,8 +88,8 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 function writeMediaFromJson(mediaObject){
     writeAudioFromJson(mediaObject);
-    writePhotosFromJson(mediaObject);
     writeVideoFromJson(mediaObject);
+    writePhotosFromJson(mediaObject);
 }
 function writeAudioFromJson(mediaObject){
     //AUDIO
@@ -177,7 +177,7 @@ function writeVideoFromJson(mediaObject){
 
                     //SO WE'LL PREPEND THE VIDEOSPATH TO THE FILENAME PASSED THROUGH THE MEDIAOBJECT
                     //mediaObject.videospath+mediaObject.videos[i].file
-                    document.write("<option value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                    document.write("<option value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
                 }
             }
         }
