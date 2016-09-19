@@ -174,10 +174,15 @@ function writeVideoFromJson(mediaObject){
                 else{
 
                     console.log("2PROVIDED FULL PATH FOR VIDEO OPTION");
+                    console.log("mediaObject.videos[i].file ");
+                    console.log(mediaObject.videos[i].file);
+                    console.log("mediaObject.videos[i].title ");
+                    console.log(mediaObject.videos[i].title);
 
                     //SO WE'LL PREPEND THE VIDEOSPATH TO THE FILENAME PASSED THROUGH THE MEDIAOBJECT
                     //mediaObject.videospath+mediaObject.videos[i].file
                     document.write("<option value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                    console.log("GOT HERE");
                 }
             }
         }
@@ -191,7 +196,7 @@ function writeVideoFromJson(mediaObject){
         document.write("<tr>");
         document.write("<td>");
         //if a poster image was provided in the media object for the video
-        if(mediaObject.videospath+mediaObject.videos[0].poster){
+        if(mediaObject.videos[0].poster){
             //IF THE FULL URL WAS SPECIFIED, DONT USE THE VIDEOS PREPENDING PATH SPECIFIED
             if(mediaObject.videos[0].file.indexOf("http:\/\/")!==-1 && mediaObject.videos[0].file.indexOf("https:\/\/")!==-1){
                 document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");

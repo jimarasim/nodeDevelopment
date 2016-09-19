@@ -17,8 +17,6 @@ function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
     baseUnspecifiedAlias = unspecifiedAlias;
     baseSocket=socket;
-    
-    console.log("BASEMASTERALIAS"+baseMasterAlias);
 }
 function initializeTapSocketHandler(socket){
     //  WHEN A TAP MESSAGE IS RECEIVED FROM THER SERVER
@@ -120,6 +118,7 @@ function onBaseChatSocketEvent(chatMsgObject){
             {
                 //change the source of the VIDEO player
                 changeMp4(chatClientMessage);
+                console.log("DJ BROADCAST CHANGED THE VIDEO");
             }
             else{
 

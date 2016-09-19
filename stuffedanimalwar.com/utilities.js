@@ -58,9 +58,10 @@ function changeMp3(mp3Url){
 }
 function changeMp4(mp4Url){
     //change the source of the VIDEO player with default video cover image
-    changeMp4(mp4Url,"http://skatecreteordie.com/media/kitteh.jpg")
+    changeMp4(mp4Url,"http://skatecreteordie.com/media/kitteh.jpg");
 }
 function changeMp4(mp4Url,coverImageUrl){
+    console.log("CHANGE MP4");
     //change the source of the VIDEO player
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
     $('#jaemzwaredynamicvideoplayer').attr("poster",coverImageUrl);
