@@ -6,11 +6,11 @@ function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarForm(stuffedAnimalMediaObject);
     document.write("<hr />");  
 }  
-function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject){
+function writeStuffedAnimalWarDiv(stuffedAnimalMediaObject) {
     document.write("<div id=\"stuffedanimalwardiv\">");
     //IF THE BACKGROUND IMAGE WAS SPECIFIED
     if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.backgroundimage){
-        //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT
+        //MAKE SURE IT'S AN IMAGE WE EXPECT; I.E. A URL WITH AN IMAGE EXTENSION AT THE END OF IT, OR gamemedia FOR LOCAL FILE REFERENCES
         if (    stuffedAnimalMediaObject.backgroundimage.indexOf("http://")===0||
                 stuffedAnimalMediaObject.backgroundimage.indexOf("https://")===0||
                 stuffedAnimalMediaObject.backgroundimage.indexOf("gamemedia/")===0){ 
@@ -54,17 +54,16 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
     document.write("<tr>");
     document.write("<td>");
         document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
-
         //SPECIFIED ANIMALS
         if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
             for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
                 document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
             }
         }
-       document.write("<option value=\"custom\">CUSTOM</option>");  
-        document.write("<option value=\"dots\">Bullets</option>");
-        document.write("<option value=\"line01\">Tiny Neon Black Hole</option>");
-        document.write("<option value=\"line02\">Random Colored Neon Snake</option>");
+        document.write("<option value=\"dots\" selected>C I R C L E S</option>");
+        document.write("<option value=\"line01\">C U R S O R</option>");
+        document.write("<option value=\"custom\">I M A G E URL</option>");
+        document.write("<option value=\"line02\">L I N E S</option>");
         document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
@@ -89,12 +88,13 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 function writeMediaFromJson(mediaObject){
     writeAudioFromJson(mediaObject);
-    writePhotosFromJson(mediaObject);
     writeVideoFromJson(mediaObject);
+    writePhotosFromJson(mediaObject);
 }
 function writeAudioFromJson(mediaObject){
     //AUDIO
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
+        document.write("<h1>RANDOMLY RAD TUNES</h1>");
         document.write("<form id='audioform'>");
         document.write("<div id='audioformdiv'>");
         document.write("<table id='audiotable'>");
@@ -134,27 +134,71 @@ function writeAudioFromJson(mediaObject){
 }
 function writeVideoFromJson(mediaObject){
     //VIDEO
-    if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
+
+    //IF THERES A VIDEO PATH IN THE MEDIAOBJECT, AND THERE IS AT LEAST ONE VIDEO
+    if(mediaObject.videos && mediaObject.videos[0]){
+        document.write("<h1>RANDOMLY KILLER LINES</h1>");
+
+        //WRITE A WEB PAGE FORM FOR THE VIDEOS EMBEDDED IN A DIV
         document.write("<form id='videoform'>")
         document.write("<div id='videoformdiv'>");
+
+        //PUT A TABLE IN THE DIV
         document.write("<table id='videotable'>");
 
+        //WRITE THE FIRST TABLE ROW
         document.write("<tr>");
+
+        //WRITE THE FIRST TABLE COLUMN
         document.write("<td>");
+
+        //WRITE A SELECT DROPDOWN FOR THE VIDEOS PASSED THROUGH THE MEDIA OBJECT
         document.write("<select id=\"selectvideos\">");
-        console.log("videos specified:"+mediaObject.videos.length);
+
+        //WRITE A SELECT DROPDOWN OPTION FOR EACH VIDEO PASSED THROUGH THE MEDIA OBJECT
         for (var i=0;i<mediaObject.videos.length;i++){
-            document.write("<option optionposter=\""+mediaObject.videospath+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+
+            //IF A FILENAME WAS SPECIFIED IN THE MEDIA OBJECT
+            if(mediaObject.videos[i].file){
+
+                //IF THE FULL URL WAS SPECIFIED IN THE FILENAME (DETECTED BY CONTAINING HTTPS OR HTTP IN THE URL, DONT USE THE VIDEOS PREPENDING PATH SPECIFIED
+                if(mediaObject.videos[i].file.indexOf("http")!==-1 &&
+                          mediaObject.videos[i].file.indexOf("https")!==-1){
+
+                    console.log("PROVIDED PARTIAL PATH FOR VIDEO OPTION");
+
+                    //MAKE THE VALUE OF THE OPTION THE FULL URL SPECIFIED IN THE FILENAME
+                    //mediaObject.videos[i].file
+                    document.write("<option poster=\""+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                }
+                //ELSE THE FULL URL WAS NOT SPECIFIED...
+                else{
+                    console.log("PROVIDED FULL PATH FOR VIDEO OPTION");
+                    //SO WE'LL PREPEND THE VIDEOSPATH TO THE FILENAME PASSED THROUGH THE MEDIAOBJECT
+                    //mediaObject.videospath+mediaObject.videos[i].file
+                    document.write("<option poster=\""+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                    console.log("GOT HERE");
+                }
+            }
         }
+
+        //FINISH WRITING THE SELECT DROPDOWN FOR EACH VIDOE PASSED THROUGH THE MEDIA OBJECT
         document.write("</select>");
         document.write("</td>");
         document.write("</tr>");
 
+        //PUT A POSTER IMAGE
         document.write("<tr>");
         document.write("<td>");
         //if a poster image was provided in the media object for the video
-        if(mediaObject.videospath+mediaObject.videos[0].poster){
-            document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+        if(mediaObject.videos[0].poster){
+            //IF THE FULL URL WAS SPECIFIED, DONT USE THE VIDEOS PREPENDING PATH SPECIFIED
+            if(mediaObject.videos[0].file.indexOf("http:\/\/")!==-1 && mediaObject.videos[0].file.indexOf("https:\/\/")!==-1){
+                document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videospath+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+            }
+            else{
+                document.write("<video id=\"jaemzwaredynamicvideoplayer\" poster=\""+mediaObject.videos[0].poster+"\" width=\"640\" height=\"480\" controls=\"controls\" preload=\"metadata\" title=\"skatecreteordie tv\">");
+            }
         }
         else{
             //provide a default image for the video poweter
@@ -186,10 +230,9 @@ function writePhotosFromJson(mediaObject){
 }
 //AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS
 //CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
-function writeChat(){
-    writeChatForm();
-}
+function writeChat(){writeChatForm();}
 function writeChatForm(){
+    document.write("<h1>TRASH TALK CHAT</h1>");
     document.write("<form id='chatform'>");
     document.write("<div id='chatformdiv'>");
     document.write("<table id='chattable'>");

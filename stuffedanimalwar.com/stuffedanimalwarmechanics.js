@@ -7,8 +7,8 @@ var animalPositionIncrement = 10; //distance animal moves each reposition
 var shapePositionIncrement = 10; //distance shape moves each reposition
 var animalInterval = 75; //milliseconds between animal repositions
 var shapeInterval = 25; //milliseconds between shape repositions
-var radius = 10; //RADIUS of the dot shape to draw
-var lineWidth = 10; //width of the line shape to draw
+var radius = 5; //RADIUS of the dot shape to draw
+var lineWidth = 5; //width of the line shape to draw
 var baseMasterAlias = null; // alias in chat that can control media for all
 var baseUnspecifiedAlias = null; //default alias when none is specified
 var imageHeightPixels = 100; //height of the stuffed animals
@@ -264,27 +264,28 @@ function onBaseTapSocketEventDots(tapMsgObject){
     //move the state rectangle to where the click was made
     $("#stuffedanimalwarsvgrect").attr("x",pointX);
     $("#stuffedanimalwarsvgrect").attr("y",pointY); 
-    
+
+        //commented out to draw lines
     //start a timer for the line, depending on the direction
-    var direction = tapMsgObject.movement;
-    var objectTimerId;
-    switch(direction){
-        case 'UP':
-            objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
-            break;
-        case 'DOWN':
-            objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
-            break;
-        case 'LEFT':
-            objectTimerId = startShapeObjectTimerLeft(circleId,"cx","cy",shapeInterval);
-            break;
-        case 'RIGHT':
-            objectTimerId = startShapeObjectTimerRight(circleId,"cx","cy",shapeInterval);
-            break;
-        default:
-            console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
-            break;
-    }
+//    var direction = tapMsgObject.movement;
+//    var objectTimerId;
+//    switch(direction){
+//        case 'UP':
+//            objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
+//            break;
+//        case 'DOWN':
+//            objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
+//            break;
+//        case 'LEFT':
+//            objectTimerId = startShapeObjectTimerLeft(circleId,"cx","cy",shapeInterval);
+//            break;
+//        case 'RIGHT':
+//            objectTimerId = startShapeObjectTimerRight(circleId,"cx","cy",shapeInterval);
+//            break;
+//        default:
+//            console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
+//            break;
+//    }
 }
 function onBaseTapSocketEventLines(tapMsgObject){
     //get the coordinates emitted

@@ -15,14 +15,14 @@ var app = require('express')();
 var express=require('express'); 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var listenPort =3000;
+var listenPort =5006;
 
 //serve .css and .js and media files
 app.use(express.static(__dirname));
 
 //GET PORT TO USE
 if(process.argv.length !== 3){
-    console.log("PARAMETERS EXPECTED:3 ACTUAL:"+process.argv.length+" ASSUMING: $ node index.js "+listenPort);
+    console.log("PARAMETERS EXPECTED:3 ACTUAL:"+process.argv.length+" ASSUMING: $ node index.js :someportnumber");
 }
 else{
     listenPort = process.argv[2];
@@ -45,30 +45,30 @@ app.get('/', function(req, res){
  * 111111111111111
  */
 
-app.get('/stuffedanimalwar', function(req, res){
+
+app.get('/fromkittehwithlove', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        res.sendFile(__dirname + '/fromkittehwithlove.html');
         });
 
-app.get('/sawonly', function(req, res){
+app.get('/skatecreteordie', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
+        res.sendFile(__dirname + '/skatecreteordie.html');
+        });
+
+app.get('/ride', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/ride.html');
+        });
+
+app.get('/syddandkat', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/syddandkat.html');
         });
 
 app.get('/roxhill', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/roxhillsessions.html');
-        });
-
-
-app.get('/djnachos', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosaudio.html');
-        });
-        
-app.get('/tabstripvideo', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachostabstripvideo.html');
         });
         
 app.get('/sufferingfuckheads', function(req, res){
@@ -125,36 +125,6 @@ app.get('/houston2015', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/houston2015.html');
         });
-
-app.get('/fromkittehwithlove', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/fromkittehwithlove.html');
-        });
-        
-app.get('/ride', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/ride.html');
-        });
-
-app.get('/omlb', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/omlb.html');
-        });
-        
-app.get('/mixpage', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/mixpage.html');
-        });
-        
-app.get('/joeythepaintbrush', function(req, res){
-    //send a file back as the response
-    res.sendFile(__dirname + '/joeythepaintbrush.html');
-    });
-   
-app.get('/skatecreteordie', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/skatecreteordie.html');
-        });
         
 
 //ON PERSISTENT CONNECTION
@@ -196,7 +166,10 @@ io.on('connection', function(socket){
      * 22222222222222222
      */
     //CHATMESSAGES--------------------------------------------------------------------------------------
-  
+    socket.on('syddandkatchatmessage', function(chatMsgObject){
+          sendChatMessage('syddandkatchatmessage',chatMsgObject);
+      });
+
     socket.on('chatmessage', function(chatMsgObject){
         sendChatMessage('chatmessage',chatMsgObject);
     });
@@ -284,7 +257,11 @@ io.on('connection', function(socket){
     /*
      * 33333333333333333
      */
- 
+
+    socket.on('syddandkattapmessage', function(tapMsgObject){
+         sendTapMessage('syddandkattapmessage',tapMsgObject);
+     });
+
     socket.on('djnachostapmessage', function(tapMsgObject){
         sendTapMessage('djnachostapmessage',tapMsgObject);
     });  

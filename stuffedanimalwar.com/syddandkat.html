@@ -1,0 +1,47 @@
+<!--STUFFED ANIMAL WAR - jaemzware.org - djnachosaudio.html - 20150611 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sydd and Kat</title>
+        <link rel="Stylesheet" href="stylebase.css" />
+        <script type="text/javascript" src="htmlwriter.js"></script>
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="/node_modules/socket.io/node_modules/socket.io-client/socket.io.js"></script><!--COPY THIS FROM UNDERLYING NPM nodeDevelopment/stuffedanimalwar.com/node_modules/socket.io/node_modules/socket.io-client/socket.io.js -->
+    </head>
+<body>
+<script type="text/javascript">
+    var stuffedAnimalMediaObject = {
+            "backgroundimage":"http://seattlerules.com/media/skatecreteordie/delridge3.jpg",
+            "animals":[
+                {'file':'gamemedia/pinkelephant.png','title':'Elephant'},
+                {'file':'gamemedia/ferry.png','title':'Ferry'},
+                {'file':'gamemedia/spaceneedle.png','title':'Needle'},
+                {'file':'gamemedia/whale.png','title':'Orca'},
+                {'file':'gamemedia/STARBUCK.png','title':'Starbuck'},
+                {'file':'gamemedia/rainier.png','title':'Rainier'}
+                ]
+        };
+
+    var mediaObject
+     = {
+        'songspath':'http://analogarchive.com/live/',
+        'photospath':'',
+        'videospath':'',
+        'videos':[
+            
+        ],
+        "songs":[
+            {'file':'sidandkata.mp3','title':'Rip Tide'},
+            {'file':'sidandkatb.mp3','title':'Stay'},
+            {'file':'sidandkatwhereismymind.mp3','title':'Where Is My Mind?'},
+            {'file':'sidrappin.mp3','title':'Sydd Spittin'}
+        ]
+    };
+    writeStuffedAnimalWar(stuffedAnimalMediaObject);
+    writeChat();
+    writeMediaFromJson(mediaObject);
+</script>
+
+<script type="text/javascript" src="roxhillsessionssockethandler.js"></script>
+</body>
+</html> 

@@ -11,12 +11,43 @@
     </head>
 <body>
 <script type="text/javascript">
-    
+    var stuffedAnimalMediaObject = {
+            "backgroundimage":"http://seattlerules.com/media/skatecreteordie/delridge3.jpg",
+            "animals":[
+                {'file':'gamemedia/FA15Decks25.png','title':'welcome 1'},
+                {'file':'gamemedia/FA15Decks49.png','title':'welcome 2'},
+                {'file':'gamemedia/SU15_PT2_Decks-31.png','title':'welcome 3'},
+                {'file':'gamemedia/SU15_PT2_Decks-7.png','title':'welcome 4'},
+                {'file':'gamemedia/SU16-2_Decks19.png','title':'welcome 5'},
+                {'file':'gamemedia/SU16-2_Decks25.png','title':'welcome 6'},
+                {'file':'gamemedia/SU16-2_Decks33.png','title':'welcome 7'},
+                {'file':'gamemedia/SU16-2_Decks7.png','title':'welcome 8'},
+                {'file':'gamemedia/deck.png','title':'FLOATY deck'},
+                {'file':'gamemedia/wheel.png','title':'FLOATY wheel'},
+                {'file':'gamemedia/truck.png','title':'FLOATY truck'},
+                {'file':'gamemedia/whale.png','title':'FLOATING Orca'},
+                {'file':'gamemedia/pinkelephant.png','title':'FLOATY PINK Elephant'},
+                {'file':'gamemedia/ferry.png','title':'Ferry FLOATER'},
+                {'file':'gamemedia/spaceneedle.png','title':'SPACE FLOATED Needle'},
+                {'file':'gamemedia/whale.png','title':'FLOATING Orca'},
+                {'file':'gamemedia/rainier.png','title':'FLOATING Rainier'}
+             ]
+        };
+
     var mediaObject = {
         "songspath":"http://analogarchive.com/live/",
-        "videospath":"http://skatecreteordie.com/media/",
+        "videospath":" ",
         "photospath":"",
+        "videospath":" ",  //USE FULL PATH FOR VIDEOS, AND KEEP THIS A SPACE IF THERE ARE ANY
+
         "videos":[
+            {'file':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodbluntswitchtransferdisaster.mp4','title':'@androflipgod BLUNT SWITCH TRANSFER DISASTER marginal way seattle wa','poster':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodbluntswitchtransferdisaster.jpg'},
+            {'file':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodbonelesstransfer.mp4','title':'@androflipgod BONELESS TRANSFER marginal way seattle wa','poster':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodbonelesstransfer.jpg'},
+            {'file':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodfourthdimensionmarbletransfer.mp4','title':'@androflipgod FOURTH DIMENSION MARBLE TRANSFER OUT marginal way seattle wa','poster':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodfourthdimensionmarbletransfer.jpg'},
+            {'file':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodfrigidtransfer.mp4','title':'@androflipgod FOURTH DIMENSION FRIGID TRANSFER OUT marginal way seattle wa','poster':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodfrigidtransfer.jpg'},
+            {'file':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodintopooltransferwithalady.mp4','title':'@androflipgod LADIES NIGHT POOL TRANSFER marginal way seattle wa','poster':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodintopooltransferwithalady.jpg'},
+            {'file':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodpoolmethodtransfer.mp4','title':'@androflipgod POOL METHOD TRANSFER OUT  marginal way seattle wa','poster':'http://skatecreteordie.com/media/ANDI20160601andrewflipgodpoolmethodtransfer.jpg'},
+            {'file':'http://skatecreteordie.com/media/ANDI20160601andrewflipmarbletransfer.mp4','title':'@androflipgod  MARBLE TRANSFER marginal way seattle wa','poster':'http://skatecreteordie.com/media/ANDI20160601andrewflipmarbletransfer.jpg'}
             ],
         "photos":[
 
@@ -87,15 +118,11 @@
             {'file':'ZOOM0015-sufferingfuckheads-coppergate-20130604.mp3','title':'08  Suffering Fuckheads - Coppergate - June 4th, 2013'},
             {'file':'ZOOM0016-sufferingfuckheads-coppergate-20130604.mp3','title':'09  Suffering Fuckheads - Coppergate - June 4th, 2013'},
             {'file':'ZOOM0017-sufferingfuckheads-coppergate-20130604.mp3','title':'10  Suffering Fuckheads - Coppergate - June 4th, 2013'}
-
-
         ]
-
     };
-    
-    writeChat();
-    
+    writeStuffedAnimalWar(stuffedAnimalMediaObject);
     writeMediaFromJson(mediaObject);
+    writeChat();
 
 </script>
 

@@ -21,8 +21,8 @@ and (max-device-width : 600px) {
     #messagesdiv
     {
        width:100%;
-       height:250px;
-       background-color:black;
+       height:auto;
+       background-color:white;
        background-position:left;
        border-width:thin;
        border-style: ridge;
@@ -210,7 +210,7 @@ div.seattlenativelinks{
     margin:0;
     padding:0;
     width:100%;
-    /*height:600px;*/
+    height:auto;
     background-size:contain;
     background-position:left;
 }
@@ -230,7 +230,7 @@ div.seattlenativelinks{
 /*AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
 
 #audiotable{
-    background-color:black;
+    background-color:orangered;
     width:100%;
 }
 #audiotable td{
@@ -243,7 +243,7 @@ div.seattlenativelinks{
     width:100%;
 }
 #videotable{
-    background-color:darkgrey;
+    background-color:lightblue;
     width:100%;
 }
 #videotable td{
@@ -268,7 +268,7 @@ div.seattlenativelinks{
 /*TABSTRIPVIDEO//////////////////////////////////////////////TABSTRIPVIDEO//////////////////////////////////////////////////TABSTRIPVIDEO*/
 
 img.videolink{
-    height:10%;
+    height:auto;
 }
 
 /*JAEMZWARELOGO//////////////////////////////////////////////JAEMZWARELOGO//////////////////////////////////////////////////JAEMZWARELOGO*/
