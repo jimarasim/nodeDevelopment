@@ -136,7 +136,8 @@ function writeVideoFromJson(mediaObject){
     //VIDEO
 
     //IF THERES A VIDEO PATH IN THE MEDIAOBJECT, AND THERE IS AT LEAST ONE VIDEO
-    if(mediaObject.videospath && mediaObject.videos && mediaObject.videos[0]){
+    if(mediaObject.videos && mediaObject.videos[0]){
+        document.write("<h1>RANDOMLY KILLER LINES</h1>");
 
         //WRITE A WEB PAGE FORM FOR THE VIDEOS EMBEDDED IN A DIV
         document.write("<form id='videoform'>")
@@ -175,7 +176,7 @@ function writeVideoFromJson(mediaObject){
                     console.log("PROVIDED FULL PATH FOR VIDEO OPTION");
                     //SO WE'LL PREPEND THE VIDEOSPATH TO THE FILENAME PASSED THROUGH THE MEDIAOBJECT
                     //mediaObject.videospath+mediaObject.videos[i].file
-                    document.write("<option poster=\""+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                    document.write("<option poster=\""+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videospath+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
                     console.log("GOT HERE");
                 }
             }
