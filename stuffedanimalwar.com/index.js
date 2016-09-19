@@ -45,35 +45,30 @@ app.get('/', function(req, res){
  * 111111111111111
  */
 
+
+app.get('/fromkittehwithlove', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/fromkittehwithlove.html');
+        });
+        
+app.get('/skatecreteordie', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/skatecreteordie.html');
+        });
+
+app.get('/ride', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/ride.html');
+        });
+
 app.get('/syddandkat', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/syddandkat.html');
         });
 
-app.get('/stuffedanimalwar', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
-        });
-
-app.get('/sawonly', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosstuffedanimalwar.html');
-        });
-
 app.get('/roxhill', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/roxhillsessions.html');
-        });
-
-
-app.get('/djnachos', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachosaudio.html');
-        });
-        
-app.get('/tabstripvideo', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/djnachostabstripvideo.html');
         });
         
 app.get('/sufferingfuckheads', function(req, res){
@@ -129,36 +124,6 @@ app.get('/bigbusiness', function(req, res){
 app.get('/houston2015', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/houston2015.html');
-        });
-
-app.get('/fromkittehwithlove', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/fromkittehwithlove.html');
-        });
-        
-app.get('/ride', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/ride.html');
-        });
-
-app.get('/omlb', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/omlb.html');
-        });
-        
-app.get('/mixpage', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/mixpage.html');
-        });
-        
-app.get('/joeythepaintbrush', function(req, res){
-    //send a file back as the response
-    res.sendFile(__dirname + '/joeythepaintbrush.html');
-    });
-   
-app.get('/skatecreteordie', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/skatecreteordie.html');
         });
         
 

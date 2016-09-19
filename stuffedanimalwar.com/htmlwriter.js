@@ -164,24 +164,18 @@ function writeVideoFromJson(mediaObject){
                 if(mediaObject.videos[i].file.indexOf("http")!==-1 &&
                           mediaObject.videos[i].file.indexOf("https")!==-1){
 
-                    console.log("1PROVIDED PARTIAL PATH FOR VIDEO OPTION");
+                    console.log("PROVIDED PARTIAL PATH FOR VIDEO OPTION");
 
                     //MAKE THE VALUE OF THE OPTION THE FULL URL SPECIFIED IN THE FILENAME
                     //mediaObject.videos[i].file
-                    document.write("<option value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                    document.write("<option poster=\""+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
                 }
                 //ELSE THE FULL URL WAS NOT SPECIFIED...
                 else{
-
-                    console.log("2PROVIDED FULL PATH FOR VIDEO OPTION");
-                    console.log("mediaObject.videos[i].file ");
-                    console.log(mediaObject.videos[i].file);
-                    console.log("mediaObject.videos[i].title ");
-                    console.log(mediaObject.videos[i].title);
-
+                    console.log("PROVIDED FULL PATH FOR VIDEO OPTION");
                     //SO WE'LL PREPEND THE VIDEOSPATH TO THE FILENAME PASSED THROUGH THE MEDIAOBJECT
                     //mediaObject.videospath+mediaObject.videos[i].file
-                    document.write("<option value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
+                    document.write("<option poster=\""+mediaObject.videos[i].poster+"\" value=\""+mediaObject.videos[i].file+"\">"+mediaObject.videos[i].title+"</option>");
                     console.log("GOT HERE");
                 }
             }
