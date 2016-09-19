@@ -65,6 +65,7 @@ function changeMp4(mp4Url,coverImageUrl){
     //change the source of the VIDEO player
     $('#jaemzwaredynamicvideosource').attr("src",mp4Url);
     $('#jaemzwaredynamicvideoplayer').attr("poster",coverImageUrl);
+    document.getElementById("jaemzwaredynamicvideoplayer").pause();
     document.getElementById("jaemzwaredynamicvideoplayer").load();
     document.getElementById("jaemzwaredynamicvideoplayer").play();
     $('#selectvideos').val(mp4Url);
