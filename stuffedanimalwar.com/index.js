@@ -50,7 +50,7 @@ app.get('/fromkittehwithlove', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/fromkittehwithlove.html');
         });
-        
+
 app.get('/skatecreteordie', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/skatecreteordie.html');
