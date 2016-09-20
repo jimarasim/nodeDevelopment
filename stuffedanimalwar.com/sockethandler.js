@@ -114,12 +114,6 @@ function onBaseChatSocketEvent(chatMsgObject){
                 console.log("DJ BROADCAST CHANGED THE SONG");
 
             }
-          else if(chatClientMessage.indexOf(".mp4") > 0 && remoteChatClientUser===baseMasterAlias)
-            {
-                //change the source of the VIDEO player
-                changeMp4(chatClientMessage);
-                console.log("DJ BROADCAST CHANGED THE VIDEO");
-            }
             else{
 
 //                ip and time stamp
@@ -218,15 +212,9 @@ $('#nextaudiotrack').click(function(){
 });
 $('#selectvideos').change(function(){
     var videoToPlay = $('#selectvideos option:selected').attr("value");
+    var poster = $('#selectvideos option:selected').attr("poster");
     var chatClientUser = $("#chatClientUser").val();
-
-    if(chatClientUser===baseMasterAlias){
-        emitChatMessage(videoToPlay);
-    }
-    else{
-        changeMp4(videoToPlay);
-    }
-    
+    changeMp4(videoToPlay,poster);
 });
 $('#chatClientMessage').keypress(function (event) {
     if (event.which === 13) {
