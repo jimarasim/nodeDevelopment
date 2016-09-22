@@ -94,7 +94,7 @@ function writeMediaFromJson(mediaObject){
 function writeAudioFromJson(mediaObject){
     //AUDIO
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
-        document.write("<h1>RANDOMLY RAD TUNES</h1>");
+        document.write("<h1>TUNES</h1>");
         document.write("<form id='audioform'>");
         document.write("<div id='audioformdiv'>");
         document.write("<table id='audiotable'>");
@@ -137,7 +137,7 @@ function writeVideoFromJson(mediaObject){
 
     //IF THERES A VIDEO PATH IN THE MEDIAOBJECT, AND THERE IS AT LEAST ONE VIDEO
     if(mediaObject.videos && mediaObject.videos[0]){
-        document.write("<h1>RANDOMLY KILLER LINES</h1>");
+        document.write("<h1>LINES</h1>");
 
         //WRITE A WEB PAGE FORM FOR THE VIDEOS EMBEDDED IN A DIV
         document.write("<form id='videoform'>")
