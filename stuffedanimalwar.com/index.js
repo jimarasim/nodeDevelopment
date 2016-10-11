@@ -1,5 +1,6 @@
 //STUFFPEDANIMALWAR HTTP JAEMZWARE
 //EXAMPLE STARTED FROM: http://socket.io/get-started/chat/
+//william, you're really nothing
 
 
 //FOR MORE CUSTOM PAGES, ADD 3 THINGS for them to the file
@@ -61,10 +62,10 @@ app.get('/ride', function(req, res){
         res.sendFile(__dirname + '/ride.html');
         });
 
-app.get('/syddandkat', function(req, res){
-        //send a file back as the response
-        res.sendFile(__dirname + '/syddandkat.html');
-        });
+//app.get('/syddandkat', function(req, res){
+//        //send a file back as the response
+//        res.sendFile(__dirname + '/syddandkat.html');
+//        });
 
 app.get('/roxhill', function(req, res){
         //send a file back as the response
@@ -166,9 +167,9 @@ io.on('connection', function(socket){
      * 22222222222222222
      */
     //CHATMESSAGES--------------------------------------------------------------------------------------
-    socket.on('syddandkatchatmessage', function(chatMsgObject){
-          sendChatMessage('syddandkatchatmessage',chatMsgObject);
-      });
+//    socket.on('syddandkatchatmessage', function(chatMsgObject){
+//          sendChatMessage('syddandkatchatmessage',chatMsgObject);
+//      });
 
     socket.on('chatmessage', function(chatMsgObject){
         sendChatMessage('chatmessage',chatMsgObject);
@@ -257,10 +258,10 @@ io.on('connection', function(socket){
     /*
      * 33333333333333333
      */
-
-    socket.on('syddandkattapmessage', function(tapMsgObject){
-         sendTapMessage('syddandkattapmessage',tapMsgObject);
-     });
+//
+//    socket.on('syddandkattapmessage', function(tapMsgObject){
+//         sendTapMessage('syddandkattapmessage',tapMsgObject);
+//     });
 
     socket.on('djnachostapmessage', function(tapMsgObject){
         sendTapMessage('djnachostapmessage',tapMsgObject);
