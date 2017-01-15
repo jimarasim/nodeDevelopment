@@ -62,11 +62,6 @@ app.get('/ride', function(req, res){
         res.sendFile(__dirname + '/ride.html');
         });
 
-//app.get('/syddandkat', function(req, res){
-//        //send a file back as the response
-//        res.sendFile(__dirname + '/syddandkat.html');
-//        });
-
 app.get('/roxhill', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/roxhillsessions.html');
@@ -125,6 +120,11 @@ app.get('/bigbusiness', function(req, res){
 app.get('/houston2015', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/houston2015.html');
+        });
+
+app.get('/tabstripvideo', function(req, res){
+        //send a file back as the response
+        res.sendFile(__dirname + '/tabstripvideo.html');
         });
         
 

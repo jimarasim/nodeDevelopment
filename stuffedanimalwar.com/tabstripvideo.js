@@ -1,4 +1,4 @@
-/* 
+/*
     Author     : jaemzware.org james arasim
 */
 
@@ -7,20 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
     SetupEvents();
 });
 
+/*
+THESE PRE-DEFINED VIDEO ARRAYS NEED TO BE ASSOCIATED IN THE FIRST IF STATEMENT OF THE PROGRAM BELOW.
+THESE PRE-DEFINED VIDEO ARRAYS MUST START WITH 'jaemzwarevideo'
+THESE PRE-DEFINED VIDEO ARRAYS MUST HAVE A .MP4 AND .PNG file associcated with the first parameter. The first parameter is the filename with no extension. The second parameter is the caption for the alt id of the image
+*/
 
-var jaemzwarevideoadam = [
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0682","Adam Marginal rocking"],
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0684","Adam Marginal cradle"],
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0686","Adam Marginal lipping"],
-                    ["https://blackmarketskates.com/media/marginaladam/IMG_0688","Adam Marginal sliding"]
-                    ];
+var jaemzwarevideoskatevids = [
+                    ["http://seattlerules.com/media/skate/roxhillollierockline201508","Roxhill Skatepark - James - 01"],
+                    ["http://seattlerules.com/media/skate/roxhillbacksideolliesmallbankstepup201500807","Roxhill Skatepark - James - 02"],
+                    ["http://seattlerules.com/media/skate/IMG_4695","Marginal Way - Adam"],
+                    ["http://seattlerules.com/media/skate/IMG_4701","Marginal Way - Hector"],
+                    ["http://seattlerules.com/media/skate/IMG_4819","Roxhill - Beau"],
+                    ["http://seattlerules.com/media/skate/IMG_4837","Roxhill - Matt 01"],
+                    ["http://seattlerules.com/media/skate/IMG_4839","Roxhill - Matt 02"],
+                    ["http://seattlerules.com/media/skate/NGNQ0173","Roxhill - Matt 03"]
+];
 
-var jaemzwarevideojim = [
-//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3263","Jim Roxhill Rox bank and bank hip"],
-//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3264","Jim Roxhill Rox bank and step-up"],
-//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3272","Jim Roxhill small backside ollie line"],
-//                    ["http://www.helena.seattlerules.com/media/jim/IMG_3273","Jim Roxhill board slide"]
-                    ];
 
 var jaemzwarevideohouston2015 = [
                     ["http://seattlerules.com/media/houston2015/IMG_4091","IMG_4091"],
@@ -58,11 +61,8 @@ function MultiVideoJquery(multiGroup){
     for(i=0;i<multiGroup.length;i++){
         
         //get the array of video file paths (sans extension) from the pre-built array
-        if(multiGroup[i]===             "jaemzwarevideojim"){
-            filePathsNoExtensionArray = jaemzwarevideojim;
-        }
-        else if(multiGroup[i]===        "jaemzwarevideoadam"){
-            filePathsNoExtensionArray = jaemzwarevideoadam;
+        if(multiGroup[i]===             "jaemzwarevideoskatevids"){
+            filePathsNoExtensionArray = jaemzwarevideoskatevids;
         }
         else if(multiGroup[i]===        "jaemzwarevideohouston2015"){
             filePathsNoExtensionArray = jaemzwarevideohouston2015;
