@@ -5,8 +5,8 @@
 
 img.videolink
 {
-    max-height:75px;
-    max-width:75px;
+    max-height:25px;
+    max-width:25px;
     vertical-align:middle;
     border-style:solid;
     border-color:#000000;
@@ -38,7 +38,7 @@ div.videostrip
     border-radius:0px;
     text-align:center;
     height: 100px;
-    width: 640px;
+    width: 600px;
     vertical-align:middle;
     
 }
