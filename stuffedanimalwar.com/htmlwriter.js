@@ -60,10 +60,10 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
                 document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
             }
         }
-        document.write("<option value=\"dots\" selected>C I R C L E S</option>");
+        document.write("<option value=\"dots\">C I R C L E S</option>");
         document.write("<option value=\"line01\">C U R S O R</option>");
         document.write("<option value=\"custom\">I M A G E URL</option>");
-        document.write("<option value=\"line02\">L I N E S</option>");
+        document.write("<option value=\"line02\" selected>L I N E S</option>");
         document.write("</select>");
     document.write("</td>");
     document.write("</tr>");
@@ -94,7 +94,7 @@ function writeMediaFromJson(mediaObject){
 function writeAudioFromJson(mediaObject){
     //AUDIO
     if(mediaObject.songspath && mediaObject.songs && mediaObject.songs[0]){
-        document.write("<h1>TUNES</h1>");
+        document.write("<h1>MUSIC</h1>");
         document.write("<form id='audioform'>");
         document.write("<div id='audioformdiv'>");
         document.write("<table id='audiotable'>");
@@ -137,7 +137,7 @@ function writeVideoFromJson(mediaObject){
 
     //IF THERES A VIDEO PATH IN THE MEDIAOBJECT, AND THERE IS AT LEAST ONE VIDEO
     if(mediaObject.videos && mediaObject.videos[0]){
-        document.write("<h1>LINES</h1>");
+        document.write("<h1>VIDEOS</h1>");
 
         //WRITE A WEB PAGE FORM FOR THE VIDEOS EMBEDDED IN A DIV
         document.write("<form id='videoform'>")
@@ -232,7 +232,7 @@ function writePhotosFromJson(mediaObject){
 //CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
 function writeChat(){writeChatForm();}
 function writeChatForm(){
-    document.write("<h1>TRASH TALK CHAT</h1>");
+    document.write("<h1>CHAT</h1>");
     document.write("<form id='chatform'>");
     document.write("<div id='chatformdiv'>");
     document.write("<table id='chattable'>");

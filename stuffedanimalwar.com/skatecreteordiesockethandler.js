@@ -10,7 +10,7 @@ $.getScript('sockethandler.js', function()
 {
     endpoint = "skatecreteordie";
     masterAlias = "KEYLIME";
-    unspecifiedAlias="YOUR MOM";
+    unspecifiedAlias="alias anonymous";
     chatSocketEvent = endpoint+'chatmessage';
     tapSocketEvent = endpoint+'tapmessage';
 
