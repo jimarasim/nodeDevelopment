@@ -14,8 +14,15 @@ THESE PRE-DEFINED VIDEO ARRAYS MUST HAVE A .MP4 AND .PNG file associcated with t
 */
 
 var jaemzwarevideoskatevids = [
+                    ["http://seattlerules.com/media/skatecreteordie/ANDI20160601andrewflipgodbluntswitchtransferdisaster","Marginal Way - Andi - 01"],
+                    ["http://seattlerules.com/media/skatecreteordie/ANDI20160601andrewflipgodbonelesstransfer","Marginal Way - Andi - 02"],
+                    ["http://seattlerules.com/media/skatecreteordie/ANDI20160601andrewflipgodfourthdimensionmarbletransfer","Marginal Way - Andi - 03"],
+                    ["http://seattlerules.com/media/skatecreteordie/ANDI20160601andrewflipgodfrigidtransfer","Marginal Way - Andi - 04"],
+                    ["http://seattlerules.com/media/skatecreteordie/ANDI20160601andrewflipgodintopooltransferwithalady","Marginal Way - Andi - 05"],
+                    ["http://seattlerules.com/media/skatecreteordie/ANDI20160601andrewflipgodpoolmethodtransfer","Marginal Way - Andi - 06"],
+                    ["http://seattlerules.com/media/skatecreteordie/ANDI20160601andrewflipmarbletransfer","Marginal Way - Andi - 07"],
                     ["http://seattlerules.com/media/skate/roxhillollierockline201508","Roxhill Skatepark - James - 01"],
-                    ["http://seattlerules.com/media/skate/roxhillbacksideolliesmallbankstepup201500807","Roxhill Skatepark - James - 02"],
+                    ["http://seattlerules.com/media/skate/roxhillbacksideolliesmallbankstepup201500807","Roxhill - James - 02"],
                     ["http://seattlerules.com/media/skate/IMG_4695","Marginal Way - Adam"],
                     ["http://seattlerules.com/media/skate/IMG_4701","Marginal Way - Hector"],
                     ["http://seattlerules.com/media/skate/IMG_4819","Roxhill - Beau"],
