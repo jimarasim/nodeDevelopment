@@ -119,7 +119,7 @@ app.get('/bigbusiness', function(req, res){
 
 app.get('/houston2015', function(req, res){
         //send a file back as the response
-        res.sendFile(__dirname + '/houston2015.html');
+        res.sendFile(__dirname + '/tabstripvideohouston2015.html');
         });
 
 app.get('/tabstripvideo', function(req, res){

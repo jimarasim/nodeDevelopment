@@ -1,5 +1,14 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
-
+function writeSkateparkData(skateparkDataFilename){
+    $.getJSON(skateparkDataFilename, function(skateparkJsonFile) {
+        console.log(skateparkJsonFile); // this will show the info it in firebug console
+        var skateparkArray = skateparkJsonFile.skateparks;
+        for(i=0;i<skateparkArray.length;i++){
+            document.write(skateparkArray[i].initialName);
+            document.write("&nbsp|&nbsp");
+        }
+    });
+}
 //STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
