@@ -1,14 +1,83 @@
 /* jaemzware.org - research project stuffed animal war - 20150822 */
+//SKATEPARKDATA//////////////////////////////////////////////SKATEPARKDATA//////////////////////////////////////////////////SKATEPARKDATA
+
+//ARRAYS FOR HOLDING STATE OR COUNTRY SPECIFIC SKATEPARK DATA
+var WASkateparks = new Array();
+var ORSkateparks = new Array();
+var MTSkateparks = new Array();
+var IDSkateparks = new Array();
+var DKSkateparks = new Array();
+
+//CALL THIS FUNCTION TO WRITE OUT THE SKATEPARK LISTING DIV. skateparkDataFilename MUST BE IN THE SAME DIRECTORY AND ADHERE TO SKATECRETEORDIE FORMAT
 function writeSkateparkData(skateparkDataFilename){
+
+    //CREATE THE DIV AREA WHERE THE SKATEPARK DATA WILL BE HELD ON THE PAGE
+    document.write("<div style='width:100%;' id=\"skateparksdiv\"></div>");
+
+    //GET THE SKATEPARK DATA FROM THE JSON FILE
     $.getJSON(skateparkDataFilename, function(skateparkJsonFile) {
-        console.log(skateparkJsonFile); // this will show the info it in firebug console
         var skateparkArray = skateparkJsonFile.skateparks;
+
+        //PARSE THE PARKS INTO DIFFERENT GLOBAL ARRAYS ORDERED BY STATE OR COUNTRY
+        //WASHINGTON ANNOTATIONS ARE THE ONLY ONES THAT DON'T HAVE A 2 CODE IDENTIFIER AT THE END (WA)
         for(i=0;i<skateparkArray.length;i++){
-            document.write(skateparkArray[i].initialName);
-            document.write("&nbsp|&nbsp");
+            if(skateparkArray[i].initialAnnotationId.indexOf("OR") >= 0){
+                ORSkateparks.push(skateparkArray[i]);
+            }
+            else if(skateparkArray[i].initialAnnotationId.indexOf("MT") >= 0){
+                MTSkateparks.push(skateparkArray[i]);
+            }
+            else if(skateparkArray[i].initialAnnotationId.indexOf("ID") >= 0){
+                IDSkateparks.push(skateparkArray[i]);
+            }
+            else if(skateparkArray[i].initialAnnotationId.indexOf("DK") >= 0){
+                DKSkateparks.push(skateparkArray[i]);
+            }
+            else{
+                WASkateparks.push(skateparkArray[i]);
+            }
         }
+        //ADD DROPDOWN TO SWITCH BETWEEN PARKS
+        //VALUES: WA OR MT ID DK
+        //ONCLICK: CLEAR ALL PARKS FROM DIV, ADD PARKS FROM SELECTION TO DIV
+        $("#skateparksdiv").append("<select style='margin-top:10px;' onchange='switchparks(this.value)'><option value='WASHINGTON' selected>WASHINGTON</option><option value='OREGON'>OREGON</option><option value='MONTANA'>MONTANA</option><option value='IDAHO'>IDAHO</option><option value='DENMARK'>DENMARK</option></select>");
+        //DISPLAY WASHINGTON PARKS BY DEFAULT
+        switchparks("WASHINGTON");
     });
 }
+
+//THIS FUNCTION GETS CALLED WHEN THE PARK DROPDOWN SELECTS A NEW OPTION TO SWITCH THE PARKS DISPLAYED
+//CLEAR ALL PARKS FROM DIV, ADD PARKS FROM SELECTION TO DIV
+function switchparks(stateorcountry){
+    //CHECK WHICH STATE OR COUNTRY WAS SELECTED, AND LOAD THE APPROPRIATE ARRAY
+    if(stateorcountry=="WASHINGTON"){
+        loadparks(WASkateparks);
+    }
+    else if(stateorcountry=="OREGON"){
+        loadparks(ORSkateparks);
+    }
+    else if(stateorcountry=="MONTANA"){
+        loadparks(MTSkateparks);
+    }
+    else if (stateorcountry=="IDAHO"){
+        loadparks(IDSkateparks);
+    }
+    else if (stateorcountry=="DENMARK"){
+        loadparks(DKSkateparks);
+    }
+}
+
+//THIS FUNCTION TAKES A SKATEPARKS ARRAY, AND ADDS THE SPANS TO THE DIV
+function loadparks(skateparksarraytoload){
+    //REMOVE ALL SKATEPARK DETAIL SPANS TO CLEAR THE WAY FOR THE NEXT STATE OR COUNTRY
+    $(".skateparkdetail").remove();
+
+    //ADD THE SKATEPARK DETAIL SPANS SPECIFIED BY skateparksarraytoload
+    for(i=0;i<skateparksarraytoload.length;i++){
+        $("#skateparksdiv").append("<span class='skateparkdetail'>"+skateparksarraytoload[i].initialName+"</span>").append("<br class='skateparkdetail' />");
+    }
+}
+
 //STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR
 function writeStuffedAnimalWar(stuffedAnimalMediaObject){
     writeStuffedAnimalWarDiv(stuffedAnimalMediaObject);
