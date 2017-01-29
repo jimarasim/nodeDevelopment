@@ -74,7 +74,7 @@ function loadparks(skateparksarraytoload){
 
     //ADD THE SKATEPARK DETAIL SPANS SPECIFIED BY skateparksarraytoload
     for(i=0;i<skateparksarraytoload.length;i++){
-        $("#skateparksdiv").append("<span class='skateparkdetail'>"+skateparksarraytoload[i].initialName+"</span>").append("<br class='skateparkdetail' />");
+        $("#skateparksdiv").append("<span class='skateparkdetail'><a href='https://maps.google.com/maps?q="+skateparksarraytoload[i].initialLatitude+","+skateparksarraytoload[i].initialLongitude+"'>"+skateparksarraytoload[i].initialName+"</a></span>").append("<br class='skateparkdetail' />");
     }
 }
 
