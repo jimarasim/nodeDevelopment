@@ -278,22 +278,22 @@ p.jaemzwarelogo{
     /*font-size:medium;*/
     width:50%;
 }
-a.jaemzwarelogo:link {
+a.jaemzwarelogo:link, .skateparkdetail a:link {
     color: white;
     text-decoration:underline;
 }
 
-a.jaemzwarelogo:visited {
+a.jaemzwarelogo:visited, .skateparkdetail a:visited {
     color: white;
     text-decoration:underline;
 }
 
-a.jaemzwarelogo:hover {
+a.jaemzwarelogo:hover, .skateparkdetail a:hover {
     color: lightblue;
     text-decoration: underline;
 }
 
-a.jaemzwarelogo:active {
+a.jaemzwarelogo:active, .skateparkdetail a:active {
     color: white;
     text-decoration: underline;
 }
