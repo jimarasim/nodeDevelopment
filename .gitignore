@@ -6,3 +6,5 @@
 /nbproject/
 /stuffedanimalwar.com/media
 .idea/
+/stuffedanimalwar.com/node_modules/*
+/stuffedanimalwar.com/package-lock.json
