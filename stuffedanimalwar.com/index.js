@@ -11,12 +11,12 @@
 /* global require, __dirname, process, http */
 
 //setup an express application and bind it to an http server
-var fs = require('fs');
-var app = require('express')(); 
-var express=require('express'); 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var listenPort =5006;
+let fs = require('fs');
+let app = require('express')();
+let express=require('express');
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
+let listenPort =5006;
 
 //serve .css and .js and media files
 app.use(express.static(__dirname));
@@ -131,9 +131,9 @@ app.get('/tabstripvideo', function(req, res){
 //ON PERSISTENT CONNECTION
 //handler for incoming socket connections
 io.on('connection', function(socket){
-    var chatClientAddress = socket.handshake.address;
-    var chatServerDate = new Date();
-    var connectMsgObject = {
+    let chatClientAddress = socket.handshake.address;
+    let chatServerDate = new Date();
+    let connectMsgObject = {
                   CHATSERVERUSER:chatClientAddress,
                   CHATSERVERDATE:chatServerDate,
                   CHATCLIENTUSER:chatClientAddress,
@@ -146,9 +146,9 @@ io.on('connection', function(socket){
     
     //COMMON--------------------------------------------------------------------------------------
     socket.on('disconnect', function(){
-        var chatClientAddress = socket.handshake.address;
-        var chatServerDate = new Date();
-        var disconnectMsgObject = {
+        let chatClientAddress = socket.handshake.address;
+        let chatServerDate = new Date();
+        let disconnectMsgObject = {
                 CHATSERVERUSER:chatClientAddress,
                 CHATSERVERDATE:chatServerDate,
                 CHATCLIENTUSER:chatClientAddress,
@@ -345,8 +345,8 @@ io.on('connection', function(socket){
     //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS   
     function sendChatMessage(chatSocketEvent,chatMsgObject){
         //GET THE ADDRESS AND DATE
-        var chatClientAddress = socket.handshake.address;
-        var chatServerDate = new Date();
+        let chatClientAddress = socket.handshake.address;
+        let chatServerDate = new Date();
 
         //update the emitted json object with server information
         chatMsgObject.CHATSERVERUSER = chatClientAddress;
@@ -362,8 +362,8 @@ io.on('connection', function(socket){
     function sendTapMessage(tapSocketEvent,tapMsgObject){
         
         //GET THE ADDRESS AND DATE
-        var tapClientAddress = socket.handshake.address;
-        var tapServerDate = new Date();
+        let tapClientAddress = socket.handshake.address;
+        let tapServerDate = new Date();
         
         //update the emitted json object with server information
         tapMsgObject.CHATSERVERUSER = tapClientAddress;

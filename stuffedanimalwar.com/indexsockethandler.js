@@ -14,7 +14,7 @@ $.getScript('sockethandler.js', function()
     chatSocketEvent = endpoint+"chatmessage";
     tapSocketEvent = endpoint+"tapmessage";
 
-    var socket = io();
+    let socket = io();
     initializeCommonVars(socket,masterAlias,unspecifiedAlias);
     initializeChatSocketHandler(socket,chatSocketEvent);
     initializeTapSocketHandler(socket,tapSocketEvent);

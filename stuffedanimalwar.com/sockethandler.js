@@ -2,16 +2,32 @@
  * jaemzware
  * 
  * * THIS JS FILE REQUIRES utilities.js, stuffedanimalwarmechanics.js
+ *
+ * THIS FILE HANDLES COMMANDS THAT COME FROM THE SERVER ON THE OTHER END OF THE SOCKET
+ *
+ * SETS A BUNCH OF CALLBACKS THAT CONTROL THE STUFFEDANIMALWAR GAME BOARD AND THE CHAT BOX - CALLBACKS COME FROM THE SERVICE RUNNING FROM index.js
+ *
+ * THERE IS A TAP SOCKET HANDLER FOR STUFFEDANIMALWAR GAMEBOARD
+ onBaseTapSocketEventDots(tapMsgObject);
+ onBaseTapSocketEventLines(tapMsgObject);
+ onBaseTapSocketEventLines(tapMsgObject);
+ onBaseTapSocketEventCustom(tapMsgObject);
+ onBaseTapSocketEventImages(tapMsgObject,tapMsgObject.animal);
+ *
+ *
+ * THERE IS A TAP SOCKET HANDLER FOR THE CHAT BOX
+ * onBaseChatSocketEvent -  DECIDE WHETHER TO ADD AN IMAGE, MP3, OR MESSAGE TO THE CHAT WINDOW
+ *                          PERFORM THE APPROPRIATE ACTION IN THE CHAT WINDOW: PREPEND AN IMAGE, PREPEND AN MP3 AND PLAY IT, PREPEND A TEXT MESSAGE
  * @type String
  */
-var endpoint = null;
-var chatSocketEvent = null;
-var tapSocketEvent = null;
-var connectSocketEvent = null;
-var disconnectSocketEvent = null;
-var baseSocket = null;
-var baseMasterAlias=null;
-var baseUnspecifiedAlias=null;
+let endpoint = null;
+let chatSocketEvent = null;
+let tapSocketEvent = null;
+let connectSocketEvent = null;
+let disconnectSocketEvent = null;
+let baseSocket = null;
+let baseMasterAlias=null;
+let baseUnspecifiedAlias=null;
 //SOCKET EVENTS///////////////////////////////////////////////////////////////////////////SOCKET EVENTS////////////////////////SOCKET EVENTS//
 function initializeCommonVars(socket,masterAlias,unspecifiedAlias){
     baseMasterAlias = masterAlias;
@@ -23,7 +39,7 @@ function initializeTapSocketHandler(socket){
     //  SEND THE OBJECT RECEIVED TO THE APPROPRIATE FUNCTION THAT HANDLES IT, 
     //  DEPENDING ON THE TYPE OF ANIMAL SENT BY $('#stuffedanimalwarsvg').click;
     socket.on(tapSocketEvent, function(tapMsgObject){
-        var animal = tapMsgObject.animal; //see htmlwriter.js writeStuffedAnimalWarAnimalDropdown
+        let animal = tapMsgObject.animal; //see htmlwriter.js writeStuffedAnimalWarAnimalDropdown
         switch(animal){
             case "dots":
                 onBaseTapSocketEventDots(tapMsgObject);
@@ -51,40 +67,12 @@ function initializeChatSocketHandler(socket){
     
     baseSocket=socket;
 }
-function initializeConnectSocketHandler(socket){
-    socket.on(connectSocketEvent, function(connectMsgObject){
-        var remoteChatClientUser = connectMsgObject.CHATCLIENTUSER;
-        var chatServerUser = connectMsgObject.CHATSERVERUSER;
-        var chatClientMessage = connectMsgObject.CHATCLIENTMESSAGE;
-        var chatServerDate = connectMsgObject.CHATSERVERDATE; 
-        
-//        $('#messagesdiv').prepend('<br />');
-//        $('#messagesdiv').prepend('endpoint:'+endpoint+' chatServerUser:'+chatServerUser+' remoteChatClientUser:'+ remoteChatClientUser+' chatClientMessage:'+ chatClientMessage+' chatServerDate:'+chatServerDate);
-
-    });
-    
-    baseSocket=socket;
-}
-function initializeDisconnectSocketHandler(socket){
-    socket.on(disconnectSocketEvent, function(disconnectMsgObject){
-        var remoteChatClientUser = disconnectMsgObject.CHATCLIENTUSER;
-        var chatServerUser = disconnectMsgObject.CHATSERVERUSER;
-        var chatClientMessage = disconnectMsgObject.CHATCLIENTMESSAGE;
-        var chatServerDate = disconnectMsgObject.CHATSERVERDATE;   
-        
-//        $('#messagesdiv').prepend('<br />');
-//        $('#messagesdiv').prepend('endpoint:'+endpoint+' chatServerUser:'+chatServerUser+' remoteChatClientUser:'+ remoteChatClientUser+' chatClientMessage:'+ chatClientMessage+' chatServerDate:'+chatServerDate);
-
-    });
-    
-    baseSocket=socket;
-}
 function onBaseChatSocketEvent(chatMsgObject){
-    var remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
-    var chatServerUser = chatMsgObject.CHATSERVERUSER;
-    var chatClientMessage = chatMsgObject.CHATCLIENTMESSAGE;
-    var chatServerDate = chatMsgObject.CHATSERVERDATE;
-    var serverStamp = "["+chatServerUser+"]["+chatServerDate+"]"; //ip and time stamp
+    let remoteChatClientUser = chatMsgObject.CHATCLIENTUSER;
+    let chatServerUser = chatMsgObject.CHATSERVERUSER;
+    let chatClientMessage = chatMsgObject.CHATCLIENTMESSAGE;
+    let chatServerDate = chatMsgObject.CHATSERVERDATE;
+    let serverStamp = "["+chatServerUser+"]["+chatServerDate+"]"; //ip and time stamp
     
     //smart link - recognize chat links (only at the very beginning of the message), and display them appropriately.
     if (
@@ -160,7 +148,7 @@ function onBaseChatSocketEvent(chatMsgObject){
 
 //HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
 $('#stuffedanimalwarsvg').click(function(event){
-    var tapMsgObject = {
+    let tapMsgObject = {
           x:event.pageX,
           y:event.pageY,
           animal:$('#animals option:selected').val(),
@@ -175,14 +163,14 @@ $('#stuffedanimalwarsvg').click(function(event){
 });
 $('#chatClientAutoResponder').change(function(){
     //GET THE MESSAGE FROM THE AUTORESPONDER
-    var chatAutoResponderMessage = $('#chatClientAutoResponder option:selected').text();
+    let chatAutoResponderMessage = $('#chatClientAutoResponder option:selected').text();
 
     //SEND IT TO A FUNCTION THAT WILL ASSEMBLE A JSON BLOB, AND SEND IT TO THE SERVER, WHO WILL SEND IT TO EVERYONE ELSE
     emitChatMessage(chatAutoResponderMessage);
 });
 $('#selectsongs').change(function(){
-    var songToPlay = $('#selectsongs option:selected').attr("value");
-    var chatClientUser = $("#chatClientUser").val();
+    let songToPlay = $('#selectsongs option:selected').attr("value");
+    let chatClientUser = $("#chatClientUser").val();
     
     console.log("CHATCLIENTUSER:"+chatClientUser+" BASEMASTERALIAS:"+baseMasterAlias);
     
@@ -198,22 +186,22 @@ $('#selectsongs').change(function(){
 });
 //VIDEO PLAYER HTML EVENTS
 $('#jaemzwaredynamicvideoplayer').bind("ended", function(){
-    var currentFile = $(this).children(":first").attr('src');
+    let currentFile = $(this).children(":first").attr('src');
     PlayNextVideo(currentFile);
 });
 //AUDIO PLAYER HTML EVENTS
 $('#jaemzwaredynamicaudioplayer').bind("ended", function(){
-    var currentFile = $(this).children(":first").attr('src');
+    let currentFile = $(this).children(":first").attr('src');
     PlayNextTrack(currentFile);
 });
 $('#nextaudiotrack').click(function(){
-    var currentFile = $('#selectsongs option:selected').attr("value");
+    let currentFile = $('#selectsongs option:selected').attr("value");
     PlayNextTrack(currentFile);
 });
 $('#selectvideos').change(function(){
-    var videoToPlay = $('#selectvideos option:selected').attr("value");
-    var poster = $('#selectvideos option:selected').attr("poster");
-    var chatClientUser = $("#chatClientUser").val();
+    let videoToPlay = $('#selectvideos option:selected').attr("value");
+    let poster = $('#selectvideos option:selected').attr("poster");
+    let chatClientUser = $("#chatClientUser").val();
     changeMp4(videoToPlay,poster);
 });
 $('#chatClientMessage').keypress(function (event) {
@@ -225,13 +213,13 @@ $('#chatClientMessage').keypress(function (event) {
 });
 function emitChatMessage(messageString){
     //get the user alias
-    var chatClientUser = $('#chatClientUser').val();
+    let chatClientUser = $('#chatClientUser').val();
     if(chatClientUser===""){
         chatClientUser = baseUnspecifiedAlias;
     }
 
     //CONSTRUCT THE MESSAGE TO EMIT IN JSON, WITH THE USERNAME INCLUDED
-    var chatMessageObject = {
+    let chatMessageObject = {
               CHATCLIENTUSER: chatClientUser,
               CHATSERVERUSER:'defaultserveruserresponse',
               CHATCLIENTMESSAGE:messageString,
