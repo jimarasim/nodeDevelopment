@@ -11,11 +11,12 @@
 /* global require, __dirname, process, http */
 
 //setup an express application and bind it to an http server
-let fs = require('fs');
-let app = require('express')();
-let express=require('express');
-let http = require('http').Server(app);
-let io = require('socket.io')(http);
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 let listenPort =5006;
 
 //serve .css and .js and media files
@@ -23,17 +24,17 @@ app.use(express.static(__dirname));
 
 //GET PORT TO USE
 if(process.argv.length !== 3){
-    console.log("PARAMETERS EXPECTED:3 ACTUAL:"+process.argv.length+" ASSUMING: $ node index.js :someportnumber");
+    console.log(`NO PORT SPECIFIED. USING DEFAULT ${listenPort}`);
 }
 else{
     listenPort = process.argv[2];
+    console.log(`PORT SPECIFIED. USING ${listenPort}`);
 }
 
-//LISTEN FOR INCOMING REQUESTS
-http.listen(listenPort, function(){
-    console.log('LISTENING TO PORT:'+listenPort);
+server.listen(listenPort, () => {
+    console.log(`listening on *:${listenPort}`);
 });
-        
+
 //PAGE MAPPINGS
 //IF PUTTING  A NEW PAGE, AND THAT PAGE SUPPORTS CHAT OR STUFFEDANIMAL WAR, DONT FORGET TO ADD THE SOCKET EVENT HANLDER FOR THE PAGE BELOW
 app.get('/', function(req, res){
