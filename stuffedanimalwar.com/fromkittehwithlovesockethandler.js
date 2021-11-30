@@ -1,7 +1,5 @@
 /* STUFFED ANIMAL WAR - jaemzware.org - 2015*/
 //REQUIRES STUFFED ANIMAL WAR MECHANICS FOR SOCKET HANDLER BASE
-
-const socketIO = require('/socket.io/socket.io.js');
 $.getScript('stuffedanimalwarmechanics.js', function()
 {//REQUIRES UTILITIES FOR SOCKETHANDLER BASE
     $.getScript('utilities.js', function()
@@ -14,7 +12,7 @@ $.getScript('stuffedanimalwarmechanics.js', function()
             let unspecifiedAlias="MOUSE";
             chatSocketEvent = endpoint+'chatmessage';
             tapSocketEvent = endpoint+'tapmessage';
-            const io = socketIO(server);
+            const socket = io();
             initializeCommonVars(socket,masterAlias,unspecifiedAlias);
             initializeChatSocketHandler(socket,chatSocketEvent);
             initializeTapSocketHandler(socket,tapSocketEvent);
