@@ -8,3 +8,4 @@
 .idea/
 /stuffedanimalwar.com/node_modules/*
 /stuffedanimalwar.com/package-lock.json
+package-lock.json
