@@ -5,6 +5,8 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+//This and index2021.html were built from the example https://socket.io/get-started/chat
+
 server.listen(3000, () => {
     console.log('listening on *:3000');
 });
