@@ -7,6 +7,7 @@ $.getScript('stuffedanimalwarmechanics.js', function()
         //REQUIRE BASE SOCKET HANDLER JAVASCRIPT
         $.getScript('sockethandler.js', function()
         {
+            console.log('SET FROMKITTEHWITHLOVESOCKETHANDLER VARS');
             endpoint = "fromkittehwithlove";
             let masterAlias = "KITTEH";
             let unspecifiedAlias="MOUSE";

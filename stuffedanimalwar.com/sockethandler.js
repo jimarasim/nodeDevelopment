@@ -105,9 +105,9 @@ function onBaseChatSocketEvent(chatMsgObject){
             else{
 
 //                ip and time stamp
-//                $("<span>").prependTo("#messagesdiv").attr({
-//                   class: "serverdate"
-//                }).text(serverStamp);
+               $("<span>").prependTo("#messagesdiv").attr({
+                  class: "serverdate"
+               }).text(serverStamp);
 
 //                user alias
                 $("<span>").prependTo("#messagesdiv").attr({
@@ -127,9 +127,9 @@ function onBaseChatSocketEvent(chatMsgObject){
             $('#messagesdiv').prepend($('<br />'));
 
             //ip and time stamp
-//            $("<span>").prependTo("#messagesdiv").attr({
-//               class: "serverdate"
-//            }).text(serverStamp);
+           $("<span>").prependTo("#messagesdiv").attr({
+              class: "serverdate"
+           }).text(serverStamp);
 
             //user alias
             $("<span>").prependTo("#messagesdiv").attr({
@@ -148,6 +148,7 @@ function onBaseChatSocketEvent(chatMsgObject){
 
 //HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//
 $('#stuffedanimalwarsvg').click(function(event){
+    console.log(`stuffedanimalwarsvg click definition`);
     let tapMsgObject = {
           x:event.pageX,
           y:event.pageY,
@@ -227,6 +228,7 @@ function emitChatMessage(messageString){
           };  
 
     //send the message
+    console.log(`BASESOCKET EMIT: ${chatSocketEvent}`);
     baseSocket.emit(chatSocketEvent,chatMessageObject); 
 }
 //HTML EVENTS///////////////////////////////////////////////////////////////////////////HTML EVENTS////////////////////////HTML EVENTS//

@@ -85,25 +85,22 @@ io.on('connection', function(socket){
     //ON ERROR
     socket.on('error', function(errorMsgObject){
               console.log('ERROR: ' + errorMsgObject  );
-    }); 
-    
+    });
     /**
-     * 22222222222222222
+     * 2 - define what happens when a connection sends a chat message to the server
      */
     socket.on('fromkittehwithlovechatmessage', function(chatMsgObject){
+        //emit to everyone else
         sendChatMessage('fromkittehwithlovechatmessage',chatMsgObject);
     });
-
-
     /*
-     * 33333333333333333
+     * 2 - define what happens when a connection sends a stuffedanimalwar tap message to the server
      */
     socket.on('fromkittehwithlovetapmessage', function(tapMsgObject){
+        //emit to everyone else
         sendTapMessage('fromkittehwithlovetapmessage',tapMsgObject);
     });
-    
-    
-    
+
     //GENERIC CHATMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS   
     function sendChatMessage(chatSocketEvent,chatMsgObject){
         //GET THE ADDRESS AND DATE
@@ -120,7 +117,6 @@ io.on('connection', function(socket){
         io.emit(chatSocketEvent,chatMsgObject);
     }
     //GENERIC TAPMESSAGE SENDER, FOR MULTIPLE, INDEPENDENT CHAT CHANNELS
-    
     function sendTapMessage(tapSocketEvent,tapMsgObject){
         
         //GET THE ADDRESS AND DATE
