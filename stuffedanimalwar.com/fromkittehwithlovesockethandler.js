@@ -7,13 +7,13 @@ $.getScript('stuffedanimalwarmechanics.js', function()
         //REQUIRE BASE SOCKET HANDLER JAVASCRIPT
         $.getScript('sockethandler.js', function()
         {
+            console.log('SET FROMKITTEHWITHLOVESOCKETHANDLER VARS');
             endpoint = "fromkittehwithlove";
-            masterAlias = "KITTEH";
-            unspecifiedAlias="MOUSE";
+            let masterAlias = "KITTEH";
+            let unspecifiedAlias="MOUSE";
             chatSocketEvent = endpoint+'chatmessage';
             tapSocketEvent = endpoint+'tapmessage';
-
-            var socket = io();
+            const socket = io();
             initializeCommonVars(socket,masterAlias,unspecifiedAlias);
             initializeChatSocketHandler(socket,chatSocketEvent);
             initializeTapSocketHandler(socket,tapSocketEvent);

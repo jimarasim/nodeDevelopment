@@ -2,11 +2,11 @@
 //SKATEPARKDATA//////////////////////////////////////////////SKATEPARKDATA//////////////////////////////////////////////////SKATEPARKDATA
 
 //ARRAYS FOR HOLDING STATE OR COUNTRY SPECIFIC SKATEPARK DATA
-var WASkateparks = new Array();
-var ORSkateparks = new Array();
-var MTSkateparks = new Array();
-var IDSkateparks = new Array();
-var DKSkateparks = new Array();
+let WASkateparks = new Array();
+let ORSkateparks = new Array();
+let MTSkateparks = new Array();
+let IDSkateparks = new Array();
+let DKSkateparks = new Array();
 
 //CALL THIS FUNCTION TO WRITE OUT THE SKATEPARK LISTING DIV. skateparkDataFilename MUST BE IN THE SAME DIRECTORY AND ADHERE TO SKATECRETEORDIE FORMAT
 function writeSkateparkData(skateparkDataFilename){
@@ -16,7 +16,7 @@ function writeSkateparkData(skateparkDataFilename){
 
     //GET THE SKATEPARK DATA FROM THE JSON FILE
     $.getJSON(skateparkDataFilename, function(skateparkJsonFile) {
-        var skateparkArray = skateparkJsonFile.skateparks;
+        let skateparkArray = skateparkJsonFile.skateparks;
 
         //PARSE THE PARKS INTO DIFFERENT GLOBAL ARRAYS ORDERED BY STATE OR COUNTRY
         //WASHINGTON ANNOTATIONS ARE THE ONLY ONES THAT DON'T HAVE A 2 CODE IDENTIFIER AT THE END (WA)
@@ -134,7 +134,7 @@ function writeStuffedAnimalWarForm(stuffedAnimalMediaObject){
         document.write("<select id=\"animals\" name=\"sawstyle\" size=1 >");
         //SPECIFIED ANIMALS
         if(stuffedAnimalMediaObject && stuffedAnimalMediaObject.animals[0]){
-            for (var i=0;i<stuffedAnimalMediaObject.animals.length;i++){    
+            for (let i=0;i<stuffedAnimalMediaObject.animals.length;i++){
                 document.write("<option value=\""+stuffedAnimalMediaObject.animals[i].file+"\">"+stuffedAnimalMediaObject.animals[i].title+"</option>");
             }
         }
@@ -181,7 +181,7 @@ function writeAudioFromJson(mediaObject){
         document.write("<td class='audioplayertd'>");
         document.write("<select id=\"selectsongs\">");
         //paint song selection dropdown options (songs)
-        for (var i=0;i<mediaObject.songs.length;i++){
+        for (let i=0;i<mediaObject.songs.length;i++){
             document.write("<option value=\""+mediaObject.songspath+mediaObject.songs[i].file+"\">"+mediaObject.songs[i].title+"</option>");
         }
         document.write("</select>");
@@ -234,7 +234,7 @@ function writeVideoFromJson(mediaObject){
         document.write("<select id=\"selectvideos\">");
 
         //WRITE A SELECT DROPDOWN OPTION FOR EACH VIDEO PASSED THROUGH THE MEDIA OBJECT
-        for (var i=0;i<mediaObject.videos.length;i++){
+        for (let i=0;i<mediaObject.videos.length;i++){
 
             //IF A FILENAME WAS SPECIFIED IN THE MEDIA OBJECT
             if(mediaObject.videos[i].file){
@@ -298,9 +298,9 @@ function writePhotosFromJson(mediaObject){
     //PHOTOS
     if(mediaObject.photospath && mediaObject.photos && mediaObject.photos[0]){
         //paint the photos
-        for (var i=0;i<mediaObject.photos.length;i++){
-            var filepath = mediaObject.photospath+mediaObject.photos[i].file;
-            var filetitle=mediaObject.photos[i].title;
+        for (let i=0;i<mediaObject.photos.length;i++){
+            let filepath = mediaObject.photospath+mediaObject.photos[i].file;
+            let filetitle=mediaObject.photos[i].title;
             document.write("<div class=\"skatecreteordiephoto\"><span class=\"skatecreteordiephototitle\">"+filetitle+"</span><a href=\""+filepath+"\"><img src=\""+filepath+"\" alt=\""+mediaObject.photos[i].title+"\" /></a></div>");
 
         }
