@@ -1,5 +1,8 @@
 /* 
  * jaemzware
+ *
+ * CONTROL SHAPES ON THE STUFFEDANIMALWAR GAMEBOARD. THERE ARE NO SOCKET CALLS IN HERE.  THESE ARE RESPONSES TO THE
+ * SERVER PUSH OVER SOCKET, I BELIEVE
  */
 let animalObjects = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
 let shapeObjects = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''}
