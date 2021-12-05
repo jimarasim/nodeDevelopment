@@ -55,5 +55,17 @@
 <script type="text/javascript" src="stuffedanimalwarmechanics.js"></script>
 <script type="text/javascript" src="utilities.js"></script>
 <script type="text/javascript" src="sockethandler.js"></script>
+<script type="text/javascript">
+    console.log('SET FROMKITTEHWITHLOVESOCKETHANDLER VARS');
+    endpoint = "fromkittehwithlove";
+    let masterAlias = "KITTEH";
+    let unspecifiedAlias="MOUSE";
+    chatSocketEvent = endpoint+'chatmessage';
+    tapSocketEvent = endpoint+'tapmessage';
+    const socket = io();
+    initializeCommonVars(socket,masterAlias,unspecifiedAlias);
+    initializeChatSocketHandler(socket,chatSocketEvent);
+    initializeTapSocketHandler(socket,tapSocketEvent);
+</script>
 </body>
 </html> 
