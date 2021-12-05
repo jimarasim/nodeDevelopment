@@ -9,11 +9,8 @@ let shapeObjects = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''
 let animalPositionIncrement = 10; //distance animal moves each reposition
 let shapePositionIncrement = 10; //distance shape moves each reposition
 let animalInterval = 75; //milliseconds between animal repositions
-let shapeInterval = 25; //milliseconds between shape repositions
 let radius = 5; //RADIUS of the dot shape to draw
 let lineWidth = 5; //width of the line shape to draw
-let baseMasterAlias = null; // alias in chat that can control media for all
-let baseUnspecifiedAlias = null; //default alias when none is specified
 let imageHeightPixels = 100; //height of the stuffed animals
 let imageWidthPixels = 100; //width of the stuffed animals
 
