@@ -1,13 +1,24 @@
-//STUFFPEDANIMALWAR HTTP JAEMZWARE
+//STUFFPEDANIMALWAR HTTPS
 //EXAMPLE STARTED FROM: http://socket.io/get-started/chat/
-//setup an express application and bind it to an http server
-const express = require('express');
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
+let cors = require('cors');
+let fs = require('fs');
+let app = require('express')();
+let https = require('https');
+let bodyParser = require('body-parser');
+/////////////////////////////////////////////////
+//these ports must be opened up in the default security group on dreamcompute
+//https://iad2.dreamcompute.com/project/security_groups/ => Manage Rules
+//this can be overridden by passing the port as the first parameter to this file
+let listenPort =55555;
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/stuffedanimalwar.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/stuffedanimalwar.com/fullchain.pem')
+};
+
+//setup an express application and bind it to an https server
+const server = https.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-let listenPort =3005;
 
 //serve .css and .js and media files
 app.use(express.static(__dirname));
@@ -33,6 +44,9 @@ app.get('/', function(req, res){
         res.sendFile(__dirname + '/index.html');
 });
 
+/**
+ * 111111111111111
+ */
 app.get('/fromkittehwithlove', function(req, res){
         //send a file back as the response
         res.sendFile(__dirname + '/fromkittehwithlove.html');
