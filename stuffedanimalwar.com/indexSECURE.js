@@ -9,7 +9,7 @@ let bodyParser = require('body-parser');
 //these ports must be opened up in the default security group on dreamcompute
 //https://iad2.dreamcompute.com/project/security_groups/ => Manage Rules
 //this can be overridden by passing the port as the first parameter to this file
-let listenPort =55555;
+let listenPort =55600;
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/stuffedanimalwar.com/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/stuffedanimalwar.com/fullchain.pem')
