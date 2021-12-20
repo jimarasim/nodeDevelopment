@@ -1,5 +1,7 @@
 //STUFFPEDANIMALWAR HTTPS
 //EXAMPLE STARTED FROM: http://socket.io/get-started/chat/
+const express = require('express');
+const app = express();
 let cors = require('cors');
 let fs = require('fs');
 let app = require('express')();
