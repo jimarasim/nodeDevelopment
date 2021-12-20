@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 let cors = require('cors');
 let fs = require('fs');
-let app = require('express')();
 let https = require('https');
 let bodyParser = require('body-parser');
 /////////////////////////////////////////////////
