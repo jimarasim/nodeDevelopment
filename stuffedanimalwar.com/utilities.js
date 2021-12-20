@@ -57,8 +57,20 @@ function PlayNextVideo(currentFile){
 function changeMp3(mp3Url){
     //change the source of the AUDIO player
     $('#jaemzwaredynamicaudiosource').attr("src",mp3Url);
-    document.getElementById("jaemzwaredynamicaudioplayer").load();
-    document.getElementById("jaemzwaredynamicaudioplayer").play();
+    let minutesAhead = 0;
+    let millisTillNext00second = -1;
+    while (millisTillNext00second < 0) {
+        let now = new Date();
+        minutesAhead += 1;
+        millisTillNext00second = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes() + minutesAhead, 0, 0) - now;
+    }
+    console.log(`millisTillNext00second: ${millisTillNext00second}`);
+    setTimeout(function(){
+        document.getElementById("jaemzwaredynamicaudioplayer").load();
+        document.getElementById("jaemzwaredynamicaudioplayer").play();
+        },
+        millisTillNext00second
+    );
     $('#selectsongs').val(mp3Url);
 }
 function changeMp4(mp4Url){
