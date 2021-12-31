@@ -7,7 +7,7 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
-let listenPort =3005;
+let listenPort =55556;
 
 //serve .css and .js and media files
 app.use(express.static(__dirname));
