@@ -395,7 +395,11 @@ function writeDefaultAutoResponderOptions(){
     document.write("<option value=\"bigsmiley\">:D</option>");
 }
 //CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT
-
+function writeChaturbate(){
+    document.write("<div id='chaturbatediv'>" +
+        "<iframe src='https://chaturbate.com/in/?tour=SHBY&campaign=6736U&track=embed&room=kassiedior&bgcolor=white' height='528' width='850' style='border: none;'></iframe>" +
+        "</div>");
+}
 
 
 
