@@ -1,156 +1,59 @@
 /*STUFFED ANIMAL WAR - jaemzware.org - 20150611 */
-/*
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 600px) {
  /* STYLES GO HERE FOR IPHONE 6 PORTRAIT AND LANDSCAPE*/
-    body {
-       background-color:black;
-       color:white;
-       font-weight:normal;
-       font-family:sans-serif;
-       /*font-size:small;*/
-       margin: 0px;
-       background-repeat:no-repeat;
-       background-position:top left;
-       text-align: left;
-    }
-    select {
-      width: 100%; max-width: 100%; /*font-size:150px;*/
-    }
-    #messagesdiv
-    {
-       width:100%;
-       height:auto;
-       background-color:white;
-       background-position:left;
-       border-width:thin;
-       border-style: ridge;
-       overflow-x: scroll;
-       overflow-y: scroll;
-       margin: 0%;
-       border: 0%;
-       padding: 0%;
-       text-align: left;
-       vertical-align: top;
-       text-align: left;
-       font-weight:bold;
-       font-family:sans-serif;
-       /*font-size:xx-large;*/
-       color:white;
-    }
-
-    #chattable input{
-       /*font-size:xx-large;*/
-    }
-
-    #nextaudiotrack{
-       /*font-size:xx-large;*/
-    }
-
-    #chatclientusertd{
-       width:20%;
-    }
-
-    #chatclientmessagetd{
-        width:80%;
-    }
-
-    #chatClientMessage{
-        width:100%;
-    }
-
-    #jaemzwaredynamicaudioplayer{
-        width:100%;
-        /*height:200px;*/
-    }
-
-    /*img{
-        width:300px;
-    }
-    */
-
-    span.remoteChatClientUser{
-        color:lightblue;
-       /*font-size:xx-large;*/
-    }
-    span.chatclientmessage{
-        color:white;
-       /*font-size:xx-large;*/
-    }
- }
-
-
-/*BIGGER THAN AN IPHONE 6 I HOPE*/
- /*@media screen and (min-width: 668px) {
-    body {
-           background-color:black;
-           color:white;
-           font-weight:normal;
-           font-family:sans-serif;
-           font-size:75px;
-           margin: 0px;
-           background-repeat:no-repeat;
-           background-position:top left;
-           text-align: left;
-        }
-        select {
-          width: 100%; max-width: 100%; font-size:50px;
-        }
-        #messagesdiv
-        {
-           width:100%;
-           height:500px;
-           background-color:black;
-           background-position:left;
-           border-width:thin;
-           border-style: ridge;
-           overflow-x: scroll;
-           overflow-y: scroll;
-           margin: 0%;
-           border: 0%;
-           padding: 0%;
-           text-align: left;
-           vertical-align: top;
-           text-align: left;
-           font-weight:bold;
-           font-family:sans-serif;
-           font-size:large;
-           color:white;
-        }
-
-        #chattable input{
-           font-size:xx-large;
-        }
-
-        #nextaudiotrack{
-           font-size:50px;
-        }
-
-        #chatclientusertd{
-           width:20%;
-        }
-
-        #chatclientmessagetd{
-            width:80%;
-        }
-
-        #chatClientMessage{
-            width:100%;
-        }
-
-        #jaemzwaredynamicaudioplayer{
-            width:100%;
-        }
-
-        img{
-            width:300px;
-        }
- }
-*/
-
+body {
+   background-color:black;
+   color:white;
+   font-weight:normal;
+   font-family:sans-serif;
+   margin: 0px;
+   background-repeat:no-repeat;
+   background-position:top left;
+   text-align: left;
+}
+select {
+  width: 100%; max-width: 100%; /*font-size:150px;*/
+}
+#messagesdiv
+{
+   width:100%;
+   height:auto;
+   background-color:white;
+   background-position:left;
+   border-width:thin;
+   border-style: ridge;
+   overflow-x: scroll;
+   overflow-y: scroll;
+   margin: 0%;
+   padding: 0%;
+   text-align: left;
+   vertical-align: top;
+   text-align: left;
+   font-weight:bold;
+   font-family:sans-serif;
+   color:white;
+}
+#chatclientusertd{
+   width:20%;
+}
+#chatclientmessagetd{
+    width:80%;
+}
+#chatClientMessage{
+    width:100%;
+}
+#jaemzwaredynamicaudioplayer{
+    width:100%;
+    /*height:200px;*/
+}
+span.remoteChatClientUser{
+    color:lightblue;
+   /*font-size:xx-large;*/
+}
+span.chatclientmessage{
+    color:white;
+   /*font-size:xx-large;*/
+}
 /*CHAT//////////////////////////////////////////////CHAT//////////////////////////////////////////////////CHAT*/
-
 div.skatecreteordiephoto{
     text-align: left;
     vertical-align:top;
@@ -158,14 +61,12 @@ div.skatecreteordiephoto{
     width: 100%;
     float:left;
 }
-
 span.skatecreteordiephototitle{
     position: absolute;
     /*top: 200px;*/
     left: 0;
     width: 100%;
 }
-
 chatformdiv{
     width:100%;
 }
@@ -177,7 +78,6 @@ chatformdiv{
     text-align: left;
     vertical-align:top;
 }
-
 /*CHAT MESSAGES FONTS*/
 span.serverdate{
     color:orangered;
@@ -191,12 +91,10 @@ span.chatclientmessage{
     color:lime;
     font-size:large;
 }
-
 /*LINKS ON INDEX.HTM FOR CONCERT BAND LINKS*/
 div.seattlenativelinks{
     margin-left:10px;
 }
-
 /*STUFFEDANIMALWAR//////////////////////////////////////////////STUFFEDANIMALWAR//////////////////////////////////////////////////STUFFEDANIMALWAR*/
 #stuffedanimalwardiv{
     margin:0;
@@ -226,9 +124,7 @@ div.seattlenativelinks{
 #stuffedanimalwarformtable input{
     width:100%;
 }
-
 /*AUDIOVIDEOPHOTOS//////////////////////////////////////////////AUDIOVIDEOPHOTOS//////////////////////////////////////////////////AUDIOVIDEOPHOTOS*/
-
 #audiotable{
     background-color:orangered;
     width:100%;
@@ -238,7 +134,6 @@ div.seattlenativelinks{
     vertical-align:top;
     width:100%;
 }
-
 #audiotable audio{
     width:100%;
 }
@@ -251,7 +146,6 @@ div.seattlenativelinks{
     vertical-align:top;
     width:100%;
 }
-
 #videotable video{
     width:100%;
 }
@@ -264,35 +158,27 @@ div.seattlenativelinks{
     vertical-align:top;
     width:100%;
 }
-
 /*TABSTRIPVIDEO//////////////////////////////////////////////TABSTRIPVIDEO//////////////////////////////////////////////////TABSTRIPVIDEO*/
-
 img.videolink{
     height:auto;
 }
-
 /*JAEMZWARELOGO//////////////////////////////////////////////JAEMZWARELOGO//////////////////////////////////////////////////JAEMZWARELOGO*/
-
 p.jaemzwarelogo{
     color: white;
-    /*font-size:medium;*/
     width:50%;
 }
 a.jaemzwarelogo:link, .skateparkdetail a:link {
     color: white;
     text-decoration:underline;
 }
-
 a.jaemzwarelogo:visited, .skateparkdetail a:visited {
     color: white;
     text-decoration:underline;
 }
-
 a.jaemzwarelogo:hover, .skateparkdetail a:hover {
     color: lightblue;
     text-decoration: underline;
 }
-
 a.jaemzwarelogo:active, .skateparkdetail a:active {
     color: white;
     text-decoration: underline;
