@@ -9,6 +9,7 @@ let shapeObjects = []; //{'objectId':'','timerId':'','xAxisAttr':'',yAxisAttr:''
 let animalPositionIncrement = 10; //distance animal moves each reposition
 let shapePositionIncrement = 10; //distance shape moves each reposition
 let animalInterval = 75; //milliseconds between animal repositions
+let shapeInterval = 95;
 let radius = 5; //RADIUS of the dot shape to draw
 let lineWidth = 5; //width of the line shape to draw
 let imageHeightPixels = 100; //height of the stuffed animals
@@ -267,25 +268,25 @@ function onBaseTapSocketEventDots(tapMsgObject){
 
         //commented out to draw lines
     //start a timer for the line, depending on the direction
-//    let direction = tapMsgObject.movement;
-//    let objectTimerId;
-//    switch(direction){
-//        case 'UP':
-//            objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
-//            break;
-//        case 'DOWN':
-//            objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
-//            break;
-//        case 'LEFT':
-//            objectTimerId = startShapeObjectTimerLeft(circleId,"cx","cy",shapeInterval);
-//            break;
-//        case 'RIGHT':
-//            objectTimerId = startShapeObjectTimerRight(circleId,"cx","cy",shapeInterval);
-//            break;
-//        default:
-//            console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
-//            break;
-//    }
+   let direction = tapMsgObject.movement;
+   let objectTimerId;
+   switch(direction){
+       case 'UP':
+           objectTimerId = startShapeObjectTimerUp(circleId,"cx","cy",shapeInterval);
+           break;
+       case 'DOWN':
+           objectTimerId = startShapeObjectTimerDown(circleId,"cx","cy",shapeInterval);
+           break;
+       case 'LEFT':
+           objectTimerId = startShapeObjectTimerLeft(circleId,"cx","cy",shapeInterval);
+           break;
+       case 'RIGHT':
+           objectTimerId = startShapeObjectTimerRight(circleId,"cx","cy",shapeInterval);
+           break;
+       default:
+           console.log("UNKNOWN DIRECTION FOR DOT:"+direction);
+           break;
+   }
 }
 function onBaseTapSocketEventLines(tapMsgObject){
     //get the coordinates emitted
